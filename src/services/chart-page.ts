@@ -1,7 +1,7 @@
 // 二次封装的axios
 import request from './request'
-
-export function getAddressAxios(which) {
+// TODO: fix type
+export function getAddressAxios(which:any) {
     return request ({
         url: `/cross/addresses/${which}`,  // 传入which变换指标类型
         params: {

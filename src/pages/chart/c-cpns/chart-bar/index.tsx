@@ -3,7 +3,8 @@ import { Button } from 'antd'
 
 import { BarWrapper } from './style'
 
-export default memo(function LSChartBar(props) {
+// TODO: fix type
+export default memo(function LSChartBar(props:any) {
     // state/props
 
     // handle

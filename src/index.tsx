@@ -9,6 +9,6 @@ import App from './App'
 import '@/assets/css/global.css'
 
 ReactDOM.render(
-    <App />,
+  <App />,
   document.getElementById('root')
 )

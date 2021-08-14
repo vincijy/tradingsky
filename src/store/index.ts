@@ -6,11 +6,11 @@ import thunk from 'redux-thunk'
 import reducer from './reducer'
 
 // devtool插件
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose  // 有插件就使用插件的compose、否则使用默认的compose
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose  // 有插件就使用插件的compose、否则使用默认的compose
 
 // 第一个参数reducer、第二参数添加中间件
 const store = createStore(reducer,composeEnhancers(
     applyMiddleware(thunk)
 ))
 
-export default store
+export default store;

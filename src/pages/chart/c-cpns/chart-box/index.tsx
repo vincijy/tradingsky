@@ -6,7 +6,7 @@ import HighchartsReact from 'highcharts-react-official'
 import { Button, Card } from 'antd'
 
 // 功能
-import { getAddressAction } from '../../store/actionCreators.js'  // 发送Action
+import { getAddressAction } from '../../store/actionCreators'  // 发送Action
 
 // 本地
 import { BoxWrapper } from './style'
@@ -47,7 +47,8 @@ export default memo(function LSChartBox() {
 
     // redux hook
     let { glassAddressDate } = useSelector(state => ({
-        glassAddressDate: state.getIn(["chartPage","glassAddressDate"])
+        // TODO: fix type
+        glassAddressDate: (state as any).getIn(["chartPage","glassAddressDate"])
     }),shallowEqual)
 
     const dispatch = useDispatch()
@@ -58,9 +59,8 @@ export default memo(function LSChartBox() {
 
         setInterval(function() {  // 这里用一个计时器reflow，未来可以做一个div的监听，发现div大小改变就reflow
             for (var i = 0; i < Highcharts.charts.length; i++) {
-                if (Highcharts.charts[i] !== undefined) {
-                  Highcharts.charts[i].reflow();
-                }
+                const chart = Highcharts.charts[i];
+                chart && chart.reflow();
               }
         }, 100);
     }, [dispatch])
@@ -121,7 +121,7 @@ export default memo(function LSChartBox() {
                 fontSize: "12px",
             },
 
-            crosshairs: [true, true],  // 同时启用竖直及水平准星线
+            // crosshairs: [true, true],  // 同时启用竖直及水平准星线
 
             crosshairs: [{            // 设置准星线样式
                 width: 1,
@@ -151,7 +151,9 @@ export default memo(function LSChartBox() {
             <div id="container" >
                 <Card title={test} className="bord-box" >
                     <HighchartsReact 
-                        highcharts={"bord-box",Highcharts}
+                        highcharts={Highcharts}
+                        // TODO: 确认下为什么这么写
+                        // highcharts={"bord-box",Highcharts}
                         constructorType={'stockChart'}
                         options={options}
                     />
