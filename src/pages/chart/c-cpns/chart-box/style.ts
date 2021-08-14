@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import btcLogo from '@/assets/img/btc_logo.png'
+import styled from 'styled-components';
+import btcLogo from '@/assets/img/btc_logo.png';
 
-export const BoxWrapper = styled.div`
+export const BoxWrapper = styled.div `
     margin-top: 14px;
     
     .bord-box{  // Card容器
@@ -31,4 +31,4 @@ export const BoxWrapper = styled.div`
     .highcharts-legend-item{
         font-size: 100px !important;
     }
-`
+`;

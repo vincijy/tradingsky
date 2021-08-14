@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.div `
     margin: 0px 32px;
 
     .content{
@@ -18,9 +18,9 @@ export const HeaderWrapper = styled.div`
     a:hover,li:hover{
         font-weight: bolder;
     }
-`
+`;
 
-export const HeaderLeft = styled.div`
+export const HeaderLeft = styled.div `
     .select-list{
         display: flex;
         align-items: center;
@@ -55,9 +55,9 @@ export const HeaderLeft = styled.div`
             border-bottom: none;  // logo去下划线
         }
     }
-`
+`;
 
-export const HeaderRight = styled.div`
+export const HeaderRight = styled.div `
     display: flex;
     align-items: center;
 
@@ -92,4 +92,4 @@ export const HeaderRight = styled.div`
             border-radius: 2px;
         }
     }
-`
+`;
