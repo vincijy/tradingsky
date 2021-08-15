@@ -13,7 +13,8 @@ import logo from '@/assets/img/logo.svg'
 
 export default memo(function LSAppHeader() {
     // handle
-    const showItem = (item, index) => {
+    // TODO: fix any type
+    const showItem = (item:any, index:number) => {
         if(index < 3){
             return (
                 <NavLink to={item.link} activeClassName="active">

@@ -19,8 +19,9 @@ export default memo(function LSChartMenu() {
     const { Option } = Select
 
     // handle function
-    const onOpenChange = keys => {  
-        const latestOpenKey = keys.find(key => openKeys.indexOf(key) === -1);
+    // TODO: fix type
+    const onOpenChange = (keys:any) => {  
+        const latestOpenKey = keys.find((key:any) => openKeys.indexOf(key) === -1);
         if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
           setOpenKeys(keys);
         } else {

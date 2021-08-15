@@ -16,7 +16,7 @@ const columns = [
     dataIndex: '名称',
     key: '名称',
     width:200,
-    render: text => <a>{text}</a>,
+    render: (text:string) => <a>{text}</a>,
 },
 {
     title: '资产种类',
@@ -35,7 +35,7 @@ const columns = [
     key: '指标介绍',
     dataIndex: '指标介绍',
     width:200,
-    render: text => <a>{text}</a>,
+    render: (text:string) => <a>{text}</a>,
 },
 ]
     

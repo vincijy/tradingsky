@@ -9,7 +9,7 @@ import { FooterWrapper, FooterLeft, FooterRight } from './style'  // 样式
 export default memo(function LSAppFooter() {
     return (
         <FooterWrapper>
-            <div class="content">
+            <div className="content">
                 <FooterLeft>
                     <div>
                         暗淡蓝点 © 2021 - 版权所有
