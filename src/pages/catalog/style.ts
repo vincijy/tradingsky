@@ -1,14 +1,14 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const CatalogWrapper = styled.div`
+export const CatalogWrapper = styled.div `
     padding: 16px 32px;
 
     a:hover,li:hover{
         font-weight: bolder;
     }
-`
+`;
 
-export const CatalogTop = styled.div`
+export const CatalogTop = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;  // 居中对齐
@@ -24,8 +24,8 @@ export const CatalogTop = styled.div`
             font-weight: lighter;
         }
     }
-`
+`;
 
-export const CatalogBottom = styled.div`
+export const CatalogBottom = styled.div `
     margin-top: 48px;
-`
+`;

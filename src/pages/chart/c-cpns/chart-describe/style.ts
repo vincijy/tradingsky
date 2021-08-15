@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const DescribeWrapper = styled.div`
+export const DescribeWrapper = styled.div `
     .content-describe{
         margin-top: 28px;
     }
@@ -9,4 +9,4 @@ export const DescribeWrapper = styled.div`
         height: 200px;
         border-radius: 2px;
     }
-`
+`;

@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const CatalogWrapper = styled.div`
+export const CatalogWrapper = styled.div `
     padding: 16px 32px;
 
     h2{
@@ -18,4 +18,4 @@ export const CatalogWrapper = styled.div`
     a{
         text-decoration: none;  // 取消下划线
     }
-`
+`;

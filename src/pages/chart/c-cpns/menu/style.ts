@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const MenuWrapper = styled.div`
+export const MenuWrapper = styled.div `
 
     .ant-menu-item{
         margin: -4.3px 0;  // 所有Item
@@ -36,4 +36,4 @@ export const MenuWrapper = styled.div`
             display: none !important;  // 隐藏黑线
         }
     }
-`
+`;

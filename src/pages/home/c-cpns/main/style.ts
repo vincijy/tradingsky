@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const MainWrapper = styled.div`
+export const MainWrapper = styled.div `
     padding: 0px 64px;
 
     .content{
@@ -9,9 +9,9 @@ export const MainWrapper = styled.div`
         justify-content: space-between;
         height: 100%;
     }
-`
+`;
 
-export const MainLeft = styled.div`
+export const MainLeft = styled.div `
     .container{
         width: 640px;
 
@@ -39,10 +39,10 @@ export const MainLeft = styled.div`
             margin-top: 30px;
         }
     }
-`
+`;
 
-export const MainRight = styled.div`
+export const MainRight = styled.div `
     img{
         width: 450px; 
     }
-`
+`;
