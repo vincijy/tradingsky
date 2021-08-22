@@ -5,3 +5,7 @@ export interface PayloadChangeMenu {
      */
      selectedSubMenu:SubMenuItem;
 };
+
+export interface PayloadsetLoginPanelVisible {
+    loginPanelVisible:boolean;
+}

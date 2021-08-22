@@ -2,12 +2,14 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
+  app.use('/api', createProxyMiddleware({
+    target: 'http://121.43.176.46:8081',
+    changeOrigin: true,
+  }));
 
   app.use('/cross', createProxyMiddleware({
-    // target: 'https://api.glassnode.com/v1/metrics',
-    target: 'http://localhost:8000',
+    target: 'http://121.43.176.46:8081',
     changeOrigin: true,
     pathRewrite: { '^/cross': '' },
   }));
 };
-

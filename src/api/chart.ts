@@ -35,7 +35,8 @@ export function getPrice():AxiosPromise<any> {
  */
 export function getChartData(index:string, asset:string):AxiosPromise<any> {
   return request({
-    url: `api/v1/${asset}/${index}/`,
+    url: `/api/v1/charts/${asset}/${index}`,
     params: {},
   });
 };
+// http://121.43.176.46:8081/api/v1/charts/btc/price

@@ -18,14 +18,16 @@ import { AuthenticationClient } from 'authing-js-sdk'; // 登录SDK
 import logo from '@/assets/img/logo.svg';
 import smallLogo from '@/assets/img/logo.png';
 import { getAddressData } from '@/services/get_data';
+import { setLoginPanelVisible } from '@/pages/studio/store/action';
 import { HeaderWrapper, HeaderLeft, HeaderRight } from './style'; // 样式
-
 import { getLoginAction, getLogoutAction, getUserInfoAction } from './store/actionCreators'; // 改变登录状态
 
 
 export default memo(function LSAppHeader() {
-  // state/props
-  const [visible, setVisible] = useState(false);
+  const loginPanelVisible = useSelector((state) => (state as any).getIn(['uiData', 'loginPanelVisible']));
+
+  console.log(loginPanelVisible, 'loginPanelVisible');
+
   const [config, setConfig] = useState({
     mode: GuardMode.Modal,
     title: '欢迎来到LianShuCha',
@@ -78,7 +80,7 @@ export default memo(function LSAppHeader() {
   const LogoutButton = () => {
     authenticationClient.logout();
     dispatch(getLogoutAction());
-    console.log('退出登录成功');
+    localStorage.removeItem('userInfo');
   };
 
   const menu = (
@@ -90,18 +92,23 @@ export default memo(function LSAppHeader() {
         <NavLink to='/setting/account' >个人信息</NavLink>
       </Menu.Item>
       <Menu.Divider />
-      <Menu.Item onClick={LogoutButton} key='3'>退出登录</Menu.Item>
+      <Menu.Item
+        onClick={LogoutButton}
+        key='3'>退出登录
+      </Menu.Item>
     </Menu>
   );
 
   // handel function
   const loginShow = () => {
-    setVisible(true);
+    const action = setLoginPanelVisible({ loginPanelVisible: true });
+    dispatch(action);
   };
 
   const registerShow = () => {
     setConfig({ ...config, defaultScenes: GuardScenes.Register });
-    setVisible(true);
+    const action = setLoginPanelVisible({ loginPanelVisible: true });
+    dispatch(action);
   };
 
   const onCloseModal = () => {
@@ -111,7 +118,8 @@ export default memo(function LSAppHeader() {
           return;
         }
         if (el.classList && el.classList.contains('authing-guard-mask')) {
-          setVisible(false);
+          const action = setLoginPanelVisible({ loginPanelVisible: false });
+          dispatch(action);
         }
       });
     });
@@ -121,24 +129,28 @@ export default memo(function LSAppHeader() {
   return (
     <HeaderWrapper>
       <div>
-        <AuthingGuard appId={'61160ec791133eecb2c0978b'}
+        <AuthingGuard
+          appId={'61160ec791133eecb2c0978b'}
           config={config}
-          visible={isLogin ? false : visible} //
+          visible={isLogin ? false : loginPanelVisible} //
           onClose={() => {
-            setVisible(false);
+            const action = setLoginPanelVisible({ loginPanelVisible: false });
+            dispatch(action);
           }}
           onLoad={(v:any) => {
             console.log(v);
             onCloseModal();
           }}
-          onLogin={(userinfo:any) => {
+          onLogin={(userInfo:any) => {
             dispatch(getLoginAction());
-            dispatch(getUserInfoAction(userinfo));
-            console.log(userinfo);
-            console.log('登录成功');
-            console.log(userinfo.token);
-            getAddressData('new_address_count', userinfo.token, userinfo.id);
-            console.log(userinfo.id);
+            dispatch(getUserInfoAction(userInfo));
+
+            // 缓存
+            const v = JSON.stringify(userInfo);
+            localStorage.setItem('userInfo', v);
+
+            (window as any).userInfo = userInfo;
+            getAddressData('new_address_count', userInfo.token, userInfo.id);
           }}
           onLoginError={() => {
             console.log('提示：出现错误');
@@ -166,24 +178,47 @@ export default memo(function LSAppHeader() {
         </HeaderLeft>
         <HeaderRight>
           <div className='side'>
-            <a href='https://weibo.com/u/7657665166?is_all=1' target='_blank' rel='noreferrer'>
+            <a
+              href='https://weibo.com/u/7657665166?is_all=1'
+              target='_blank'
+              rel='noreferrer'>
               <WeiboOutlined />
             </a>
-            <a className='wechat' href='https://mp.weixin.qq.com/s/5ps_OcxPWA96fKUn4ozsZg' target='_blank' rel='noreferrer'>
+            <a
+              className='wechat'
+              href='https://mp.weixin.qq.com/s/5ps_OcxPWA96fKUn4ozsZg'
+              target='_blank'
+              rel='noreferrer'>
               <WechatOutlined className='wechat' />
             </a>
           </div>
           <div className='personal-bar'>
             {
-              isLogin ? <Dropdown overlay={menu} trigger={['click']} overlayStyle={{ minWidth: '121px' }} >
-                <a className='ant-dropdown-link' onClick={(e) => e.preventDefault()}>
-                  <Avatar size='large' icon={<UserOutlined />} className='user-logo' src={smallLogo} />
-                  <DownOutlined />
-                </a>
-              </Dropdown> : <div className='btn'>
-                <Button onClick={loginShow}>登陆</Button>
-                <Button onClick={registerShow} type='primary'>注册</Button>
-              </div>
+              isLogin ?
+                <Dropdown
+                  overlay={menu}
+                  trigger={['click']}
+                  overlayStyle={{ minWidth: '121px' }} >
+                  <a
+                    className='ant-dropdown-link'
+                    onClick={(e) => e.preventDefault()}>
+                    <Avatar
+                      size='large'
+                      icon={<UserOutlined />}
+                      className='user-logo'
+                      src={smallLogo} />
+                    <DownOutlined />
+                  </a>
+                </Dropdown> :
+                <div
+                  id='login-register-btns'
+                  className='btn'>
+                  <Button onClick={loginShow}>登陆</Button>
+                  <Button
+                    onClick={registerShow}
+                    type='primary'>注册
+                  </Button>
+                </div>
             }
           </div>
         </HeaderRight>

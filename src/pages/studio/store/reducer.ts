@@ -10,18 +10,27 @@ import * as A from './action_type';
 
 const initState = Map({
   selectedSubMenu: menus[0].subMenus[0],
+  loginPanelVisible: false,
 });
 
-function setMenu(state:any, action:Action<D.PayloadChangeMenu>) {
-  const { payload } = action;
-  if (!payload) {
-    return state;
+// TODO: 类型管理
+function setUi(state = initState, action:any) {
+  switch (action.type) {
+    case A.changeMenu:
+      return state.set('selectedSubMenu', action.payload.selectedSubMenu);
+    case A.setLoginPanelVisible:
+      return state.set('loginPanelVisible', action.payload.loginPanelVisible);
+    default:
+      return state;
   }
-  return { ...state, ...payload };
-};
+}
 
 // TODO: fix type
-export const setMenuReducer = handleActions<any, any>(
-  { [A.changeMenu]: setMenu },
+export const setUiReducer = handleActions<any, any>(
+  {
+    [A.changeMenu]: setUi,
+    [A.setLoginPanelVisible]: setUi,
+  },
+
   initState,
 );

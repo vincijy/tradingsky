@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { BASE_URL, TIMEOUT } from '@/config';
+import store from '@/store';
 
 // 基本配置
 const instance = axios.create({
@@ -8,9 +9,21 @@ const instance = axios.create({
 });
 
 // 请求拦截器
-instance.interceptors.request.use((config) => config, (err) => {
-  console.error(err);
-});
+instance.interceptors.request.use(
+  (config) => {
+    console.log(config, 'config');
+    const userInfo = (store.getState() as any).getIn(['headerLogin', 'userInfo']);
+    if (!userInfo) {
+      return config;
+    }
+    config.headers['Authorization'] = userInfo.token;
+    config.headers['userID'] = userInfo.id;
+    return config;
+  },
+  (err) => {
+    console.error(err);
+  },
+);
 
 // 响应拦截器
 instance.interceptors.response.use((res) => res.data, (err) => {
