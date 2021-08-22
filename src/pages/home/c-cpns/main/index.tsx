@@ -9,7 +9,7 @@ import { Button } from 'antd';
 import tech from '@/assets/img/tech.svg';
 import { MainWrapper, MainLeft, MainRight } from './style';
 
-export default memo(function LSHomeMain(props) {
+export default memo(function LSHomeMain() {
 
   // other hook
   const history = useHistory();
@@ -32,7 +32,7 @@ export default memo(function LSHomeMain(props) {
             </p>
             <Button
               type='primary'
-              onClick={(e) => goChart()} >查看动态图表
+              onClick={() => goChart()} >查看动态图表
             </Button>
           </div>
         </MainLeft>

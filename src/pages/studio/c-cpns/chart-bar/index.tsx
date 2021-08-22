@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo } from 'react';
 import { Button } from 'antd';
 
 import { BarWrapper } from './style';
@@ -18,7 +18,7 @@ export default memo(function LSChartBar(props:any) {
   return (
     <BarWrapper>
       <div>
-        <Button onClick={ (e) => changeIsShow() }>收起菜单栏</Button>
+        <Button onClick={ () => changeIsShow() }>收起菜单栏</Button>
       </div>
     </BarWrapper>
   );

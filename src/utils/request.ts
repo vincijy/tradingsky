@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BASE_URL, TIMEOUT } from './config';
+import { BASE_URL, TIMEOUT } from '@/config';
 
 // 基本配置
 const instance = axios.create({
@@ -9,7 +9,7 @@ const instance = axios.create({
 
 // 请求拦截器
 instance.interceptors.request.use((config) => config, (err) => {
-
+  console.error(err);
 });
 
 // 响应拦截器

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import btcLogo from '@/assets/img/btc_logo.png';
+import waterMask from '@/assets/img/water_mask.jpg';
 
 export const BoxWrapper = styled.div `
     margin-top: 14px;
@@ -30,5 +30,16 @@ export const BoxWrapper = styled.div `
 
     .highcharts-legend-item{
         font-size: 100px !important;
+    }
+
+    .water-mask {
+        width: 100%;
+        position: absolute;
+        height: 20%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.5;
+        background: url(${waterMask}) no-repeat center; 
     }
 `;

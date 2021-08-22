@@ -6,7 +6,7 @@ import React, { memo, useState, useCallback } from 'react';
 // 组件
 import LSAppFooter from '@/components/app-footer';
 import { Layout } from 'antd';
-import { ChartWrapper, ChartLeft, ChartRight } from './style';
+import { ChartWrapper, ChartLeft } from './style';
 import LSChartMenu from './c-cpns/menu'; // 菜单
 import LSChartBar from './c-cpns/chart-bar'; // 功能栏
 import LSChartBox from './c-cpns/chart-box'; // 图表框
@@ -17,7 +17,7 @@ export default memo(function LSChartPage() {
   const [isShow, setIsShow] = useState(true);
 
   // handle
-  const { Content, Sider, Footer } = Layout;
+  const { Content, Sider } = Layout;
 
   // handle function
   const changeShow = useCallback(
