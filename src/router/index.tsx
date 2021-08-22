@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import LSHomePage from '@/pages/home';
 import LSChartPage from '@/pages/chart';
 import LSCatalogPage from '@/pages/catalog';
+import LSSettingPage from '@/pages/setting';
 
 const routes = [
   {
@@ -24,6 +25,10 @@ const routes = [
   {
     path: '/catalog',
     component: LSCatalogPage,
+  },
+  {
+    path: '/setting/account',
+    component: LSSettingPage,
   },
 ];
 

@@ -18,6 +18,32 @@ export const HeaderWrapper = styled.div `
     a:hover,li:hover{
         font-weight: bolder;
     }
+
+    .authing-guard-container{
+        .authing-tabs-inner{  
+            .authing-tab-item__active{  // active变亮的文字
+                color: black;
+                /* font-weight: bold; */
+            }
+
+            .authing-tab-item__active:after{  // active的下划线
+                background-color: black;
+            }
+
+            .authing-tab-pane{  // 输入框
+                
+            }
+        }
+        .authing-ant-btn-primary{  // 登录注册按钮
+            background: black ;
+            border-color: black ;
+            border-radius: 3px ;
+        }
+
+        .authing-guard-text-btn,.authing-guard-text-btn,.authing-send-code-btn{  // 所有小字：验证码、注册、忘记密码
+            color: black;
+        }
+    }
 `;
 
 export const HeaderLeft = styled.div `
@@ -71,8 +97,52 @@ export const HeaderRight = styled.div `
         }
     }
 
+    .personal-bar{
+
+        .user-logo{
+            margin-right: 8px;  // 用户头像
+        }
+
+
+
+        .btn{
+            margin-right: 5px;
+            
+            Button:nth-child(1){
+                background: #fff;
+                font-weight: 500;
+                border: 1px solid #dcdcdc;
+                border-radius: 2px;
+                width: 73px;
+                height: 32px;
+
+                margin-right: 15px;
+            }
+
+            Button:nth-child(2){
+                height: 32px;
+                width: 73px;
+                border: 0;
+                border-radius: 2px;
+            }
+        }
+    }
+    /* .side{
+        display: flex;
+        align-items: center;
+
+        font-size: 23px;
+        a{
+            margin: 0 10px;
+        }
+        .wechat{
+            margin-right: 15px;
+        }
+    }
+
     .btn{
         margin-right: 5px;
+        margin-bottom: 5px;
         
         Button:nth-child(1){
             background: #fff;
@@ -91,5 +161,5 @@ export const HeaderRight = styled.div `
             border: 0;
             border-radius: 2px;
         }
-    }
+    } */
 `;

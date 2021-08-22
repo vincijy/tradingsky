@@ -1,17 +1,58 @@
 // 第三方
-import React, { memo } from 'react';
+import React, { memo, useState, useEffect } from 'react';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+
 import { NavLink } from 'react-router-dom';
 
 // 功能
 import { headerLinks } from '@/common/local-data'; // 映射数据
 
 // 组件
-import { Button } from 'antd'; // 组件库
-import { WeiboOutlined, WechatOutlined } from '@ant-design/icons'; // 图标
+import { Button, Menu, Dropdown, Avatar } from 'antd'; // 组件库
+import { WeiboOutlined, WechatOutlined, DownOutlined, UserOutlined } from '@ant-design/icons'; // 图标
+
+import { AuthingGuard, GuardMode, GuardScenes, initAuthClient, getAuthClient } from '@authing/react-ui-components'; // 登录框
+import '@authing/react-ui-components/lib/index.min.css';
+import { AuthenticationClient } from 'authing-js-sdk'; // 登录SDK
+
 import logo from '@/assets/img/logo.svg';
+import smallLogo from '@/assets/img/logo.png';
+import { getAddressData } from '@/services/get_data';
 import { HeaderWrapper, HeaderLeft, HeaderRight } from './style'; // 样式
 
+import { getLoginAction, getLogoutAction, getUserInfoAction } from './store/actionCreators'; // 改变登录状态
+
+
 export default memo(function LSAppHeader() {
+  // state/props
+  const [visible, setVisible] = useState(false);
+  const [config, setConfig] = useState({
+    mode: GuardMode.Modal,
+    title: '欢迎来到LianShuCha',
+    defaultScenes: GuardScenes.Login,
+    // escCloseable: 'true',
+    logo: `${smallLogo}`,
+    contentCss: 'true',
+  });
+
+  // hook
+  const dispatch = useDispatch();
+
+  // redux hook
+  const { isLogin } = useSelector((state) => ({
+    isLogin: (state as any).getIn(['headerLogin', 'isLogin']),
+  }), shallowEqual);
+
+  const { userInfo } = useSelector((state) => ({
+    userInfo: (state as any).getIn(['headerLogin', 'userInfo']),
+  }), shallowEqual);
+
+  const authenticationClient = new AuthenticationClient({
+    appId: '61160ec791133eecb2c0978b',
+    appHost: 'https://lianshucha.authing.cn',
+    token: userInfo.token,
+  });
+
   // handle
   // TODO: fix any type
   const showItem = (item:any, index:number) => {
@@ -34,9 +75,76 @@ export default memo(function LSAppHeader() {
     }
   };
 
+  const LogoutButton = () => {
+    authenticationClient.logout();
+    dispatch(getLogoutAction());
+    console.log('退出登录成功');
+  };
+
+  const menu = (
+    <Menu>
+      <Menu.Item key='0'>
+        <NavLink to='/chart' >图表数据</NavLink>
+      </Menu.Item>
+      <Menu.Item key='1'>
+        <NavLink to='/setting/account' >个人信息</NavLink>
+      </Menu.Item>
+      <Menu.Divider />
+      <Menu.Item onClick={LogoutButton} key='3'>退出登录</Menu.Item>
+    </Menu>
+  );
+
+  // handel function
+  const loginShow = () => {
+    setVisible(true);
+  };
+
+  const registerShow = () => {
+    setConfig({ ...config, defaultScenes: GuardScenes.Register });
+    setVisible(true);
+  };
+
+  const onCloseModal = () => {
+    document.addEventListener('click', (e) => {
+      e.composedPath().forEach((el:EventTarget) => {
+        if (!(el instanceof Element)) {
+          return;
+        }
+        if (el.classList && el.classList.contains('authing-guard-mask')) {
+          setVisible(false);
+        }
+      });
+    });
+  };
+
   // JSX
   return (
     <HeaderWrapper>
+      <div>
+        <AuthingGuard appId={'61160ec791133eecb2c0978b'}
+          config={config}
+          visible={isLogin ? false : visible} //
+          onClose={() => {
+            setVisible(false);
+          }}
+          onLoad={(v:any) => {
+            console.log(v);
+            onCloseModal();
+          }}
+          onLogin={(userinfo:any) => {
+            dispatch(getLoginAction());
+            dispatch(getUserInfoAction(userinfo));
+            console.log(userinfo);
+            console.log('登录成功');
+            console.log(userinfo.token);
+            getAddressData('new_address_count', userinfo.token, userinfo.id);
+            console.log(userinfo.id);
+          }}
+          onLoginError={() => {
+            console.log('提示：出现错误');
+          }}
+        />
+      </div>
       <div className='content text-nowrap'>
         <HeaderLeft>
           <ul className='select-list'>
@@ -58,23 +166,25 @@ export default memo(function LSAppHeader() {
         </HeaderLeft>
         <HeaderRight>
           <div className='side'>
-            <a
-              href='https://weibo.com/u/7657665166?is_all=1'
-              rel='noreferrer'
-              target='_blank'>
+            <a href='https://weibo.com/u/7657665166?is_all=1' target='_blank' rel='noreferrer'>
               <WeiboOutlined />
             </a>
-            <a
-              className='wechat'
-              href='https://mp.weixin.qq.com/s/5ps_OcxPWA96fKUn4ozsZg'
-              rel='noreferrer'
-              target='_blank'>
+            <a className='wechat' href='https://mp.weixin.qq.com/s/5ps_OcxPWA96fKUn4ozsZg' target='_blank' rel='noreferrer'>
               <WechatOutlined className='wechat' />
             </a>
-            <div className='btn'>
-              <Button >登陆</Button>
-              <Button type='primary'>注册</Button>
-            </div>
+          </div>
+          <div className='personal-bar'>
+            {
+              isLogin ? <Dropdown overlay={menu} trigger={['click']} overlayStyle={{ minWidth: '121px' }} >
+                <a className='ant-dropdown-link' onClick={(e) => e.preventDefault()}>
+                  <Avatar size='large' icon={<UserOutlined />} className='user-logo' src={smallLogo} />
+                  <DownOutlined />
+                </a>
+              </Dropdown> : <div className='btn'>
+                <Button onClick={loginShow}>登陆</Button>
+                <Button onClick={registerShow} type='primary'>注册</Button>
+              </div>
+            }
           </div>
         </HeaderRight>
       </div>
