@@ -2,12 +2,10 @@
 import { combineReducers } from 'redux-immutable';
 
 // 导入每个模块的reducer
-import { reducer as chartPageReducer } from '@/pages/chart/store';
 import { reducer as headerLoginReducer } from '@/components/app-header/store';
+import { setUiReducer } from '@/pages/studio/store/reducer';
 
-const cReducer = combineReducers({
-  chartPage: chartPageReducer, // 图表页面redux
+export const rootReducer = combineReducers({
   headerLogin: headerLoginReducer, // 头部组件login的redux
+  uiData: setUiReducer,
 });
-
-export default cReducer;

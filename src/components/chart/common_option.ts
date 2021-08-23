@@ -1,0 +1,80 @@
+/**
+ * 多种图表的通用配置
+ */
+export const commonOptions = {
+  chart: {
+    height: 700, // 图表高度
+  },
+
+  credits: {
+    enabled: false, // 不显示版权
+  },
+
+  rangeSelector: {
+    allButtonsEnabled: true,
+    buttons: [{
+      type: 'month',
+      count: 1,
+      text: '1个月',
+    }, {
+      type: 'month',
+      count: 3,
+      text: '1个季度',
+    }, {
+      type: 'month',
+      count: 63,
+      text: '半年',
+    }, {
+      type: 'ytd',
+      text: '本年',
+    }, {
+      type: 'year',
+      count: 1,
+      text: '1年',
+    }, {
+      type: 'all',
+      text: '全部时间',
+    }],
+    buttonTheme: {
+      width: 60,
+    },
+    selected: 3,
+  },
+
+  legend: {
+    enabled: true, // 显示图例
+    verticalAlign: 'top', // 图例位置
+    margin: 20,
+    align: 'right',
+  },
+
+  tooltip: {
+    animation: false, // 关闭动画效果（what）
+
+    backgroundColor: '#fcfcfc', // 背景颜色
+    borderColor: 'rgb(247, 147, 26)', // 边框颜色
+    borderRadius: 3, // 边框圆角
+    borderWidth: 1, // 边框宽度
+
+    xDateFormat: '%Y-%m-%d', // 时间格式化
+
+    split: false, // 两个数据的提示框合并
+    shared: true,
+
+    shadow: true, // 是否显示阴影
+    style: { // 文字内容相关样式
+      color: 'black',
+      fontSize: '12px',
+    },
+
+    // crosshairs: [true, true],  // 同时启用竖直及水平准星线
+
+    crosshairs: [{ // 设置准星线样式
+      width: 1,
+      color: 'rgb(204, 204, 204)',
+    }, {
+      width: 1,
+      color: 'rgb(204, 204, 204)',
+    }],
+  },
+};

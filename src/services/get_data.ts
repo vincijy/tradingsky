@@ -1,5 +1,5 @@
 // 二次封装的axios
-import request from './request';
+import request from '@/utils/request';
 
 // TODO: fix type
 export function getAddressData(which:any, token:any, user:any) {

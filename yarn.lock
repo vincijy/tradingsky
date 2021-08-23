@@ -25,6 +25,17 @@
     classnames "^2.2.6"
     rc-util "^5.9.4"
 
+"@ant-design/icons@^4.6.3":
+  version "4.6.3"
+  resolved "https://registry.nlark.com/@ant-design/icons/download/@ant-design/icons-4.6.3.tgz?cache=0&sync_timestamp=1629099581026&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40ant-design%2Ficons%2Fdownload%2F%40ant-design%2Ficons-4.6.3.tgz#cdcccf4df24d51501acef9228444efb7ef8938b1"
+  integrity sha1-zczPTfJNUVAazvkihETvt++JOLE=
+  dependencies:
+    "@ant-design/colors" "^6.0.0"
+    "@ant-design/icons-svg" "^4.0.0"
+    "@babel/runtime" "^7.11.2"
+    classnames "^2.2.6"
+    rc-util "^5.9.4"
+
 "@ant-design/react-slick@~0.28.1":
   version "0.28.3"
   resolved "https://registry.yarnpkg.com/@ant-design/react-slick/-/react-slick-0.28.3.tgz#ad5cf1cf50363c1a3842874d69d0ce1f26696e71"
@@ -38,13 +49,13 @@
 
 "@authing/jose@^1.0.2":
   version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@authing/jose/-/jose-1.0.3.tgz#38ad8586150c526f38c5d6da5fd0065491217e23"
-  integrity sha512-fSY8kYvEdKqmpIYl32xTqSHLkFlOqTYRpeaqYPQKlYovybxMB+9Y2adXeot/56AH39qEBN0W97o9bdzWIzzoUg==
+  resolved "https://registry.nlark.com/@authing/jose/download/@authing/jose-1.0.3.tgz#38ad8586150c526f38c5d6da5fd0065491217e23"
+  integrity sha1-OK2FhhUMUm84xdbaX9AGVJEhfiM=
 
 "@authing/react-ui-components@^2.4.34":
-  version "2.4.34"
-  resolved "https://registry.yarnpkg.com/@authing/react-ui-components/-/react-ui-components-2.4.34.tgz#60dd73baebceba3436ffb7ff714b2d26f78495e6"
-  integrity sha512-DvgTUiCZmgLNahE6w/l/o/+EQWNN7qSw1D0xn2dpzlZg9tycRptnOoKN6gCTORHL8sdxrB7Y/Fzfq3cJ0Y7Q2w==
+  version "2.4.40"
+  resolved "https://registry.nlark.com/@authing/react-ui-components/download/@authing/react-ui-components-2.4.40.tgz#662e67f4a2288a8f7351d4837a0da693d6247dc4"
+  integrity sha1-Zi5n9KIoio9zUdSDeg2mk9YkfcQ=
   dependencies:
     antd "^4.8.0"
     authing-js-sdk "4.20.23"
@@ -2087,6 +2098,11 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
+"@types/redux-actions@^2.6.2":
+  version "2.6.2"
+  resolved "https://registry.nlark.com/@types/redux-actions/download/@types/redux-actions-2.6.2.tgz#5956d9e7b9a644358e2c0610f47b1fa3060edc21"
+  integrity sha1-WVbZ57mmRDWOLAYQ9HsfowYO3CE=
+
 "@types/redux-immutable@^4.0.1":
   version "4.0.1"
   resolved "https://registry.nlark.com/@types/redux-immutable/download/@types/redux-immutable-4.0.1.tgz#c9645af458cfcbf019b9e6b4185efcc842e3dac5"
@@ -2732,12 +2748,12 @@ antd@^4.16.9:
     warning "^4.0.3"
 
 antd@^4.8.0:
-  version "4.16.11"
-  resolved "https://registry.yarnpkg.com/antd/-/antd-4.16.11.tgz#924116b0de7370f914e9de6c8c5a4bf019b3d668"
-  integrity sha512-7Tsx0sTjpSpgRqnXIRbuerqf4pu8+V1OPY4oZXXqTzuYPwKHdnbfXMg/L35IfeLtK1QcwgF4lfTR7bChJIcWSw==
+  version "4.16.12"
+  resolved "https://registry.nlark.com/antd/download/antd-4.16.12.tgz?cache=0&sync_timestamp=1629108947535&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fantd%2Fdownload%2Fantd-4.16.12.tgz#8d32a1ad6a80fd2ea61e6f1c432b31782fd2cd50"
+  integrity sha1-jTKhrWqA/S6mHm8cQysxeC/SzVA=
   dependencies:
     "@ant-design/colors" "^6.0.0"
-    "@ant-design/icons" "^4.6.2"
+    "@ant-design/icons" "^4.6.3"
     "@ant-design/react-slick" "~0.28.1"
     "@babel/runtime" "^7.12.5"
     array-tree-filter "^2.1.0"
@@ -2773,7 +2789,7 @@ antd@^4.8.0:
     rc-tooltip "~5.1.1"
     rc-tree "~4.2.1"
     rc-tree-select "~4.3.0"
-    rc-trigger "^5.2.1"
+    rc-trigger "^5.2.10"
     rc-upload "~4.3.0"
     rc-util "^5.13.1"
     scroll-into-view-if-needed "^2.2.25"
@@ -2995,8 +3011,8 @@ atob@^2.1.2:
 
 authing-js-sdk@4.20.23:
   version "4.20.23"
-  resolved "https://registry.yarnpkg.com/authing-js-sdk/-/authing-js-sdk-4.20.23.tgz#63e9c775930753ceb67cb6e284bd3059f11a7881"
-  integrity sha512-JuPy57TVL/O7KpVd0lITgaF9t0M3pk9pZazpvwBOS2SYOUA76Vr0jPtjXYyKXgGfDg0YCIvcZIkSzLYRFt1gQw==
+  resolved "https://registry.nlark.com/authing-js-sdk/download/authing-js-sdk-4.20.23.tgz#63e9c775930753ceb67cb6e284bd3059f11a7881"
+  integrity sha1-Y+nHdZMHU862fLbihL0wWfEaeIE=
   dependencies:
     axios "^0.19.2"
     crypto-js "^4.0.0"
@@ -3005,8 +3021,8 @@ authing-js-sdk@4.20.23:
 
 authing-js-sdk@^4.22.1:
   version "4.22.1"
-  resolved "https://registry.yarnpkg.com/authing-js-sdk/-/authing-js-sdk-4.22.1.tgz#a949db8fc767ef0f12984417c7446a73866af5c4"
-  integrity sha512-5RbM9z4Wc2ixbWZZGtXRkiZ9QYdXrgbK9S139LHbCWowdm1tLU4eVH9WmjdLwcmyya/ltyx6HSL3tJrnzaIa/w==
+  resolved "https://registry.nlark.com/authing-js-sdk/download/authing-js-sdk-4.22.1.tgz#a949db8fc767ef0f12984417c7446a73866af5c4"
+  integrity sha1-qUnbj8dn7w8SmEQXx0Rqc4Zq9cQ=
   dependencies:
     "@authing/jose" "^1.0.2"
     axios "^0.19.2"
@@ -3044,8 +3060,8 @@ axe-core@^4.0.2:
 
 axios@^0.19.2:
   version "0.19.2"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
-  integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
+  resolved "https://registry.npm.taobao.org/axios/download/axios-0.19.2.tgz?cache=0&sync_timestamp=1608609215811&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Faxios%2Fdownload%2Faxios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+  integrity sha1-PqNsXYgY0NX4qKl6bTa4bNwAyyc=
   dependencies:
     follow-redirects "1.5.10"
 
@@ -4230,8 +4246,8 @@ crypto-browserify@^3.11.0:
 
 crypto-js@^4.0.0:
   version "4.1.1"
-  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-4.1.1.tgz#9e485bcf03521041bd85844786b83fb7619736cf"
-  integrity sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==
+  resolved "https://registry.nlark.com/crypto-js/download/crypto-js-4.1.1.tgz#9e485bcf03521041bd85844786b83fb7619736cf"
+  integrity sha1-nkhbzwNSEEG9hYRHhrg/t2GXNs8=
 
 crypto-random-string@^1.0.0:
   version "1.0.0"
@@ -4530,8 +4546,8 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
 
 debug@=3.1.0:
   version "3.1.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
-  integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
+  resolved "https://registry.nlark.com/debug/download/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+  integrity sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=
   dependencies:
     ms "2.0.0"
 
@@ -5776,8 +5792,8 @@ flush-write-stream@^1.0.0:
 
 follow-redirects@1.5.10:
   version "1.5.10"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
-  integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
+  resolved "https://registry.nlark.com/follow-redirects/download/follow-redirects-1.5.10.tgz?cache=0&sync_timestamp=1629288519293&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ffollow-redirects%2Fdownload%2Ffollow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+  integrity sha1-e3qfmuov3/NnhqlP9kPtB/T/Xio=
   dependencies:
     debug "=3.1.0"
 
@@ -6607,6 +6623,13 @@ internal-slot@^1.0.3:
     get-intrinsic "^1.1.0"
     has "^1.0.3"
     side-channel "^1.0.4"
+
+invariant@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.npm.taobao.org/invariant/download/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
+  integrity sha1-YQ88ksk1nOHbYW5TgAjSP/NRWOY=
+  dependencies:
+    loose-envify "^1.0.0"
 
 ip-regex@^2.1.0:
   version "2.1.0"
@@ -7519,8 +7542,8 @@ jsdom@^16.4.0:
 
 jsencrypt@^3.1.0:
   version "3.2.1"
-  resolved "https://registry.yarnpkg.com/jsencrypt/-/jsencrypt-3.2.1.tgz#09766983cc760088ff26b12fe7e574252af97727"
-  integrity sha512-k1sD5QV0KPn+D8uG9AdGzTQuamt82QZ3A3l6f7TRwMU6Oi2Vg0BsL+wZIQBONcraO1pc78ExMdvmBBJ8WhNYUA==
+  resolved "https://registry.nlark.com/jsencrypt/download/jsencrypt-3.2.1.tgz#09766983cc760088ff26b12fe7e574252af97727"
+  integrity sha1-CXZpg8x2AIj/JrEv5+V0JSr5dyc=
 
 jsesc@^2.5.1:
   version "2.5.2"
@@ -7627,9 +7650,14 @@ jsprim@^1.2.2:
     array-includes "^3.1.2"
     object.assign "^4.1.2"
 
+just-curry-it@^3.1.0:
+  version "3.2.1"
+  resolved "https://registry.nlark.com/just-curry-it/download/just-curry-it-3.2.1.tgz#7bb18284c8678ed816bfc5c19e44400605fbe461"
+  integrity sha1-e7GChMhnjtgWv8XBnkRABgX75GE=
+
 jwt-decode@^2.2.0:
   version "2.2.0"
-  resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-2.2.0.tgz#7d86bd56679f58ce6a84704a657dd392bba81a79"
+  resolved "https://registry.npm.taobao.org/jwt-decode/download/jwt-decode-2.2.0.tgz#7d86bd56679f58ce6a84704a657dd392bba81a79"
   integrity sha1-fYa9VmefWM5qhHBKZX3TkruoGnk=
 
 killable@^1.0.1:
@@ -9864,8 +9892,8 @@ qs@6.7.0:
 
 qs@^6.9.4:
   version "6.10.1"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.10.1.tgz#4931482fa8d647a5aab799c5271d2133b981fb6a"
-  integrity sha512-M528Hph6wsSVOBiYUnGf+K/7w0hNshs/duGsNXPUCLH5XAqjEtiPGwNONLV0tBH8NoGb0mvD5JubnUTrujKDTg==
+  resolved "https://registry.nlark.com/qs/download/qs-6.10.1.tgz#4931482fa8d647a5aab799c5271d2133b981fb6a"
+  integrity sha1-STFIL6jWR6Wqt5nFJx0hM7mB+2o=
   dependencies:
     side-channel "^1.0.4"
 
@@ -10044,8 +10072,8 @@ rc-image@~5.2.4:
 
 rc-image@~5.2.5:
   version "5.2.5"
-  resolved "https://registry.yarnpkg.com/rc-image/-/rc-image-5.2.5.tgz#44e6ffc842626827960e7ab72e1c0d6f3a8ce440"
-  integrity sha512-qUfZjYIODxO0c8a8P5GeuclYXZjzW4hV/5hyo27XqSFo1DmTCs2HkVeQObkcIk5kNsJtgsj1KoPThVsSc/PXOw==
+  resolved "https://registry.nlark.com/rc-image/download/rc-image-5.2.5.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Frc-image%2Fdownload%2Frc-image-5.2.5.tgz#44e6ffc842626827960e7ab72e1c0d6f3a8ce440"
+  integrity sha1-ROb/yEJiaCeWDnq3LhwNbzqM5EA=
   dependencies:
     "@babel/runtime" "^7.11.2"
     classnames "^2.2.6"
@@ -10125,8 +10153,8 @@ rc-pagination@~3.1.6:
 
 rc-pagination@~3.1.9:
   version "3.1.9"
-  resolved "https://registry.yarnpkg.com/rc-pagination/-/rc-pagination-3.1.9.tgz#797ad75d85b1ef7a82801207ead410110337fdd6"
-  integrity sha512-IKBKaJ4icVPeEk9qRHrFBJmHxBUrCp3+nENBYob4Ofqsu3RXjBOy4N36zONO7oubgLyiG3PxVmyAuVlTkoc7Jg==
+  resolved "https://registry.nlark.com/rc-pagination/download/rc-pagination-3.1.9.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Frc-pagination%2Fdownload%2Frc-pagination-3.1.9.tgz#797ad75d85b1ef7a82801207ead410110337fdd6"
+  integrity sha1-eXrXXYWx73qCgBIH6tQQEQM3/dY=
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.1"
@@ -10288,6 +10316,17 @@ rc-trigger@^5.0.0, rc-trigger@^5.0.4, rc-trigger@^5.1.2, rc-trigger@^5.2.1:
     rc-motion "^2.0.0"
     rc-util "^5.5.0"
 
+rc-trigger@^5.2.10:
+  version "5.2.10"
+  resolved "https://registry.nlark.com/rc-trigger/download/rc-trigger-5.2.10.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Frc-trigger%2Fdownload%2Frc-trigger-5.2.10.tgz#8a0057a940b1b9027eaa33beec8a6ecd85cce2b1"
+  integrity sha1-igBXqUCxuQJ+qjO+7IpuzYXM4rE=
+  dependencies:
+    "@babel/runtime" "^7.11.2"
+    classnames "^2.2.6"
+    rc-align "^4.0.0"
+    rc-motion "^2.0.0"
+    rc-util "^5.5.0"
+
 rc-upload@~4.3.0:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/rc-upload/-/rc-upload-4.3.1.tgz#d6ee66b8bd1e1dd2f78526c486538423f7e7ed84"
@@ -10359,8 +10398,8 @@ react-dev-utils@^11.0.3:
 
 react-dom@^16.14.0:
   version "16.14.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
-  integrity sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==
+  resolved "https://registry.nlark.com/react-dom/download/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
+  integrity sha1-etg47Cmnd/s8dcOhkPZhz5Kri4k=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -10503,13 +10542,13 @@ react-scripts@4.0.3:
 
 react-ui-components@^1.1.2:
   version "1.1.2"
-  resolved "https://registry.yarnpkg.com/react-ui-components/-/react-ui-components-1.1.2.tgz#9aa15632efe3ee5d699121600e6fa18c6bd09555"
+  resolved "https://registry.nlark.com/react-ui-components/download/react-ui-components-1.1.2.tgz#9aa15632efe3ee5d699121600e6fa18c6bd09555"
   integrity sha1-mqFWMu/j7l1pkSFgDm+hjGvQlVU=
 
 react@^16.14.0:
   version "16.14.0"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
-  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
+  resolved "https://registry.nlark.com/react/download/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha1-lNd23dCqo32j7aj8W2sYpMmjEU0=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -10603,6 +10642,22 @@ redent@^3.0.0:
   dependencies:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
+
+reduce-reducers@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.npm.taobao.org/reduce-reducers/download/reduce-reducers-0.4.3.tgz#8e052618801cd8fc2714b4915adaa8937eb6d66c"
+  integrity sha1-jgUmGIAc2PwnFLSRWtqok3621mw=
+
+redux-actions@^2.6.5:
+  version "2.6.5"
+  resolved "https://registry.npm.taobao.org/redux-actions/download/redux-actions-2.6.5.tgz#bdca548768ee99832a63910c276def85e821a27e"
+  integrity sha1-vcpUh2jumYMqY5EMJ23vheghon4=
+  dependencies:
+    invariant "^2.2.4"
+    just-curry-it "^3.1.0"
+    loose-envify "^1.4.0"
+    reduce-reducers "^0.4.3"
+    to-camel-case "^1.0.0"
 
 redux-immutable@^4.0.0:
   version "4.0.0"
@@ -11055,8 +11110,8 @@ saxes@^5.0.0:
 
 scheduler@^0.19.1:
   version "0.19.1"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.19.1.tgz#4f3e2ed2c1a7d65681f4c854fa8c5a1ccb40f196"
-  integrity sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==
+  resolved "https://registry.nlark.com/scheduler/download/scheduler-0.19.1.tgz?cache=0&sync_timestamp=1629476335382&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fscheduler%2Fdownload%2Fscheduler-0.19.1.tgz#4f3e2ed2c1a7d65681f4c854fa8c5a1ccb40f196"
+  integrity sha1-Tz4u0sGn1laB9MhU+oxaHMtA8ZY=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -12009,10 +12064,22 @@ to-arraybuffer@^1.0.0:
   resolved "https://registry.yarnpkg.com/to-arraybuffer/-/to-arraybuffer-1.0.1.tgz#7d229b1fcc637e466ca081180836a7aabff83f43"
   integrity sha1-fSKbH8xjfkZsoIEYCDanqr/4P0M=
 
+to-camel-case@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/to-camel-case/download/to-camel-case-1.0.0.tgz#1a56054b2f9d696298ce66a60897322b6f423e46"
+  integrity sha1-GlYFSy+daWKYzmamCJcyK29CPkY=
+  dependencies:
+    to-space-case "^1.0.0"
+
 to-fast-properties@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
   integrity sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=
+
+to-no-case@^1.0.0:
+  version "1.0.2"
+  resolved "https://registry.npm.taobao.org/to-no-case/download/to-no-case-1.0.2.tgz#c722907164ef6b178132c8e69930212d1b4aa16a"
+  integrity sha1-xyKQcWTvaxeBMsjmmTAhLRtKoWo=
 
 to-object-path@^0.3.0:
   version "0.3.0"
@@ -12045,6 +12112,13 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     extend-shallow "^3.0.2"
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
+
+to-space-case@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/to-space-case/download/to-space-case-1.0.0.tgz#b052daafb1b2b29dc770cea0163e5ec0ebc9fc17"
+  integrity sha1-sFLar7Gysp3HcM6gFj5ewOvJ/Bc=
+  dependencies:
+    to-no-case "^1.0.0"
 
 toggle-selection@^1.0.6:
   version "1.0.6"
