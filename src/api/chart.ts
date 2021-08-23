@@ -39,4 +39,16 @@ export function getChartData(index:string, asset:string):AxiosPromise<any> {
     params: {},
   });
 };
-// http://121.43.176.46:8081/api/v1/charts/btc/price
+
+/**
+ * BTC 价格线, 图表中公用的一条线
+ * @returns
+ */
+export function getBtcPrice():AxiosPromise<any> {
+  const asset = 'btc';
+  const index = 'price';
+  return request({
+    url: `/api/v1/charts/${asset}/${index}`,
+    params: {},
+  });
+};

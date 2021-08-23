@@ -8,38 +8,52 @@ import { getHighCharts } from '../index';
 import { constructorType } from '../def';
 import { commonOptions } from '../common_option';
 import { options } from './option';
-import { data } from './mock_data';
 
 interface IProps {
-    chartData:{t:number, v:number}[];
+    /**
+     * 左侧y轴数据
+     */
+    dataA:{t:number, v:number}[];
+
+    /**
+     * 右侧y轴数据
+     */
+    dataB:{t:number, v:number}[];
 }
+
+// 合并options
+const mergeOptions = Object.assign(commonOptions, options);
+
 export default memo(function LSChartDoubleLine(props:IProps) {
-  const { chartData } = props;
-
-  chartData;
-
-  // 合并options
-  const mergeOptions = Object.assign(commonOptions, options);
+  const { dataA, dataB } = props;
   const [chartOptions, setChartOptions] = useState(mergeOptions);
 
-  const A:[number, number][] = [];
-  const B:[number, number][] = [];
-
   useEffect(() => {
-    data.forEach((item:any) => {
+    const a:[number, number][] = [];
+    const b:[number, number][] = [];
+
+    dataA.forEach((item:any) => {
       const { t: x, v: y } = item;
       // JS的时间戳和unix的 相差* 1000
-      A.push([x * 1000, y]);
-      B.push([x * 1000, y + 1000000]);
+      const xv = parseFloat(x) * 1000;
+      const yv = parseFloat(y);
+      a.push([xv, yv]);
     });
-    // TODO: fix type
-    (chartOptions.series[0] as any).data = A;
-    (chartOptions.series[1] as any).data = B;
+
+    dataB.forEach((item:any) => {
+      const { t: x, v: y } = item;
+      // JS的时间戳和unix的 相差* 1000
+      const xv = parseFloat(x) * 1000;
+      const yv = parseFloat(y);
+      b.push([xv, yv]);
+    });
+
+    (chartOptions.series[0] as any).data = a;
+    (chartOptions.series[1] as any).data = b;
 
     const newOptions = Object.assign({}, chartOptions);
     setChartOptions(newOptions);
-  }, [chartData]);
-
+  }, [dataA, dataB]);
 
   return (
     // doc: https://www.highcharts.com.cn/docs/highcharts-react/

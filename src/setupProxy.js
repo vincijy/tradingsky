@@ -3,12 +3,12 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
   app.use('/api', createProxyMiddleware({
-    target: 'http://121.43.176.46:8081',
+    target: 'http://8.210.151.35:8081',
     changeOrigin: true,
   }));
 
   app.use('/cross', createProxyMiddleware({
-    target: 'http://121.43.176.46:8081',
+    target: 'http://8.210.151.35:8081',
     changeOrigin: true,
     pathRewrite: { '^/cross': '' },
   }));

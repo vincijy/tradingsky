@@ -22,7 +22,7 @@ export const commonOptions = {
       text: '1个季度',
     }, {
       type: 'month',
-      count: 6,
+      count: 63,
       text: '半年',
     }, {
       type: 'ytd',
@@ -38,7 +38,7 @@ export const commonOptions = {
     buttonTheme: {
       width: 60,
     },
-    selected: 2,
+    selected: 3,
   },
 
   legend: {
