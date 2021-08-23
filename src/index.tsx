@@ -2,11 +2,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// 功能
+import { version, name } from '../package.json';
 
 // 本地
 import App from './App';
 import '@/assets/css/global.css';
+
+console.log(
+  `%c Welcome to ${name}. Version: %c${version}`,
+  'color: blue; font-size: 16px',
+  'color: red; font-size: 16px',
+);
 
 ReactDOM.render(
   <App />,
