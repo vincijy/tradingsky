@@ -13,19 +13,28 @@ interface IProps {
     /**
      * 左侧y轴数据
      */
-    dataA:{t:number, v:number}[];
+    seriesA:{
+      name:string;
+      data:{t:number, v:number}[];
+    };
 
     /**
      * 右侧y轴数据
      */
-    dataB:{t:number, v:number}[];
+    seriesB:{
+      name:string;
+      data:{t:number, v:number}[];
+    };
 }
 
 // 合并options
 const mergeOptions = Object.assign(commonOptions, options);
 
 export default memo(function LSChartDoubleLine(props:IProps) {
-  const { dataA, dataB } = props;
+  const { seriesA, seriesB } = props;
+  const{ data: dataA, name: nameA } = seriesA;
+  const{ data: dataB, name: nameB } = seriesB;
+
   const [chartOptions, setChartOptions] = useState(mergeOptions);
 
   useEffect(() => {
@@ -49,7 +58,10 @@ export default memo(function LSChartDoubleLine(props:IProps) {
     });
 
     (chartOptions.series[0] as any).data = a;
+    (chartOptions.series[0] as any).name = nameA;
+
     (chartOptions.series[1] as any).data = b;
+    (chartOptions.series[1] as any).name = nameB;
 
     const newOptions = Object.assign({}, chartOptions);
     setChartOptions(newOptions);

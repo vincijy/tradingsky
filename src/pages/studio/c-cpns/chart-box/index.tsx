@@ -81,10 +81,19 @@ export default memo(function LSChartBox() {
    * 添加水印
    */
   const addWaterMask = () => {
-    const chartCover = document.querySelector('#mounted-dom');
-    ReactDOM.render(
-      <WaterMask/>,
-      chartCover,
+    const mountedDom = document.querySelector('#mounted-dom');
+    const waterMaskDom = document.querySelector('#water-mask');
+    mountedDom && !waterMaskDom && ReactDOM.render(
+      <WaterMask id='water-mask'/>,
+      mountedDom,
+    );
+  };
+
+  const removeWaterMask = () => {
+    const mountedDom = document.querySelector('#mounted-dom');
+    const waterMaskDom = document.querySelector('#water-mask');
+    mountedDom && waterMaskDom && ReactDOM.unmountComponentAtNode(
+      mountedDom,
     );
   };
 
@@ -154,6 +163,7 @@ export default memo(function LSChartBox() {
 
     // 登录检查
     if (loginRequired && !isLogin) {
+      removeWaterMask();
       addCover();
       addBtns();
       return;
@@ -161,6 +171,7 @@ export default memo(function LSChartBox() {
 
     // 检查是否为VIP,TODO: fix type, enum
     if (vipRequired && role.code !== 'level2') {
+      removeWaterMask();
       addCover();
       addVipTip();
       return;
@@ -169,7 +180,6 @@ export default memo(function LSChartBox() {
     removeCover();
     removeBtns();
     addWaterMask();
-    console.log('run here');
   }, [loginRequired, vipRequired, isLogin]);
 
 
@@ -185,25 +195,28 @@ export default memo(function LSChartBox() {
     setDataA([]);
     setDataB([]);
     showLoading();
-    const p1 = new Promise(() => {
+    const p1 = new Promise<void>((resolve, reject) => {
       getChartData(index, asset)
         .then((res) => {
-          hideLoading();
           setDataA((res as any).rows || []);
+          resolve();
         })
         .catch((err) => {
           console.error(err);
+          reject();
         });
     });
 
-    const p2 = new Promise(() => {
+    const p2 = new Promise<void>((resolve, reject) => {
       // 价格
       getBtcPrice()
         .then((res) => {
           setDataB((res as any).rows || []);
+          resolve();
         })
         .catch((err) => {
           console.error(err);
+          reject();
         });
     });
 
@@ -234,20 +247,31 @@ export default memo(function LSChartBox() {
    */
   const showLoading = () => {
     const dom = document.querySelector('#mounted-dom');
+    console.log('dom', dom);
+    if (!dom) {
+      return;
+    }
+    const loadingDom = document.querySelector('#chart-loading');
+    if (loadingDom) {
+      return;
+    }
+    const newDom = dom.cloneNode(true) as Element;
+    newDom.setAttribute('id', 'loading-mounted-dom');
+    dom.insertAdjacentElement('afterend', newDom);
     ReactDOM.render(
       <ChartLoadingWrapper id='chart-loading'>
         <Spin
           tip='加载中...'
           size='large'/>
       </ChartLoadingWrapper>
-      , dom);
+      , newDom);
   };
 
   /**
    * 隐藏loading
    */
   const hideLoading = () => {
-    const dom = document.querySelector('#mounted-dom');
+    const dom = document.querySelector('#loading-mounted-dom');
     dom && ReactDOM.unmountComponentAtNode(dom);
   };
 
@@ -268,8 +292,8 @@ export default memo(function LSChartBox() {
           title={ cardTitle }
           className='bord-box' >
           <LSChartDoubleLine
-            dataA={ dataA }
-            dataB={ dataB }
+            seriesA={ { data: dataA, name: name } }
+            seriesB={ { data: dataB, name: '价格' } }
           />
         </Card>
       </div>

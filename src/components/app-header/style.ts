@@ -53,6 +53,9 @@ export const HeaderLeft = styled.div `
 
         .logo{
         width: 150px;
+        text-align: center;
+        font-size: 25px;
+        font-family: "Rusty - Demo";
         }
 
         .separator{

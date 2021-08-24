@@ -63,7 +63,7 @@ export const BoxWrapper = styled.div `
         left: 50%;
         transform: translate(-50%, -50%);
         background: url(${restriction}) no-repeat center;
-        background-size: cover;
+        background-size: 100% 100%;
     }
 `;
 
@@ -77,7 +77,7 @@ export const ChartLoadingWrapper = styled.div `
 export const WaterMask = styled.div `
     width: 100%;
     position: absolute;
-    height: 20%;
+    height: 30%;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);

@@ -1,9 +1,4 @@
 export const options = {
-  credits: {
-    enable: true,
-    text: 'lianshucha.com',
-    href: 'https:lianshucha.com', // TODO
-  },
   yAxis: [
     {
       // 左侧轴

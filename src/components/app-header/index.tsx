@@ -19,6 +19,7 @@ import logo from '@/assets/img/logo.svg';
 import smallLogo from '@/assets/img/logo.png';
 import { setLoginPanelVisible } from '@/pages/studio/store/action';
 import { getUserRole } from '@/api/user';
+import { useLayoutEffect } from 'react';
 import { HeaderWrapper, HeaderLeft, HeaderRight } from './style'; // 样式
 import { getLoginAction, getLogoutAction, getUserInfoAction } from './store/actionCreators'; // 改变登录状态
 
@@ -123,6 +124,15 @@ export default memo(function LSAppHeader() {
       });
     });
   };
+
+  useLayoutEffect(() => {
+    // hack, 将logo替换成文本
+    const logo = document.querySelector('.logo');
+    const div = document.createElement('div');
+    div.setAttribute('class', 'logo');
+    div.innerText = 'Lianshucha';
+    logo?.replaceWith(div);
+  });
 
   // JSX
   return (
