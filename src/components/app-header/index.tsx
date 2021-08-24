@@ -18,9 +18,9 @@ import { AuthenticationClient } from 'authing-js-sdk'; // 登录SDK
 import logo from '@/assets/img/logo.svg';
 import smallLogo from '@/assets/img/logo.png';
 import { setLoginPanelVisible } from '@/pages/studio/store/action';
+import { getUserRole } from '@/api/user';
 import { HeaderWrapper, HeaderLeft, HeaderRight } from './style'; // 样式
 import { getLoginAction, getLogoutAction, getUserInfoAction } from './store/actionCreators'; // 改变登录状态
-
 
 export default memo(function LSAppHeader() {
   const loginPanelVisible = useSelector((state) => (state as any).getIn(['uiData', 'loginPanelVisible']));
@@ -147,8 +147,19 @@ export default memo(function LSAppHeader() {
             // 缓存
             const v = JSON.stringify(userInfo);
             localStorage.setItem('userInfo', v);
-
             (window as any).userInfo = userInfo;
+
+            // 获取权限
+            getUserRole()
+              .then((res) => {
+                userInfo.role = res;
+                const v = JSON.stringify(userInfo);
+                localStorage.setItem('userInfo', v);
+                (window as any).userInfo = userInfo;
+              })
+              .catch((err) => {
+                console.error(err);
+              });
           }}
           onLoginError={() => {
             console.log('提示：出现错误');

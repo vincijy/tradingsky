@@ -19,14 +19,10 @@ import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip } from '
 
 const log = console.log.bind(console);
 
-// TODO: get vip from user info
-const isVip = false;
-
 export default memo(function LSChartBox() {
   // 添加水印
   const [hasAddedCover, setHasAddedCover] = useState(false);
   const [hasAddedMountedDom, setHasAddedMountedDom] = useState(false);
-
 
   /**
    * 添加封面(用于遮挡图表)
@@ -149,28 +145,31 @@ export default memo(function LSChartBox() {
 
   // 读取用户的信息
   const isLogin = useSelector((state) => (state as any).getIn(['headerLogin', 'isLogin']));
+  const userInfo = useSelector((state) => (state as any).getIn(['headerLogin', 'userInfo']));
+  const { role } = userInfo;
 
   useLayoutEffect(() => {
     reflow();
     addMountedDom();
 
+    // 登录检查
     if (loginRequired && !isLogin) {
       addCover();
       addBtns();
       return;
     }
 
-    // 检查是否为VIP,TODO
-    if (vipRequired && !isVip) {
+    // 检查是否为VIP,TODO: fix type, enum
+    if (vipRequired && role.code !== 'level2') {
       addCover();
       addVipTip();
       return;
     }
-
     // 否则移除
     removeCover();
     removeBtns();
     addWaterMask();
+    console.log('run here');
   }, [loginRequired, vipRequired, isLogin]);
 
 
@@ -221,7 +220,8 @@ export default memo(function LSChartBox() {
     if (loginRequired && !isLogin) {
       return;
     }
-    if (vipRequired && !isVip) {
+    // TODO: 定义个enum值
+    if (vipRequired && role.code !== 'level2') {
       return;
     }
     // TODO: vip

@@ -18,8 +18,12 @@ instance.interceptors.request.use(
     if (!userInfo) {
       return config;
     }
-    config.headers['Authorization'] = userInfo.token;
-    config.headers['userID'] = userInfo.id;
+    const { token, id } = userInfo;
+    if (!token || !id) {
+      return config;
+    }
+    config.headers['Authorization'] = token;
+    config.headers['userID'] = id;
     return config;
   },
   (err) => {
