@@ -15,15 +15,15 @@ export const commonOptions = {
     buttons: [{
       type: 'month',
       count: 1,
-      text: '1个月',
+      text: '1月',
     }, {
       type: 'month',
       count: 3,
-      text: '1个季度',
+      text: '3月',
     }, {
       type: 'month',
-      count: 63,
-      text: '半年',
+      count: 6,
+      text: '6月',
     }, {
       type: 'ytd',
       text: '本年',
@@ -33,10 +33,10 @@ export const commonOptions = {
       text: '1年',
     }, {
       type: 'all',
-      text: '全部时间',
+      text: '全部',
     }],
     buttonTheme: {
-      width: 60,
+      width: 42,
     },
     selected: 3,
   },

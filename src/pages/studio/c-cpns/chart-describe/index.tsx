@@ -1,18 +1,31 @@
+// 第三方
 import React, { memo } from 'react';
+import { useSelector, useDispatch } from 'react-redux'; // redux的hook
+
 import { Card } from 'antd';
 
+// 本地
+import { SubMenuItem } from '@/config/def';
 import { DescribeWrapper } from './style';
 
 export default memo(function LSChartDescribe() {
+
+  // 选中的菜单
+  const selectedSubMenu = useSelector((state) => (state as any).getIn(['uiData', 'selectedSubMenu']));
+  const { args: { index, asset },
+    introduce,
+    assetList,
+  } = selectedSubMenu as SubMenuItem;
+
   return (
     <DescribeWrapper>
       <div className='content-describe'>
         <Card
           title='指标介绍'
           className='bord-describe'>
-          <p>Card content</p>
-          <p>Card content</p>
-          <p>Card content</p>
+          { introduce }
+          <p className='title' >更新币种：</p>
+          <p className='content' >{assetList}</p>
         </Card>
       </div>
     </DescribeWrapper>

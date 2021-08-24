@@ -1,5 +1,9 @@
 import React, { memo } from 'react';
+
 import { Button } from 'antd';
+import { MenuFoldOutlined } from '@ant-design/icons';
+
+import { getHighCharts } from '@/components/chart';
 
 import { BarWrapper } from './style';
 
@@ -13,12 +17,17 @@ export default memo(function LSChartBar(props:any) {
   // handle function
   const changeIsShow = () => {
     changeShow();
+    setTimeout(() => { // 图表容器自适应
+      getHighCharts().charts.forEach((chart) => {
+        chart && chart.reflow();
+      });
+    }, 0);
   };
 
   return (
     <BarWrapper>
       <div>
-        <Button onClick={ () => changeIsShow() }>收起菜单栏</Button>
+        <Button onClick={ () => changeIsShow() }><MenuFoldOutlined /></Button>
       </div>
     </BarWrapper>
   );

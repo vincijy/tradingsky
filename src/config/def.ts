@@ -35,6 +35,16 @@ export interface SubMenuItem {
         asset:string;
         index:string;
      };
+
+     /**
+      * 指标介绍
+      */
+     introduce:string;
+
+     /**
+      * 资产类别
+      */
+      assetList:string;
 }
 
 export interface MenuItem {

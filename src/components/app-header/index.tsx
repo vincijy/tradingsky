@@ -5,7 +5,7 @@ import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 // 功能
-import { headerLinks } from '@/common/local-data'; // 映射数据
+import { headerLinks } from '@/config/header'; // 映射数据
 
 // 组件
 import { Button, Menu, Dropdown, Avatar } from 'antd'; // 组件库
@@ -17,7 +17,6 @@ import { AuthenticationClient } from 'authing-js-sdk'; // 登录SDK
 
 import logo from '@/assets/img/logo.svg';
 import smallLogo from '@/assets/img/logo.png';
-import { getAddressData } from '@/services/get_data';
 import { setLoginPanelVisible } from '@/pages/studio/store/action';
 import { HeaderWrapper, HeaderLeft, HeaderRight } from './style'; // 样式
 import { getLoginAction, getLogoutAction, getUserInfoAction } from './store/actionCreators'; // 改变登录状态
@@ -150,7 +149,6 @@ export default memo(function LSAppHeader() {
             localStorage.setItem('userInfo', v);
 
             (window as any).userInfo = userInfo;
-            getAddressData('new_address_count', userInfo.token, userInfo.id);
           }}
           onLoginError={() => {
             console.log('提示：出现错误');

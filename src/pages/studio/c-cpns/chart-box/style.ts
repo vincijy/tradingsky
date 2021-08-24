@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import waterMask from '@/assets/img/water_mask.jpg';
-import restriction from '@/assets/img/restriction.jpg';
+import restriction from '@/assets/img/restriction.jpeg';
 import qrcode from '@/assets/img/qrcode.jpg';
 
 export const BoxWrapper = styled.div `
