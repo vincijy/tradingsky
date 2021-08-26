@@ -13,7 +13,6 @@ const instance = axios.create({
 // 请求拦截器
 instance.interceptors.request.use(
   (config) => {
-    console.log(config, 'config');
     const userInfo = (store.getState() as any).getIn(['headerLogin', 'userInfo']);
     if (!userInfo) {
       return config;

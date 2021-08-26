@@ -14,12 +14,3 @@ const store = createStore(rootReducer, composeEnhancers(
 ));
 
 export default store;
-
-/**
- * 监听state的变化
- */
-store.subscribe(() => {
-  console.log(store.getState());
-});
-
-(window as any).store = store;

@@ -27,8 +27,6 @@ import { HeaderWrapper, HeaderLeft, HeaderRight } from './style'; // 样式
 export default memo(function LSAppHeader() {
   const loginPanelVisible = useSelector((state) => (state as any).getIn(['uiData', 'loginPanelVisible']));
 
-  console.log(loginPanelVisible, 'loginPanelVisible');
-
   const [config, setConfig] = useState({
     mode: GuardMode.Modal,
     title: '欢迎来到LianShuCha',
@@ -154,7 +152,6 @@ export default memo(function LSAppHeader() {
             dispatch(action);
           }}
           onLoad={(v:any) => { // 加载中
-            console.log(v);
             onCloseModal();
           }}
           onLogin={(userInfo:any) => { // 成功登录
@@ -197,7 +194,7 @@ export default memo(function LSAppHeader() {
               });
           }}
           onLoginError={() => {
-            console.log('提示：出现错误');
+            console.error('提示：出现错误');
           }}
         />
       </div>
