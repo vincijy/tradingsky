@@ -19,3 +19,12 @@ coverage/
 # doc
 /docs
 yarn-error.log
+
+# ignore dist
+remote_dist/*
+
+# security && fabric config(include passwords)
+conf/www.lianshucha.com.crt
+conf/www.lianshucha.com.key
+fabfile_config.py
+
