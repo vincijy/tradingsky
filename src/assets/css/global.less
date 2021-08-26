@@ -1,0 +1,119 @@
+@import '~normalize.css';
+
+/* 样式的重置 */
+body, html, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, header, menu, section, p, input, td, th, ins {
+    padding: 0;
+    margin: 0;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+i, em {
+    font-style: normal;
+}
+
+input, textarea, button, select, a {
+    outline: none;
+    border: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img {
+    border: none;
+    vertical-align: middle;
+}
+
+  
+/* 全局样式 */
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body, textarea, select, input, button {
+    font-size: 12px;
+    color: bkack;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+}
+
+.text-nowrap {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.content{
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+/* 手指指针 */
+li,button,a{
+    cursor: pointer;
+}
+
+/* 取消下划线 */
+a:visited,a:link{
+    text-decoration:none;
+}
+
+// authing登录框样式
+.authing-guard-container{
+    .authing-tabs-inner{  
+        .authing-tab-item__active{  // active变亮的文字
+            color: black;
+            /* font-weight: bold; */
+        }
+
+        .authing-tab-item__active:after{  // active的下划线
+            background-color: black;
+        }
+    }
+    
+    // 没有解决蓝色背景、黑色有点突兀，暂时不改
+    .authing-ant-input-affix-wrapper:hover{ // 输入框滑过、点击
+        // border-color: black;
+    }
+
+    .authing-ant-input-affix-wrapper-focused{
+        // border-color: black;
+        // --antd-wave-shadow-color: black;
+    }
+
+    .authing-ant-btn-primary{  // 登录注册按钮
+        background: black ;
+        border-color: black ;
+        border-radius: 3px ;
+    }
+
+    .authing-ant-btn-primary:hover,.authing-ant-btn-primary:active,.authing-ant-btn-primary:focus{ // 登录注册按钮，鼠标滑过时、被惦记时、点击后
+        background: black !important;
+        border-color: black !important;
+        border-radius: 3px !important;
+        font-weight: bold;
+    }
+
+    .authing-guard-text-btn,.authing-guard-text-btn,.authing-send-code-btn{  // 所有小字：验证码、注册、忘记密码
+        color: black;
+    }
+}

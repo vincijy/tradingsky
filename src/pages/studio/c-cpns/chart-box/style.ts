@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import waterMask from '@/assets/img/water_mask.jpg';
-import restriction from '@/assets/img/restriction.jpeg';
+import restriction from '@/assets/img/restriction.jpg';
 import qrcode from '@/assets/img/qrcode.jpg';
 
 export const BoxWrapper = styled.div `
@@ -78,7 +78,7 @@ export const WaterMask = styled.div `
     width: 100%;
     position: absolute;
     height: 30%;
-    top: 40%;
+    top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.5;
@@ -89,29 +89,68 @@ export const WaterMask = styled.div `
 
 export const ButtonArea = styled.div `
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    button {
-       margin: 12px;
+
+    display: flex;
+    aligin-items: center;
+    flex-direction: column;
+
+    .button-tip {
+        color: black;
+        font-size: 30px;
+        letter-spacing: 2px;
+        font-size: bold;
     }
+    .buttons-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30px;
+        padding-right: 30px;
+        padding-left: 30px;
+        Button {
+            font-size: 12px;
+            padding: 0 29px;
+            height: 29px;
+            font-weight: 500;
+            border: 1px solid #dcdcdc;
+            border-radius: 5px;
+            color: white;
+        }
+        Button:nth-child(1){
+            color: white;
+        }
+    
+        Button:nth-child(2){
+            background-color: #2894FF; // 天蓝色
+        }
+    }
+
 `;
 
 
 export const VipTip = styled.div `
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    .qrcode {
-        width: 200px;
-        height:200px;
-        background: url(${qrcode}) no-repeat center;
-        background-size: cover;
-    }
     .vip-tip-text {
-        width: 200px;
-        text-align: center;
+        color: black;
+        font-size: 30px;
+        letter-spacing: 2px;
+        font-size: bold;
     }
-    border: 1px dashed gray;
+    .qrcode-wrap {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        .qrcode {
+            width: 150px;
+            height:150px;
+            background: url(${qrcode}) no-repeat center;
+            background-size: cover;
+        }
+    }
 `;

@@ -1,7 +1,8 @@
 // 第三方
-import React, { memo, useState, useEffect } from 'react';
+import React, { memo, useState, useEffect, useLayoutEffect } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
+import { useHistory } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
 // 功能
@@ -9,7 +10,7 @@ import { headerLinks } from '@/config/header'; // 映射数据
 
 // 组件
 import { Button, Menu, Dropdown, Avatar } from 'antd'; // 组件库
-import { WeiboOutlined, WechatOutlined, DownOutlined, UserOutlined } from '@ant-design/icons'; // 图标
+import { WeiboOutlined, WechatOutlined, TwitterOutlined, DownOutlined, UserOutlined } from '@ant-design/icons'; // 图标
 
 import { AuthingGuard, GuardMode, GuardScenes, initAuthClient, getAuthClient } from '@authing/react-ui-components'; // 登录框
 import '@authing/react-ui-components/lib/index.min.css';
@@ -18,10 +19,10 @@ import { AuthenticationClient } from 'authing-js-sdk'; // 登录SDK
 import logo from '@/assets/img/logo.svg';
 import smallLogo from '@/assets/img/logo.png';
 import { setLoginPanelVisible } from '@/pages/studio/store/action';
-import { getUserRole } from '@/api/user';
-import { useLayoutEffect } from 'react';
+import { getUserRole, makeUserRole } from '@/api/user';
+import { getLoginAction, getLogoutAction, getUserInfoAction } from '@/components/app-header/store/actionCreators'; // 改变登录状态
+
 import { HeaderWrapper, HeaderLeft, HeaderRight } from './style'; // 样式
-import { getLoginAction, getLogoutAction, getUserInfoAction } from './store/actionCreators'; // 改变登录状态
 
 export default memo(function LSAppHeader() {
   const loginPanelVisible = useSelector((state) => (state as any).getIn(['uiData', 'loginPanelVisible']));
@@ -39,6 +40,7 @@ export default memo(function LSAppHeader() {
 
   // hook
   const dispatch = useDispatch();
+  const history = useHistory();
 
   // redux hook
   const { isLogin } = useSelector((state) => ({
@@ -77,7 +79,8 @@ export default memo(function LSAppHeader() {
     }
   };
 
-  const LogoutButton = () => {
+  const LogoutButton = () => { // 退出登录
+    openChartPage();
     authenticationClient.logout();
     dispatch(getLogoutAction());
     localStorage.removeItem('userInfo');
@@ -125,6 +128,10 @@ export default memo(function LSAppHeader() {
     });
   };
 
+  const openChartPage = () => {
+    history.push('/chart');
+  };
+
   useLayoutEffect(() => {
     // hack, 将logo替换成文本
     const logo = document.querySelector('.logo');
@@ -142,15 +149,17 @@ export default memo(function LSAppHeader() {
           appId={'61160ec791133eecb2c0978b'}
           config={config}
           visible={isLogin ? false : loginPanelVisible} //
-          onClose={() => {
+          onClose={() => { // 关闭
             const action = setLoginPanelVisible({ loginPanelVisible: false });
             dispatch(action);
           }}
-          onLoad={(v:any) => {
+          onLoad={(v:any) => { // 加载中
             console.log(v);
             onCloseModal();
           }}
-          onLogin={(userInfo:any) => {
+          onLogin={(userInfo:any) => { // 成功登录
+            openChartPage();
+
             dispatch(getLoginAction());
             dispatch(getUserInfoAction(userInfo));
 
@@ -161,6 +170,22 @@ export default memo(function LSAppHeader() {
 
             // 获取权限
             getUserRole()
+              .then((res) => {
+                userInfo.role = res;
+                const v = JSON.stringify(userInfo);
+                localStorage.setItem('userInfo', v);
+                (window as any).userInfo = userInfo;
+                window.location.reload();
+              })
+              .catch((err) => {
+                console.error(err);
+              });
+
+          }}
+          onRegister={(userInfo:any) => { // 成功注册
+            openChartPage();
+            dispatch(getUserInfoAction(userInfo)); // 把注册用户信息存入redux
+            makeUserRole() // 添加level1角色
               .then((res) => {
                 userInfo.role = res;
                 const v = JSON.stringify(userInfo);
@@ -204,11 +229,17 @@ export default memo(function LSAppHeader() {
               <WeiboOutlined />
             </a>
             <a
-              className='wechat'
-              href='https://mp.weixin.qq.com/s/5ps_OcxPWA96fKUn4ozsZg'
+              // href='https://mp.weixin.qq.com/s/5ps_OcxPWA96fKUn4ozsZg'
+              href='https://weibo.com/u/7657665166?is_all=1'
               target='_blank'
               rel='noreferrer'>
-              <WechatOutlined className='wechat' />
+              <WechatOutlined />
+            </a>
+            <a
+              href='https://twitter.com/Lianshucha'
+              target='_blank'
+              rel='noreferrer'>
+              <TwitterOutlined className='most-right' />
             </a>
           </div>
           <div className='personal-bar'>
@@ -232,7 +263,7 @@ export default memo(function LSAppHeader() {
                 <div
                   id='login-register-btns'
                   className='btn'>
-                  <Button onClick={loginShow}>登陆</Button>
+                  <Button onClick={loginShow}>登录</Button>
                   <Button
                     onClick={registerShow}
                     type='primary'>注册

@@ -14,10 +14,18 @@ import { getChartData, getBtcPrice } from '@/api/chart';
 
 // 本地
 import { SubMenuItem } from '@/config/def';
+import { LoadingOutlined } from '@ant-design/icons';
 import { setLoginPanelVisible } from '../../store/action';
 import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip } from './style';
 
 const log = console.log.bind(console);
+
+
+const antIcon = (
+  <LoadingOutlined
+    style={{ fontSize: 24 }}
+    spin />
+);
 
 export default memo(function LSChartBox() {
   // 添加水印
@@ -111,11 +119,20 @@ export default memo(function LSChartBox() {
 
     ReactDOM.render(
       <ButtonArea>
-        <Button onClick={loginShow}>登陆</Button>
-        <Button
-          onClick={registerShow}
-          type='primary'>注册
-        </Button>
+        <div className='button-tip'>
+          登录解锁图表页面
+        </div>
+        <div className='buttons-wrap'>
+          <Button
+            type='primary'
+            onClick={loginShow}>
+              登陆
+          </Button>
+          <Button
+            onClick={registerShow}>
+              注册
+          </Button>
+        </div>
       </ButtonArea>,
       bg,
     );
@@ -133,9 +150,11 @@ export default memo(function LSChartBox() {
     const bg = document.querySelector('#highchart-cover');
     ReactDOM.render(
       <VipTip>
-        <div className='qrcode'/>
         <div className='vip-tip-text'>
-          添加客服微信开通VIP, 解锁图表
+          付费解锁高级数据
+        </div>
+        <div className='qrcode-wrap'>
+          <div className='qrcode'/>
         </div>
       </VipTip>,
       bg,
@@ -155,31 +174,31 @@ export default memo(function LSChartBox() {
   // 读取用户的信息
   const isLogin = useSelector((state) => (state as any).getIn(['headerLogin', 'isLogin']));
   const userInfo = useSelector((state) => (state as any).getIn(['headerLogin', 'userInfo']));
-  const { role } = userInfo;
+  const role = userInfo.role || {};
 
   useLayoutEffect(() => {
     reflow();
     addMountedDom();
 
-    // 登录检查
+    // 如果需要登录, 但是没有登录
     if (loginRequired && !isLogin) {
-      removeWaterMask();
       addCover();
       addBtns();
+      removeWaterMask();
       return;
     }
 
     // 检查是否为VIP,TODO: fix type, enum
-    if (vipRequired && role.code !== 'level2') {
-      removeWaterMask();
+    if (loginRequired && vipRequired && role.code !== 'level2') {
       addCover();
       addVipTip();
+      removeWaterMask();
       return;
     }
+
     // 否则移除
     removeCover();
     removeBtns();
-    addWaterMask();
   }, [loginRequired, vipRequired, isLogin]);
 
 
@@ -208,10 +227,21 @@ export default memo(function LSChartBox() {
     });
 
     const p2 = new Promise<void>((resolve, reject) => {
+      // 多个图表公用的BTC价格, 只请求一次
+      // TODO: 使用redux存储而不是直接挂在window上
+
+      if ((window as any).btcPriceData) {
+        resolve();
+        return;
+      }
+
       // 价格
       getBtcPrice()
         .then((res) => {
-          setDataB((res as any).rows || []);
+          const dataB = (res as any).rows || [];
+          setDataB(dataB);
+          // TODO: 使用redux存储而不是直接挂在window上
+          (window as any).btcPriceData = dataB;
           resolve();
         })
         .catch((err) => {
@@ -223,6 +253,9 @@ export default memo(function LSChartBox() {
     Promise.all([p1, p2])
       .then(() => {
         hideLoading();
+        // TODO: 使用redux存储而不是直接挂在window上
+        // BTC 价格线数据, 之所以在这里更新是为了保证loading的时候空空如也
+        setDataB((window as any).btcPriceData);
       })
       .catch((err) => {
         console.error(err);
@@ -247,7 +280,6 @@ export default memo(function LSChartBox() {
    */
   const showLoading = () => {
     const dom = document.querySelector('#mounted-dom');
-    console.log('dom', dom);
     if (!dom) {
       return;
     }
@@ -258,9 +290,11 @@ export default memo(function LSChartBox() {
     const newDom = dom.cloneNode(true) as Element;
     newDom.setAttribute('id', 'loading-mounted-dom');
     dom.insertAdjacentElement('afterend', newDom);
+    removeWaterMask();
     ReactDOM.render(
       <ChartLoadingWrapper id='chart-loading'>
         <Spin
+          indicator={antIcon}
           tip='加载中...'
           size='large'/>
       </ChartLoadingWrapper>
@@ -273,6 +307,7 @@ export default memo(function LSChartBox() {
   const hideLoading = () => {
     const dom = document.querySelector('#loading-mounted-dom');
     dom && ReactDOM.unmountComponentAtNode(dom);
+    addWaterMask();
   };
 
   const cardTitle = (

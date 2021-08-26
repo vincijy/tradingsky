@@ -9,10 +9,39 @@ export const commonOptions = {
   credits: {
     enabled: false, // 不显示版权
   },
+  plotOptions: {
+    series: {
+      lineWidth: 1,
+      animation: !1,
+      connectNulls: !0,
+      groupPadding: 0,
+      showInNavigator: !0,
+      turboThreshold: 0,
+      dataGrouping: {
+        enabled: !1,
+      },
+      states: {
+        hover: {
+          lineWidthPlus: 0,
+        },
+      },
+    },
+    column: {
+      borderWidth: 0,
+      groupPadding: 0,
+      pointPadding: .2,
+      shadow: !1,
+    },
+  },
 
   rangeSelector: {
     allButtonsEnabled: true,
     buttons: [{
+      type: 'week', // 新增一周刻度
+      count: 1,
+      text: '1周',
+    },
+    {
       type: 'month',
       count: 1,
       text: '1月',
@@ -38,7 +67,7 @@ export const commonOptions = {
     buttonTheme: {
       width: 42,
     },
-    selected: 3,
+    selected: 4,
   },
 
   legend: {
@@ -73,7 +102,7 @@ export const commonOptions = {
       width: 1,
       color: 'rgb(204, 204, 204)',
     }, {
-      width: 1,
+      width: 0,
       color: 'rgb(204, 204, 204)',
     }],
   },

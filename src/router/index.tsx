@@ -5,6 +5,7 @@ import LSHomePage from '@/pages/home';
 import LSChartPage from '@/pages/studio';
 import LSCatalogPage from '@/pages/catalog';
 import LSSettingPage from '@/pages/setting';
+import LSPiratePage from '@/pages/pirate';
 
 const routes = [
   {
@@ -29,6 +30,10 @@ const routes = [
   {
     path: '/setting/account',
     component: LSSettingPage,
+  },
+  {
+    path: '/pirate',
+    component: LSPiratePage,
   },
 ];
 

@@ -39,7 +39,11 @@ export interface SubMenuItem {
      /**
       * 指标介绍
       */
-     introduce:string;
+      introduce:{
+        text:string;
+        isURL:boolean;
+        weiboURL:string;
+      };
 
      /**
       * 资产类别

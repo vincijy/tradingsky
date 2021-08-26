@@ -39,7 +39,7 @@ const columns = [
     title: '等级',
     key: '等级',
     dataIndex: '等级',
-    width: 100,
+    width: 80,
   },
 ];
 

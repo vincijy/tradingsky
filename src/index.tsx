@@ -6,7 +6,7 @@ import { version, name } from '../package.json';
 
 // 本地
 import App from './App';
-import '@/assets/css/global.css';
+import '@/assets/css/global.less';
 
 console.log(
   `%c Welcome to ${name}. Version: %c${version}`,

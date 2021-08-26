@@ -13,7 +13,7 @@ export default memo(function LSCatalogPage() {
     <div>
       <CatalogWrapper>
         <CatalogTop>
-          <h2>指标目录</h2>
+          <h2 >指标目录</h2>
           <p>
                         微博
             <a
@@ -23,7 +23,7 @@ export default memo(function LSCatalogPage() {
             </a>
                         会日常更新指标数据的用法，也可以通过
             <a
-              href='https://weibo.com/u/7657665166?is_all=1'
+              href='https://weibo.com/p/1005057657665166/wenzhang?from=page_100505_profile&wvr=6&mod=wenzhangmore&articlefeed=1&is_article=1'
               rel='noreferrer'
               target='_blank'>指标介绍专栏
             </a>

@@ -20,4 +20,8 @@ export const DescribeWrapper = styled.div `
     .content{
         margin-top: 7px;
     }
+
+    .weibo-url:hover{
+        font-weight: bold;
+    }
 `;

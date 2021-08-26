@@ -11,6 +11,10 @@ export const FooterWrapper = styled.div `
         /* 上下宽度 */
         padding: 35px 0;
         color: #fff;
+
+        @media screen and (min-width: 1550px) {
+            max-width: 1200px; // 宽屏适配，修复footer
+        }
     }
 
     a:hover,li:hover{
@@ -33,6 +37,10 @@ export const FooterRight = styled.div `
     ul{
         display: flex;
         align-items: center;
+
+        @media screen and (min-width: 1550px) {
+            margin-right: -230px; // 宽屏适配
+        }
 
         li{
             margin: 0 8px;

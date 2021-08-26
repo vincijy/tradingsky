@@ -23,7 +23,10 @@ export default memo(function LSChartDescribe() {
         <Card
           title='指标介绍'
           className='bord-describe'>
-          { introduce }
+          { introduce.text }
+          {
+            introduce.isURL ? <a href={introduce.weiboURL} target='_blank' rel='noreferrer' className='weibo-url' >详细原理见此文章</a> : ''
+          }
           <p className='title' >更新币种：</p>
           <p className='content' >{assetList}</p>
         </Card>
