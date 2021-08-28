@@ -11,28 +11,26 @@ const routes = [
   {
     path: '/',
     exact: true,
-    render: function Home():JSX.Element {
-      return <Redirect to='/home' />;
-    },
-  },
-  {
-    path: '/home',
     component: LSHomePage,
   },
   {
     path: '/chart',
+    exact: true,
     component: LSChartPage,
   },
   {
     path: '/catalog',
+    exact: true,
     component: LSCatalogPage,
   },
   {
-    path: '/setting/account',
+    path: '/setting',
+    exact: true,
     component: LSSettingPage,
   },
   {
     path: '/pirate',
+    exact: true,
     component: LSPiratePage,
   },
 ];

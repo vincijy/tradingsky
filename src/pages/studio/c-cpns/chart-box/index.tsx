@@ -126,7 +126,7 @@ export default memo(function LSChartBox() {
           <Button
             type='primary'
             onClick={loginShow}>
-              登陆
+              登录
           </Button>
           <Button
             onClick={registerShow}>

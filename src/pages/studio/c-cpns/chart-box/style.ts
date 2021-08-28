@@ -44,6 +44,7 @@ export const BoxWrapper = styled.div `
         opacity: 0.5;
         background: url(${waterMask}) no-repeat center;
     }
+
     .clone-btns {
         z-index: 1;
         position: absolute;
@@ -74,7 +75,7 @@ export const ChartLoadingWrapper = styled.div `
     transform: translate(-50%, -50%);
 `;
 
-export const WaterMask = styled.div `
+export const WaterMask = styled.div ` // 水印
     width: 100%;
     position: absolute;
     height: 30%;

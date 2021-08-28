@@ -23,7 +23,7 @@ export default memo(function LSSettingPage() {
     <div>
       <SettingWrapper>
         <Tabs defaultActiveKey='1' >
-          <TabPane tab='账户信息' key='1'>
+          <TabPane tab='个人信息' key='1'>
             <Card title='基本信息' style={{ width: 500, marginBottom: '30px' }} className='user-card' >
               <Form>
                 <Form.Item label='用户名'>
@@ -36,10 +36,10 @@ export default memo(function LSSettingPage() {
             </Card>
             <Card title='重置' style={{ width: 500, marginBottom: '50px' }}>
               <Form>
-                <Form.Item label='修改密码'>
+                <Form.Item label='修改密码（开发中～）'>
                   <Button style={{ borderRadius: '3px' }}>修改密码</Button>
                 </Form.Item>
-                <Form.Item label='修改绑定手机号'>
+                <Form.Item label='修改绑定手机号（开发中～）'>
                   <Button style={{ borderRadius: '3px' }}>修改手机号</Button>
                 </Form.Item>
               </Form>
@@ -48,7 +48,7 @@ export default memo(function LSSettingPage() {
           <TabPane tab='费用管理' key='2' style={{ marginBottom: '500px' }}>
             正在开发中～
           </TabPane>
-          <TabPane tab='其他' key='3' style={{ marginBottom: '500px' }}>
+          <TabPane tab='开发者工具' key='3' style={{ marginBottom: '500px' }}>
             正在开发中～
           </TabPane>
         </Tabs>

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 export const headerLinks = [
   {
     title: '主页',
-    link: '/home',
+    link: '/',
   },
   {
     title: '图表',

@@ -6,6 +6,16 @@ export const FooterWrapper = styled.div `
     .content {
         display: flex;    
         justify-content: space-between;
+
+        @media screen and (max-width: 450px) { // 移动端适配 iPhone：footer宽度
+            max-width: 327px;
+        }
+
+        @media screen and (max-width: 450px) { // 移动端适配 iPhone：纵向排列
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
         /* 边框间距 */
         margin: 0 30px;
         /* 上下宽度 */
@@ -13,7 +23,7 @@ export const FooterWrapper = styled.div `
         color: #fff;
 
         @media screen and (min-width: 1550px) {
-            max-width: 1200px; // 宽屏适配，修复footer
+            max-width: 1900px; // 宽屏适配，修复除图表页面的footer
         }
     }
 
@@ -30,6 +40,10 @@ export const FooterLeft = styled.div `
         font-size: 14px;
         font-weight: 10;
         color: #808080;
+
+        @media screen and (max-width: 450px) { // 移动端适配 iPhone：纵向排列
+            font-size: 7px;
+        }
     }
 `;
 
@@ -38,13 +52,28 @@ export const FooterRight = styled.div `
         display: flex;
         align-items: center;
 
-        @media screen and (min-width: 1550px) {
-            margin-right: -230px; // 宽屏适配
+        @media screen and (max-width: 450px) { // 移动端适配 iPhone：纵向排列、上下间距
+            flex-direction: column;
+            align-items: flex-start;
+
+            margin-top: 20px;
         }
 
         li{
             margin: 0 8px;
             font-size: 14px;
+
+            @media screen and (max-width: 450px) { // 移动端适配 iPhone：缩小字体、上下间距 li
+                margin-top: 5px;
+                font-size: 7px;
+            }
+        }
+
+        .footer-iphone{
+            @media screen and (max-width: 450px) { // 移动端适配 iPhone：icon横向
+                margin-top: 20px;
+                display: flex;
+            }
         }
 
         li:nth-child(3){

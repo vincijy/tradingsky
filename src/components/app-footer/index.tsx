@@ -21,31 +21,32 @@ export default memo(function LSAppFooter() {
             <li>反馈</li>
             <li>联系我们</li>
             <li><NavLink to='pirate' style={{ color: 'white' }}>成为海盗</NavLink></li>
-            <Button
-              type='link'
-              icon={<WeiboOutlined/>}
-              href='https://weibo.com/u/7657665166?is_all=1'
-              style={{
-                color: 'white',
-              }}
-              target='_blank' />
-            <Button
-              type='link'
-              icon={<WechatOutlined/>}
-              href='https://weibo.com/u/7657665166?is_all=1'
-              style={{
-                color: 'white',
-              }}
-              target='_blank' />
-            <Button
-              className='footer-icon'
-              type='link'
-              icon={<TwitterOutlined/>}
-              href='https://twitter.com/Lianshucha'
-              style={{
-                color: 'white',
-              }}
-              target='_blank' />
+            <div className='footer-iphone'>
+              <Button
+                type='link'
+                icon={<WeiboOutlined/>}
+                href='https://weibo.com/u/7657665166?is_all=1'
+                style={{
+                  color: 'white',
+                }}
+                target='_blank' />
+              <Button
+                type='link'
+                icon={<WechatOutlined/>}
+                href='https://weibo.com/u/7657665166?is_all=1'
+                style={{
+                  color: 'white',
+                }}
+                target='_blank' />
+              <Button
+                type='link'
+                icon={<TwitterOutlined/>}
+                href='https://twitter.com/Lianshucha'
+                style={{
+                  color: 'white',
+                }}
+                target='_blank' />
+            </div>
           </ul>
         </FooterRight>
       </div>

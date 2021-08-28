@@ -9,6 +9,7 @@ export const InsightTop = styled.div `
     align-items: center;
 
     margin-top: 10px; // 向上间距
+
     @media screen and (min-width: 1550px) {
         margin-top: 40px; // 宽屏适配
     }
@@ -18,11 +19,20 @@ export const InsightTop = styled.div `
     h2{
         font-size: 32px;
         margin-bottom: 4px; // 大字和小字间距
+
+        @media screen and (max-width: 450px) { // 移动端适配 iPhone：大字缩小
+            font-size: 22px;
+        }
     }
 
     p{
         margin-top: 14px; // 小字直接间距
         font-size: 20px;
+
+        @media screen and (max-width: 450px) { // 移动端适配 iPhone：小字缩小
+            margin-top: 7px;
+            font-size: 10px;
+        }
     }
 
     Button{
@@ -36,6 +46,14 @@ export const InsightTop = styled.div `
 
         height: 40px;
         width: 95px;
+
+        @media screen and (max-width: 450px) { // 移动端适配 iPhone：按钮缩小
+            margin-top: 22px;
+            font-size: 7px;
+
+            height: 28px;
+            width: 100px;
+        }
     }
 `;
 

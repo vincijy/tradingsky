@@ -129,6 +129,9 @@ export default memo(function LSHomeMain() {
           <h2>
                           LianShuCha：链上数据使投资变得更透明
           </h2>
+          <h2 className='main-iphone'>
+            链上数据使投资变得更透明
+          </h2>
           <p>
                           链数查，您的链上数据访问门户，点击查看您的第一张动态数据图表
           </p>

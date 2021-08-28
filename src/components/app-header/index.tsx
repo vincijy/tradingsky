@@ -61,6 +61,7 @@ export default memo(function LSAppHeader() {
     if(index < 3){
       return (
         <NavLink
+          exact
           to={item.link}
           activeClassName='active'>
           {item.title}
@@ -90,7 +91,7 @@ export default memo(function LSAppHeader() {
         <NavLink to='/chart' >图表数据</NavLink>
       </Menu.Item>
       <Menu.Item key='1'>
-        <NavLink to='/setting/account' >个人信息</NavLink>
+        <NavLink to='/setting' >个人信息</NavLink>
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item
@@ -193,6 +194,9 @@ export default memo(function LSAppHeader() {
                 console.error(err);
               });
           }}
+          onRegisterInfoCompleted={() => { // 成功补充注册信息
+            window.location.reload(); // 提交后刷新页面
+          }}
           onLoginError={() => {
             console.error('提示：出现错误');
           }}
@@ -203,7 +207,7 @@ export default memo(function LSAppHeader() {
           <ul className='select-list'>
             <NavLink
               className='logo-nav'
-              to='/home'><img
+              to='/'><img
                 className='logo'
                 src={logo} />
             </NavLink>

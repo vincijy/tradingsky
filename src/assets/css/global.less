@@ -63,6 +63,11 @@ body, textarea, select, input, button {
 
 .content{
     max-width: 1600px;
+    
+    @media screen and (max-width: 450px) { // 移动端适配 iPhone：全屏宽度（除去header，app-header需要单独设置）
+        max-width: 127px;
+    }
+    
     margin: 0 auto;
     padding: 0 auto;
 }
