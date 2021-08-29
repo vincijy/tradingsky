@@ -7,11 +7,11 @@ export const MainWrapper = styled.div `
         height: 1000px; // 宽屏适配
     }
 
-    @media screen and (max-width: 450px) { // 移动端适配 iPhone：背景图片缩小
-        height: 350px;
+    @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：背景图片缩小
+        height: 400px;
     }
 
-    @media screen and (min-width: 450px) and (max-width: 800px) { // 移动端适配 iPad：背景图片缩小
+    @media screen and (min-width: 768px) and (max-width: 1024px) { // 移动端适配 iPad：背景图片缩小
         height: 600px;
     }
     
@@ -24,20 +24,20 @@ export const MainWrapper = styled.div `
         justify-content: center;
         height: 85%; // 内容下移幅度
 
-        @media screen and (max-width: 450px) { // 移动端适配 iPhone：内容上移
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：内容上移
             height: 75%;
         }
 
-        @media screen and (min-width: 450px) and (max-width: 800px) { // 移动端适配 iPad：内容上移
+        @media screen and (min-width: 768px) and (max-width: 1024px) { // 移动端适配 iPad：内容上移
             height: 95%;
         }
 
         .main-iphone{
             display: none;
 
-            @media screen and (max-width: 450px) { // 移动端适配 iPhone：显示新首页字段
+            @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：显示新首页字段
                 display: block;
-                font-size: 20px;
+                font-size: 28px;
 
                 text-align: center;
             }
@@ -47,11 +47,11 @@ export const MainWrapper = styled.div `
             font-size: 52px;
             margin-bottom: 36px; // 文字上下间距
 
-            @media screen and (max-width: 450px) { // 移动端适配 iPhone：隐藏Lianshucha
+            @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：隐藏Lianshucha
                 display: none;
             }
 
-            @media screen and (min-width: 450px) and (max-width: 800px) { // 移动端适配 iPad：主字段大小
+            @media screen and (min-width: 768px) and (max-width: 1024px) { // 移动端适配 iPad：主字段大小
                 font-size: 40px;
             }
         }
@@ -60,8 +60,8 @@ export const MainWrapper = styled.div `
             font-size: 22px;
             text-align: center; // 文字居中
 
-            @media screen and (max-width: 450px) { // 移动端适配 iPhone：字段缩小
-                font-size: 12px;
+            @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：字段缩小
+                font-size: 16px;
             }
         }
 
@@ -69,8 +69,7 @@ export const MainWrapper = styled.div `
             text-align: center;
             margin-top: 70px; // 按钮向上间距
 
-            @media screen and (max-width: 450px) { // 移动端适配 iPhone：按钮排版
-                display: flex;
+            @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：按钮排版
                 margin-top: 25px;
             }
 
@@ -86,11 +85,13 @@ export const MainWrapper = styled.div `
 
                 margin-right: 110px; // 两个按钮的左右间距
 
-                @media screen and (max-width: 450px) { // 移动端适配 iPhone：按钮缩小
-                    font-size: 7px;
+                @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：按钮缩小
+                    font-size: 19px;
 
-                    height: 28px;
-                    width: 100px;
+                    height: 45px;
+                    width: 145px;
+
+                    margin-left: 30%;
                 }
             }
 
@@ -106,11 +107,8 @@ export const MainWrapper = styled.div `
 
                 background-color: #2894FF; // 天蓝色
 
-                @media screen and (max-width: 450px) { // 移动端适配 iPhone：按钮缩小
-                    font-size: 7px;
-
-                    height: 28px;
-                    width: 100px;
+                @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：按钮隐藏
+                    display: none;
                 }
             }
         }

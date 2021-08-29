@@ -20,8 +20,8 @@ export const InsightTop = styled.div `
         font-size: 32px;
         margin-bottom: 4px; // 大字和小字间距
 
-        @media screen and (max-width: 450px) { // 移动端适配 iPhone：大字缩小
-            font-size: 22px;
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：大字缩小
+            font-size: 28px;
         }
     }
 
@@ -29,9 +29,9 @@ export const InsightTop = styled.div `
         margin-top: 14px; // 小字直接间距
         font-size: 20px;
 
-        @media screen and (max-width: 450px) { // 移动端适配 iPhone：小字缩小
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：小字缩小
             margin-top: 7px;
-            font-size: 10px;
+            font-size: 16px;
         }
     }
 
@@ -47,12 +47,12 @@ export const InsightTop = styled.div `
         height: 40px;
         width: 95px;
 
-        @media screen and (max-width: 450px) { // 移动端适配 iPhone：按钮缩小
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：按钮缩小
             margin-top: 22px;
-            font-size: 7px;
+            font-size: 19px;
 
-            height: 28px;
-            width: 100px;
+            height: 45px;
+            width: 145px;
         }
     }
 `;
@@ -61,7 +61,11 @@ export const InsightBottom = styled.div `
     display: flex;
     justify-content: space-around; // 分布居中
 
-    // .insight-img{
-    //     margin-left: -150px; // 图片居中
-    // }
+    .insight-iphone{
+        display: none; // 移动端适配 iPhone：隐藏第三张图
+    }
+
+    .insight-img{
+        width: 45vw !important; // 移动端适配 iPhone：放大图片
+    }
 `;

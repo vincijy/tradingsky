@@ -44,7 +44,7 @@ export default memo(function LSHomeInsight() {
           bordered={false}
         />
         <Card
-          className='insight-img'
+          className='insight-img insight-iphone'
           hoverable
           style={{ width: '25vw', height: '18.75vw' }}
           cover={<img

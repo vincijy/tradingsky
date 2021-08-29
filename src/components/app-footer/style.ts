@@ -7,11 +7,11 @@ export const FooterWrapper = styled.div `
         display: flex;    
         justify-content: space-between;
 
-        @media screen and (max-width: 450px) { // 移动端适配 iPhone：footer宽度
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：footer宽度
             max-width: 327px;
         }
 
-        @media screen and (max-width: 450px) { // 移动端适配 iPhone：纵向排列
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：纵向排列
             flex-direction: column;
             justify-content: flex-start;
         }
@@ -41,8 +41,8 @@ export const FooterLeft = styled.div `
         font-weight: 10;
         color: #808080;
 
-        @media screen and (max-width: 450px) { // 移动端适配 iPhone：纵向排列
-            font-size: 7px;
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：纵向排列
+            font-size: 14px;
         }
     }
 `;
@@ -52,7 +52,7 @@ export const FooterRight = styled.div `
         display: flex;
         align-items: center;
 
-        @media screen and (max-width: 450px) { // 移动端适配 iPhone：纵向排列、上下间距
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：纵向排列、上下间距
             flex-direction: column;
             align-items: flex-start;
 
@@ -63,14 +63,14 @@ export const FooterRight = styled.div `
             margin: 0 8px;
             font-size: 14px;
 
-            @media screen and (max-width: 450px) { // 移动端适配 iPhone：缩小字体、上下间距 li
+            @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：缩小字体、上下间距 li
                 margin-top: 5px;
-                font-size: 7px;
+                font-size: 14px;
             }
         }
 
         .footer-iphone{
-            @media screen and (max-width: 450px) { // 移动端适配 iPhone：icon横向
+            @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：字体和间距
                 margin-top: 20px;
                 display: flex;
             }

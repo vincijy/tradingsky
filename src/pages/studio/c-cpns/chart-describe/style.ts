@@ -6,7 +6,7 @@ export const DescribeWrapper = styled.div `
         text-align: left;
         font-size: large;
 
-        @media screen and (min-width: 900px) and (max-width: 1100px) { // 移动端适配 iPad pro：拉长边距
+        @media screen and (min-width: 1024px) and (max-width: 1366px) { // 移动端适配 iPad pro：拉长边距
             margin-top: 65px;
             margin-bottom: 30px;
         }
@@ -17,15 +17,15 @@ export const DescribeWrapper = styled.div `
         height: 200px;
         border-radius: 2px;
 
-        @media screen and (max-width: 450px) { // 移动端适配 iPhone：放大高度
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：放大高度
             height: 300px;
         }
 
-        @media screen and (min-width: 450px) and (max-width: 800px) { // 移动端适配 iPad：放大高度
+        @media screen and (min-width: 768px) and (max-width: 1024px) { // 移动端适配 iPad：放大高度
             height: 280px;
         }
 
-        @media screen and (min-width: 900px) and (max-width: 1100px) { // 移动端适配 iPad pro：放大高度
+        @media screen and (min-width: 1024px) and (max-width: 1366px) { // 移动端适配 iPad pro：放大高度
             height: 250px;
         }
     }

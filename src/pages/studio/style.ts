@@ -12,11 +12,11 @@ export const ChartLeft = styled.div `
         height: 1235px;
         background-color: white;
 
-        @media screen and (min-width: 450px) and (max-width: 800px) { // 移动端适配 iPad：放大高度
+        @media screen and (min-width: 768px) and (max-width: 1024px) { // 移动端适配 iPad：放大高度
             height: 1289px;
         }
 
-        @media screen and (min-width: 900px) and (max-width: 1100px) { // 移动端适配 iPad pro：放大高度
+        @media screen and (min-width: 1024px) and (max-width: 1366px) { // 移动端适配 iPad pro：放大高度
             height: 1310px;
         }
     }
@@ -33,7 +33,7 @@ export const AppFooter = styled.div `
         }
 
         .footer-iphone{
-            @media screen and (min-width: 450px) and (max-width: 800px) { // 移动端适配 iPad：隐藏icon
+            @media screen and (min-width: 768px) and (max-width: 1024px) { // 移动端适配 iPad：隐藏icon
                 display: none;
             }
         }

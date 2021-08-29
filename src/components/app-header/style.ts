@@ -14,7 +14,7 @@ export const HeaderWrapper = styled.div `
             max-width: 2000px; // 宽屏适配 大显示器：铺满页面
         }
 
-        @media screen and (max-width: 450px) { // 移动端适配 iPhone：header铺开
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：header铺开
             max-width: 327px;
         }
 
@@ -39,7 +39,7 @@ export const HeaderLeft = styled.div `
             font-size: 25px;
             font-family: "Rusty - Demo";
 
-            @media screen and (max-width: 450px) { // 移动端适配 iPhone：logo大小
+            @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：logo大小
                 width: 100px;
             }
         }
@@ -51,11 +51,11 @@ export const HeaderLeft = styled.div `
             margin-left: 35px; // 下划线与logo的距离
             margin-right: 15px;
 
-            @media screen and (max-width: 450px) { // 移动端适配 iPhone：隐藏分隔线
+            @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：隐藏分隔线
                 display: none;
             }
 
-            @media screen and (min-width: 450px) and (max-width: 800px) { // 移动端适配 iPad：隐藏分隔线
+            @media screen and (min-width: 768px) and (max-width: 1024px) { // 移动端适配 iPad：隐藏分隔线
                 display: none;
             }
         }
@@ -65,7 +65,7 @@ export const HeaderLeft = styled.div `
             font-weight: bold;
             padding: 0 13px;
 
-            @media screen and (max-width: 450px) { // 移动端适配 iPhone：隐藏导航栏
+            @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：隐藏导航栏
                 display: none;
             }
         }
@@ -97,11 +97,11 @@ export const HeaderRight = styled.div `
             margin-right: 15px;
         }
 
-        @media screen and (max-width: 450px) { // 移动端适配 iPhone；隐藏图标
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone；隐藏图标
            display: none;
         }
 
-        @media screen and (min-width: 450px) and (max-width: 800px) { // 移动端适配 iPad：隐藏宣传icon
+        @media screen and (min-width: 768px) and (max-width: 1024px) { // 移动端适配 iPad：隐藏宣传icon
            display: none;
         }
     }
@@ -125,7 +125,7 @@ export const HeaderRight = styled.div `
 
                 margin-right: 15px;
 
-                @media screen and (max-width: 450px) { // 移动端适配 iPhone：缩小按钮
+                @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：缩小按钮
                     width: 55px;
                     height: 32px;
                     font-size: 12px;
@@ -138,7 +138,7 @@ export const HeaderRight = styled.div `
                 border: 0;
                 border-radius: 2px;
                 
-                @media screen and (max-width: 450px) { // 移动端适配 iPhone：缩小按钮
+                @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：缩小按钮
                     width: 55px;
                     height: 32px;
                     font-size: 12px;
