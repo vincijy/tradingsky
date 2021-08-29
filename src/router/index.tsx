@@ -1,37 +1,30 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-
-import LSHomePage from '@/pages/home';
-import LSChartPage from '@/pages/studio';
-import LSCatalogPage from '@/pages/catalog';
-import LSSettingPage from '@/pages/setting';
-import LSPiratePage from '@/pages/pirate';
-
+import { dynamicComponent as dc } from '@/utils/dynamic';
 const routes = [
   {
     path: '/',
     exact: true,
-    component: LSHomePage,
+    component: dc(() => import('@/pages/home'), undefined),
   },
   {
     path: '/chart',
     exact: true,
-    component: LSChartPage,
+    component: dc(() => import( '@/pages/studio'), undefined),
   },
   {
     path: '/catalog',
     exact: true,
-    component: LSCatalogPage,
+    component: dc(() => import( '@/pages/catalog'), undefined),
   },
   {
     path: '/setting',
     exact: true,
-    component: LSSettingPage,
+    component: dc(() => import( '@/pages/setting'), undefined),
   },
   {
     path: '/pirate',
     exact: true,
-    component: LSPiratePage,
+    component: dc(() => import( '@/pages/pirate'), undefined),
   },
 ];
 
