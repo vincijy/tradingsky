@@ -2,10 +2,7 @@ import React, { memo } from 'react';
 
 import { Card } from 'antd';
 import { Button } from 'antd';
-
-import one from '@/assets/img/insight_one.jpeg';
-import two from '@/assets/img/insight_two.jpeg';
-import three from '@/assets/img/insight_three.jpeg';
+import { ossImgs } from '@/oss';
 
 import { InsightWrapper, InsightTop, InsightBottom } from './style';
 
@@ -32,7 +29,7 @@ export default memo(function LSHomeInsight() {
           style={{ width: '25vw', height: '18.75vw' }}
           cover={<img
             alt='链数查'
-            src={one}
+            src={ossImgs.insightOne}
             style={{ width: '100%' }} />}
           bordered={false}
         />
@@ -42,7 +39,7 @@ export default memo(function LSHomeInsight() {
           style={{ width: '25vw', height: '18.75vw' }}
           cover={<img
             alt='链数查'
-            src={two}
+            src={ossImgs.insightTwo}
             style={{ width: '100%' }} />}
           bordered={false}
         />
@@ -52,7 +49,7 @@ export default memo(function LSHomeInsight() {
           style={{ width: '25vw', height: '18.75vw' }}
           cover={<img
             alt='链数查'
-            src={three}
+            src={ossImgs.insightThree}
             style={{ width: '100%' }} />}
           bordered={false}
         />

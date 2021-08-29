@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import catalog from '@/assets/img/home_catalog.jpeg';
-
+import { ossImgs } from '@/oss';
 
 export const CatalogWrapper = styled.div `
     height: 800px; // 整体大小
-    background: url(${catalog}) no-repeat center; // 图片填充
+    background: url(${ossImgs.homeCatalog}) no-repeat center; // 图片填充
     background-size: 95% 95%;
     margin-top: -100px; // 向上合并一点
 
