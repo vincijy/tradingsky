@@ -22,18 +22,19 @@ export const PirateWrapper = styled.div `
 
     background: url(${ossImgs.homePirate}) no-repeat center; // 图片填充
     background-size: 95% 95%;
-    margin-top: -80px; // 向上合并一点
+    margin-top: -60px; // 向上合并一点
 
     @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：向下移动
-        margin-top: 80px;
+        margin-top: 115px;
+        margin-bottom: 15px;
     }
 
     @media screen and (min-width: 768px) and (max-width: 1024px) { // 移动端适配 iPad：向下移动
-        margin-top: 0px;
+        margin-top: 5px;
     }
 
     @media screen and (min-width: 1024px) and (max-width: 1366px) { // 移动端适配 iPad pro：水平 垂直 对齐
-        margin-top: 10px;
+        margin-top: 5px;
     }
 
     .content{

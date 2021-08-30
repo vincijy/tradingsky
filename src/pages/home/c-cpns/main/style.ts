@@ -62,6 +62,8 @@ export const MainWrapper = styled.div `
 
             @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：字段缩小
                 font-size: 16px;
+                margin-left: 15px;
+                margin-right: 15px;
             }
         }
 

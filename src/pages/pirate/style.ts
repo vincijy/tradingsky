@@ -42,7 +42,7 @@ export const PirateWrapper = styled.div `
             height: 250px;
             margin-top: 140px;
             margin-bottom: 40px; // 向footer的间距
-            background-size: 160% 160%;
+            background-size: 160% 130%;
         }
 
         @media screen and (min-width: 768px) and (max-width: 1024px) { // 移动端适配 iPad：背景图片缩小

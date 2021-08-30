@@ -10,6 +10,10 @@ export const InsightTop = styled.div `
 
     margin-top: 10px; // 向上间距
 
+    @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：上下间距
+        margin-top: 30px;
+    }
+
     @media screen and (min-width: 1550px) {
         margin-top: 40px; // 宽屏适配
     }
@@ -62,10 +66,14 @@ export const InsightBottom = styled.div `
     justify-content: space-around; // 分布居中
 
     .insight-iphone{
-        display: none; // 移动端适配 iPhone：隐藏第三张图
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：隐藏第三张图
+            display: none;
+        }
     }
 
     .insight-img{
-        width: 45vw !important; // 移动端适配 iPhone：放大图片
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：放大图片
+            width: 45vw !important; 
+        }
     }
 `;
