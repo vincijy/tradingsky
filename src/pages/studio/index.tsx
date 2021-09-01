@@ -55,8 +55,6 @@ export default memo(function LSChartPage() {
             <LSAppFooter />
           </AppFooter>
         </Layout>
-
-
       </Layout>
     </ChartWrapper>
   );

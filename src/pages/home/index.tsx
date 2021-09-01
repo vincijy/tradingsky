@@ -1,6 +1,5 @@
 // 第三方
 import React, { memo } from 'react';
-
 // 功能
 
 // 组件
@@ -17,10 +16,10 @@ export default memo(function LSHomePage() {
   return (
     <HomePageWrapper>
       <LSHomeMain />
-      <LSHomeCatalog />
-      <LSHomeInsight />
-      <LSHomePirate />
-      <LSAppFooter />
+      <LSHomeCatalog/>
+      <LSHomeInsight/>
+      <LSHomePirate/>
+      <LSAppFooter/>
     </HomePageWrapper>
   );
 });

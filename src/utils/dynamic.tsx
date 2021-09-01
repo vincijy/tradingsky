@@ -1,5 +1,6 @@
 import * as React from 'react';
-
+import ReactDOM from 'react-dom';
+import { useEffect, useState } from 'react';
 interface WapperState {
   COMPONENT:React.ComponentClass | null;
 }
@@ -54,4 +55,52 @@ export const dynamicComponent = (loadComponent:any, exportComponent?:string) => 
   }
 
   return AsyncComponent;
+};
+
+export const useDynamicRender = (el:React.FunctionComponentElement<any>, toMountedDomId:string) => {
+  const isInView = (el:Element):boolean => {
+    const bound = el.getBoundingClientRect();
+    const clientHeight = window.innerHeight;
+    // if top edge of el is smaller than clientHeight
+    // --------
+    //   --bound.top
+    // --------clientHeight
+    //   --
+    // why 20? in mobile client we can not scroll to bottom of document, thus
+    // causing bound can not be in view
+    // so not to be so exactly
+    return bound.top - 20 <= clientHeight;
+  };
+  const lazyRender = (el:React.FunctionComponentElement<any>, root:Element):void => {
+    // do not render repeatly
+    if (root.children.length > 0) {
+      return;
+    }
+    ReactDOM.render(
+      el,
+      root,
+      () => {
+        console.log('rendering', root);
+      },
+    );
+  };
+  useEffect(() => {
+    const root = document.querySelector(`#${toMountedDomId}`);
+    if (!root) {
+      return;
+    }
+    const handler = () => {
+      if (root.children.length > 0) {
+        window.removeEventListener('scroll', handler);
+      }
+      if (isInView(root)) {
+        root && lazyRender(el, root);
+      }
+    };
+    handler();
+    window.addEventListener('scroll', handler);
+    return () => {
+      window.removeEventListener('scroll', handler);
+    };
+  }, []);
 };

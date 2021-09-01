@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { Button } from 'antd';
+import { useDynamicRender } from '@/utils/dynamic';
 
 import { PirateWrapper } from './style';
 
@@ -15,7 +16,7 @@ export default memo(function LSHomePirate() {
     history.push('/pirate');
   };
 
-  return (
+  const content = (
     <PirateWrapper>
       <div className='content'>
         <div className='container'>
@@ -29,5 +30,11 @@ export default memo(function LSHomePirate() {
         </div>
       </div>
     </PirateWrapper>
+  );
+
+  useDynamicRender(content, 'pirate_root');
+
+  return (
+    <div id='pirate_root'/>
   );
 });

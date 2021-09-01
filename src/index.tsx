@@ -1,5 +1,4 @@
 // 第三方
-import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { version, name } from '../package.json';
@@ -15,6 +14,7 @@ console.log(
 );
 
 ReactDOM.render(
+  // eslint-disable-next-line react/react-in-jsx-scope
   <App />,
   document.getElementById('root'),
 );

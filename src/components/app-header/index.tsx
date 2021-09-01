@@ -16,7 +16,6 @@ import { AuthingGuard, GuardMode, GuardScenes, initAuthClient, getAuthClient } f
 import '@authing/react-ui-components/lib/index.min.css';
 import { AuthenticationClient } from 'authing-js-sdk'; // 登录SDK
 
-import logo from '@/assets/img/logo.svg';
 import smallLogo from '@/assets/img/logo.png';
 import { setLoginPanelVisible } from '@/pages/studio/store/action';
 import { getUserRole, makeUserRole } from '@/api/user';
@@ -209,7 +208,7 @@ export default memo(function LSAppHeader() {
               className='logo-nav'
               to='/'><img
                 className='logo'
-                src={logo} />
+                src={''} />
             </NavLink>
             <div className='separator' />
             {

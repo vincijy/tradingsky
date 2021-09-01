@@ -3,13 +3,12 @@ import React, { memo } from 'react';
 import { Card } from 'antd';
 import { Button } from 'antd';
 import { ossImgs } from '@/oss';
-
+import { useDynamicRender } from '@/utils/dynamic';
 import { InsightWrapper, InsightTop, InsightBottom } from './style';
 
 export default memo(function LSHomeInsight() {
-
-  return (
-    <InsightWrapper>
+  const content = (
+    <div>
       <InsightTop>
         <h2>洞见/指标原理</h2>
         <p>链数查提供专业化的市场分析及指标原理介绍</p>
@@ -54,6 +53,11 @@ export default memo(function LSHomeInsight() {
           bordered={false}
         />
       </InsightBottom>
-    </InsightWrapper>
+    </div>
+  );
+  useDynamicRender(content, 'insight_root');
+
+  return (
+    <InsightWrapper id='insight_root'/>
   );
 });
