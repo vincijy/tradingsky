@@ -6,6 +6,8 @@ from pprint import pprint
 # 导入Fabric API:
 from fabric.api import *
 
+# 将秘钥等放在外层的文件夹
+os.sys.path.append(os.path.abspath(os.path.join('..', 'lsc_secrect')))
 from fabfile_config import dev_config, prod_config
 
 import os
