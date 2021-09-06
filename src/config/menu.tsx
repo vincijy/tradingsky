@@ -25,6 +25,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
+        catalogText: '每天发生交易的地址数量',
       },
       {
         name: '新增地址数',
@@ -42,6 +43,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
+        catalogText: '去除空地址后，每天新增的地址数量',
       },
       {
         name: '地址总量',
@@ -59,6 +61,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
+        catalogText: '所有地址的数量',
       },
       {
         name: '非零余额地址',
@@ -76,6 +79,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
+        catalogText: '所有余额不为零的地址数量',
       },
       {
         name: '巨鲸地址数：持币>1k地址数',
@@ -93,6 +97,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
+        catalogText: '持有币数大于1k的地址数量',
       },
     ],
   },
@@ -118,6 +123,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
+        catalogText: '灰度价格相对于市场价格的溢价和折价率',
       },
       {
         name: '灰度持仓量：币本位',
@@ -135,6 +141,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
+        catalogText: '灰度基金AUM、使用币本位计算',
       },
       {
         name: '灰度持仓量：美元',
@@ -152,6 +159,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
+        catalogText: '灰度基金AUM、使用美元计算',
       },
       {
         name: '灰度净流量变化',
@@ -169,6 +177,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
+        catalogText: '流入流出灰度基金的金额',
       },
     ],
   },
@@ -194,6 +203,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
+        catalogText: '取多个交易所数据计算后的等权重价格',
       },
       {
         name: '市值',
@@ -211,6 +221,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
+        catalogText: '总市值规模',
       },
     ],
   },
@@ -236,6 +247,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673427649724507',
         },
         assetList: 'BTC,ETH',
+        catalogText: '在当前的市场价格下，处于盈利状态的百分比',
       },
     ],
   },
@@ -261,6 +273,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673526568452248',
         },
         assetList: 'BTC',
+        catalogText: '用来衡量宏观资金环境的指标',
       },
       {
         name: '短期市场估值（SOPR）',
@@ -278,6 +291,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673543412514917',
         },
         assetList: 'BTC',
+        catalogText: '用来衡量短期超买超卖（超跌超涨）的指标',
       },
       {
         name: '储备风险指数',
@@ -295,6 +309,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673558512009231',
         },
         assetList: 'BTC',
+        catalogText: '追踪长期持有者对市场的估值态度',
       },
       {
         name: 'Puell估值倍数',
@@ -312,6 +327,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673573607309341',
         },
         assetList: 'BTC',
+        catalogText: '使用puell对市场估值的方法，确定牛市和熊市',
       },
       {
         name: '长期持有者行为（CDD）',
@@ -329,6 +345,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673406821073852',
         },
         assetList: 'BTC',
+        catalogText: '追踪长期投资者的行为',
       },
       {
         name: '市场健康程度',
@@ -346,6 +363,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673588706803725',
         },
         assetList: 'BTC',
+        catalogText: '描述市场运行的健康程度',
       },
       {
         name: '长期市场估值',
@@ -363,6 +381,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673603814686891',
         },
         assetList: 'BTC,ETH',
+        catalogText: '确定市场中的总盈亏状态，并据此进行估值',
       },
     ],
   },
@@ -388,6 +407,7 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
+        catalogText: '交易所持有的余额总量',
       },
     ],
   },
