@@ -315,8 +315,8 @@ export default memo(function LSChartBox() {
       <img
         src={btcLogo}
         alt='比特币' />
-      {/* 这部分后面都用chain-data文件里的数据替换：logo、title */}
-      <span title='' > { name }</span>
+      {/* 这部分后面都用chain-data文件里的数据替换：logo、title、币种名 */}
+      <span title='' > 比特币：{ name }</span>
     </div>
   );
 

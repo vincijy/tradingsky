@@ -20,6 +20,7 @@ export const HeaderWrapper = styled.div `
 
         .logo-nav:hover{
             border-bottom: none;  // 鼠标指向去下划线
+            font-weight: normal;  // 取消logo的变粗效果
         }
     }
 

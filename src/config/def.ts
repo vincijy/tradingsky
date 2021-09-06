@@ -49,6 +49,11 @@ export interface SubMenuItem {
       * 资产类别
       */
       assetList:string;
+
+     /**
+      * 目录页指标介绍
+      */
+      catalogText:string;
 }
 
 export interface MenuItem {
