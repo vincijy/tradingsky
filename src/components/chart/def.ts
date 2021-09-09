@@ -12,3 +12,12 @@ export enum constructorType {
     // 用于甘特图
     ganttChart = 'ganttChart'
 }
+
+export interface IDataUnit {
+  t:number;
+  v:number;
+  index:number;
+};
+
+export type TypeDataRow = IDataUnit[]
+

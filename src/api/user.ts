@@ -13,13 +13,9 @@ export function getUserRole():AxiosPromise<any> {
   });
 };
 
-(window as any).getUserRole = getUserRole;
-
 export function makeUserRole():AxiosPromise<any> {
   return request({
     url: '/api/v1/auth/sign',
     params: {},
   });
 };
-
-(window as any).makeUserRole = makeUserRole;

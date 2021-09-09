@@ -7,6 +7,7 @@ import { getHighCharts } from '../index';
 
 import { constructorType } from '../def';
 import { commonOptions } from '../common_option';
+import { TypeDataRow } from '../def';
 import { options } from './option';
 
 interface IProps {
@@ -15,7 +16,7 @@ interface IProps {
      */
     seriesA:{
       name:string;
-      data:{t:number, v:number}[];
+      data:TypeDataRow;
     };
 
     /**
@@ -23,7 +24,7 @@ interface IProps {
      */
     seriesB:{
       name:string;
-      data:{t:number, v:number}[];
+      data:TypeDataRow;
     };
 }
 

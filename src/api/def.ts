@@ -1,3 +1,4 @@
+import { TypeDataRow } from '@/components/chart/def';
 
 export interface Params {
     /**
@@ -5,3 +6,7 @@ export interface Params {
      */
     asset:string;
 }
+
+export interface IChartDataResponse {
+    rows:TypeDataRow;
+};

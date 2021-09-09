@@ -1,22 +1,18 @@
-// 第三方
 import React, { memo, useEffect, useState, useLayoutEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-// 图标React 封装
 import { Card, Spin, Button } from 'antd';
 
 import { useAppSelector, useAppDispatch } from '@/hooks';
 
-
-// 功能
 import btcLogo from '@/assets/img/btc_logo.png';
 import LSChartDoubleLine from '@/components/chart/line';
 import { getHighCharts } from '@/components/chart';
 import { getChartData, getBtcPrice } from '@/api/chart';
 
-// 本地
-import { SubMenuItem } from '@/config/def';
 import { LoadingOutlined } from '@ant-design/icons';
+import { setBtcPriceData } from '@/store/chart/action';
+import { TypeDataRow } from '@/components/chart/def';
 import { setLoginPanelVisible } from '../../../store/ui/action';
 import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip } from './style';
 
@@ -200,9 +196,10 @@ export default memo(function LSChartBox() {
     removeBtns();
   }, [loginRequired, vipRequired, isLogin]);
 
-
-  const [dataA, setDataA] = useState([]);
-  const [dataB, setDataB] = useState([]);
+  const btcPriceData = useAppSelector((state) => state.chart.btcPriceData);
+  const initData:TypeDataRow = [];
+  const [dataA, setDataA] = useState(initData);
+  const [dataB, setDataB] = useState(btcPriceData);
 
   /**
    * 请求接口数据
@@ -210,38 +207,31 @@ export default memo(function LSChartBox() {
   const requestData = () => {
     // 左边指标、右边价格
     // 指标
-    setDataA([]);
-    setDataB([]);
+    setDataA(initData);
+    setDataB(initData);
     showLoading();
-    const p1 = new Promise<void>((resolve, reject) => {
+
+    const p1 = new Promise<TypeDataRow>((resolve, reject) => {
       getChartData(index, asset)
         .then((res) => {
-          setDataA((res as any).rows || []);
-          resolve();
+          resolve((res as any).rows || initData);
         })
         .catch((err) => {
           console.error(err);
           reject();
         });
     });
-
-    const p2 = new Promise<void>((resolve, reject) => {
-      // 多个图表公用的BTC价格, 只请求一次
-      // TODO: 使用redux存储而不是直接挂在window上
-
-      if ((window as any).btcPriceData) {
-        resolve();
+    const p2 = new Promise<TypeDataRow>((resolve, reject) => {
+      // 如果已经请求过了, 不必再次请求
+      if (btcPriceData.length !== 0) {
+        resolve(initData);
         return;
       }
 
       // 价格
       getBtcPrice()
         .then((res) => {
-          const dataB = (res as any).rows || [];
-          setDataB(dataB);
-          // TODO: 使用redux存储而不是直接挂在window上
-          (window as any).btcPriceData = dataB;
-          resolve();
+          resolve((res as any).rows || []);
         })
         .catch((err) => {
           console.error(err);
@@ -250,11 +240,18 @@ export default memo(function LSChartBox() {
     });
 
     Promise.all([p1, p2])
-      .then(() => {
+      .then((res) => {
         hideLoading();
-        // TODO: 使用redux存储而不是直接挂在window上
-        // BTC 价格线数据, 之所以在这里更新是为了保证loading的时候空空如也
-        setDataB((window as any).btcPriceData);
+        const [dataA, dataB] = res;
+        dataA.length > 0 && setDataA(dataA);
+        if (dataB.length > 0) {
+          setDataB(dataB);
+          dipatch(setBtcPriceData({
+            btcPriceData: dataB,
+          }));
+        } else {
+          setDataB(btcPriceData);
+        }
       })
       .catch((err) => {
         console.error(err);

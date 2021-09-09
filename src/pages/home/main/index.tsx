@@ -96,7 +96,6 @@ export default memo(function LSHomeMain() {
           // 缓存
           const v = JSON.stringify(userInfo);
           localStorage.setItem('userInfo', v);
-          (window as any).userInfo = userInfo;
 
           // 获取权限
           getUserRole()
@@ -104,7 +103,6 @@ export default memo(function LSHomeMain() {
               userInfo.role = res;
               const v = JSON.stringify(userInfo);
               localStorage.setItem('userInfo', v);
-              (window as any).userInfo = userInfo;
             })
             .catch((err) => {
               console.error(err);
@@ -120,7 +118,6 @@ export default memo(function LSHomeMain() {
               userInfo.role = res;
               const v = JSON.stringify(userInfo);
               localStorage.setItem('userInfo', v);
-              (window as any).userInfo = userInfo;
             })
             .catch((err) => {
               console.error(err);

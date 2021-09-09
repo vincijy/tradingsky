@@ -49,9 +49,10 @@ export default memo(function LSChartMenu() {
   };
 
   const [openKeys, setOpenKeys] = React.useState([selectedMenu.key]);
+
   const onOpenChange = (keys:React.Key[]) => {
     const newOpenKeys = filter(keys, (k) => !includes(openKeys, k));
-    setOpenKeys(newOpenKeys as any);
+    setOpenKeys(newOpenKeys as string[]);
   };
 
   return (
