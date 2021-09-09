@@ -14,7 +14,7 @@ export default memo(function LSSettingPage() {
 
   // redux hook
   const { userInfo } = useAppSelector((state) => ({
-    userInfo: state.headerLogin.userInfo,
+    userInfo: state.user.userInfo,
   }), shallowEqual);
 
   return (

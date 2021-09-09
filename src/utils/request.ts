@@ -12,7 +12,7 @@ const instance = axios.create({
 // 请求拦截器
 instance.interceptors.request.use(
   (config) => {
-    const userInfo = (store.getState().headerLogin.userInfo);
+    const userInfo = (store.getState().user.userInfo);
     if (!userInfo) {
       return config;
     }

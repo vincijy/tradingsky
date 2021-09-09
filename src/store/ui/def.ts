@@ -9,3 +9,11 @@ export interface PayloadChangeMenu {
 export interface PayloadsetLoginPanelVisible {
     loginPanelVisible:boolean;
 }
+
+export interface Iui {
+    currentMenu:{
+      menu:Omit<MenuItem, 'subMenus'>;
+      subMenu:SubMenuItem;
+    };
+    loginPanelVisible:boolean;
+}

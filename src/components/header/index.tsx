@@ -1,6 +1,6 @@
 // 第三方
 import React, { memo, useState, useLayoutEffect } from 'react';
-import { useDispatch, shallowEqual } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { useAppSelector } from '@/hooks';
 import { useHistory } from 'react-router';
@@ -18,14 +18,14 @@ import '@authing/react-ui-components/lib/index.min.css';
 import { AuthenticationClient } from 'authing-js-sdk'; // 登录SDK
 
 import smallLogo from '@/assets/img/logo.png';
-import { setLoginPanelVisible } from '@/store/ui_data/action';
+import { setLoginPanelVisible } from '@/store/ui/action';
 import { getUserRole, makeUserRole } from '@/api/user';
-import { getLoginAction, getLogoutAction, getUserInfoAction } from '@/store/user_info/action'; // 改变登录状态
+import { getLoginAction, getLogoutAction, getUserInfoAction } from '@/store/user/action'; // 改变登录状态
 
 import { HeaderWrapper, HeaderLeft, HeaderRight } from './style'; // 样式
 
 export default memo(function LSAppHeader() {
-  const loginPanelVisible = useAppSelector((state) => state.uiData.loginPanelVisible);
+  const loginPanelVisible = useAppSelector((state) => state.ui.loginPanelVisible);
 
   const [config, setConfig] = useState({
     mode: GuardMode.Modal,
@@ -40,8 +40,8 @@ export default memo(function LSAppHeader() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const isLogin = useAppSelector((state) => state.headerLogin.isLogin);
-  const userInfo = useAppSelector((state) => state.headerLogin.userInfo);
+  const isLogin = useAppSelector((state) => state.user.isLogin);
+  const userInfo = useAppSelector((state) => state.user.userInfo);
 
   const authenticationClient = new AuthenticationClient({
     appId: '61160ec791133eecb2c0978b',

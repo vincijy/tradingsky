@@ -18,7 +18,7 @@ import { getChartData, getBtcPrice } from '@/api/chart';
 // 本地
 import { SubMenuItem } from '@/config/def';
 import { LoadingOutlined } from '@ant-design/icons';
-import { setLoginPanelVisible } from '../../../store/ui_data/action';
+import { setLoginPanelVisible } from '../../../store/ui/action';
 import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip } from './style';
 
 const antIcon = (
@@ -164,7 +164,7 @@ export default memo(function LSChartBox() {
   const dipatch = useDispatch();
 
   // 读取选中的菜单
-  const { subMenu: selectedSubMenu } = useAppSelector((state) => state.uiData.currentMenu);
+  const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
   const { args: { index, asset },
     loginRequired,
     vipRequired,
@@ -172,8 +172,8 @@ export default memo(function LSChartBox() {
   } = selectedSubMenu;
 
   // 读取用户的信息
-  const isLogin = useAppSelector((state) => state.headerLogin.isLogin);
-  const userInfo = useAppSelector((state) => state.headerLogin.userInfo);
+  const isLogin = useAppSelector((state) => state.user.isLogin);
+  const userInfo = useAppSelector((state) => state.user.userInfo);
   const role = userInfo.role || {};
 
   useLayoutEffect(() => {

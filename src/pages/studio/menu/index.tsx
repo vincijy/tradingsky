@@ -11,14 +11,14 @@ import { menus } from '@/config/menu'; // 分类数据
 // 组件
 import { Menu } from 'antd';
 import { filter, includes } from 'lodash';
-import { changeMenu } from '../../../store/ui_data/action';
+import { changeMenu } from '../../../store/ui/action';
 
 import { MenuWrapper } from './style';
 
 export default memo(function LSChartMenu() {
   const dispatch = useDispatch();
 
-  const { menu: selectedMenu, subMenu: selectedSubMenu } = useAppSelector((state) => state.uiData.currentMenu);
+  const { menu: selectedMenu, subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
   /**
    * 根据菜单的路径更新redux
    * @param e 读取菜单的路径

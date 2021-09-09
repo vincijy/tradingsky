@@ -1,20 +1,9 @@
-// 导入所有常量
 import { handleActions } from 'redux-actions';
 import { menus } from '@/config/menu';
-import { SubMenuItem, MenuItem } from '@/config/def';
-
 import * as A from './action_type';
+import { Iui } from './def';
 
-interface IUIState {
-  currentMenu:{
-    menu:Omit<MenuItem, 'subMenus'>;
-    subMenu:SubMenuItem;
-  };
-  loginPanelVisible:boolean;
-}
-
-
-const initState:IUIState = {
+const initState:Iui = {
   currentMenu: {
     menu: menus[0],
     subMenu: menus[0].subMenus[0],
@@ -22,17 +11,15 @@ const initState:IUIState = {
   loginPanelVisible: false,
 };
 
-
 // https://redux.js.org/usage/usage-with-typescript
-// TODO: 类型管理
 function setUi(state = initState, action:any) {
   switch (action.type) {
-    case A.changeMenu:
+    case A.CHANGE_MENU:
       return {
         ...state,
         currentMenu: action.payload.currentMenu,
       };
-    case A.setLoginPanelVisible:
+    case A.TOGGLE_LOGIN_PANEL_VISIBLE:
       return {
         ...state,
         loginPanelVisible: action.payload.loginPanelVisible,
@@ -42,12 +29,10 @@ function setUi(state = initState, action:any) {
   }
 }
 
-// TODO: fix type
-export const setUiReducer = handleActions<IUIState, any>(
+export const reducer = handleActions<Iui, any>(
   {
-    [A.changeMenu]: setUi,
-    [A.setLoginPanelVisible]: setUi,
+    [A.CHANGE_MENU]: setUi,
+    [A.TOGGLE_LOGIN_PANEL_VISIBLE]: setUi,
   },
-
   initState,
 );

@@ -8,7 +8,7 @@ import { DescribeWrapper } from './style';
 export default memo(function LSChartDescribe() {
 
   // 选中的菜单
-  const { subMenu: selectedSubMenu } = useAppSelector((state) => state.uiData.currentMenu);
+  const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
   const { args: { index, asset },
     introduce,
     assetList,

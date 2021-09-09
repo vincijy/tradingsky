@@ -14,16 +14,16 @@ import { Button } from 'antd';
 
 import smallLogo from '@/assets/img/logo.png';
 
-import { setLoginPanelVisible } from '@/store/ui_data/action';
+import { setLoginPanelVisible } from '@/store/ui/action';
 import { getUserRole, makeUserRole } from '@/api/user';
-import { getLoginAction, getUserInfoAction } from '@/store/user_info/action'; // 改变登录状态
+import { getLoginAction, getUserInfoAction } from '@/store/user/action'; // 改变登录状态
 
 import { MainWrapper } from './style';
 
 export default memo(function LSHomeMain() {
 
   // state/props
-  const loginPanelVisible = useAppSelector((state) => state.uiData.loginPanelVisible); // 登录框组件的显示
+  const loginPanelVisible = useAppSelector((state) => state.ui.loginPanelVisible); // 登录框组件的显示
   const [config, setConfig] = useState({ // 登录框组件的配置
     mode: GuardMode.Modal,
     title: '欢迎来到LianShuCha',
@@ -35,7 +35,7 @@ export default memo(function LSHomeMain() {
 
   // redux hook
   const { isLogin } = useAppSelector((state) => ({ // 登录状态
-    isLogin: state.headerLogin.isLogin,
+    isLogin: state.user.isLogin,
   }), shallowEqual);
 
   // other hook
