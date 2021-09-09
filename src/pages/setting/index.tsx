@@ -28,7 +28,9 @@ export default memo(function LSSettingPage() {
                   <Input placeholder='恭喜您成为LianShuCha内测用户' defaultValue='恭喜您成为LianShuCha内测用户' />
                 </Form.Item>
                 <Form.Item label='手机号'>
-                  <Input placeholder='未绑定手机号' defaultValue={userInfo.phone} />  {/* 这里未来用redux数据修改 */}
+                  <Input
+                    placeholder='未绑定手机号'
+                    defaultValue={userInfo.phone || ''} />  {/* 这里未来用redux数据修改 */}
                 </Form.Item>
               </Form>
             </Card>

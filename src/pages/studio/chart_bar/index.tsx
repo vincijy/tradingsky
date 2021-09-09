@@ -8,7 +8,10 @@ import { getHighCharts } from '@/components/chart';
 import { BarWrapper } from './style';
 
 // TODO: fix type
-export default memo(function LSChartBar(props:any) {
+interface IState {
+  changeShow:Function;
+}
+export default memo(function LSChartBar(props:IState) {
   // state/props
 
   // handle

@@ -1,13 +1,13 @@
-import { SubMenuItem, MenuItem } from '@/config/def';
 import { Action } from 'redux-actions';
+import { TypeDataRow } from '@/components/chart/def';
 import * as A from './action_type';
 
 export interface IPayloadSetBtcPriceData {
-    btcPriceData:any;
+    btcPriceData:TypeDataRow;
 };
 
 export interface IChartState {
-    btcPriceData:any;
+    btcPriceData:TypeDataRow;
 }
 
 export interface IPayloadMap {

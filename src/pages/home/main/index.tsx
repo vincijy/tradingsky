@@ -18,6 +18,7 @@ import { setLoginPanelVisible } from '@/store/ui/action';
 import { getUserRole, makeUserRole } from '@/api/user';
 import * as UA from '@/store/user/action'; // 改变登录状态
 
+import { IUserInfo } from '@/store/user/def';
 import { MainWrapper } from './style';
 
 export default memo(function LSHomeMain() {
@@ -80,10 +81,10 @@ export default memo(function LSHomeMain() {
           const action = setLoginPanelVisible({ loginPanelVisible: false });
           dispatch(action);
         }}
-        onLoad={(v:any) => { // 加载中
+        onLoad={() => { // 加载中
           onCloseModal();
         }}
-        onLogin={(userInfo:any) => { // 成功登录
+        onLogin={(userInfo:IUserInfo) => { // 成功登录
           openChartPage();
 
           dispatch(UA.toggleLogin({
@@ -100,7 +101,7 @@ export default memo(function LSHomeMain() {
           // 获取权限
           getUserRole()
             .then((res) => {
-              userInfo.role = res;
+              userInfo.role = res.data;
               const v = JSON.stringify(userInfo);
               localStorage.setItem('userInfo', v);
             })
@@ -108,14 +109,14 @@ export default memo(function LSHomeMain() {
               console.error(err);
             });
         }}
-        onRegister={(userInfo:any) => { // 成功注册
+        onRegister={(userInfo:IUserInfo) => { // 成功注册
           openChartPage();
           dispatch(UA.updateUserInfo({
             userInfo,
           })); // 把注册用户信息存入redux
           makeUserRole() // 添加level1角色
             .then((res) => {
-              userInfo.role = res;
+              userInfo.role = res.data;
               const v = JSON.stringify(userInfo);
               localStorage.setItem('userInfo', v);
             })

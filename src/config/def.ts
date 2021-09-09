@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface SubMenuItem {
     /**
      * 显示的标题

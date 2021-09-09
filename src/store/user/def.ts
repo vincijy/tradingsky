@@ -1,9 +1,10 @@
 import { Action } from 'redux-actions';
+import { User } from '@authing/react-ui-components/components/AuthingGuard/types/GuardConfig';
 import * as A from './action_type';
 
 export interface IUserInfoState {
     isLogin:boolean;
-    userInfo:any;
+    userInfo:IUserInfo;
 }
 
 export interface IPayloadToggleLogin {
@@ -11,7 +12,7 @@ export interface IPayloadToggleLogin {
 }
 
 export interface IPayloadUpdateUserInfo {
-    userInfo:any;
+    userInfo:IUserInfo;
 }
 
 export interface IPayloadMap {
@@ -25,3 +26,12 @@ export type TypePaylodMapKey = keyof IPayloadMap;
 
 export type IAction<T extends TypePaylodMapKey> = Action<IPayloadMap[T]>;
 
+
+export interface IRole {
+    code:'level1' | 'level2';
+    description:string;
+}
+
+export interface IUserInfo extends User {
+    role?:IRole;
+}

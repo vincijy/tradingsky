@@ -21,7 +21,9 @@ import { setLoginPanelVisible } from '@/store/ui/action';
 import { getUserRole, makeUserRole } from '@/api/user';
 import * as UA from '@/store/user/action'; // 改变登录状态
 
+import { IUserInfo } from '@/store/user/def';
 import { HeaderWrapper, HeaderLeft, HeaderRight } from './style'; // 样式
+
 
 export default memo(function LSAppHeader() {
   const loginPanelVisible = useAppSelector((state) => state.ui.loginPanelVisible);
@@ -45,7 +47,7 @@ export default memo(function LSAppHeader() {
   const authenticationClient = new AuthenticationClient({
     appId: '61160ec791133eecb2c0978b',
     appHost: 'https://lianshucha.authing.cn',
-    token: userInfo.token,
+    token: userInfo.token || '',
   });
 
   // handle
@@ -147,10 +149,10 @@ export default memo(function LSAppHeader() {
             const action = setLoginPanelVisible({ loginPanelVisible: false });
             dispatch(action);
           }}
-          onLoad={(v:any) => { // 加载中
+          onLoad={() => { // 加载中
             onCloseModal();
           }}
-          onLogin={(userInfo:any) => { // 成功登录
+          onLogin={(userInfo:IUserInfo) => { // 成功登录
             openChartPage();
 
             dispatch(UA.toggleLogin({
@@ -167,10 +169,9 @@ export default memo(function LSAppHeader() {
             // 获取权限
             getUserRole()
               .then((res) => {
-                userInfo.role = res;
+                userInfo.role = res.data;
                 const v = JSON.stringify(userInfo);
                 localStorage.setItem('userInfo', v);
-                (window as any).userInfo = userInfo;
                 window.location.reload();
               })
               .catch((err) => {
@@ -178,14 +179,14 @@ export default memo(function LSAppHeader() {
               });
 
           }}
-          onRegister={(userInfo:any) => { // 成功注册
+          onRegister={(userInfo:IUserInfo) => { // 成功注册
             openChartPage();
             dispatch(UA.updateUserInfo({
               userInfo,
             })); // 把注册用户信息存入redux
             makeUserRole() // 添加level1角色
               .then((res) => {
-                userInfo.role = res;
+                userInfo.role = res.data;
                 const v = JSON.stringify(userInfo);
                 localStorage.setItem('userInfo', v);
               })

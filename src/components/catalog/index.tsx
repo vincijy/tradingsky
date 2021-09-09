@@ -86,7 +86,7 @@ export default memo(function LSCatalog() {
     <CatalogWrapper>
       <div id='catalog'>
         {
-          menus.map((item, index) => (
+          menus.map((item) => (
             <div key={item.name}>
               <h2
                 key={item.name}
@@ -96,7 +96,7 @@ export default memo(function LSCatalog() {
                 onRow={(record:ICatalogItem) => ({
                   onClick: () => navigateToChartPage(record),
                 })}
-                key={index}
+                key={item.name}
                 columns={columns}
                 dataSource={
                   item.subMenus.map((subItem:SubMenuItem, index) => (

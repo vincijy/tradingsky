@@ -1,5 +1,6 @@
+/* eslint-disable react/react-in-jsx-scope */
 // 第三方
-import React, { memo, useEffect } from 'react';
+import { memo } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDynamicRender } from '@/utils/dynamic';
 // 组件

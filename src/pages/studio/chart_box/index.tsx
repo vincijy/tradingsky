@@ -13,6 +13,7 @@ import { getChartData, getBtcPrice } from '@/api/chart';
 import { LoadingOutlined } from '@ant-design/icons';
 import { setBtcPriceData } from '@/store/chart/action';
 import { TypeDataRow } from '@/components/chart/def';
+import { IRole } from '@/store/user/def';
 import { setLoginPanelVisible } from '../../../store/ui/action';
 import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip } from './style';
 
@@ -169,7 +170,7 @@ export default memo(function LSChartBox() {
   // 读取用户的信息
   const isLogin = useAppSelector((state) => state.user.isLogin);
   const userInfo = useAppSelector((state) => state.user.userInfo);
-  const role = userInfo.role || {};
+  const role = userInfo.role || { code: 'level1', description: '' };
 
   useLayoutEffect(() => {
     reflow();
@@ -214,7 +215,7 @@ export default memo(function LSChartBox() {
     const p1 = new Promise<TypeDataRow>((resolve, reject) => {
       getChartData(index, asset)
         .then((res) => {
-          resolve((res as any).rows || initData);
+          resolve(res.data.rows || initData);
         })
         .catch((err) => {
           console.error(err);
@@ -231,7 +232,7 @@ export default memo(function LSChartBox() {
       // 价格
       getBtcPrice()
         .then((res) => {
-          resolve((res as any).rows || []);
+          resolve(res.data.rows || []);
         })
         .catch((err) => {
           console.error(err);

@@ -7,6 +7,6 @@ export interface Params {
     asset:string;
 }
 
-export interface IChartDataResponse {
+export interface IResponseChartData {
     rows:TypeDataRow;
 };
