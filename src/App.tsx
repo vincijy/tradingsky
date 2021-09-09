@@ -12,11 +12,13 @@ import { FontStyle } from './style';
 
 // 组件
 import LSAppHeader from './components/header'; // 导航
+import AuthingPanel from './components/authing';
 
 export default memo(function App() {
   return (
     <Provider store={store}>
       <FontStyle />
+      <AuthingPanel/>
       <BrowserRouter>
         <LSAppHeader />
         {renderRoutes(routes)}  {/* 集中管理路由 */}

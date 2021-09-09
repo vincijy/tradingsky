@@ -13,8 +13,10 @@ import { getChartData, getBtcPrice } from '@/api/chart';
 import { LoadingOutlined } from '@ant-design/icons';
 import { setBtcPriceData } from '@/store/chart/action';
 import { TypeDataRow } from '@/components/chart/def';
-import { IRole } from '@/store/user/def';
-import { setLoginPanelVisible } from '../../../store/ui/action';
+import LoginButton from '@/components/login_btn';
+import RegisterButton from '@/components/register_btn';
+import { Provider } from 'react-redux'; // 集中管理状态
+import store from '@/store';
 import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip } from './style';
 
 const antIcon = (
@@ -107,29 +109,27 @@ export default memo(function LSChartBox() {
    */
   const addBtns = () => {
     const bg = document.querySelector('#highchart-cover');
-
-    const loginShow = () => {
-      dipatch(setLoginPanelVisible({ loginPanelVisible: true }));
-    };
-    const registerShow = loginShow;
-
-    ReactDOM.render(
-      <ButtonArea>
-        <div className='button-tip'>
+    if (!bg) {
+      return;
+    }
+    bg && ReactDOM.render(
+      <Provider store={ store }>
+        <ButtonArea>
+          <div className='button-tip'>
           登录解锁图表页面
-        </div>
-        <div className='buttons-wrap'>
-          <Button
-            type='primary'
-            onClick={loginShow}>
-              登录
-          </Button>
-          <Button
-            onClick={registerShow}>
-              注册
-          </Button>
-        </div>
-      </ButtonArea>,
+          </div>
+          <div className='buttons-wrap'>
+            <LoginButton
+              type='primary'
+              text='登录'
+            />
+            <RegisterButton
+              type='primary'
+              text='注册'
+            />
+          </div>
+        </ButtonArea>
+      </Provider>,
       bg,
     );
   };

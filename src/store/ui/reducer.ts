@@ -1,4 +1,5 @@
 import { menus } from '@/config/menu';
+import { GuardScenes } from '@authing/react-ui-components'; // 登录框
 import * as A from './action_type';
 import { IUiState, IAction, TypePaylodMapKey } from './def';
 
@@ -8,6 +9,10 @@ const initState:IUiState = {
     subMenu: menus[0].subMenus[0],
   },
   loginPanelVisible: false,
+  authingPanel: {
+    visible: false,
+    view: GuardScenes.Login,
+  },
 };
 
 export function reducer(state:IUiState = initState, action:IAction<TypePaylodMapKey>):IUiState {
@@ -21,6 +26,11 @@ export function reducer(state:IUiState = initState, action:IAction<TypePaylodMap
       return {
         ...state,
         loginPanelVisible: (action as IAction<'TOGGLE_LOGIN_PANEL_VISIBLE'>).payload.loginPanelVisible,
+      };
+    case A.CHANGE_AUTHING_PANEL:
+      return {
+        ...state,
+        authingPanel: (action as IAction<'CHANGE_AUTHING_PANEL'>).payload.authingPanel,
       };
     default:
       return state;

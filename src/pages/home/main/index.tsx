@@ -1,133 +1,22 @@
 // 第三方
 import React, { memo, useState } from 'react';
-import { shallowEqual } from 'react-redux';
-import { useAppSelector, useAppDispatch } from '@/hooks';
-
 import { useHistory } from 'react-router-dom';
 
-// 功能
-
-// 组件
-import { AuthingGuard, GuardMode, GuardScenes, initAuthClient, getAuthClient } from '@authing/react-ui-components'; // 登录框
-
 import { Button } from 'antd';
-
-import smallLogo from '@/assets/img/logo.png';
-
-import { setLoginPanelVisible } from '@/store/ui/action';
-import { getUserRole, makeUserRole } from '@/api/user';
-import * as UA from '@/store/user/action'; // 改变登录状态
-
-import { IUserInfo } from '@/store/user/def';
+import RegisterButton from '@/components/register_btn';
 import { MainWrapper } from './style';
 
 export default memo(function LSHomeMain() {
-
-  // state/props
-  const loginPanelVisible = useAppSelector((state) => state.ui.loginPanelVisible); // 登录框组件的显示
-  const [config, setConfig] = useState({ // 登录框组件的配置
-    mode: GuardMode.Modal,
-    title: '欢迎来到LianShuCha',
-    defaultScenes: GuardScenes.Login,
-    // escCloseable: 'true',
-    logo: `${smallLogo}`,
-    contentCss: 'true',
-  });
-
-  // redux hook
-  const { isLogin } = useAppSelector((state) => ({ // 登录状态
-    isLogin: state.user.isLogin,
-  }), shallowEqual);
-
   // other hook
   const history = useHistory();
-  const dispatch = useAppDispatch();
 
   // handle function
   const goChart = () => {
     history.push('/chart');
   };
 
-  const loginShow = () => {
-    const action = setLoginPanelVisible({ loginPanelVisible: true });
-    dispatch(action);
-  };
-
-  const onCloseModal = () => {
-    document.addEventListener('click', (e) => {
-      e.composedPath().forEach((el:EventTarget) => {
-        if (!(el instanceof Element)) {
-          return;
-        }
-        if (el.classList && el.classList.contains('authing-guard-mask')) {
-          const action = setLoginPanelVisible({ loginPanelVisible: false });
-          dispatch(action);
-        }
-      });
-    });
-  };
-
-  const openChartPage = () => {
-    history.push('/chart');
-  };
-
   return (
     <MainWrapper>
-      <AuthingGuard
-        appId={'61160ec791133eecb2c0978b'}
-        config={config}
-        visible={isLogin ? false : loginPanelVisible} //
-        onClose={() => { // 关闭
-          const action = setLoginPanelVisible({ loginPanelVisible: false });
-          dispatch(action);
-        }}
-        onLoad={() => { // 加载中
-          onCloseModal();
-        }}
-        onLogin={(userInfo:IUserInfo) => { // 成功登录
-          openChartPage();
-
-          dispatch(UA.toggleLogin({
-            isLogin: true,
-          }));
-          dispatch(UA.updateUserInfo({
-            userInfo,
-          }));
-
-          // 缓存
-          const v = JSON.stringify(userInfo);
-          localStorage.setItem('userInfo', v);
-
-          // 获取权限
-          getUserRole()
-            .then((res) => {
-              userInfo.role = res.data;
-              const v = JSON.stringify(userInfo);
-              localStorage.setItem('userInfo', v);
-            })
-            .catch((err) => {
-              console.error(err);
-            });
-        }}
-        onRegister={(userInfo:IUserInfo) => { // 成功注册
-          openChartPage();
-          dispatch(UA.updateUserInfo({
-            userInfo,
-          })); // 把注册用户信息存入redux
-          makeUserRole() // 添加level1角色
-            .then((res) => {
-              userInfo.role = res.data;
-              const v = JSON.stringify(userInfo);
-              localStorage.setItem('userInfo', v);
-            })
-            .catch((err) => {
-              console.error(err);
-            });
-        }}
-        onLoginError={() => {
-          console.log('提示：出现错误');
-        }}
-      />
       <div className='content'>
         <div className='container'>
           <h2>
@@ -144,10 +33,9 @@ export default memo(function LSHomeMain() {
               type='primary'
               onClick={() => goChart()} >查看动态图表
             </Button>
-            <Button
+            <RegisterButton
               type='primary'
-              onClick={() => loginShow()} >立即注册
-            </Button>
+              text='立即注册' />
           </div>
         </div>
       </div>
