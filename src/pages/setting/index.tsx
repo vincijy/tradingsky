@@ -1,10 +1,8 @@
-// 第三方
-import React, { memo, useState } from 'react';
-import { useSelector, shallowEqual } from 'react-redux';
+import React, { memo } from 'react';
+import { shallowEqual } from 'react-redux';
 
-// 功能
+import { useAppSelector } from '@/hooks';
 
-// 本地
 import { Tabs, Card, Form, Input, Button, Radio } from 'antd';
 import LSAppFooter from '@/components/app-footer'; // 尾部
 
@@ -15,8 +13,8 @@ export default memo(function LSSettingPage() {
   const { TabPane } = Tabs;
 
   // redux hook
-  const { userInfo } = useSelector((state) => ({
-    userInfo: (state as any).getIn(['headerLogin', 'userInfo']),
+  const { userInfo } = useAppSelector((state) => ({
+    userInfo: state.headerLogin.userInfo,
   }), shallowEqual);
 
   return (

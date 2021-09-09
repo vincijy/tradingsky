@@ -3,7 +3,6 @@ import { BASE_URL, TIMEOUT } from '@/config';
 import store from '@/store';
 import { message } from 'antd';
 
-
 // 基本配置
 const instance = axios.create({
   baseURL: BASE_URL,
@@ -13,7 +12,7 @@ const instance = axios.create({
 // 请求拦截器
 instance.interceptors.request.use(
   (config) => {
-    const userInfo = (store.getState() as any).getIn(['headerLogin', 'userInfo']);
+    const userInfo = (store.getState().headerLogin.userInfo);
     if (!userInfo) {
       return config;
     }

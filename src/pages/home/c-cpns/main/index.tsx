@@ -1,6 +1,7 @@
 // 第三方
 import React, { memo, useState } from 'react';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { useDispatch, shallowEqual } from 'react-redux';
+import { useAppSelector } from '@/hooks';
 
 import { useHistory } from 'react-router-dom';
 
@@ -22,7 +23,7 @@ import { MainWrapper } from './style';
 export default memo(function LSHomeMain() {
 
   // state/props
-  const loginPanelVisible = useSelector((state) => (state as any).getIn(['uiData', 'loginPanelVisible'])); // 登录框组件的显示
+  const loginPanelVisible = useAppSelector((state) => state.uiData.loginPanelVisible); // 登录框组件的显示
   const [config, setConfig] = useState({ // 登录框组件的配置
     mode: GuardMode.Modal,
     title: '欢迎来到LianShuCha',
@@ -33,8 +34,8 @@ export default memo(function LSHomeMain() {
   });
 
   // redux hook
-  const { isLogin } = useSelector((state) => ({ // 登录状态
-    isLogin: (state as any).getIn(['headerLogin', 'isLogin']),
+  const { isLogin } = useAppSelector((state) => ({ // 登录状态
+    isLogin: state.headerLogin.isLogin,
   }), shallowEqual);
 
   // other hook
@@ -80,7 +81,6 @@ export default memo(function LSHomeMain() {
           dispatch(action);
         }}
         onLoad={(v:any) => { // 加载中
-          console.log(v);
           onCloseModal();
         }}
         onLogin={(userInfo:any) => { // 成功登录

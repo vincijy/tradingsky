@@ -80,7 +80,7 @@ export const useDynamicRender = (el:React.FunctionComponentElement<any>, toMount
       el,
       root,
       () => {
-        console.log('rendering', root);
+        //
       },
     );
   };

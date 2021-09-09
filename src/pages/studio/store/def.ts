@@ -1,9 +1,9 @@
-import { SubMenuItem } from '@/config/def';
+import { SubMenuItem, MenuItem } from '@/config/def';
 export interface PayloadChangeMenu {
-    /**
-     * 菜单
-     */
-     selectedSubMenu:SubMenuItem;
+    currentMenu:{
+        menu:Omit<MenuItem, 'subMenus'>;
+        subMenu:SubMenuItem;
+    };
 };
 
 export interface PayloadsetLoginPanelVisible {

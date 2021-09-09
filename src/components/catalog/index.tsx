@@ -2,7 +2,12 @@ import React, { memo } from 'react';
 
 import { menus } from '@/config/menu';
 import { Table } from 'antd';
+import { useDispatch } from 'react-redux';
+import { changeMenu } from '@/pages/studio/store/action';
+import { SubMenuItem } from '@/config/def';
+import { useHistory } from 'react-router';
 import { CatalogWrapper } from './style';
+import { ICatalogItem } from './def';
 
 // 表头
 const columns = [
@@ -45,20 +50,59 @@ const columns = [
 ];
 
 export default memo(function LSCatalog() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  /**
+   * 先更新菜单状态, 再跳转到图表页面
+   * @param record 表格列
+   * @returns
+   */
+  const navigateToChartPage = (record:ICatalogItem) => {
+    const { key } = record;
+    const [menuItemKey, subMenuItemKey] = key.split(':');
+    const menuItem = menus.find((item) => item.key === menuItemKey);
+    if (!menuItem) {
+      console.error('menuItem not found');
+      return;
+    }
+    const subMenuItem = menuItem.subMenus.find((item) => item.key === subMenuItemKey);
+    if (!subMenuItem) {
+      console.error('subMenuItem not found');
+      return;
+    }
+
+    const action = changeMenu({
+      currentMenu: {
+        menu: menuItem,
+        subMenu: subMenuItem,
+      },
+    });
+    dispatch(action);
+    history.push('/chart');
+    // 页面滚动到顶部
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+  };
   return (
     <CatalogWrapper>
       <div id='catalog'>
         {
           menus.map((item, index) => (
             <div key={item.name}>
-              <h2 key={item.name} className='table-title'>{ item.name }</h2>
+              <h2
+                key={item.name}
+                className='table-title'>{ item.name }
+              </h2>
               <Table
+                onRow={(record:ICatalogItem) => ({
+                  onClick: () => navigateToChartPage(record),
+                })}
                 key={index}
                 columns={columns}
                 dataSource={
-                  item.subMenus.map((subItem, index) => (
+                  item.subMenus.map((subItem:SubMenuItem, index) => (
                     {
-                      key: `${index}`,
+                      key: `${item.key}:${subItem.key}`,
                       序号: `R${++index}`,
                       名称: `${subItem.name}`,
                       资产种类: `${subItem.assetList}`,

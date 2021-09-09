@@ -1,7 +1,8 @@
 // 第三方
-import React, { memo, useState, useEffect, useLayoutEffect } from 'react';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import React, { memo, useState, useLayoutEffect } from 'react';
+import { useDispatch, shallowEqual } from 'react-redux';
 
+import { useAppSelector } from '@/hooks';
 import { useHistory } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
@@ -24,7 +25,7 @@ import { getLoginAction, getLogoutAction, getUserInfoAction } from '@/components
 import { HeaderWrapper, HeaderLeft, HeaderRight } from './style'; // 样式
 
 export default memo(function LSAppHeader() {
-  const loginPanelVisible = useSelector((state) => (state as any).getIn(['uiData', 'loginPanelVisible']));
+  const loginPanelVisible = useAppSelector((state) => state.uiData.loginPanelVisible);
 
   const [config, setConfig] = useState({
     mode: GuardMode.Modal,
@@ -39,14 +40,8 @@ export default memo(function LSAppHeader() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // redux hook
-  const { isLogin } = useSelector((state) => ({
-    isLogin: (state as any).getIn(['headerLogin', 'isLogin']),
-  }), shallowEqual);
-
-  const { userInfo } = useSelector((state) => ({
-    userInfo: (state as any).getIn(['headerLogin', 'userInfo']),
-  }), shallowEqual);
+  const isLogin = useAppSelector((state) => state.headerLogin.isLogin);
+  const userInfo = useAppSelector((state) => state.headerLogin.userInfo);
 
   const authenticationClient = new AuthenticationClient({
     appId: '61160ec791133eecb2c0978b',

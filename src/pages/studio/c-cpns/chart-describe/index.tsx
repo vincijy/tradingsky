@@ -1,7 +1,6 @@
 // 第三方
 import React, { memo } from 'react';
-import { useSelector, useDispatch } from 'react-redux'; // redux的hook
-
+import { useAppSelector } from '@/hooks';
 import { Card } from 'antd';
 
 // 本地
@@ -11,7 +10,7 @@ import { DescribeWrapper } from './style';
 export default memo(function LSChartDescribe() {
 
   // 选中的菜单
-  const selectedSubMenu = useSelector((state) => (state as any).getIn(['uiData', 'selectedSubMenu']));
+  const { subMenu: selectedSubMenu } = useAppSelector((state) => state.uiData.currentMenu);
   const { args: { index, asset },
     introduce,
     assetList,

@@ -13,20 +13,29 @@ if (userInfoString) {
 }
 
 // 默认状态
-const defaultState = Map({
+const defaultState = {
   isLogin: userInfo.token !== undefined,
   userInfo: userInfo,
-});
+};
 
 // 根据action更新state
 function reducer(state = defaultState, action:any) {
   switch (action.type) {
     case actionTypes.CHANGE_LOGIN:
-      return state.set('isLogin', action.isLogin);
+      return {
+        ...state,
+        isLogin: action.isLogin,
+      };
     case actionTypes.CHANGE_LOGOUT:
-      return state.set('isLogin', action.isLogin);
+      return {
+        ...state,
+        isLogin: action.isLogin,
+      };
     case actionTypes.CHANGE_USERINFO:
-      return state.set('userInfo', action.userInfo);
+      return {
+        ...state,
+        userInfo: action.userInfo,
+      };
     default:
       return state;
   }

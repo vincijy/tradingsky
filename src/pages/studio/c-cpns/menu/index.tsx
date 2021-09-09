@@ -1,65 +1,74 @@
 // 第三方
-import React, { memo, useState } from 'react';
+import React, { memo } from 'react';
 
 import { useDispatch } from 'react-redux';
+
+import { useAppSelector } from '@/hooks';
 
 // 功能
 import { menus } from '@/config/menu'; // 分类数据
 
 // 组件
 import { Menu } from 'antd';
+import { filter, includes } from 'lodash';
 import { changeMenu } from '../../store/action';
 
 import { MenuWrapper } from './style';
 
 export default memo(function LSChartMenu() {
-  // state/props
-  const [openKeys, setOpenKeys] = useState(['sub1']);
-
-  // other handle
-  const { SubMenu } = Menu;
-  const rootSubmenuKeys = ['sub1', 'sub2', 'sub3', 'sub4', 'sub5', 'sub6', 'sub7', 'sub8', 'sub9',
-    'sub10', 'sub11', 'sub12', 'sub13', 'sub14', 'sub15', 'sub16', 'sub17', 'sub18', 'sub19' ];
-
-  // handle function
-  // TODO: fix type
-  const onOpenChange = (keys:any) => {
-    const latestOpenKey = keys.find((key:any) => openKeys.indexOf(key) === -1);
-    if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      setOpenKeys(keys);
-    } else {
-      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
-    }
-  };
-
   const dispatch = useDispatch();
+
+  const { menu: selectedMenu, subMenu: selectedSubMenu } = useAppSelector((state) => state.uiData.currentMenu);
+  /**
+   * 根据菜单的路径更新redux
+   * @param e 读取菜单的路径
+   * @returns void
+   */
   const onSelect = (e:{keyPath:string[]}) => {
     const { keyPath } = e;
     const [subMenuKey, menuKey] = keyPath;
 
-    const selectedMenu = menus.find((menu) => menu.key === menuKey)?.
-      subMenus.find((subMenu) => subMenu.key === subMenuKey);
+    const selectedMenuItem = menus.find((item) => item.key === menuKey);
 
-    if (!selectedMenu) {
-      console.error('Not found sub menu');
+    if (!selectedMenuItem) {
+      console.error('selectedMenuItem not found');
+      return;
+    }
+
+    const selectedSubMenuItem = selectedMenuItem.subMenus.find((item) => item.key === subMenuKey);
+
+    if (!selectedSubMenuItem) {
+      console.error('Not found selectedSubMenuItem');
       return;
     }
     const action = changeMenu({
-      selectedSubMenu: selectedMenu,
+      currentMenu: {
+        menu: selectedMenuItem,
+        subMenu: selectedSubMenuItem,
+      },
     });
     dispatch(action);
+  };
+
+  const [openKeys, setOpenKeys] = React.useState([selectedMenu.key]);
+  const onOpenChange = (keys:React.Key[]) => {
+    const newOpenKeys = filter(keys, (k) => !includes(openKeys, k));
+    setOpenKeys(newOpenKeys as any);
   };
 
   return (
     <MenuWrapper>
       <Menu
         mode='inline'
+        defaultOpenKeys={['ss']}
         onSelect={ onSelect }
-        openKeys={openKeys}
-        onOpenChange={onOpenChange} >
+        selectedKeys={[selectedMenu.key, selectedSubMenu.key]}
+        openKeys={openKeys} // 一级菜单展开项
+        onOpenChange={onOpenChange} // 监听打开的
+      >
         {
           menus.map((menuItem) => (
-            <SubMenu
+            <Menu.SubMenu
               key={menuItem.key}
               icon={menuItem.icon}
               title={menuItem.name}>
@@ -71,7 +80,7 @@ export default memo(function LSChartMenu() {
                   </Menu.Item>
                 ))
               }
-            </SubMenu>
+            </Menu.SubMenu>
           ))
         }
       </Menu>

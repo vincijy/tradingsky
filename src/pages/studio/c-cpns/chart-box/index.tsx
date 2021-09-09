@@ -1,10 +1,13 @@
 // 第三方
 import React, { memo, useEffect, useState, useLayoutEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'; // redux的hook
+import { useDispatch } from 'react-redux'; // redux的hook
 import ReactDOM from 'react-dom';
 
 // 图标React 封装
 import { Card, Spin, Button } from 'antd';
+
+import { useAppSelector } from '@/hooks';
+
 
 // 功能
 import btcLogo from '@/assets/img/btc_logo.png';
@@ -17,9 +20,6 @@ import { SubMenuItem } from '@/config/def';
 import { LoadingOutlined } from '@ant-design/icons';
 import { setLoginPanelVisible } from '../../store/action';
 import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip } from './style';
-
-const log = console.log.bind(console);
-
 
 const antIcon = (
   <LoadingOutlined
@@ -164,7 +164,7 @@ export default memo(function LSChartBox() {
   const dipatch = useDispatch();
 
   // 读取选中的菜单
-  const selectedSubMenu = useSelector((state) => (state as any).getIn(['uiData', 'selectedSubMenu']));
+  const { subMenu: selectedSubMenu } = useAppSelector((state) => state.uiData.currentMenu);
   const { args: { index, asset },
     loginRequired,
     vipRequired,
@@ -172,8 +172,8 @@ export default memo(function LSChartBox() {
   } = selectedSubMenu as SubMenuItem;
 
   // 读取用户的信息
-  const isLogin = useSelector((state) => (state as any).getIn(['headerLogin', 'isLogin']));
-  const userInfo = useSelector((state) => (state as any).getIn(['headerLogin', 'userInfo']));
+  const isLogin = useAppSelector((state) => state.headerLogin.isLogin);
+  const userInfo = useAppSelector((state) => state.headerLogin.userInfo);
   const role = userInfo.role || {};
 
   useLayoutEffect(() => {
