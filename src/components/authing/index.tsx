@@ -1,7 +1,7 @@
 
 /* eslint-disable react/react-in-jsx-scope */
 // 第三方
-import { memo, useEffect, useRef } from 'react';
+import { memo, useEffect, useLayoutEffect, useRef } from 'react';
 import { useAppSelector, useAppDispatch } from '@/hooks';
 import { useHistory } from 'react-router';
 import { useState } from 'react';
@@ -95,6 +95,18 @@ export default memo(function AuthingPanel(props:any) {
       },
     }));
   };
+
+  useLayoutEffect(() => {
+    // authing 有毛病, 先通过这样模拟点击
+    if (config.defaultScenes === GuardScenes.Register) {
+      const el = document.querySelector('.authing-guard-to-register-btn');
+      el && (el as HTMLElement).click();
+    } else {
+      const el = document.querySelector('.authing-guard-to-login-btn');
+      el && (el as HTMLElement).click();
+    }
+  });
+
   return (
     <AuthingGuard
       appId={authingConfig.appId}
