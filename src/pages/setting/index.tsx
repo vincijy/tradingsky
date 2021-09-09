@@ -4,7 +4,7 @@ import { shallowEqual } from 'react-redux';
 import { useAppSelector } from '@/hooks';
 
 import { Tabs, Card, Form, Input, Button, Radio } from 'antd';
-import LSAppFooter from '@/components/app-footer'; // 尾部
+import LSAppFooter from '@/components/footer'; // 尾部
 
 import { SettingWrapper } from './style';
 

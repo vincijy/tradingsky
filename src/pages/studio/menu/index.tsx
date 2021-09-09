@@ -11,7 +11,7 @@ import { menus } from '@/config/menu'; // 分类数据
 // 组件
 import { Menu } from 'antd';
 import { filter, includes } from 'lodash';
-import { changeMenu } from '../../store/action';
+import { changeMenu } from '../../../store/ui_data/action';
 
 import { MenuWrapper } from './style';
 

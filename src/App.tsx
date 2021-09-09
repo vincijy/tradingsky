@@ -11,7 +11,7 @@ import 'antd/dist/antd.less'; // 按需引入、设置主题
 import { FontStyle } from './style';
 
 // 组件
-import LSAppHeader from './components/app-header'; // 导航
+import LSAppHeader from './components/header'; // 导航
 
 export default memo(function App() {
   return (

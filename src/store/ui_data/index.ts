@@ -2,4 +2,3 @@
 export {
   setUiReducer,
 } from './reducer';
-

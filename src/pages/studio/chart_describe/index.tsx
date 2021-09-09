@@ -3,8 +3,6 @@ import React, { memo } from 'react';
 import { useAppSelector } from '@/hooks';
 import { Card } from 'antd';
 
-// 本地
-import { SubMenuItem } from '@/config/def';
 import { DescribeWrapper } from './style';
 
 export default memo(function LSChartDescribe() {
@@ -14,7 +12,7 @@ export default memo(function LSChartDescribe() {
   const { args: { index, asset },
     introduce,
     assetList,
-  } = selectedSubMenu as SubMenuItem;
+  } = selectedSubMenu;
 
   return (
     <DescribeWrapper>

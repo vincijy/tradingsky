@@ -18,7 +18,7 @@ import { getChartData, getBtcPrice } from '@/api/chart';
 // 本地
 import { SubMenuItem } from '@/config/def';
 import { LoadingOutlined } from '@ant-design/icons';
-import { setLoginPanelVisible } from '../../store/action';
+import { setLoginPanelVisible } from '../../../store/ui_data/action';
 import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip } from './style';
 
 const antIcon = (
@@ -169,7 +169,7 @@ export default memo(function LSChartBox() {
     loginRequired,
     vipRequired,
     name,
-  } = selectedSubMenu as SubMenuItem;
+  } = selectedSubMenu;
 
   // 读取用户的信息
   const isLogin = useAppSelector((state) => state.headerLogin.isLogin);

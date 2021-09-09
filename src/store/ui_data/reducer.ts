@@ -1,8 +1,3 @@
-// reducer用于修改state
-
-// 性能优化
-import { Map as IMap } from 'immutable';
-import Immutable from 'immutable';
 // 导入所有常量
 import { handleActions } from 'redux-actions';
 import { menus } from '@/config/menu';

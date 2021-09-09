@@ -14,9 +14,9 @@ import { Button } from 'antd';
 
 import smallLogo from '@/assets/img/logo.png';
 
-import { setLoginPanelVisible } from '@/pages/studio/store/action';
+import { setLoginPanelVisible } from '@/store/ui_data/action';
 import { getUserRole, makeUserRole } from '@/api/user';
-import { getLoginAction, getLogoutAction, getUserInfoAction } from '@/components/app-header/store/actionCreators'; // 改变登录状态
+import { getLoginAction, getUserInfoAction } from '@/store/user_info/action'; // 改变登录状态
 
 import { MainWrapper } from './style';
 

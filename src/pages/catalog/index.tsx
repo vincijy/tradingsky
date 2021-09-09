@@ -5,7 +5,7 @@ import React, { memo } from 'react';
 
 // 组件
 import LSCatalog from '@/components/catalog'; // 目录
-import LSAppFooter from '@/components/app-footer'; // 尾部
+import LSAppFooter from '@/components/footer'; // 尾部
 import { CatalogWrapper, CatalogTop, CatalogBottom } from './style';
 
 export default memo(function LSCatalogPage() {

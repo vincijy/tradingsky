@@ -4,13 +4,13 @@ import React, { memo, useState, useCallback } from 'react';
 // 功能
 
 // 组件
-import LSAppFooter from '@/components/app-footer';
+import LSAppFooter from '@/components/footer';
 import { Layout } from 'antd';
 import { ChartWrapper, ChartLeft, AppFooter } from './style';
-import LSChartMenu from './c-cpns/menu'; // 菜单
-import LSChartBar from './c-cpns/chart-bar'; // 功能栏
-import LSChartBox from './c-cpns/chart-box'; // 图表框
-import LSChartDescribe from './c-cpns/chart-describe';
+import LSChartMenu from './menu'; // 菜单
+import LSChartBar from './chart_bar'; // 功能栏
+import LSChartBox from './chart_box'; // 图表框
+import LSChartDescribe from './chart_describe';
 
 export default memo(function LSChartPage() {
   // state/props

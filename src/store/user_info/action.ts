@@ -1,4 +1,4 @@
-import * as actionTypes from './constant'; // 常量
+import * as actionTypes from './action_type'; // 常量
 
 const changeLogin = () => ({ // 传入true
   type: actionTypes.CHANGE_LOGIN,

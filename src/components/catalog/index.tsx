@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 import { menus } from '@/config/menu';
 import { Table } from 'antd';
 import { useDispatch } from 'react-redux';
-import { changeMenu } from '@/pages/studio/store/action';
+import { changeMenu } from '@/store/ui_data/action';
 import { SubMenuItem } from '@/config/def';
 import { useHistory } from 'react-router';
 import { CatalogWrapper } from './style';

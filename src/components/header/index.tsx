@@ -13,14 +13,14 @@ import { headerLinks } from '@/config/header'; // 映射数据
 import { Button, Menu, Dropdown, Avatar } from 'antd'; // 组件库
 import { WeiboOutlined, WechatOutlined, TwitterOutlined, DownOutlined, UserOutlined } from '@ant-design/icons'; // 图标
 
-import { AuthingGuard, GuardMode, GuardScenes, initAuthClient, getAuthClient } from '@authing/react-ui-components'; // 登录框
+import { AuthingGuard, GuardMode, GuardScenes } from '@authing/react-ui-components'; // 登录框
 import '@authing/react-ui-components/lib/index.min.css';
 import { AuthenticationClient } from 'authing-js-sdk'; // 登录SDK
 
 import smallLogo from '@/assets/img/logo.png';
-import { setLoginPanelVisible } from '@/pages/studio/store/action';
+import { setLoginPanelVisible } from '@/store/ui_data/action';
 import { getUserRole, makeUserRole } from '@/api/user';
-import { getLoginAction, getLogoutAction, getUserInfoAction } from '@/components/app-header/store/actionCreators'; // 改变登录状态
+import { getLoginAction, getLogoutAction, getUserInfoAction } from '@/store/user_info/action'; // 改变登录状态
 
 import { HeaderWrapper, HeaderLeft, HeaderRight } from './style'; // 样式
 

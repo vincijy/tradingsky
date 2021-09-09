@@ -1,9 +1,7 @@
 // reducer用于修改state
 
-// 性能优化
-import { Map } from 'immutable';
 // 导入所有常量
-import * as actionTypes from './constant';
+import * as actionTypes from './action_type';
 
 // 从缓存里面取出用户数据
 const userInfoString = localStorage.getItem('userInfo');
