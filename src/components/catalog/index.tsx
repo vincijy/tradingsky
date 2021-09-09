@@ -2,10 +2,10 @@ import React, { memo } from 'react';
 
 import { menus } from '@/config/menu';
 import { Table } from 'antd';
-import { useDispatch } from 'react-redux';
 import { changeMenu } from '@/store/ui/action';
 import { SubMenuItem } from '@/config/def';
 import { useHistory } from 'react-router';
+import { useAppDispatch } from '@/hooks';
 import { CatalogWrapper } from './style';
 import { ICatalogItem } from './def';
 
@@ -50,7 +50,7 @@ const columns = [
 ];
 
 export default memo(function LSCatalog() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const history = useHistory();
 
   /**
@@ -72,13 +72,12 @@ export default memo(function LSCatalog() {
       return;
     }
 
-    const action = changeMenu({
+    dispatch(changeMenu({
       currentMenu: {
         menu: menuItem,
         subMenu: subMenuItem,
       },
-    });
-    dispatch(action);
+    }));
     history.push('/chart');
     // 页面滚动到顶部
     document.body.scrollTop = document.documentElement.scrollTop = 0;

@@ -1,7 +1,7 @@
 // 第三方
 import React, { memo, useState } from 'react';
-import { useDispatch, shallowEqual } from 'react-redux';
-import { useAppSelector } from '@/hooks';
+import { shallowEqual } from 'react-redux';
+import { useAppSelector, useAppDispatch } from '@/hooks';
 
 import { useHistory } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ import smallLogo from '@/assets/img/logo.png';
 
 import { setLoginPanelVisible } from '@/store/ui/action';
 import { getUserRole, makeUserRole } from '@/api/user';
-import { getLoginAction, getUserInfoAction } from '@/store/user/action'; // 改变登录状态
+import * as UA from '@/store/user/action'; // 改变登录状态
 
 import { MainWrapper } from './style';
 
@@ -40,7 +40,7 @@ export default memo(function LSHomeMain() {
 
   // other hook
   const history = useHistory();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   // handle function
   const goChart = () => {
@@ -86,8 +86,12 @@ export default memo(function LSHomeMain() {
         onLogin={(userInfo:any) => { // 成功登录
           openChartPage();
 
-          dispatch(getLoginAction());
-          dispatch(getUserInfoAction(userInfo));
+          dispatch(UA.toggleLogin({
+            isLogin: true,
+          }));
+          dispatch(UA.updateUserInfo({
+            userInfo,
+          }));
 
           // 缓存
           const v = JSON.stringify(userInfo);
@@ -108,7 +112,9 @@ export default memo(function LSHomeMain() {
         }}
         onRegister={(userInfo:any) => { // 成功注册
           openChartPage();
-          dispatch(getUserInfoAction(userInfo)); // 把注册用户信息存入redux
+          dispatch(UA.updateUserInfo({
+            userInfo,
+          })); // 把注册用户信息存入redux
           makeUserRole() // 添加level1角色
             .then((res) => {
               userInfo.role = res;

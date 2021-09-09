@@ -1,8 +1,7 @@
 // 第三方
 import React, { memo, useState, useLayoutEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
-import { useAppSelector } from '@/hooks';
+import { useAppSelector, useAppDispatch } from '@/hooks';
 import { useHistory } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
@@ -20,7 +19,7 @@ import { AuthenticationClient } from 'authing-js-sdk'; // 登录SDK
 import smallLogo from '@/assets/img/logo.png';
 import { setLoginPanelVisible } from '@/store/ui/action';
 import { getUserRole, makeUserRole } from '@/api/user';
-import { getLoginAction, getLogoutAction, getUserInfoAction } from '@/store/user/action'; // 改变登录状态
+import * as UA from '@/store/user/action'; // 改变登录状态
 
 import { HeaderWrapper, HeaderLeft, HeaderRight } from './style'; // 样式
 
@@ -37,7 +36,7 @@ export default memo(function LSAppHeader() {
   });
 
   // hook
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const history = useHistory();
 
   const isLogin = useAppSelector((state) => state.user.isLogin);
@@ -75,7 +74,9 @@ export default memo(function LSAppHeader() {
   const LogoutButton = () => { // 退出登录
     openChartPage();
     authenticationClient.logout();
-    dispatch(getLogoutAction());
+    dispatch(UA.toggleLogin({
+      isLogin: false,
+    }));
     localStorage.removeItem('userInfo');
   };
 
@@ -152,8 +153,12 @@ export default memo(function LSAppHeader() {
           onLogin={(userInfo:any) => { // 成功登录
             openChartPage();
 
-            dispatch(getLoginAction());
-            dispatch(getUserInfoAction(userInfo));
+            dispatch(UA.toggleLogin({
+              isLogin: true,
+            }));
+            dispatch(UA.updateUserInfo({
+              userInfo,
+            }));
 
             // 缓存
             const v = JSON.stringify(userInfo);
@@ -176,7 +181,9 @@ export default memo(function LSAppHeader() {
           }}
           onRegister={(userInfo:any) => { // 成功注册
             openChartPage();
-            dispatch(getUserInfoAction(userInfo)); // 把注册用户信息存入redux
+            dispatch(UA.updateUserInfo({
+              userInfo,
+            })); // 把注册用户信息存入redux
             makeUserRole() // 添加level1角色
               .then((res) => {
                 userInfo.role = res;

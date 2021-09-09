@@ -1,9 +1,6 @@
-// reducer用于修改state
-
-// 导入所有常量
 import * as A from './action_type';
 
-import { IUserInfoState } from './def';
+import { IUserInfoState, IAction, TypePaylodKey } from './def';
 
 // 从缓存里面取出用户数据
 const userInfoString = localStorage.getItem('userInfo');
@@ -20,22 +17,20 @@ const defaultState:IUserInfoState = {
 };
 
 // 根据action更新state
-export function reducer(state:IUserInfoState = defaultState, action:any):IUserInfoState {
+export function reducer(
+    state:IUserInfoState = defaultState,
+    action:IAction<TypePaylodKey>,
+):IUserInfoState {
   switch (action.type) {
-    case A.CHANGE_LOGIN:
+    case A.TOGGLE_LOGIN:
       return {
         ...state,
-        isLogin: action.isLogin,
+        isLogin: (action as IAction<'TOGGLE_LOGIN'>).payload.isLogin,
       };
-    case A.CHANGE_LOGOUT:
+    case A.UPDATE_USER_INFO:
       return {
         ...state,
-        isLogin: action.isLogin,
-      };
-    case A.CHANGE_USERINFO:
-      return {
-        ...state,
-        userInfo: action.userInfo,
+        userInfo: (action as IAction<'UPDATE_USER_INFO'>).payload.userInfo,
       };
     default:
       return state;

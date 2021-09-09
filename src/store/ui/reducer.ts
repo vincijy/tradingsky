@@ -1,9 +1,8 @@
-import { handleActions } from 'redux-actions';
 import { menus } from '@/config/menu';
 import * as A from './action_type';
-import { Iui } from './def';
+import { IUiState, IAction, TypePaylodMapKey } from './def';
 
-const initState:Iui = {
+const initState:IUiState = {
   currentMenu: {
     menu: menus[0],
     subMenu: menus[0].subMenus[0],
@@ -11,28 +10,19 @@ const initState:Iui = {
   loginPanelVisible: false,
 };
 
-// https://redux.js.org/usage/usage-with-typescript
-function setUi(state = initState, action:any) {
+export function reducer(state:IUiState = initState, action:IAction<TypePaylodMapKey>):IUiState {
   switch (action.type) {
     case A.CHANGE_MENU:
       return {
         ...state,
-        currentMenu: action.payload.currentMenu,
+        currentMenu: (action as IAction<'CHANGE_MENU'>).payload.currentMenu,
       };
     case A.TOGGLE_LOGIN_PANEL_VISIBLE:
       return {
         ...state,
-        loginPanelVisible: action.payload.loginPanelVisible,
+        loginPanelVisible: (action as IAction<'TOGGLE_LOGIN_PANEL_VISIBLE'>).payload.loginPanelVisible,
       };
     default:
       return state;
   }
-}
-
-export const reducer = handleActions<Iui, any>(
-  {
-    [A.CHANGE_MENU]: setUi,
-    [A.TOGGLE_LOGIN_PANEL_VISIBLE]: setUi,
-  },
-  initState,
-);
+};

@@ -1,9 +1,7 @@
 // 第三方
 import React, { memo } from 'react';
 
-import { useDispatch } from 'react-redux';
-
-import { useAppSelector } from '@/hooks';
+import { useAppSelector, useAppDispatch } from '@/hooks';
 
 // 功能
 import { menus } from '@/config/menu'; // 分类数据
@@ -16,7 +14,7 @@ import { changeMenu } from '../../../store/ui/action';
 import { MenuWrapper } from './style';
 
 export default memo(function LSChartMenu() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const { menu: selectedMenu, subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
   /**

@@ -1,12 +1,11 @@
 // 第三方
 import React, { memo, useEffect, useState, useLayoutEffect } from 'react';
-import { useDispatch } from 'react-redux'; // redux的hook
 import ReactDOM from 'react-dom';
 
 // 图标React 封装
 import { Card, Spin, Button } from 'antd';
 
-import { useAppSelector } from '@/hooks';
+import { useAppSelector, useAppDispatch } from '@/hooks';
 
 
 // 功能
@@ -161,7 +160,7 @@ export default memo(function LSChartBox() {
     );
   };
 
-  const dipatch = useDispatch();
+  const dipatch = useAppDispatch();
 
   // 读取选中的菜单
   const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
