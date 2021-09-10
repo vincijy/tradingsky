@@ -4,6 +4,9 @@
 export const commonOptions = {
   chart: {
     height: 700, // 图表高度
+    zoomType: 'x',
+    panning: true,
+    panKey: 'shift',
   },
 
   credits: {
