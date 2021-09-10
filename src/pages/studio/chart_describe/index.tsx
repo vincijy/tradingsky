@@ -1,5 +1,5 @@
 // 第三方
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { useAppSelector } from '@/hooks';
 import { Card } from 'antd';
 
@@ -9,8 +9,7 @@ export default memo(function LSChartDescribe() {
 
   // 选中的菜单
   const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
-  const { args: { index, asset },
-    introduce,
+  const { introduce,
     assetList,
   } = selectedSubMenu;
 
@@ -22,7 +21,13 @@ export default memo(function LSChartDescribe() {
           className='bord-describe'>
           { introduce.text }
           {
-            introduce.isURL ? <a href={introduce.weiboURL} target='_blank' rel='noreferrer' className='weibo-url' >详细原理见此文章</a> : ''
+            introduce.isURL ?
+              <a
+                href={introduce.weiboURL}
+                target='_blank'
+                rel='noreferrer'
+                className='weibo-url' >详细原理见此文章
+              </a> : ''
           }
           <p className='title' >更新币种：</p>
           <p className='content' >{assetList}</p>

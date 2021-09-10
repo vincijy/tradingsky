@@ -1,10 +1,7 @@
-
-/* eslint-disable react/react-in-jsx-scope */
 // 第三方
-import { memo, useEffect, useLayoutEffect, useRef } from 'react';
+import { memo, useLayoutEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '@/hooks';
 import { useHistory } from 'react-router';
-import { useState } from 'react';
 
 import { AuthingGuard, GuardScenes } from '@authing/react-ui-components'; // 登录框
 import '@authing/react-ui-components/lib/index.min.css';
@@ -17,7 +14,7 @@ import { IUserInfo } from '@/store/user/def';
 import { authingConfig, authingComponentConfig } from '@/config';
 
 
-export default memo(function AuthingPanel(props:any) {
+export default memo(function AuthingPanel() {
   const dispatch = useAppDispatch();
   const config = useAppSelector((state) => ({
     ...authingComponentConfig,

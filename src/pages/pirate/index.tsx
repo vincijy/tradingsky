@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 import LSAppFooter from '@/components/footer'; // 尾部
 
@@ -7,7 +7,7 @@ import { PirateWrapper } from './style';
 export default memo(function LSPiratePage() {
   return (
     <PirateWrapper>
-      <div className='title'></div>
+      <div className='title' />
       <div className='join-us'>
         <div className='content'>
           <h2>加入我们</h2>

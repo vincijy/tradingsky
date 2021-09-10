@@ -14,7 +14,6 @@ console.log(
 );
 
 ReactDOM.render(
-  // eslint-disable-next-line react/react-in-jsx-scope
   <App />,
   document.getElementById('root'),
 );

@@ -1,4 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
 // 第三方
 import { memo } from 'react';
 import { useAppDispatch } from '@/hooks';

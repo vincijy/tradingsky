@@ -171,7 +171,14 @@ module.exports = {
     'promise/always-return': 0,
     'promise/no-callback-in-promise': 0,
     '@typescript-eslint/no-var-requires': 0,
-    '@typescript-eslint/explicit-function-return-type': 0, // 对返回类型不明确的函数必须声明类型
+    '@typescript-eslint/explicit-module-boundary-types': 0,
+    '@typescript-eslint/explicit-function-return-type': [
+      0,
+      {
+        allowExpressions: true,
+        allowTypedFunctionExpressions: true,
+      },
+    ], // 对返回类型不明确的函数必须声明类型
     '@typescript-eslint/no-non-null-assertion': 0, // 禁止使用!的非null断言后缀运算符
     '@typescript-eslint/no-use-before-define': 0, // 在定义变量和函数之前禁止使用
     '@typescript-eslint/no-explicit-any': 0, // 禁止使用any类型
@@ -195,12 +202,13 @@ module.exports = {
     'react/prefer-es6-class': 1, // 强制使用es6 extend方法创建组件
     'react/require-default-props': 1, // 非require的propTypes必须制定默认值
     'react/self-closing-comp': 1, // 没有children的组件和html必须使用自闭和标签
-    'react/sort-comp': 1, // 对组件的方法排序
+    'react/sort-comp': 0, // 对组件的方法排序
     'react/style-prop-object': 1, // 组件参数如果是style，value必须是object
     'react/jsx-boolean-value': 1, // 属性值为true的时候，省略值只写属性名
     'react/jsx-closing-tag-location': 1, // 强制开始标签闭合标签位置
     'react/jsx-equals-spacing': 1, // 属性赋值不允许有空格
     'react/jsx-first-prop-new-line': 1, // 只有一个属性情况下单行
+    'react/react-in-jsx-scope': 0, // jsx 文件不强制需要import React
     'react/jsx-key': 2, // 强制遍历出来的jsx加key
     'react/jsx-max-props-per-line': [1, { maximum: 1 }], // 每行最多几个属性
     'react/jsx-no-comment-textnodes': 1, // 检查jsx注释

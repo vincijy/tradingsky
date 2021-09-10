@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState, useLayoutEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Card, Spin, Button } from 'antd';
+import { Card, Spin } from 'antd';
 
 import { useAppSelector, useAppDispatch } from '@/hooks';
 

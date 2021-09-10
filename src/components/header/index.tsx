@@ -1,5 +1,5 @@
 // 第三方
-import React, { memo, useState, useLayoutEffect } from 'react';
+import { memo, useLayoutEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/hooks';
 import { useHistory } from 'react-router';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { dynamicComponent as dc } from '@/utils/dynamic';
 const routes = [
   {

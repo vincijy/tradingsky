@@ -1,6 +1,3 @@
-import { MergeCellsOutlined, PullRequestOutlined, GlobalOutlined } from '@ant-design/icons';
-import React, { Component } from 'react';
-
 export const headerLinks = [
   {
     title: '主页',

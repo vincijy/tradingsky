@@ -1,8 +1,8 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 interface WapperState {
-  COMPONENT:React.ComponentClass | null;
+  Component:React.ComponentClass | null;
 }
 
 
@@ -13,13 +13,11 @@ interface WapperState {
  */
 export const dynamicComponent = (loadComponent:any, exportComponent?:string) => {
   class AsyncComponent extends React.PureComponent<any, WapperState> {
-    private isFullyMounted = true;
-
     constructor(props:any, context:any) {
       super(props, context);
 
       this.state = {
-        COMPONENT: null,
+        Component: null,
       };
     }
 
@@ -35,6 +33,8 @@ export const dynamicComponent = (loadComponent:any, exportComponent?:string) => 
       this.isMounted = false;
     }
 
+    private isFullyMounted = true;
+
     async componentDidMount() {
       const component = await loadComponent();
       if (!this.isMounted) { return; }
@@ -42,14 +42,14 @@ export const dynamicComponent = (loadComponent:any, exportComponent?:string) => 
         component.default = component[exportComponent];
       }
       this.isMounted && this.setState({
-        COMPONENT: component.default,
+        Component: component.default,
       });
     }
 
     render() {
-      const { COMPONENT } = this.state;
+      const { Component } = this.state;
       return (
-        COMPONENT ? <COMPONENT {...this.props} /> : <div />
+        Component ? <Component {...this.props} /> : <div />
       );
     }
   }
@@ -102,5 +102,5 @@ export const useDynamicRender = (el:React.FunctionComponentElement<any>, toMount
     return () => {
       window.removeEventListener('scroll', handler);
     };
-  }, []);
+  }, [el, toMountedDomId]);
 };
