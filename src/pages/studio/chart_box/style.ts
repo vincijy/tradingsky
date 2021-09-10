@@ -61,7 +61,7 @@ export const BoxWrapper = styled.div `
         left: 50%;
         transform: translate(-50%, -50%);
         background: url(${restriction}) no-repeat center;
-        background-size: 100% 100%;
+        background-size: cover;
     }
 `;
 
