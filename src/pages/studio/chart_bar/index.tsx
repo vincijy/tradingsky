@@ -37,7 +37,7 @@ export default memo(function LSChartBar(props:IState) {
         </Button>
         <Button
           size='small'
-          onClick={ () => changeIsShow() }>
+        >
           <MenuFoldOutlined />收藏
         </Button>
       </div>

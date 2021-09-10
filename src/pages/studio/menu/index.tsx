@@ -1,5 +1,5 @@
 // 第三方
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/hooks';
 
@@ -59,7 +59,7 @@ export default memo(function LSChartMenu() {
     <MenuWrapper>
       <Menu
         mode='inline'
-        defaultOpenKeys={['ss']}
+        defaultOpenKeys={[]}
         onSelect={ onSelect }
         selectedKeys={[selectedMenu.key, selectedSubMenu.key]}
         openKeys={openKeys} // 一级菜单展开项

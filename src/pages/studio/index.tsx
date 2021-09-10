@@ -11,10 +11,12 @@ import LSChartMenu from './menu'; // 菜单
 import LSChartBar from './chart_bar'; // 功能栏
 import LSChartBox from './chart_box'; // 图表框
 import LSChartDescribe from './chart_describe';
-
+const is = require('is_js');
 export default memo(function LSChartPage() {
-  // state/props
-  const [isShow, setIsShow] = useState(true);
+
+  // 移动端适配, 在移动端, 初始化的时候不显示左侧菜单
+  const isMobile = is.android() || is.ios();
+  const [isShow, setIsShow] = useState(!isMobile);
 
   // handle
   const { Content, Sider } = Layout;

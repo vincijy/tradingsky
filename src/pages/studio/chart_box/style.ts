@@ -42,17 +42,6 @@ export const BoxWrapper = styled.div `
         font-size: 100px !important;
     }
 
-    .water-mask {
-        width: 100%;
-        position: absolute;
-        height: 20%;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0.5;
-        background: url(${waterMask}) no-repeat center;
-    }
-
     .clone-btns {
         z-index: 1;
         position: absolute;
@@ -92,6 +81,7 @@ export const WaterMask = styled.div ` // 水印
     transform: translate(-50%, -50%);
     opacity: 0.5;
     background: url(${waterMask}) no-repeat center;
+    background-size: 50%;
 `;
 
 
