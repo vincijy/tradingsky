@@ -2,8 +2,21 @@ import styled from 'styled-components';
 
 export const ChartWrapper = styled.div `
     display: flex;
-    margin-top: -10px;
     border-top: #f0f0f0 0.1px solid;
+    .site-layout-background {
+        text-align: center;
+        // TODO: css layout design
+        // border: 1px solid red;
+    }
+
+    // 包含了右侧的所有
+    .right-content-wrapper {
+        margin: 0px 0px; // 避免移动端出现左右的滚动条
+        padding: 0px 16px;
+        overflow: 'initial';
+        // TODO: css layout design
+        // border: 1px solid green;
+    }
 `;
 
 export const ChartLeft = styled.div `

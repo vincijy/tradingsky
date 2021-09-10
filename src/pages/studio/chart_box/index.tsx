@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState, useLayoutEffect } from 'react';
+import { memo, useEffect, useState, useLayoutEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Card, Spin } from 'antd';
@@ -17,6 +17,7 @@ import LoginButton from '@/components/login_btn';
 import RegisterButton from '@/components/register_btn';
 import { Provider } from 'react-redux'; // 集中管理状态
 import store from '@/store';
+import LSChartToolbox from '../chart_toolbox';
 import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip } from './style';
 
 const antIcon = (
@@ -322,7 +323,9 @@ export default memo(function LSChartBox() {
       <div id='container' >
         <Card
           title={ cardTitle }
-          className='bord-box' >
+          className='bord-box'
+        >
+          {/* <LSChartToolbox /> */}
           <LSChartDoubleLine
             seriesA={ { data: dataA, name: name } }
             seriesB={ { data: dataB, name: '价格' } }

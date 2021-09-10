@@ -29,8 +29,17 @@ export default memo(function LSChartBar(props:IState) {
 
   return (
     <BarWrapper>
-      <div>
-        <Button onClick={ () => changeIsShow() }><MenuFoldOutlined /></Button>
+      <div className='bar'>
+        <Button
+          size='small'
+          onClick={ () => changeIsShow() }>
+          <MenuFoldOutlined />
+        </Button>
+        <Button
+          size='small'
+          onClick={ () => changeIsShow() }>
+          <MenuFoldOutlined />收藏
+        </Button>
       </div>
     </BarWrapper>
   );

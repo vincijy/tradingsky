@@ -34,7 +34,7 @@ export default memo(function LSChartPage() {
         <ChartLeft>
           <Sider
             className='side'
-            width={289}
+            width={232}
             style={{ display: isShow ? 'block' : 'none' }}>
             <LSChartMenu />
           </Sider>
@@ -42,10 +42,9 @@ export default memo(function LSChartPage() {
 
 
         <Layout className='site-layout' >
-          <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+          <Content className='right-content-wrapper'>
             <div
-              className='site-layout-background'
-              style={{ padding: 24, textAlign: 'center' }}>
+              className='site-layout-background'>
               <LSChartBar changeShow={changeShow} />
               <LSChartBox />
               <LSChartDescribe />

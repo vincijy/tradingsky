@@ -4,12 +4,20 @@ import restriction from '@/assets/img/restriction.jpg';
 import qrcode from '@/assets/img/qrcode.jpg';
 
 export const BoxWrapper = styled.div `
-    margin-top: 14px;
+    .ant-card-body {
+        padding: 1px 4px;
+        // TODO: css layout design
+        // border: 1px solid red;
+    }
+    .ant-card-head-title {
+        padding: 7px  0;
+    }
+    .ant-card-head {
+        min-height: 30px;
+    }
     
     .bord-box{  // Card容器
         border-radius: 2px;
-        height: 824px;
-
         .ant-card-head-title{  // 标题
             text-align: left;
             margin-left: -10px;

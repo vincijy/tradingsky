@@ -1,9 +1,19 @@
+
+const TOP_OFFSET = 142; // 图表距离window顶部的距离
+const BOTTOM_OFFSET = 30; // 图表距离window底部的距离
+const chartHeight = window.innerHeight - TOP_OFFSET - BOTTOM_OFFSET;
+
 /**
  * 多种图表的通用配置
  */
 export const commonOptions = {
+
+  navigator: {
+    height: 26, // 导航栏高度(图表下方时间范围选择器)
+  },
+
   chart: {
-    height: 700, // 图表高度
+    height: chartHeight, // 图表高度, 图表的高度 = 纯图表高 + naviagator高度 +  日历高度
     zoomType: 'x',
     panning: true,
     panKey: 'shift',
@@ -76,7 +86,7 @@ export const commonOptions = {
   legend: {
     enabled: true, // 显示图例
     verticalAlign: 'top', // 图例位置
-    margin: 20,
+    margin: 4,
     align: 'right',
   },
 
