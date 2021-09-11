@@ -1,7 +1,7 @@
 import { memo, useEffect, useState, useLayoutEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Card, Spin } from 'antd';
+import { Spin } from 'antd';
 
 import { useAppSelector, useAppDispatch } from '@/hooks';
 
@@ -18,7 +18,7 @@ import RegisterButton from '@/components/register_btn';
 import { Provider } from 'react-redux'; // 集中管理状态
 import store from '@/store';
 import LSChartToolbox from '../chart_toolbox';
-import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip } from './style';
+import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip, ChartTitleArea } from './style';
 
 const antIcon = (
   <LoadingOutlined
@@ -308,29 +308,21 @@ export default memo(function LSChartBox() {
     addWaterMask();
   };
 
-  const cardTitle = (
-    <div>
-      <img
-        src={btcLogo}
-        alt='比特币' />
-      {/* 这部分后面都用chain-data文件里的数据替换：logo、title、币种名 */}
-      <span title='' > 比特币：{ name }</span>
-    </div>
-  );
-
   return (
     <BoxWrapper>
       <div id='container' >
-        <Card
-          title={ cardTitle }
-          className='bord-box'
-        >
-          {/* <LSChartToolbox /> */}
-          <LSChartDoubleLine
-            seriesA={ { data: dataA, name: name } }
-            seriesB={ { data: dataB, name: '价格' } }
+        <ChartTitleArea>
+          <img
+            src={btcLogo}
+            alt='比特币'
           />
-        </Card>
+          <span className='chart-title'> 比特币：{ name }</span>
+        </ChartTitleArea>
+        <LSChartToolbox />
+        <LSChartDoubleLine
+          seriesA={ { data: dataA, name: name } }
+          seriesB={ { data: dataB, name: '价格' } }
+        />
       </div>
     </BoxWrapper>
   );

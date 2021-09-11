@@ -2,6 +2,32 @@ import styled from 'styled-components';
 import waterMask from '@/assets/img/water_mask.jpg';
 import restriction from '@/assets/img/restriction.jpg';
 import qrcode from '@/assets/img/qrcode.jpg';
+import * as Layout from '../../../components/chart/layout_config';
+
+export const ChartTitleArea = styled.div `
+    position: absolute;
+    // border: 1px solid rgb(226, 226, 226);
+    top: ${Layout.CHART_HEADER_TOP} px;
+    height: ${Layout.CHART_HEADER_HEIGHT} px;
+    z-index: 1;
+    text-align: left;
+    img {
+        widht: 16px;
+        height: 16px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 4px;
+    }
+
+    .chart-title {
+        font-size: 0.8rem;
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+        line-height: 30px;
+        margin-left: 4px;
+    }
+`;
 
 export const BoxWrapper = styled.div `
     .ant-card-body {
@@ -62,6 +88,12 @@ export const BoxWrapper = styled.div `
         transform: translate(-50%, -50%);
         background: url(${restriction}) no-repeat center;
         background-size: cover;
+    }
+
+    .card-title-area {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 `;
 

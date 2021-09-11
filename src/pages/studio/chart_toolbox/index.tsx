@@ -1,11 +1,86 @@
 // 第三方
-import { memo } from 'react';
+import React, { memo, useEffect, useLayoutEffect, useState } from 'react';
+import { Menu, Dropdown } from 'antd';
+import { DownOutlined, EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 import { ToolBoxWrapper } from './style';
-
 export default memo(function LSChartToolbox() {
+  const SMA_DAY_LIST = [0, 7, 14, 30, 50, 90];
+  const [seletedDay, setSeletedDay] = useState(SMA_DAY_LIST[0]);
+  const selectDay = (day:number) => {
+    setSeletedDay(day);
+  };
+
+  const menuList = () => {
+    const dayList = SMA_DAY_LIST;
+    return (
+      <Menu>
+        {
+          dayList.map((day:number) => (
+            <Menu.Item
+              onClick={ () => selectDay(day) }
+              key={ `day-${day}` }
+            >
+              { day }天
+            </Menu.Item>
+          ))
+        }
+      </Menu>
+    );
+  };
+
+  // 批注是否可见
+  const [annoVisible, setAnnoVisible] = useState(false);
+  const toggleAnnoVisible = (e:React.MouseEvent) => {
+    e.preventDefault();
+    setAnnoVisible(!annoVisible);
+  };
+
+  const [width, setWidth] = useState(100);
+
+  setTimeout(() => {
+    const el = document.querySelector('.site-layout-background');
+    if (!el) {
+      return;
+    }
+    const { width: w } = el.getBoundingClientRect();
+    setWidth(w);
+  }, 0);
+
   return (
-    <ToolBoxWrapper>
+    <ToolBoxWrapper style={{ width: `${width}px` }}>
       <div className='content'>
+        <ul>
+          <li>
+            <div
+              className='ant-dropdown-link toolbox-cell'
+              onClick={ (e) => toggleAnnoVisible(e) }>
+              <div className='toolbox-cell-text-up'>{ annoVisible ? '显示' : '隐藏'}</div>
+              <div className='toolbox-cell-text-down'>
+                批注
+                {
+                  annoVisible ?
+                    <EyeOutlined className='toolbox-btn-icon'/> :
+                    <EyeInvisibleOutlined className='toolbox-btn-icon'/>
+
+                }
+              </div>
+            </div>
+          </li>
+          <li>
+            <Dropdown
+              overlay={menuList()}
+              placement='bottomRight'>
+              <div
+                className='ant-dropdown-link toolbox-cell'
+                onClick={(e) => e.preventDefault()}>
+                <div className='toolbox-cell-text-up'>{seletedDay}天</div>
+                <div className='toolbox-cell-text-down'>均线
+                  <DownOutlined className='toolbox-btn-icon'/>
+                </div>
+              </div>
+            </Dropdown>
+          </li>
+        </ul>
       </div>
     </ToolBoxWrapper>
   );

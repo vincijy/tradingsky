@@ -6,7 +6,7 @@ import HighchartsReact from 'highcharts-react-official';
 import { getHighCharts } from '../index';
 
 import { constructorType } from '../def';
-import { commonOptions } from '../common_option';
+import { commonOptions } from '../option_common';
 import { TypeDataRow } from '../def';
 import { options } from './option';
 

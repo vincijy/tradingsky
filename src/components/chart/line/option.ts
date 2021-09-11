@@ -1,3 +1,4 @@
+
 export const options = {
   yAxis: [
     {
@@ -41,14 +42,29 @@ export const options = {
       name: '活跃地址量',
       data: [],
       // 橙色
-      color: 'rgb(247, 147, 26)', // 线条颜色
+      color: 'rgb(247, 147, 26)',
       yAxis: 0,
+      id: 'activeAddress',
+      visible: false,
+      showInLegend: false,
     },
     {
       name: '价格',
       data: [],
-      color: 'rgba(0,0,0,0.5)', // 线条颜色
+      color: 'rgba(0,0,0,0.5)',
       yAxis: 1,
+    },
+    {
+      type: 'sma',
+      linkedTo: 'activeAddress',
+      name: '活跃地址量SMA (7)',
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      params: {
+        period: 7,
+      },
+      visible: true,
+      showInLegend: true,
     },
   ],
 };
