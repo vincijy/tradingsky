@@ -1,7 +1,7 @@
 // 第三方
 import React, { memo, useState } from 'react';
 import { Menu, Dropdown } from 'antd';
-import { DownOutlined, EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+import { DownOutlined, EyeOutlined, EyeInvisibleOutlined, FullscreenOutlined, FullscreenExitOutlined } from '@ant-design/icons';
 import { getChart } from '@/components/chart';
 import { ToolBoxWrapper } from './style';
 export default memo(function LSChartToolbox() {
@@ -75,6 +75,15 @@ export default memo(function LSChartToolbox() {
     c.exportChart({}, {});
   };
 
+  const toggleFullScreen = () => {
+    const c = getChart();
+    if (!c) {
+      console.error('Chart not init');
+      return;
+    }
+    c.fullscreen.toggle();
+  };
+
   return (
     <ToolBoxWrapper style={{ width: `${width}px` }}>
       <div className='content'>
@@ -110,6 +119,7 @@ export default memo(function LSChartToolbox() {
             </Dropdown>
           </li>
           {
+            // TODO 补充图表加载完成
             getChart() &&
             <li>
               <Dropdown
@@ -126,7 +136,17 @@ export default memo(function LSChartToolbox() {
               </Dropdown>
             </li>
           }
-
+          <li>
+            <div
+              className='ant-dropdown-link toolbox-cell'
+              onClick={ () => toggleFullScreen() }>
+              <div className='toolbox-cell-text-up'>{ annoVisible ? '开' : '关'}</div>
+              <div className='toolbox-cell-text-down'>
+                全屏
+                <FullscreenOutlined className='toolbox-btn-icon'/>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </ToolBoxWrapper>
