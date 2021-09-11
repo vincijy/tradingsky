@@ -19,6 +19,10 @@ export const commonOptions = {
     marginTop: Layout.CHART_CONTENT_MARGIN_TOP,
   },
 
+  exporting: {
+    enabled: false, // Whether to enable the exporting module. Disabling the module will hide the context button, but API methods will still be available.
+  },
+
   credits: {
     enabled: false, // 不显示版权
   },

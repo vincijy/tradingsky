@@ -22,4 +22,15 @@ export const getHighCharts = function():typeof Highcharts {
 };
 
 
-(window as any).hc = getHighCharts();
+let chart:Highcharts.Chart | null = null;
+
+export function getChart() {
+  return chart;
+}
+
+export function setChart(c:Highcharts.Chart) {
+  if (!chart) {
+    chart = c;
+  }
+  return chart;
+}

@@ -3,7 +3,7 @@ import { memo } from 'react';
 
 // 图标React 封装
 import HighchartsReact from 'highcharts-react-official';
-import { getHighCharts } from '../index';
+import { getHighCharts, setChart } from '../index';
 
 import { constructorType } from '../def';
 import { commonOptions } from '../option_common';
@@ -66,6 +66,10 @@ export default memo(function LSChartDoubleLine(props:IProps) {
   (options.series[1] as any).name = nameB;
   options = Object.assign({}, options);
 
+  const callback = (chart:Highcharts.Chart) => {
+    setChart(chart);
+  };
+
   return (
     // doc: https://www.highcharts.com.cn/docs/highcharts-react/
     // eg: https://stackblitz.com/edit/react-nwseym?file=index.js
@@ -73,6 +77,7 @@ export default memo(function LSChartDoubleLine(props:IProps) {
       highcharts={ getHighCharts() }
       constructorType={ constructorType.stockChart }
       options={ options }
+      callback={ callback }
     />
   );
 });

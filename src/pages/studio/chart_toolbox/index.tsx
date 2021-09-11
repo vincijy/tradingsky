@@ -1,7 +1,8 @@
 // 第三方
-import React, { memo, useEffect, useLayoutEffect, useState } from 'react';
+import React, { memo, useState } from 'react';
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined, EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+import { getChart } from '@/components/chart';
 import { ToolBoxWrapper } from './style';
 export default memo(function LSChartToolbox() {
   const SMA_DAY_LIST = [0, 7, 14, 30, 50, 90];
@@ -46,6 +47,34 @@ export default memo(function LSChartToolbox() {
     setWidth(w);
   }, 0);
 
+
+  const exportMenuList = () => {
+    const menus = ['png', 'jpg', 'pdf'];
+    return (
+      <Menu>
+        {
+          menus.map((f:string) => (
+            <Menu.Item
+              key={ `${f}` }
+              onClick={ exportChart }
+            >
+              { f }
+            </Menu.Item>
+          ))
+        }
+      </Menu>
+    );
+  };
+  const exportChart = () => {
+    const c = getChart();
+    if (!c) {
+      console.error('Chart not init');
+      return;
+    }
+    // TODO 进行宽度适配
+    c.exportChart({}, {});
+  };
+
   return (
     <ToolBoxWrapper style={{ width: `${width}px` }}>
       <div className='content'>
@@ -80,6 +109,24 @@ export default memo(function LSChartToolbox() {
               </div>
             </Dropdown>
           </li>
+          {
+            getChart() &&
+            <li>
+              <Dropdown
+                overlay={exportMenuList()}
+                placement='bottomRight'>
+                <div
+                  className='ant-dropdown-link toolbox-cell'
+                  onClick={(e) => e.preventDefault()}>
+                  <div className='toolbox-cell-text-up'>png</div>
+                  <div className='toolbox-cell-text-down'>导出
+                    <DownOutlined className='toolbox-btn-icon'/>
+                  </div>
+                </div>
+              </Dropdown>
+            </li>
+          }
+
         </ul>
       </div>
     </ToolBoxWrapper>
