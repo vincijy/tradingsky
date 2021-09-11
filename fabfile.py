@@ -62,6 +62,9 @@ def pre_set_env():
         env.sudo_user = prod_config['sudo_user'] 
         env.hosts = prod_config['hosts']
         env.passwords = prod_config['passwords']
+        
+        env.use_ssh_config = True
+
 
 pre_set_env()
 
