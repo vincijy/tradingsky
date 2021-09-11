@@ -15,6 +15,7 @@ export const commonOptions = {
   chart: {
     height: chartHeight, // 图表高度, 图表的高度 = 纯图表高 + naviagator高度 +  日历高度
     zoomType: 'x',
+    pinchType: 'x',
     panning: true,
     panKey: 'shift',
   },
@@ -80,7 +81,7 @@ export const commonOptions = {
     buttonTheme: {
       width: 42,
     },
-    selected: 4,
+    selected: 6,
   },
 
   legend: {
