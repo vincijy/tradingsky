@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import waterMask from '@/assets/img/water_mask.jpg';
 import restriction from '@/assets/img/restriction.jpg';
 import qrcode from '@/assets/img/qrcode.jpg';
-import * as Layout from '../../../components/chart/layout_config';
+import * as Layout from '../../../config/layout';
 
 export const ChartTitleArea = styled.div `
     position: absolute;

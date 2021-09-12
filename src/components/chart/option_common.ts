@@ -1,5 +1,5 @@
 
-import * as Layout from './layout_config';
+import * as Layout from '../../config/layout';
 import { rangeSelector } from './option_range_selector';
 import { tooltip } from './option_tooltip';
 import { legend } from './option_legend';

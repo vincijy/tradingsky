@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as Layout from '../../../components/chart/layout_config';
+import * as Layout from '../../../config/layout';
 
 export const ToolBoxWrapper = styled.div `
     // 布局

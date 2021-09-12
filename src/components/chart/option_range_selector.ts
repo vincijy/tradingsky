@@ -1,4 +1,4 @@
-import * as Layout from './layout_config';
+import * as Layout from '../../config/layout';
 export const rangeSelector = {
   floating: true, // 非常重要的一个参数 When the rangeselector is floating, the plot area does not reserve space for it. This opens for positioning anywhere on the chart.Defaults to false.
   allButtonsEnabled: true,

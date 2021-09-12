@@ -1,4 +1,4 @@
-import * as Layout from './layout_config';
+import * as Layout from '../../config/layout';
 
 export const legend = {
   floating: true, // When the legend is floating, the plot area ignores it and is allowed to be placed below it.
