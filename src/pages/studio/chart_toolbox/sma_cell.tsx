@@ -30,7 +30,7 @@ export default memo(function SmaCell() {
     }));
   };
 
-  const menus = [0, 7, 14, 30, 50, 90].map((n) => `${n}日`);
+  const menus = [0, 7, 14, 30, 50, 90, 180].map((n) => `${n}日`);
   return (
     <ToolBoxCell
       name={ ToolBoxCellName.Sma }

@@ -13,7 +13,7 @@ export const options = {
         // 橙色
         style: { color: 'rgb(247, 147, 26)' },
       },
-      gridLineColor: '#FFFFFF', // 去指标grid网格背景
+      gridLineWidth: 0, // 去指标grid网格背景
     },
     {
       // 右侧轴线
@@ -23,6 +23,7 @@ export const options = {
       opposite: true,
       align: 'left',
       type: 'logarithmic', // 对数刻度
+      gridLineColor: 'rgba(240,240,240,.67)',
     },
   ],
   xAxis: {
