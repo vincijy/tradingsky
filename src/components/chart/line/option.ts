@@ -57,14 +57,17 @@ export const options = {
     {
       type: 'sma',
       linkedTo: 'activeAddress',
-      name: '活跃地址量SMA (7)',
+      name: '',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {
-        period: 7,
+        period: 0,
       },
       visible: true,
       showInLegend: true,
+      marker: {
+        enabled: false, // https://stackoverflow.com/questions/14642779/highcharts-how-can-i-turn-off-the-points
+      },
     },
   ],
 };

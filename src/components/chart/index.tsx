@@ -29,6 +29,7 @@ export function getChart() {
 }
 
 export function setChart(c:Highcharts.Chart) {
+  console.log('set chart');
   if (!chart) {
     chart = c;
   }

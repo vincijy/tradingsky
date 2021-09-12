@@ -43,6 +43,11 @@ export const commonOptions = {
           lineWidthPlus: 0,
         },
       },
+      // 悬浮上去的时候光晕圈圈大小与形状
+      marker: {
+        symbol: 'circle',
+        radius: 2,
+      },
     },
     column: {
       borderWidth: 0,

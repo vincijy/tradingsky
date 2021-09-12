@@ -3,12 +3,11 @@ import { memo } from 'react';
 
 // 图标React 封装
 import HighchartsReact from 'highcharts-react-official';
+import { useAppSelector } from '@/hooks';
 import { getHighCharts, setChart } from '../index';
 
 import { constructorType } from '../def';
-import { commonOptions } from '../option_common';
 import { TypeDataRow } from '../def';
-import { options } from './option';
 
 interface IProps {
     /**
@@ -27,9 +26,6 @@ interface IProps {
       data:TypeDataRow;
     };
 }
-
-// 合并options
-const mergeOptions = Object.assign(commonOptions, options);
 
 const convert = (data:TypeDataRow):[number, number][] => {
   const newData:[number, number][] = [];
@@ -57,16 +53,34 @@ export default memo(function LSChartDoubleLine(props:IProps) {
   const{ data: dataA, name: nameA } = seriesA;
   const{ data: dataB, name: nameB } = seriesB;
 
-  let options = mergeOptions;
+  const options = useAppSelector((state) => state.chart.options);
 
+  // const options = Object.assign({}, storeOption);
   // TODO: highchart option ts config
   (options.series[0] as any).data = convert(dataA);
   (options.series[1] as any).data = convert(dataB);
   (options.series[0] as any).name = nameA;
   (options.series[1] as any).name = nameB;
-  options = Object.assign({}, options);
+
+  const sma = options.series.find((s:any) => s.type === 'sma');
+
+  // 检查0日均线情况下, 均线不显示, 恢复显示原数据
+  if (sma.params.period === 0) {
+    (options.series[0] as any).visible = true;
+    (options.series[0] as any).showInLegend = true;
+
+    sma.visible = false;
+    sma.showInLegend = false;
+  } else {
+    (options.series[0] as any).visible = false;
+    (options.series[0] as any).showInLegend = false;
+
+    sma.visible = true;
+    sma.showInLegend = true;
+  }
 
   const callback = (chart:Highcharts.Chart) => {
+    console.log('chart instance init...');
     setChart(chart);
   };
 

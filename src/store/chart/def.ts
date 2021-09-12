@@ -6,12 +6,19 @@ export interface IPayloadSetBtcPriceData {
     btcPriceData:TypeDataRow;
 };
 
+export interface IPayloadUpdateChartOption {
+    options:any;
+};
+
 export interface IChartState {
     btcPriceData:TypeDataRow;
+    // TODO: fix types
+    options:any;
 }
 
 export interface IPayloadMap {
     [A.SET_BTC_PRICE_DATA]:IPayloadSetBtcPriceData;
+    [A.UPDATE_CHART_OPTION]:IPayloadUpdateChartOption;
 }
 
 export type TypePaylodMapKey = keyof IPayloadMap;
