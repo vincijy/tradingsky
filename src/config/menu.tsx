@@ -1,4 +1,4 @@
-import { MergeCellsOutlined, PullRequestOutlined, PayCircleOutlined, FlagOutlined, LineChartOutlined, PieChartOutlined } from '@ant-design/icons';
+import { MergeCellsOutlined, PullRequestOutlined, PayCircleOutlined, FlagOutlined, ProjectOutlined, LineChartOutlined, AlertOutlined, ThunderboltOutlined, PieChartOutlined } from '@ant-design/icons';
 import React from 'react';
 import * as D from './def';
 
@@ -10,14 +10,14 @@ export const menus:D.MenuItem[] = [
     visible: true,
     subMenus: [
       {
-        name: '活跃地址数',
-        key: '活跃地址数',
+        name: '活跃地址量',
+        key: '活跃地址量',
         loginRequired: false, // 所有人都能看的指标
         vipRequired: false,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'address_active',
+          index: 'address/active',
         },
         introduce: {
           text: '链上活跃地址量统计了区块链网络中被确认交易的接收地址与发送地址的总量（过滤重复地址与非活动地址）。',
@@ -25,17 +25,17 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
-        catalogText: '每天发生交易的地址数量',
+        catalogText: '每天发生交易的地址数量统计',
       },
       {
-        name: '新增地址数',
-        key: '新增地址数',
+        name: '新增地址量',
+        key: '新增地址量',
         loginRequired: true, // 免费指标
         vipRequired: false,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'address_new',
+          index: 'address/new',
         },
         introduce: {
           text: '新增地址量统计了区块链网络中，首次出现在交易里的地址数量。',
@@ -43,17 +43,17 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
-        catalogText: '去除空地址后，每天新增的地址数量',
+        catalogText: '每天区块链网络新增地址数量统计',
       },
       {
-        name: '地址总量',
-        key: '地址总量',
+        name: '余额 > 0.01地址量',
+        key: '余额 > 0.01地址量',
         loginRequired: true,
         vipRequired: false,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'address_total',
+          index: 'address/balance_more001',
         },
         introduce: {
           text: '地址总量统计了出现在区块链网络中的地址总数。',
@@ -61,35 +61,71 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
-        catalogText: '所有地址的数量',
+        catalogText: '持币余额 > 0.01 的地址数量',
       },
       {
-        name: '非零余额地址',
-        key: '非零余额地址',
+        name: '余额 > 1地址量',
+        key: '余额 > 1地址量',
+        loginRequired: true,
+        vipRequired: false,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'address/balance_more1',
+        },
+        introduce: {
+          text: '地址总量统计了出现在区块链网络中的地址总数。',
+          isURL: false,
+          weiboURL: '',
+        },
+        assetList: 'BTC,ETH',
+        catalogText: '持币余额 > 1 的地址数量',
+      },
+      {
+        name: '余额 > 100地址量',
+        key: '余额 > 100地址量',
+        loginRequired: true,
+        vipRequired: false,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'address/balance_more100',
+        },
+        introduce: {
+          text: '地址总量统计了出现在区块链网络中的地址总数。',
+          isURL: false,
+          weiboURL: '',
+        },
+        assetList: 'BTC,ETH',
+        catalogText: '持币余额 > 100 的地址数量',
+      },
+      {
+        name: '一年以上持有量占比',
+        key: '一年以上持有量占比',
         loginRequired: true, // 付费指标
         vipRequired: true,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'address_none_zero',
+          index: 'address/more_1y',
         },
         introduce: {
           text: '余额不为零的地址量统计了区块链网络中持有余额 > 0 的地址数量。',
           isURL: false,
           weiboURL: '',
         },
-        assetList: 'BTC,ETH',
-        catalogText: '所有余额不为零的地址数量',
+        assetList: 'BTC',
+        catalogText: '持有一年以上没有移动的供应量占比',
       },
       {
-        name: '巨鲸地址数：持币>1k地址数',
-        key: '巨鲸地址数：持币>1k地址数',
+        name: '巨鲸地址数量（>1k）',
+        key: '巨鲸地址数量（>1k）',
         loginRequired: true,
         vipRequired: true,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'address_more_1k',
+          index: 'address/balance_more1k',
         },
         introduce: {
           text: '该指标统计了持有余额  > 1K 的链上地址总量，即巨鲸地址数量。',
@@ -97,25 +133,25 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
-        catalogText: '持有币数大于1k的地址数量',
+        catalogText: '巨鲸地址数量统计（余额 > 1K）',
       },
     ],
   },
   {
-    name: '机构',
+    name: '交易所',
     icon: <PullRequestOutlined />,
     key: 'sub2',
     visible: true,
     subMenus: [
       {
-        name: '灰度溢价率',
-        key: '灰度溢价率',
+        name: '交易所余额占比',
+        key: '交易所余额占比',
         loginRequired: true, // 免费指标
         vipRequired: false,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'grayscale_premium',
+          index: 'exchange/balance_percent',
         },
         introduce: {
           text: '灰度比特币信托基金（GBTC）的总价值相对于信托持有的比特币资产净值（NAV）的溢价。',
@@ -123,17 +159,17 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
-        catalogText: '灰度价格相对于市场价格的溢价和折价率',
+        catalogText: '交易所余额的供应量占比',
       },
       {
-        name: '灰度持仓量：币本位',
-        key: '灰度持仓量：币本位',
+        name: '交易所净头寸变化',
+        key: '交易所净头寸变化',
         loginRequired: true, // 付费指标
         vipRequired: true,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'grayscale_aum_coin',
+          index: 'exchange/position_change',
         },
         introduce: {
           text: '灰度比特币信托基金（GBTC）持有的比特币总量。',
@@ -141,17 +177,17 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
-        catalogText: '灰度基金AUM、使用币本位计算',
+        catalogText: '交易所钱包净持仓变化（流入/流出）',
       },
       {
-        name: '灰度持仓量：美元',
-        key: '灰度持仓量：美元',
+        name: '交易所净流量变化',
+        key: '交易所净流量变化',
         loginRequired: true,
         vipRequired: true,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'grayscale_aum_usd',
+          index: 'exchange/flow_change',
         },
         introduce: {
           text: '灰度比特币信托基金（GBTC）资产管理规模（AUM）。',
@@ -159,17 +195,17 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
-        catalogText: '灰度基金AUM、使用美元计算',
+        catalogText: '交易所净流量变化',
       },
       {
-        name: '灰度净流量变化',
-        key: '灰度净流量变化',
+        name: '期货资金费率',
+        key: '期货资金费率',
         loginRequired: true,
         vipRequired: true,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'grayscale_flow',
+          index: 'exchange/funding_rate',
         },
         introduce: {
           text: '灰度比特币信托基金（GBTC）的比特币流入/流出数量。',
@@ -177,69 +213,123 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
-        catalogText: '流入流出灰度基金的金额',
+        catalogText: '交易所永续期货合约的平均融资利率（单位：%）',
       },
     ],
   },
   {
-    name: '市场与价格',
+    name: '机构',
     icon: <PayCircleOutlined />,
     key: 'sub3',
     visible: true,
     subMenus: [
       {
-        name: '价格',
-        key: '价格',
+        name: '灰度持仓量（GBTC）',
+        key: '灰度持仓量（GBTC）',
         loginRequired: true, // 免费指标
         vipRequired: false,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'market_price',
+          index: 'institution/grayscale_holding',
         },
         introduce: {
           text: '比特币以美元计算的价格（BTC-USD）。',
           isURL: false,
           weiboURL: '',
         },
-        assetList: 'BTC,ETH',
-        catalogText: '取多个交易所数据计算后的等权重价格',
+        assetList: 'BTC',
+        catalogText: '灰度信托基金持有的BTC数量',
       },
       {
-        name: '市值',
-        key: '市值',
+        name: '灰度溢价（GBTC）',
+        key: '灰度溢价（GBTC）',
         loginRequired: true,
         vipRequired: false,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'market_cap',
+          index: 'institution/grayscale_premium',
         },
         introduce: {
           text: '市值通过当前供应量与美元价格相乘计算得出。',
           isURL: false,
           weiboURL: '',
         },
-        assetList: 'BTC,ETH',
-        catalogText: '总市值规模',
+        assetList: 'BTC',
+        catalogText: '灰度信托基金的总价值相对于信托持有的比特币资产净值的溢价',
+      },
+      {
+        name: '灰度净流量（GBTC）',
+        key: '灰度净流量（GBTC）',
+        loginRequired: true,
+        vipRequired: false,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'institution/grayscale_flow',
+        },
+        introduce: {
+          text: '比特币以美元计算的价格（BTC-USD）。',
+          isURL: false,
+          weiboURL: '',
+        },
+        assetList: 'BTC',
+        catalogText: '灰度信托基金持有比特币的流入/流出数量',
+      },
+      {
+        name: 'Purpose Bitcoin ETF持仓量',
+        key: 'Purpose Bitcoin ETF持仓量',
+        loginRequired: true,
+        vipRequired: false,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'institution/purpose_holding',
+        },
+        introduce: {
+          text: '比特币以美元计算的价格（BTC-USD）。',
+          isURL: false,
+          weiboURL: '',
+        },
+        assetList: 'BTC',
+        catalogText: 'Purpose Bitcoin ETF 持有的BTC数量',
+      },
+      {
+        name: 'Purpose Bitcoin ETF净流量',
+        key: 'Purpose Bitcoin ETF净流量',
+        loginRequired: true,
+        vipRequired: false,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'institution/purpose_flow',
+        },
+        introduce: {
+          text: '比特币以美元计算的价格（BTC-USD）。',
+          isURL: false,
+          weiboURL: '',
+        },
+        assetList: 'BTC',
+        catalogText: 'Purpose Bitcoin ETF 持有比特币的流入/流出数量',
       },
     ],
   },
   {
-    name: '盈利与亏损',
+    name: '市场与价格',
     icon: <FlagOutlined />,
     key: 'sub4',
     visible: true,
     subMenus: [
       {
-        name: '流通中的盈利率',
-        key: '流通中的盈利率',
+        name: '距最高点的回撤幅度',
+        key: '距最高点的回撤幅度',
         loginRequired: true, // 免费指标
         vipRequired: false,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'profit_percent',
+          index: 'market/price_drawdown',
         },
         introduce: {
           text: '流通中的盈利率：该指标统计了处于流通状态的比特币盈利数量的百分比，是一个判断顶部的指标。',
@@ -247,43 +337,17 @@ export const menus:D.MenuItem[] = [
           weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673427649724507',
         },
         assetList: 'BTC,ETH',
-        catalogText: '在当前的市场价格下，处于盈利状态的百分比',
-      },
-    ],
-  },
-  {
-    name: '市场估值指标',
-    icon: <LineChartOutlined />,
-    key: 'sub5',
-    visible: true,
-    subMenus: [
-      {
-        name: '稳定币资金环境',
-        key: '稳定币资金环境',
-        loginRequired: true, // 免费指标
-        vipRequired: false,
-        visible: true,
-        args: {
-          asset: 'btc',
-          index: 'value_ssr',
-        },
-        introduce: {
-          text: '稳定币供应比率指标量化了稳定币相对于比特币的购买力，可以理解为比特币与稳定币之间的供需结构的可视化，很好的衡量了比特币价格上涨的潜力大小，优化过后的该指标可以指示出市场资金的流入流出方向。',
-          isURL: true,
-          weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673526568452248',
-        },
-        assetList: 'BTC',
-        catalogText: '用来衡量宏观资金环境的指标',
+        catalogText: '资产价格距历史最高点的下跌幅度（单位：%）',
       },
       {
-        name: '短期市场估值（SOPR）',
-        key: '短期市场估值（SOPR）',
+        name: '已实现净损益',
+        key: '已实现净损益',
         loginRequired: true, // 付费指标
         vipRequired: true,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'value_sopr',
+          index: 'market/realized_pl',
         },
         introduce: {
           text: '该指标通过计算卖出价格/买入价格，可以很好的判断市场底部，衡量投资者情绪，判断市场方向。',
@@ -291,61 +355,131 @@ export const menus:D.MenuItem[] = [
           weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673543412514917',
         },
         assetList: 'BTC',
-        catalogText: '用来衡量短期超买超卖（超跌超涨）的指标',
+        catalogText: '链上移动硬币的净损益',
       },
       {
-        name: '储备风险指数',
-        key: '储备风险指数',
+        name: '流通盈利率',
+        key: '流通盈利率',
         loginRequired: true,
         vipRequired: true,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'value_reserve_risk',
+          index: 'market/profit_percent',
         },
         introduce: {
-          text: '该指标可以用来量化长期投资者对比特币的信心，通过比特币价格/比特币网络生命周期内决定持有而不是出售的积累机会成本计算得出。预警值——顶部：0.2，底部：0.003。',
+          text: '该指标通过计算卖出价格/买入价格，可以很好的判断市场底部，衡量投资者情绪，判断市场方向。',
           isURL: true,
-          weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673558512009231',
+          weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673543412514917',
+        },
+        assetList: 'BTC,ETH',
+        catalogText: '盈利的比特币数量占总量的百分比',
+      },
+    ],
+  },
+  {
+    name: '资金环境',
+    icon: <ProjectOutlined />,
+    key: 'sub5',
+    visible: true,
+    subMenus: [
+      {
+        name: '稳定币累计流通量',
+        key: '稳定币累计流通量',
+        loginRequired: true, // 免费指标
+        vipRequired: false,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'capital/stable_circulating',
+        },
+        introduce: {
+          text: '稳定币供应比率指标量化了稳定币相对于比特币的购买力，可以理解为比特币与稳定币之间的供需结构的可视化，很好的衡量了比特币价格上涨的潜力大小，优化过后的该指标可以指示出市场资金的流入流出方向。',
+          isURL: true,
+          weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673526568452248',
         },
         assetList: 'BTC',
-        catalogText: '追踪长期持有者对市场的估值态度',
+        catalogText: '所有稳定币发行供应量统计',
       },
       {
-        name: 'Puell估值倍数',
-        key: 'Puell估值倍数',
+        name: '稳定币供应比率',
+        key: '稳定币供应比率',
+        loginRequired: true, // 付费指标
+        vipRequired: true,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'capital/ssr',
+        },
+        introduce: {
+          text: '该指标通过计算卖出价格/买入价格，可以很好的判断市场底部，衡量投资者情绪，判断市场方向。',
+          isURL: true,
+          weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673543412514917',
+        },
+        assetList: 'BTC',
+        catalogText: '稳定币与比特币之间的供给关系',
+      },
+    ],
+  },
+  {
+    name: '估值指标',
+    icon: <LineChartOutlined />,
+    key: 'sub6',
+    visible: true,
+    subMenus: [
+      {
+        name: 'Stock-to-Flow 模型',
+        key: 'Stock-to-Flow 模型',
+        loginRequired: true, // 免费指标
+        vipRequired: false,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'value/stock_flow',
+        },
+        introduce: {
+          text: '稳定币供应比率指标量化了稳定币相对于比特币的购买力，可以理解为比特币与稳定币之间的供需结构的可视化，很好的衡量了比特币价格上涨的潜力大小，优化过后的该指标可以指示出市场资金的流入流出方向。',
+          isURL: true,
+          weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673526568452248',
+        },
+        assetList: 'BTC',
+        catalogText: '从稀缺性角度预测比特币未来估值的模型',
+      },
+      {
+        name: 'Stock-to-Flow 模型偏差量',
+        key: 'Stock-to-Flow 模型偏差量',
+        loginRequired: true, // 付费指标
+        vipRequired: true,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'value/stockflow_deflection',
+        },
+        introduce: {
+          text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
+          isURL: false,
+          weiboURL: '',
+        },
+        assetList: 'BTC',
+        catalogText: '比特币价格相对于S/F模型的偏差量',
+      },
+      {
+        name: 'CVDD底部指标',
+        key: 'CVDD底部指标',
         loginRequired: true,
         vipRequired: true,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'value_puell',
+          index: 'value/cvdd',
         },
         introduce: {
-          text: 'Puell倍数通过当日采矿利润/365天采矿利润均值计算得出。通过矿工的盈利状态对比特币的基本面进行评估，参考值——顶部：4—10，底部：0.3—0.5。',
-          isURL: true,
-          weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673573607309341',
+          text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
+          isURL: false,
+          weiboURL: '',
         },
         assetList: 'BTC',
-        catalogText: '使用puell对市场估值的方法，确定牛市和熊市',
-      },
-      {
-        name: '长期持有者行为（CDD）',
-        key: '长期持有者行为（CDD）',
-        loginRequired: true,
-        vipRequired: true,
-        visible: true,
-        args: {
-          asset: 'btc',
-          index: 'value_long_cdd',
-        },
-        introduce: {
-          text: '该指标用于跟踪每天被销毁的硬币天数的总和，销毁天数即：比特币直到卖出那一刻所持有的天数；我们可以使用此指标来观察长期持有者的宏观支出模式和行为变化，跟踪长期投资者的投资行为，可以帮助我们判断市场周期。',
-          isURL: true,
-          weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673406821073852',
-        },
-        assetList: 'BTC',
-        catalogText: '追踪长期投资者的行为',
+        catalogText: '量化比特币底部区域的精准指标',
       },
       {
         name: '市场健康程度',
@@ -355,51 +489,69 @@ export const menus:D.MenuItem[] = [
         visible: true,
         args: {
           asset: 'btc',
-          index: 'value_health',
+          index: 'value/market_health',
         },
         introduce: {
-          text: '这是一个衡量市场健康程度的指标，同时也是一个量化市场年化支出行为的指标，当价格相对于市场年化支出较高时，则视为市场健康，反之则视为市场投降，进入良好的历史买入区。参考值——1M分界线。',
-          isURL: true,
-          weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673588706803725',
+          text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
+          isURL: false,
+          weiboURL: '',
         },
         assetList: 'BTC',
-        catalogText: '描述市场运行的健康程度',
+        catalogText: '衡量市场健康程度的指标',
       },
       {
-        name: '长期市场估值',
-        key: '长期市场估值',
+        name: '公允价值偏差量',
+        key: '公允价值偏差量',
         loginRequired: true,
         vipRequired: true,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'value_nupl',
+          index: 'value/fairvalue_deflection',
         },
         introduce: {
-          text: '该指标通过计算比特币网络每一实体的未实现损益与比特币市值的比值，对于跟踪比特币的投资者情绪非常有用。参考值——顶部：0.75。',
-          isURL: true,
-          weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673603814686891',
+          text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
+          isURL: false,
+          weiboURL: '',
         },
-        assetList: 'BTC,ETH',
-        catalogText: '确定市场中的总盈亏状态，并据此进行估值',
+        assetList: 'BTC',
+        catalogText: '相对于已实现市值评估市值是否被高估/低估',
       },
     ],
   },
   {
-    name: '交易所',
-    icon: <PieChartOutlined />,
-    key: 'sub6',
+    name: '市场情绪',
+    icon: <AlertOutlined />,
+    key: 'sub7',
     visible: true,
     subMenus: [
       {
-        name: '交易所余额',
-        key: '交易所余额',
+        name: 'spent outputs 利润率（SOPR）',
+        key: 'spent outputs 利润率（SOPR）',
+        loginRequired: true, // 免费指标
+        vipRequired: false,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'sentiment/sopr',
+        },
+        introduce: {
+          text: '稳定币供应比率指标量化了稳定币相对于比特币的购买力，可以理解为比特币与稳定币之间的供需结构的可视化，很好的衡量了比特币价格上涨的潜力大小，优化过后的该指标可以指示出市场资金的流入流出方向。',
+          isURL: true,
+          weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673526568452248',
+        },
+        assetList: 'BTC,ETH',
+        catalogText: '衡量投资者行为的短期抄底指标',
+      },
+      {
+        name: '市场贪婪度',
+        key: '市场贪婪度',
         loginRequired: true, // 付费指标
         vipRequired: true,
         visible: true,
         args: {
           asset: 'btc',
-          index: 'exchange_balance',
+          index: 'sentiment/market_greed',
         },
         introduce: {
           text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
@@ -407,7 +559,185 @@ export const menus:D.MenuItem[] = [
           weiboURL: '',
         },
         assetList: 'BTC,ETH',
-        catalogText: '交易所持有的余额总量',
+        catalogText: '衡量市场情绪及贪婪度的精准顶部指标',
+      },
+    ],
+  },
+  {
+    name: '投资者行为',
+    icon: <ThunderboltOutlined />,
+    key: 'sub8',
+    visible: true,
+    subMenus: [
+      {
+        name: '储备风险',
+        key: '储备风险',
+        loginRequired: true, // 付费指标
+        vipRequired: true,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'behavior/reserve_risk',
+        },
+        introduce: {
+          text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
+          isURL: false,
+          weiboURL: '',
+        },
+        assetList: 'BTC',
+        catalogText: '用于量化长期持有者市场信心的指标',
+      },
+      {
+        name: '长期持有者行为',
+        key: '长期持有者行为',
+        loginRequired: true,
+        vipRequired: true,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'behavior/long_behavior',
+        },
+        introduce: {
+          text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
+          isURL: false,
+          weiboURL: '',
+        },
+        assetList: 'BTC',
+        catalogText: '量化长期持有者的宏观支出模式和行为变化',
+      },
+      {
+        name: '长期持有者抛售趋势',
+        key: '长期持有者抛售趋势',
+        loginRequired: true,
+        vipRequired: true,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'behavior/long_sell',
+        },
+        introduce: {
+          text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
+          isURL: false,
+          weiboURL: '',
+        },
+        assetList: 'BTC',
+        catalogText: '量化长期持有者抛压大小的指标',
+      },
+      {
+        name: '出售时的年龄分布占比',
+        key: '出售时的年龄分布占比',
+        loginRequired: true,
+        vipRequired: true,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'behavior/realized_age',
+        },
+        introduce: {
+          text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
+          isURL: false,
+          weiboURL: '',
+        },
+        assetList: 'BTC,ETH',
+        catalogText: '不同年龄的投资者抛售占比',
+      },
+      {
+        name: '持有年龄分布',
+        key: '持有年龄分布',
+        loginRequired: true,
+        vipRequired: true,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'behavior/hodl_age',
+        },
+        introduce: {
+          text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
+          isURL: false,
+          weiboURL: '',
+        },
+        assetList: 'BTC,ETH',
+        catalogText: '不同年龄的投资者持有占比',
+      },
+    ],
+  },
+  {
+    name: '矿工',
+    icon: <PieChartOutlined />,
+    key: 'sub9',
+    visible: true,
+    subMenus: [
+      {
+        name: '哈希带',
+        key: '哈希带',
+        loginRequired: true, // 免费指标
+        vipRequired: false,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'miner/hash_ribbon',
+        },
+        introduce: {
+          text: '稳定币供应比率指标量化了稳定币相对于比特币的购买力，可以理解为比特币与稳定币之间的供需结构的可视化，很好的衡量了比特币价格上涨的潜力大小，优化过后的该指标可以指示出市场资金的流入流出方向。',
+          isURL: true,
+          weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673526568452248',
+        },
+        assetList: 'BTC',
+        catalogText: '基于哈希率量化挖矿难度与价格的关系',
+      },
+      {
+        name: '难度彩虹带',
+        key: '难度彩虹带',
+        loginRequired: true,
+        vipRequired: false,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'miner/difficulty_ribbon',
+        },
+        introduce: {
+          text: '稳定币供应比率指标量化了稳定币相对于比特币的购买力，可以理解为比特币与稳定币之间的供需结构的可视化，很好的衡量了比特币价格上涨的潜力大小，优化过后的该指标可以指示出市场资金的流入流出方向。',
+          isURL: true,
+          weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673526568452248',
+        },
+        assetList: 'BTC',
+        catalogText: '基于7种不同的挖矿难度平均线量化比特币底部的指标',
+      },
+      {
+        name: '普埃尔倍数',
+        key: '普埃尔倍数',
+        loginRequired: true, // 付费指标
+        vipRequired: true,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'miner/puell',
+        },
+        introduce: {
+          text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
+          isURL: false,
+          weiboURL: '',
+        },
+        assetList: 'BTC',
+        catalogText: '基于挖矿利润衡量比特币市场周期',
+      },
+      {
+        name: '矿工交易费用收入占比',
+        key: '矿工交易费用收入占比',
+        loginRequired: true, // 付费指标
+        vipRequired: true,
+        visible: true,
+        args: {
+          asset: 'btc',
+          index: 'miner/transaction_fee',
+        },
+        introduce: {
+          text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
+          isURL: false,
+          weiboURL: '',
+        },
+        assetList: 'BTC',
+        catalogText: '矿工从交易费用获取的收入所占百分比',
       },
     ],
   },

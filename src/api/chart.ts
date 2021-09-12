@@ -19,7 +19,7 @@ export function getChartData(index:string, asset:string):AxiosPromise<IResponseC
  */
 export function getBtcPrice():AxiosPromise<IResponseChartData> {
   const asset = 'btc';
-  const index = 'market_price';
+  const index = 'market/price_close';
   return request({
     url: `/api/v1/charts/${asset}/${index}`,
     params: {},

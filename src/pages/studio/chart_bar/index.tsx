@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 
 import { Button } from 'antd';
-import { MenuFoldOutlined } from '@ant-design/icons';
+import { MenuFoldOutlined, HeartOutlined } from '@ant-design/icons';
 
 import { getHighCharts } from '@/components/chart';
 
@@ -38,7 +38,7 @@ export default memo(function LSChartBar(props:IState) {
         <Button
           size='small'
         >
-          <MenuFoldOutlined />收藏
+          <HeartOutlined />收藏
         </Button>
       </div>
     </BarWrapper>
