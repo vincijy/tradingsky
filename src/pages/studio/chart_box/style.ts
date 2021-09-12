@@ -7,8 +7,8 @@ import * as Layout from '../../../components/chart/layout_config';
 export const ChartTitleArea = styled.div `
     position: absolute;
     // border: 1px solid rgb(226, 226, 226);
-    top: ${Layout.CHART_HEADER_TOP} px;
-    height: ${Layout.CHART_HEADER_HEIGHT} px;
+    top: ${Layout.CHART_HEADER_TOP}px;
+    height: ${Layout.CHART_HEADER_HEIGHT}px;
     z-index: 1;
     text-align: left;
     img {

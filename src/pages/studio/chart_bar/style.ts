@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const BarWrapper = styled.div `
     .bar {
-        padding: 5px 0px;
+        padding: 10px 0px;
         display: flex;
         align-items: flex-start;
         // border: 1px solid red;

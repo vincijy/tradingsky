@@ -11,7 +11,7 @@ export default memo(function LSChartToolbox() {
     setSeletedDay(day);
   };
 
-  const menuList = () => {
+  const dayMenuList = () => {
     const dayList = SMA_DAY_LIST;
     return (
       <Menu>
@@ -106,7 +106,7 @@ export default memo(function LSChartToolbox() {
           </li>
           <li>
             <Dropdown
-              overlay={menuList()}
+              overlay={dayMenuList()}
               placement='bottomRight'>
               <div
                 className='ant-dropdown-link toolbox-cell'
@@ -140,7 +140,7 @@ export default memo(function LSChartToolbox() {
             <div
               className='ant-dropdown-link toolbox-cell'
               onClick={ () => toggleFullScreen() }>
-              <div className='toolbox-cell-text-up'>{ annoVisible ? '开' : '关'}</div>
+              <div className='toolbox-cell-text-up'>{ getChart()?.fullscreen.isOpen ? '开' : '关' }</div>
               <div className='toolbox-cell-text-down'>
                 全屏
                 <FullscreenOutlined className='toolbox-btn-icon'/>

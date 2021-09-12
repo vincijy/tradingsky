@@ -28,12 +28,12 @@ export const ToolBoxWrapper = styled.div `
         font-size: 0.8rem;
     }
     li {
-        border-top: 1px solid rgb(226, 226, 226);
-        border-bottom: 1px solid rgb(226, 226, 226);
+        // border-top: 1px solid rgb(226, 226, 226);
+        // border-bottom: 1px solid rgb(226, 226, 226);
     }
     ul {
         display: flex;
-        border-left: 1px solid rgb(226, 226, 226);
+        // border-left: 1px solid rgb(226, 226, 226);
     }
 
     .toolbox-btn-icon {
