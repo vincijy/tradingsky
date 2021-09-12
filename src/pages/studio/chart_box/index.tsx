@@ -5,7 +5,6 @@ import { Spin } from 'antd';
 
 import { useAppSelector, useAppDispatch } from '@/hooks';
 
-import btcLogo from '@/assets/img/btc_logo.png';
 import LSChartDoubleLine from '@/components/chart/line';
 import { getHighCharts } from '@/components/chart';
 import { getChartData, getBtcPrice } from '@/api/chart';
@@ -18,7 +17,8 @@ import RegisterButton from '@/components/register_btn';
 import { Provider } from 'react-redux'; // 集中管理状态
 import store from '@/store';
 import LSChartToolbox from '../chart_toolbox';
-import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip, ChartTitleArea } from './style';
+import LSChartHead from '../char_head';
+import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip } from './style';
 
 const antIcon = (
   <LoadingOutlined
@@ -311,13 +311,7 @@ export default memo(function LSChartBox() {
   return (
     <BoxWrapper>
       <div id='container' >
-        <ChartTitleArea>
-          <img
-            src={btcLogo}
-            alt='比特币'
-          />
-          <span className='chart-title'> 比特币：{ name }</span>
-        </ChartTitleArea>
+        <LSChartHead/>
         <LSChartToolbox />
         <LSChartDoubleLine
           seriesA={ { data: dataA, name: name } }
