@@ -2,6 +2,7 @@
 import React, { memo, useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/hooks';
+import { getAnnotationManager } from '@/utils/annotation';
 
 // 功能
 import { menus } from '@/config/menu'; // 分类数据
@@ -46,6 +47,8 @@ export default memo(function LSChartMenu() {
       },
     });
     dispatch(action);
+    const an = getAnnotationManager();
+    an && an.clearAnnotationCircle();
   };
 
   const [openKeys, setOpenKeys] = React.useState([selectedMenu.key]);

@@ -115,6 +115,62 @@ export const menus:D.MenuItem[] = [
             enabled: true,
           },
         },
+        annotation: {
+          circle: {
+            pricePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 7,
+                  day: 21,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2021,
+                  month: 8,
+                  day: 21,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 9,
+                  day: 21,
+                },
+              },
+            ],
+            IndicePoints: [
+              {
+                color: 'green',
+                date: {
+                  year: 2021,
+                  month: 4,
+                  day: 21,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 5,
+                  day: 21,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 6,
+                  day: 21,
+                },
+              },
+            ],
+          },
+        },
       },
       {
         name: '余额 > 0.01地址量',

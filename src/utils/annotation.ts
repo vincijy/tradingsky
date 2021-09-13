@@ -141,17 +141,22 @@ class AnnotationManager {
     });
     this.circleStorage = [];
   };
+  public setConfig(ancfg:IAnnotationConfig) {
+    this.ancfg = ancfg;
+  }
 }
 
 let annotationManager:AnnotationManager;
 export const getAnnotationManager = function() {
-  if (!annotationManager) {
-    const cfg = store.getState().ui.currentMenu.subMenu.annotation;
-    if (!cfg) {
-      return;
-    }
-    annotationManager = new AnnotationManager(cfg);
+  const cfg = store.getState().ui.currentMenu.subMenu.annotation;
+  if (!cfg) {
+    return;
   }
+  if (!annotationManager) {
+    annotationManager = new AnnotationManager(cfg);
+    return annotationManager;
+  }
+  annotationManager.setConfig(cfg);
   return annotationManager;
 };
 
