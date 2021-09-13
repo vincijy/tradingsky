@@ -56,6 +56,18 @@ export interface SubMenuItem {
       * 目录页指标介绍
       */
       catalogText:string;
+
+      /**
+       * toolbox 栏目配置, 缺省情况下默认全部enabale
+       */
+       toolbox?:{
+        annotation:{
+          enabled:boolean;
+        };
+        sma:{
+          enabled:boolean;
+        };
+      };
 }
 
 export interface MenuItem {

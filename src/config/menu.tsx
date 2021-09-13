@@ -26,6 +26,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '每天发生交易的地址数量统计',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '新增地址量',
@@ -44,6 +52,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '每天区块链网络新增地址数量统计',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '余额 > 0.01地址量',
@@ -62,6 +78,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '持币余额 > 0.01 的地址数量',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '余额 > 1地址量',
@@ -80,6 +104,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '持币余额 > 1 的地址数量',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '余额 > 100地址量',
@@ -98,6 +130,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '持币余额 > 100 的地址数量',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '一年以上持有量占比',
@@ -116,6 +156,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '持有一年以上没有移动的供应量占比',
+        toolbox: {
+          annotation: {
+            enabled: true, // 有标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '巨鲸地址数量（>1k）',
@@ -134,6 +182,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '巨鲸地址数量统计（余额 > 1K）',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
     ],
   },
@@ -160,6 +216,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '交易所余额的供应量占比',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '交易所净头寸变化',
@@ -178,6 +242,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '交易所钱包净持仓变化（流入/流出）',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '交易所净流量变化',
@@ -196,6 +268,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '交易所净流量变化',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '期货资金费率',
@@ -214,6 +294,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '交易所永续期货合约的平均融资利率（单位：%）',
+        toolbox: {
+          annotation: {
+            enabled: true, // 有标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
     ],
   },
@@ -240,6 +328,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '灰度信托基金持有的BTC数量',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '灰度溢价（GBTC）',
@@ -258,6 +354,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '灰度信托基金的总价值相对于信托持有的比特币资产净值的溢价',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '灰度净流量（GBTC）',
@@ -276,6 +380,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '灰度信托基金持有比特币的流入/流出数量',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: 'Purpose Bitcoin ETF持仓量',
@@ -294,6 +406,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: 'Purpose Bitcoin ETF 持有的BTC数量',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: 'Purpose Bitcoin ETF净流量',
@@ -312,6 +432,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: 'Purpose Bitcoin ETF 持有比特币的流入/流出数量',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
     ],
   },
@@ -338,6 +466,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '资产价格距历史最高点的下跌幅度（单位：%）',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '已实现净损益',
@@ -356,6 +492,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '链上移动硬币的净损益',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '流通盈利率',
@@ -374,6 +518,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '盈利的比特币数量占总量的百分比',
+        toolbox: {
+          annotation: {
+            enabled: true, // 有标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
     ],
   },
@@ -400,6 +552,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '所有稳定币发行供应量统计',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '稳定币供应比率',
@@ -418,6 +578,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '稳定币与比特币之间的供给关系',
+        toolbox: {
+          annotation: {
+            enabled: true, // 有标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
     ],
   },
@@ -444,6 +612,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '从稀缺性角度预测比特币未来估值的模型',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: 'Stock-to-Flow 模型偏差量',
@@ -462,6 +638,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '比特币价格相对于S/F模型的偏差量',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: 'CVDD底部指标',
@@ -480,6 +664,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '量化比特币底部区域的精准指标',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '市场健康程度',
@@ -498,6 +690,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '衡量市场健康程度的指标',
+        toolbox: {
+          annotation: {
+            enabled: true, // 有标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '公允价值偏差量',
@@ -516,6 +716,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '相对于已实现市值评估市值是否被高估/低估',
+        toolbox: {
+          annotation: {
+            enabled: true, // 有标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
     ],
   },
@@ -542,6 +750,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '衡量投资者行为的短期抄底指标',
+        toolbox: {
+          annotation: {
+            enabled: true, // 有标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '市场贪婪度',
@@ -560,6 +776,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '衡量市场情绪及贪婪度的精准顶部指标',
+        toolbox: {
+          annotation: {
+            enabled: true, // 有标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
     ],
   },
@@ -586,6 +810,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '用于量化长期持有者市场信心的指标',
+        toolbox: {
+          annotation: {
+            enabled: true, // 有标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '长期持有者行为',
@@ -604,6 +836,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '量化长期持有者的宏观支出模式和行为变化',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '长期持有者抛售趋势',
@@ -622,6 +862,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '量化长期持有者抛压大小的指标',
+        toolbox: {
+          annotation: {
+            enabled: true, // 有标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '出售时的年龄分布占比',
@@ -640,6 +888,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '不同年龄的投资者抛售占比',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '持有年龄分布',
@@ -658,6 +914,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC,ETH',
         catalogText: '不同年龄的投资者持有占比',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
     ],
   },
@@ -684,6 +948,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '基于哈希率量化挖矿难度与价格的关系',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '难度彩虹带',
@@ -702,6 +974,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '基于7种不同的挖矿难度平均线量化比特币底部的指标',
+        toolbox: {
+          annotation: {
+            enabled: true, // 有标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '普埃尔倍数',
@@ -720,6 +1000,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '基于挖矿利润衡量比特币市场周期',
+        toolbox: {
+          annotation: {
+            enabled: true, // 有标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
       {
         name: '矿工交易费用收入占比',
@@ -738,6 +1026,14 @@ export const menus:D.MenuItem[] = [
         },
         assetList: 'BTC',
         catalogText: '矿工从交易费用获取的收入所占百分比',
+        toolbox: {
+          annotation: {
+            enabled: false, // 无标注
+          },
+          sma: {
+            enabled: true,
+          },
+        },
       },
     ],
   },
