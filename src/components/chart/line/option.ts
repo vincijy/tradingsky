@@ -1,5 +1,4 @@
-import { clearAnnotationCircle } from '@/utils/annotation';
-import { drawAnnotationCircle } from '@/utils/annotation';
+import { getAnnotationManager } from '@/utils/annotation';
 import store from '@/store/index';
 
 export const options = {
@@ -44,8 +43,12 @@ export const options = {
       setExtremes: function(event:any) {
         setTimeout(() => {
           if (store.getState().chart.annotationVisible) {
-            clearAnnotationCircle();
-            drawAnnotationCircle();
+            const ano = getAnnotationManager();
+            if (!ano) {
+              return;
+            }
+            ano.clearAnnotationCircle();
+            ano.drawAnnotationCircle();
           }
         });
       },

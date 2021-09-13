@@ -1,5 +1,5 @@
 
-import { clearAnnotationCircle, drawAnnotationCircle } from '@/utils/annotation';
+import { getAnnotationManager } from '@/utils/annotation';
 import store from '@/store/index';
 import * as Layout from '../../config/layout';
 import { rangeSelector } from './option_range_selector';
@@ -25,12 +25,14 @@ export const commonOptions = {
         // 在批注可见情况下清空, 重绘
         setTimeout(() => {
           if (store.getState().chart.annotationVisible) {
-            clearAnnotationCircle();
-            drawAnnotationCircle();
+            const ano = getAnnotationManager();
+            if (!ano) {
+              return;
+            }
+            ano.clearAnnotationCircle();
+            ano.drawAnnotationCircle();
           }
         });
-
-        // TODO: on change
       },
     },
   },

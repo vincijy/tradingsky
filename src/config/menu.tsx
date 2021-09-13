@@ -1,7 +1,6 @@
 import { MergeCellsOutlined, PullRequestOutlined, PayCircleOutlined, FlagOutlined, ProjectOutlined, LineChartOutlined, AlertOutlined, ThunderboltOutlined, PieChartOutlined } from '@ant-design/icons';
 import React from 'react';
 import * as D from './def';
-
 export const menus:D.MenuItem[] = [
   {
     name: '地址',
@@ -32,6 +31,29 @@ export const menus:D.MenuItem[] = [
           },
           sma: {
             enabled: true,
+          },
+        },
+        annotation: {
+          circle: {
+            colorOfHigher: 'red',
+            colorOfLower: 'green',
+            dates: [
+              {
+                year: 2021,
+                month: 8,
+                day: 21,
+              },
+              {
+                year: 2021,
+                month: 8,
+                day: 26,
+              },
+              {
+                year: 2021,
+                month: 7,
+                day: 19,
+              },
+            ],
           },
         },
       },
