@@ -22,17 +22,14 @@ export const commonOptions = {
     marginTop: Layout.CHART_CONTENT_MARGIN_TOP,
     events: {
       selection: function(event:any) {
-        // 在批注可见情况下清空, 重绘
-        setTimeout(() => {
-          if (store.getState().chart.annotationVisible) {
-            const ano = getAnnotationManager();
-            if (!ano) {
-              return;
-            }
-            ano.clearAnnotationCircle();
-            ano.drawAnnotationCircle();
+        if (store.getState().chart.annotationVisible) {
+          const ano = getAnnotationManager();
+          if (!ano) {
+            return;
           }
-        });
+          ano.clearAnnotationCircle();
+          ano.drawAnnotationCircle();
+        }
       },
     },
   },

@@ -1,7 +1,7 @@
 // 基本工具
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-
+import { getAnnotationManager } from '@/utils/annotation';
 // 导入所有的reducer模块
 import { rootReducer } from './reducer';
 
@@ -25,3 +25,22 @@ const isProductionBuild = process.env.NODE_ENV === 'production';
 if (!isProductionBuild) {
   (window as any).store = store;
 }
+
+let preSmaPeriod = 0;
+let preAnnotationVisible = false;
+store.subscribe(() => {
+  const v = store.getState().chart.annotationVisible;
+  if (preAnnotationVisible !== v) {
+    console.log('visible change');
+  }
+  preAnnotationVisible = v;
+
+  const period = store.getState().chart.options.series[2].params.period;
+  if (preSmaPeriod !== period) {
+    console.log('period change');
+    const an = getAnnotationManager();
+    an && an.clearAnnotationCircle();
+    an && v && an.drawAnnotationCircle();
+  }
+  preSmaPeriod = period;
+});

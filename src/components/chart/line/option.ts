@@ -41,16 +41,14 @@ export const options = {
     },
     events: {
       setExtremes: function(event:any) {
-        setTimeout(() => {
-          if (store.getState().chart.annotationVisible) {
-            const ano = getAnnotationManager();
-            if (!ano) {
-              return;
-            }
-            ano.clearAnnotationCircle();
-            ano.drawAnnotationCircle();
+        if (store.getState().chart.annotationVisible) {
+          const ano = getAnnotationManager();
+          if (!ano) {
+            return;
           }
-        });
+          ano.clearAnnotationCircle();
+          ano.drawAnnotationCircle();
+        }
       },
     },
   },

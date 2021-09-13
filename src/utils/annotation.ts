@@ -69,7 +69,7 @@ class AnnotationManager {
       return;
     }
     const point = this.getPointByDate(date, data);
-    this.createCircleByPoint(point, color);
+    point && this.createCircleByPoint(point, color);
   };
   private getTimeStamp = (obj:{
     year:number; month:number; day:number; hour?:number; minute?:number; second?:number;
@@ -89,8 +89,12 @@ class AnnotationManager {
       },
    data:Point[],
  ) => {
-   if (data.length < 2) {
+   if (data.length < 3) {
      console.error('Data lenght must be greater than 2');
+     return;
+   }
+   if (!data[0] || !data[1]) {
+     console.log(data[0]);
      return;
    }
    /**
@@ -112,8 +116,13 @@ class AnnotationManager {
    const pIndex = index - 1 > 0 ? index : 0;
    return data[pIndex];
  };
-
  public drawAnnotationCircle = () => {
+   // 让其渲染完成, 获取得到 getChart()
+   setTimeout(() => {
+     this.__drawAnnotationCircle();
+   }, 200);
+ }
+ private __drawAnnotationCircle = () => {
    const c = getChart();
    if (!c) {
      console.error('Chart not init');
@@ -128,9 +137,14 @@ class AnnotationManager {
      if (!this.ancfg.circle) {
        return;
      }
+     let data = c.series[0].data;
+     // 当切换到均线的时候, 源数据会被置空, 这个时候取均线为data
+     if (data.length === 0) {
+       data = c.series[2].data;
+     }
      this.drawCircleByDate(
        p.date,
-       c.series[0].data,
+       data,
        p.color,
      );
    });
