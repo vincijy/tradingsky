@@ -63,6 +63,12 @@ export const BoxWrapper = styled.div `
         background: url(${restriction}) no-repeat center;
         background-size: cover;
     }
+
+    .card-title-area {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 `;
 
 export const ChartLoadingWrapper = styled.div `

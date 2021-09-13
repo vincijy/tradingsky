@@ -60,11 +60,11 @@ export interface SubMenuItem {
       /**
        * toolbox 栏目配置, 缺省情况下默认全部enabale
        */
-       toolbox?:{
-        annotation:{
+      toolbox?:{
+        sma:{
           enabled:boolean;
         };
-        sma:{
+        annotation:{
           enabled:boolean;
         };
       };

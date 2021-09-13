@@ -1,3 +1,7 @@
+import { clearAnnotationCircle } from '@/utils/annotation';
+import { drawAnnotationCircle } from '@/utils/annotation';
+import store from '@/store/index';
+
 export const options = {
   yAxis: [
     {
@@ -12,7 +16,7 @@ export const options = {
         // 橙色
         style: { color: 'rgb(247, 147, 26)' },
       },
-      gridLineColor: '#FFFFFF', // 去指标grid网格背景
+      gridLineWidth: 0, // 去指标grid网格背景
     },
     {
       // 右侧轴线
@@ -22,6 +26,7 @@ export const options = {
       opposite: true,
       align: 'left',
       type: 'logarithmic', // 对数刻度
+      gridLineColor: 'rgba(240,240,240,.67)',
     },
   ],
   xAxis: {
@@ -35,20 +40,48 @@ export const options = {
         return `${date.getMonth() + 1}月 ${date.getDate()}日`;
       },
     },
+    events: {
+      setExtremes: function(event:any) {
+        setTimeout(() => {
+          if (store.getState().chart.annotationVisible) {
+            clearAnnotationCircle();
+            drawAnnotationCircle();
+          }
+        });
+      },
+    },
   },
   series: [
     {
       name: '活跃地址量',
       data: [],
       // 橙色
-      color: 'rgb(247, 147, 26)', // 线条颜色
+      color: 'rgb(247, 147, 26)',
       yAxis: 0,
+      id: 'activeAddress',
+      visible: false,
+      showInLegend: false,
     },
     {
       name: '价格',
       data: [],
-      color: 'rgba(0,0,0,0.5)', // 线条颜色
+      color: 'rgba(0,0,0,0.5)',
       yAxis: 1,
+    },
+    {
+      type: 'sma',
+      linkedTo: 'activeAddress',
+      name: '',
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      params: {
+        period: 0,
+      },
+      visible: true,
+      showInLegend: true,
+      marker: {
+        enabled: false, // https://stackoverflow.com/questions/14642779/highcharts-how-can-i-turn-off-the-points
+      },
     },
   ],
 };

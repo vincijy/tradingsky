@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NAV_BAR_HEIGHT } from '@/config/layout';
 
 export const HeaderWrapper = styled.div `
     margin: 0px 32px;
@@ -7,9 +8,7 @@ export const HeaderWrapper = styled.div `
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 80px;  // 导航栏上下宽度
-        margin-top: -10px;
-    
+        height: ${NAV_BAR_HEIGHT}px;  // 导航栏上下宽度    
         @media screen and (min-width: 1550px) {
             max-width: 2000px; // 宽屏适配 大显示器：铺满页面
         }
