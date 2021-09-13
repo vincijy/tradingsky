@@ -109,29 +109,27 @@ class AnnotationManager {
      console.error('Not config circle anotation');
      return;
    }
-   const dates = this.ancfg.circle.dates;
-
-   dates.forEach((date) => {
+   const indicePoints = this.ancfg.circle.IndicePoints;
+   indicePoints.forEach((p) => {
      if (!this.ancfg.circle) {
        return;
      }
-     const pricePoint = this.getPointByDate(date, c.series[0].data) as any;
-     const indicePoint = this.getPointByDate(date, c.series[1].data) as any;
-     if (!indicePoint || !pricePoint) {
+     this.drawCircleByDate(
+       p.date,
+       c.series[0].data,
+       p.color,
+     );
+   });
+
+   const pricePoints = this.ancfg.circle.pricePoints;
+   pricePoints.forEach((p) => {
+     if (!this.ancfg.circle) {
        return;
      }
-     const color = pricePoint.plotY > indicePoint.plotY ? this.ancfg.circle.colorOfHigher : this.ancfg.circle.colorOfLower;
      this.drawCircleByDate(
-       date,
-       c.series[0].data,
-       color,
-     );
-
-     const color__ = pricePoint.plotY < indicePoint.plotY ? this.ancfg.circle.colorOfHigher : this.ancfg.circle.colorOfLower;
-     this.drawCircleByDate(
-       date,
+       p.date,
        c.series[1].data,
-       color__,
+       p.color,
      );
    });
  };

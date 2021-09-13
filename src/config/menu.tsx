@@ -35,23 +35,56 @@ export const menus:D.MenuItem[] = [
         },
         annotation: {
           circle: {
-            colorOfHigher: 'red',
-            colorOfLower: 'green',
-            dates: [
+            pricePoints: [
               {
-                year: 2021,
-                month: 8,
-                day: 21,
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 4,
+                  day: 21,
+                },
               },
               {
-                year: 2021,
-                month: 8,
-                day: 26,
+                color: 'green',
+                date: {
+                  year: 2021,
+                  month: 5,
+                  day: 21,
+                },
               },
               {
-                year: 2021,
-                month: 7,
-                day: 19,
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 6,
+                  day: 21,
+                },
+              },
+            ],
+            IndicePoints: [
+              {
+                color: 'green',
+                date: {
+                  year: 2021,
+                  month: 4,
+                  day: 21,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 5,
+                  day: 21,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 6,
+                  day: 21,
+                },
               },
             ],
           },

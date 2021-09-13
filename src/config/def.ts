@@ -99,26 +99,18 @@ export interface Idate {
     year:number; month:number; day:number; hour?:number; minute?:number; second?:number;
 }
 
+export interface IPoint {
+  date:Idate;
+  color:'green' | 'red';
+}
+
 export interface IAnnotationConfig {
     /**
      * 画圈标注
      */
     circle?:{
-        /**
-         * 上方的颜色可以补充别的颜色
-         */
-        colorOfHigher:'green' | 'red';
-
-        /**
-         * 下方的颜色
-         */
-        colorOfLower:'green' | 'red';
-
-        /**
-         * 日期, 对于价格线和指标线 都会利用该日期进行标注
-         */
-        dates:Idate[];
-
+        pricePoints:IPoint[];
+        IndicePoints:IPoint[];
     };
 
     /**
