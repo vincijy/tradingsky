@@ -1,3 +1,6 @@
+import { clearAnnotationCircle } from '@/utils/annotation';
+import { drawAnnotationCircle } from '@/utils/annotation';
+import store from '@/store/index';
 
 export const options = {
   yAxis: [
@@ -39,7 +42,12 @@ export const options = {
     },
     events: {
       setExtremes: function(event:any) {
-        // TODO: on change
+        setTimeout(() => {
+          if (store.getState().chart.annotationVisible) {
+            clearAnnotationCircle();
+            drawAnnotationCircle();
+          }
+        });
       },
     },
   },

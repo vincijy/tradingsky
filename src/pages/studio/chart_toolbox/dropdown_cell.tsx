@@ -4,7 +4,6 @@ import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { ToolBoxCellWrapper } from './style';
 import { ToolBoxCellName } from './def';
-
 interface IProps {
     /**
      * 下拉菜单列表
