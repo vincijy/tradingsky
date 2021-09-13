@@ -64,8 +64,9 @@ class AnnotationManager {
     data:Point[],
     color:'red' | 'green',
   ) => {
-    if (data.length < 2) {
-      console.error('Data lenght must be greater than 2');
+    // TODO 补充坑爹原因
+    if (data.length === 0) {
+      console.error('Data lenght must be greater than 0');
       return;
     }
     const point = this.getPointByDate(date, data);
@@ -89,18 +90,19 @@ class AnnotationManager {
       },
    data:Point[],
  ) => {
-   if (data.length < 3) {
-     console.error('Data lenght must be greater than 2');
+   const length = data.length;
+   if (length === 0) {
+     console.error('Data lenght must be greater than 0');
      return;
    }
-   if (!data[0] || !data[1]) {
-     console.log(data[0]);
+   // TODO: 补充坑爹原因
+   if (!data[length - 1] || !data[length - 2]) {
      return;
    }
    /**
        * 时间戳 时间区间的大小
        */
-   const xInterval = data[1].x - data[0].x;
+   const xInterval = data[length - 2].x - data[length - 1].x;
 
    const { year, month, day } = date;
    const xList = data.map((cell) => cell.x);
@@ -137,6 +139,17 @@ class AnnotationManager {
      if (!this.ancfg.circle) {
        return;
      }
+     // https://stackoverflow.com/questions/28207881/highcharts-get-series-data-zoom-indices
+
+     /**
+      * It's also worth noting that the dataGrouping feature modifies the data array,
+      *  data begins empty but seems to insert points into the data array relative to their index
+      * from the dataset when you zoom or pan(perhaps other actions).
+      * Due to this behaviour your data array can have points stored
+      * but not starting from an index of 0. The jsFiddle example iterates
+      * through data from 0 to length-1 with jQuery each(),
+      * which errors due to the initial index being greater than 0.
+      */
      let data = c.series[0].data;
      // 当切换到均线的时候, 源数据会被置空, 这个时候取均线为data
      if (data.length === 0) {
@@ -156,7 +169,7 @@ class AnnotationManager {
      }
      this.drawCircleByDate(
        p.date,
-       c.series[1].data,
+       c.series[1].points,
        p.color,
      );
    });
