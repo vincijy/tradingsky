@@ -3,6 +3,7 @@ import React, { memo } from 'react';
 import { getChart } from '@/components/chart';
 import { ExportingOptions, ExportingMimeTypeValue } from 'highcharts';
 import { useAppSelector } from '@/hooks';
+import { getAnnotationManager } from '@/utils/annotation';
 import ToolBoxCell from './dropdown_cell';
 import { ToolBoxCellName } from './def';
 
@@ -42,7 +43,21 @@ export default memo(function ExportCell() {
       type: exportType,
       filename: exportFileName,
     };
-    c.exportChart(exportOption, {});
+    const ano = getAnnotationManager();
+    c.exportChart(exportOption, {
+      chart: {
+        events: {
+          load: function(){
+            if (!ano) {
+              return;
+            }
+            ano.circleStorage.forEach((c) => {
+              this.renderer.circle(c.option.x, c.option.y, c.option.r).attr(c.attrs).add();
+            });
+          },
+        },
+      },
+    });
   };
   return (
     <ToolBoxCell

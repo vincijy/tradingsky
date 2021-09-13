@@ -27,7 +27,7 @@ export default memo(function LSChartToolbox() {
       <div className='content'>
         <ul>
           <li>
-            { annotation && annotation.enabled && <AnnotationCell /> }
+            { <AnnotationCell /> }
           </li>
           <li>
             <SmaCell/>

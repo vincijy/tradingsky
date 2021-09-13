@@ -3,8 +3,17 @@ import { Point } from 'highcharts';
 import store from '@/store';
 import { IAnnotationConfig } from '@/config/def';
 
+interface IStoredcircle {
+    circle:any;
+    option:{
+        x:number;
+        y:number;
+        r:number;
+    };
+    attrs:{};
+}
 class AnnotationManager {
-  private circleStorage:any[];
+  public circleStorage:IStoredcircle[];
   private ancfg:IAnnotationConfig;
   constructor(ancfg:IAnnotationConfig) {
     this.circleStorage = [];
@@ -22,8 +31,7 @@ class AnnotationManager {
     if (x <= r || y <= r || isNaN(x) || isNaN(y)) {
       return;
     }
-    const circle = this.createCircle(x, y, r, color);
-    this.circleStorage.push(circle);
+    this.createCircle(x, y, r, color);
   };
 
   private createCircle = (x:number, y:number, r:number, color:string) => {
@@ -32,15 +40,21 @@ class AnnotationManager {
       console.error('Chart not init');
       return;
     }
-    const circle = c.renderer.circle(x, y, r)
-      .attr({
-        fill: '#FFFFFF',
-        stroke: color,
-        'stroke-width': 2,
-        zIndex: 0,
-        'stroke-dasharray': 5,
-      })
-      .add();
+    const option = {
+      x,
+      y,
+      r,
+    };
+    const attrs = {
+      fill: '#FFFFFF',
+      stroke: color,
+      'stroke-width': 2,
+      zIndex: 0,
+      'stroke-dasharray': 5,
+    };
+    const circle = c.renderer.circle(option.x, option.y, option.r)
+      .attr(attrs).add();
+    this.circleStorage.push({ circle, option, attrs });
     return circle;
   };
   private drawCircleByDate = (
@@ -136,8 +150,8 @@ class AnnotationManager {
 
 
   public clearAnnotationCircle = () => {
-    this.circleStorage.forEach((e:any) => {
-      e && e.destroy();
+    this.circleStorage.forEach((e:IStoredcircle) => {
+      e && e.circle.destroy();
     });
     this.circleStorage = [];
   };
