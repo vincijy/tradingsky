@@ -37,6 +37,11 @@ export const options = {
         return `${date.getMonth() + 1}月 ${date.getDate()}日`;
       },
     },
+    events: {
+      setExtremes: function(event:any) {
+        // TODO: on change
+      },
+    },
   },
   series: [
     {

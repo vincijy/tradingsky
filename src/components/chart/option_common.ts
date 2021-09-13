@@ -18,6 +18,11 @@ export const commonOptions = {
     panning: true,
     panKey: 'shift',
     marginTop: Layout.CHART_CONTENT_MARGIN_TOP,
+    events: {
+      selection: function(event:any) {
+        // TODO: on change
+      },
+    },
   },
 
   exporting: {
