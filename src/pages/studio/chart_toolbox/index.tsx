@@ -1,5 +1,6 @@
 // 第三方
 import React, { memo, useState } from 'react';
+import { useAppSelector } from '@/hooks';
 import { ToolBoxWrapper } from './style';
 import ExportCell from './export_cell';
 import SmaCell from './sma_cell';
@@ -19,12 +20,14 @@ export default memo(function LSChartToolbox() {
     setWidth(w);
   }, 0);
 
+  const annotation = useAppSelector((state) => state.ui.currentMenu.subMenu.toolbox?.annotation);
+
   return (
     <ToolBoxWrapper style={{ width: `${width}px` }}>
       <div className='content'>
         <ul>
           <li>
-            <AnnotationCell />
+            { annotation && annotation.enabled && <AnnotationCell /> }
           </li>
           <li>
             <SmaCell/>
