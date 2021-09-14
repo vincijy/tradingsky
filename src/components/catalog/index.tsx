@@ -46,6 +46,20 @@ const columns = [
     key: '等级',
     dataIndex: '等级',
     width: 80,
+    render: function rank(){
+      return (
+        // menus.map((menuItem) => {
+        // menuItem.subMenus.map((SubMenuItem) => {
+        //   if(SubMenuItem.vipRequired){
+        //     <span className='vip-icon'>L2</span>;
+        //   }else{
+        //     <span className='free-icon'>L1</span>;
+        //   }
+        // });
+        // })
+        <span className='vip-icon'>L2</span>
+      );
+    },
   },
 ];
 

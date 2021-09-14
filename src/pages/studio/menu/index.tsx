@@ -78,6 +78,9 @@ export default memo(function LSChartMenu() {
                 menuItem.subMenus.map((subMenuItem) => (
                   <Menu.Item
                     key={subMenuItem.key}>
+                    {
+                      subMenuItem.vipRequired ? <span className='vip-icon'>L2</span> : <span className='free-icon'>L1</span>
+                    }
                     {subMenuItem.name}
                   </Menu.Item>
                 ))

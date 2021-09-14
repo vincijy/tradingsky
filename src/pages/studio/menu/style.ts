@@ -30,10 +30,19 @@ export const MenuWrapper = styled.div `
 
         span{
             color: white;  // 选中后字体变成白色
+
+            .free-icon{
+                color: rgb(104, 113, 152); // L1图标不变色
+            }
+
+            .vip-icon{
+                color: rgb(254, 109, 145); // L2图标不变色
+            }
         }
 
         ::after{
             display: none !important;  // 隐藏黑线
         }
     }
+
 `;
