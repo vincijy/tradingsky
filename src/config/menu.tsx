@@ -275,6 +275,110 @@ export const menus:D.MenuItem[] = [
             enabled: true,
           },
         },
+        annotation: {
+          circle: {
+            pricePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 6,
+                  day: 13,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 11,
+                  day: 22,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 12,
+                  day: 2,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2015,
+                  month: 1,
+                  day: 17,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 20,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2018,
+                  month: 12,
+                  day: 20,
+                },
+              },
+            ],
+            IndicePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 6,
+                  day: 13,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 11,
+                  day: 22,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 12,
+                  day: 2,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2015,
+                  month: 1,
+                  day: 17,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 20,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2018,
+                  month: 12,
+                  day: 20,
+                },
+              },
+            ],
+          },
+        },
       },
       {
         name: '巨鲸地址数量（>1k）',
@@ -637,6 +741,286 @@ export const menus:D.MenuItem[] = [
             enabled: true,
           },
         },
+        annotation: {
+          circle: {
+            pricePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2010,
+                  month: 11,
+                  day: 26,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 2,
+                  day: 17,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 6,
+                  day: 4,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 11,
+                  day: 21,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 4,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 12,
+                  day: 3,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 2,
+                  day: 10,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 10,
+                  day: 5,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 6,
+                  day: 7,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 1,
+                  day: 4,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 3,
+                  day: 6,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 6,
+                  day: 11,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 9,
+                  day: 8,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 18,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2019,
+                  month: 2,
+                  day: 18,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 1,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 4,
+                  day: 18,
+                },
+              },
+            ],
+            IndicePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2010,
+                  month: 11,
+                  day: 26,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 2,
+                  day: 17,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 6,
+                  day: 4,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 11,
+                  day: 21,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 4,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 12,
+                  day: 3,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 2,
+                  day: 10,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 10,
+                  day: 5,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 6,
+                  day: 7,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 1,
+                  day: 4,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 3,
+                  day: 6,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 6,
+                  day: 11,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 9,
+                  day: 8,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 18,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2019,
+                  month: 2,
+                  day: 18,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 1,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 4,
+                  day: 18,
+                },
+              },
+            ],
+          },
+        },
       },
     ],
   },
@@ -695,6 +1079,158 @@ export const menus:D.MenuItem[] = [
           },
           sma: {
             enabled: true,
+          },
+        },
+        annotation: {
+          circle: {
+            pricePoints: [
+              {
+                color: 'green',
+                date: {
+                  year: 2018,
+                  month: 12,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2019,
+                  month: 6,
+                  day: 28,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2019,
+                  month: 11,
+                  day: 26,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 3,
+                  day: 16,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 9,
+                  day: 25,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 1,
+                  day: 8,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 2,
+                  day: 21,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 3,
+                  day: 14,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2021,
+                  month: 5,
+                  day: 24,
+                },
+              },
+            ],
+            IndicePoints: [
+              {
+                color: 'green',
+                date: {
+                  year: 2018,
+                  month: 12,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2019,
+                  month: 6,
+                  day: 28,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2019,
+                  month: 11,
+                  day: 26,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 3,
+                  day: 16,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 9,
+                  day: 25,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 1,
+                  day: 8,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 2,
+                  day: 21,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 3,
+                  day: 14,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2021,
+                  month: 5,
+                  day: 24,
+                },
+              },
+            ],
           },
         },
       },
@@ -783,6 +1319,78 @@ export const menus:D.MenuItem[] = [
             enabled: true,
           },
         },
+        annotation: {
+          circle: {
+            pricePoints: [
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 10,
+                  day: 20,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 1,
+                  day: 15,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2018,
+                  month: 12,
+                  day: 16,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 3,
+                  day: 20,
+                },
+              },
+            ],
+            IndicePoints: [
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 10,
+                  day: 20,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 1,
+                  day: 15,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2018,
+                  month: 12,
+                  day: 16,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 3,
+                  day: 20,
+                },
+              },
+            ],
+          },
+        },
       },
       {
         name: '市场健康程度',
@@ -809,6 +1417,110 @@ export const menus:D.MenuItem[] = [
             enabled: true,
           },
         },
+        annotation: {
+          circle: {
+            pricePoints: [
+              {
+                color: 'green',
+                date: {
+                  year: 2010,
+                  month: 10,
+                  day: 3,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 11,
+                  day: 18,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 1,
+                  day: 15,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2018,
+                  month: 12,
+                  day: 16,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 3,
+                  day: 17,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2021,
+                  month: 7,
+                  day: 20,
+                },
+              },
+            ],
+            IndicePoints: [
+              {
+                color: 'green',
+                date: {
+                  year: 2010,
+                  month: 10,
+                  day: 3,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 11,
+                  day: 18,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 1,
+                  day: 15,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2018,
+                  month: 12,
+                  day: 16,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 3,
+                  day: 17,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2021,
+                  month: 7,
+                  day: 20,
+                },
+              },
+            ],
+          },
+        },
       },
       {
         name: '公允价值偏差量',
@@ -833,6 +1545,174 @@ export const menus:D.MenuItem[] = [
           },
           sma: {
             enabled: true,
+          },
+        },
+        annotation: {
+          circle: {
+            pricePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2010,
+                  month: 11,
+                  day: 8,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 6,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 4,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 11,
+                  day: 30,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 1,
+                  day: 15,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 8,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2018,
+                  month: 12,
+                  day: 15,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 3,
+                  day: 13,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 2,
+                  day: 21,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 10,
+                  day: 20,
+                },
+              },
+            ],
+            IndicePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2010,
+                  month: 11,
+                  day: 8,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 6,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 4,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 11,
+                  day: 30,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 1,
+                  day: 15,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 8,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2018,
+                  month: 12,
+                  day: 15,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 3,
+                  day: 13,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 2,
+                  day: 21,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 10,
+                  day: 20,
+                },
+              },
+            ],
           },
         },
       },
@@ -895,6 +1775,158 @@ export const menus:D.MenuItem[] = [
             enabled: true,
           },
         },
+        annotation: {
+          circle: {
+            pricePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2010,
+                  month: 11,
+                  day: 7,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 2,
+                  day: 10,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 5,
+                  day: 13,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 6,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 4,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 8,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 11,
+                  day: 19,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 8,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 2,
+                  day: 22,
+                },
+              },
+            ],
+            IndicePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2010,
+                  month: 11,
+                  day: 7,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 2,
+                  day: 10,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 5,
+                  day: 13,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 6,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 4,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 8,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 11,
+                  day: 19,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 8,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 2,
+                  day: 22,
+                },
+              },
+            ],
+          },
+        },
       },
     ],
   },
@@ -927,6 +1959,174 @@ export const menus:D.MenuItem[] = [
           },
           sma: {
             enabled: true,
+          },
+        },
+        annotation: {
+          circle: {
+            pricePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 6,
+                  day: 10,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 4,
+                  day: 10,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 12,
+                  day: 4,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 18,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 11,
+                  day: 19,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 1,
+                  day: 17,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 8,
+                  day: 25,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2019,
+                  month: 2,
+                  day: 7,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 3,
+                  day: 16,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2021,
+                  month: 7,
+                  day: 21,
+                },
+              },
+            ],
+            IndicePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 6,
+                  day: 10,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 4,
+                  day: 10,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 12,
+                  day: 4,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 18,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 11,
+                  day: 19,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 1,
+                  day: 17,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 8,
+                  day: 25,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2019,
+                  month: 2,
+                  day: 7,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 3,
+                  day: 16,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2021,
+                  month: 7,
+                  day: 21,
+                },
+              },
+            ],
           },
         },
       },
@@ -1067,6 +2267,254 @@ export const menus:D.MenuItem[] = [
             enabled: true,
           },
         },
+        annotation: {
+          circle: {
+            pricePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 12,
+                  day: 28,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2012,
+                  month: 3,
+                  day: 6,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2012,
+                  month: 7,
+                  day: 21,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 1,
+                  day: 31,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2014,
+                  month: 12,
+                  day: 31,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2015,
+                  month: 3,
+                  day: 2,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2016,
+                  month: 8,
+                  day: 22,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2019,
+                  month: 1,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2019,
+                  month: 11,
+                  day: 22,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2020,
+                  month: 4,
+                  day: 24,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2020,
+                  month: 6,
+                  day: 23,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2020,
+                  month: 12,
+                  day: 2,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 4,
+                  day: 25,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2015,
+                  month: 3,
+                  day: 2,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 8,
+                  day: 8,
+                },
+              },
+            ],
+            IndicePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 12,
+                  day: 28,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2012,
+                  month: 3,
+                  day: 6,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2012,
+                  month: 7,
+                  day: 21,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 1,
+                  day: 31,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2014,
+                  month: 12,
+                  day: 31,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2015,
+                  month: 3,
+                  day: 2,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2016,
+                  month: 8,
+                  day: 22,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2019,
+                  month: 1,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2019,
+                  month: 11,
+                  day: 22,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2020,
+                  month: 4,
+                  day: 24,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2020,
+                  month: 6,
+                  day: 23,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2020,
+                  month: 12,
+                  day: 2,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 4,
+                  day: 25,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2015,
+                  month: 3,
+                  day: 2,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 8,
+                  day: 8,
+                },
+              },
+            ],
+          },
+        },
       },
       {
         name: '难度彩虹带',
@@ -1093,6 +2541,158 @@ export const menus:D.MenuItem[] = [
             enabled: true,
           },
         },
+        annotation: {
+          circle: {
+            pricePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 12,
+                  day: 19,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 1,
+                  day: 4,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2015,
+                  month: 6,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2016,
+                  month: 8,
+                  day: 15,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2019,
+                  month: 1,
+                  day: 1,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2020,
+                  month: 4,
+                  day: 7,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2020,
+                  month: 6,
+                  day: 15,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2020,
+                  month: 11,
+                  day: 29,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 8,
+                  day: 3,
+                },
+              },
+            ],
+            IndicePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2011,
+                  month: 12,
+                  day: 19,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 1,
+                  day: 4,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2015,
+                  month: 6,
+                  day: 9,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2016,
+                  month: 8,
+                  day: 15,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2019,
+                  month: 1,
+                  day: 1,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2020,
+                  month: 4,
+                  day: 7,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2020,
+                  month: 6,
+                  day: 15,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2020,
+                  month: 11,
+                  day: 29,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2021,
+                  month: 8,
+                  day: 3,
+                },
+              },
+            ],
+          },
+        },
       },
       {
         name: '普埃尔倍数',
@@ -1117,6 +2717,174 @@ export const menus:D.MenuItem[] = [
           },
           sma: {
             enabled: true,
+          },
+        },
+        annotation: {
+          circle: {
+            pricePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 4,
+                  day: 11,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 12,
+                  day: 1,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 19,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 18,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 10,
+                  day: 25,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 11,
+                  day: 25,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 1,
+                  day: 21,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2018,
+                  month: 12,
+                  day: 13,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 3,
+                  day: 20,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 5,
+                  day: 20,
+                },
+              },
+            ],
+            IndicePoints: [
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 4,
+                  day: 11,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2013,
+                  month: 12,
+                  day: 1,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 19,
+                },
+              },
+              {
+                color: 'red',
+                date: {
+                  year: 2017,
+                  month: 12,
+                  day: 18,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 10,
+                  day: 25,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2011,
+                  month: 11,
+                  day: 25,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2015,
+                  month: 1,
+                  day: 21,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2018,
+                  month: 12,
+                  day: 13,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 3,
+                  day: 20,
+                },
+              },
+              {
+                color: 'green',
+                date: {
+                  year: 2020,
+                  month: 5,
+                  day: 20,
+                },
+              },
+            ],
           },
         },
       },
