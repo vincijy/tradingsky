@@ -1,4 +1,3 @@
-
 export interface SubMenuItem {
     /**
      * 显示的标题
@@ -60,13 +59,30 @@ export interface SubMenuItem {
        * toolbox 栏目配置, 缺省情况下默认全部enabale
        */
       toolbox?:{
+        /**
+         * 均线栏目是否开启
+         */
         sma:{
           enabled:boolean;
         };
+
+        /**
+         * 批注栏目是否开启
+         */
         annotation:{
           enabled:boolean;
         };
       };
+
+      /**
+       * 个性化图表配置, TODO: fix type
+       * 缺省情况下图表沿用默认配置
+       */
+      chart?:any;
+
+      /**
+       * 批注的相关配置
+       */
       annotation?:IAnnotationConfig;
 }
 

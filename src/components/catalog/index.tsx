@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 
-import { menus } from '@/config/menu';
+import { menus } from '@/indices';
 import { Table } from 'antd';
 import { changeMenu } from '@/store/ui/action';
-import { SubMenuItem } from '@/config/def';
+import { SubMenuItem } from '@/indices/def';
 import { useHistory } from 'react-router';
 import { useAppDispatch } from '@/hooks';
 import { CatalogWrapper } from './style';

@@ -79,6 +79,10 @@ export default memo(function LSChartDoubleLine(props:IProps) {
     sma.showInLegend = true;
   }
 
+  /**
+   * 通过回调拿到chart实例.
+   * @param chart Highcharts.Chart
+   */
   const callback = (chart:Highcharts.Chart) => {
     console.log('chart instance init...');
     setChart(chart);

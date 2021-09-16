@@ -1,4 +1,4 @@
-import { SubMenuItem, MenuItem } from '@/config/def';
+import { SubMenuItem, MenuItem } from '@/indices/def';
 import { Action } from 'redux-actions';
 import { GuardScenes } from '@authing/react-ui-components'; // 登录框
 import * as A from './action_type';

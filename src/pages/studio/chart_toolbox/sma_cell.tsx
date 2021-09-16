@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 import { useAppDispatch, useAppSelector } from '@/hooks';
 import { updateChartOption } from '@/store/chart/action';
 import { getChart } from '@/components/chart';
-import ToolBoxCell from './dropdown_cell';
+import DropDownCell from './dropdown_cell';
 import { ToolBoxCellName } from './def';
 
 export default memo(function SmaCell() {
@@ -17,11 +17,15 @@ export default memo(function SmaCell() {
     }
 
     // TODO: fix type
+    // 修改serie.name为xxx几日均线
     const newOptions = Object.assign({}, chart.options) as any;
     const serie = newOptions.series.find((s:any) => s.type === 'sma');
     serie.name = `${name}(${selectedMenu}均线)`;
 
+    // 读取周期(数字)
     const period = parseInt(selectedMenu.replace('日', ''));
+
+    // 修改图表配置的sma周期
     serie.params = {
       period: period,
     };
@@ -30,12 +34,16 @@ export default memo(function SmaCell() {
     }));
   };
 
+  // read sma, TODO: assert
+  const defaultSeleted = useAppSelector((state) => state.chart.options.series[2].params.period);
+
   const menus = [0, 7, 14, 30, 50, 90, 180].map((n) => `${n}日`);
   return (
-    <ToolBoxCell
+    <DropDownCell
       name={ ToolBoxCellName.Sma }
       selectCallback={(menu:string) => setSma(menu)}
       menuList={menus}
+      defaultSeleted={`${defaultSeleted}日`}
     />
   );
 });

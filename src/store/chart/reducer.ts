@@ -1,9 +1,9 @@
-import { commonOptions } from '@/components/chart/option_common';
-import { options } from '@/components/chart/line/option';
+import { commonOptions } from '@/indices/chart_common';
+import { chart as initialPrivateOption } from '@/indices/0_address/active/chart';
 import * as A from './action_type';
 import { IChartState, IAction, TypePaylodMapKey } from './def';
 
-const mergeOptions = Object.assign(commonOptions, options);
+const mergeOptions = Object.assign(commonOptions, initialPrivateOption);
 const initState:IChartState = {
   btcPriceData: [],
   options: mergeOptions,

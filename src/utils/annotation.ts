@@ -1,7 +1,7 @@
 import { getChart } from '@/components/chart';
 import { Point } from 'highcharts';
 import store from '@/store';
-import { IAnnotationConfig } from '@/config/def';
+import { IAnnotationConfig } from '@/indices/def';
 
 interface IStoredcircle {
     circle:any;

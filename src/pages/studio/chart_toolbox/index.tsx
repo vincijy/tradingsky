@@ -21,16 +21,17 @@ export default memo(function LSChartToolbox() {
   }, 0);
 
   const annotation = useAppSelector((state) => state.ui.currentMenu.subMenu.toolbox?.annotation);
+  const sma = useAppSelector((state) => state.ui.currentMenu.subMenu.toolbox?.sma);
 
   return (
     <ToolBoxWrapper style={{ width: `${width}px` }}>
       <div className='content'>
         <ul>
           <li>
-            { <AnnotationCell /> }
+            { annotation && annotation.enabled && <AnnotationCell /> }
           </li>
           <li>
-            <SmaCell/>
+            { sma && sma.enabled && <SmaCell/> }
           </li>
           <li>
             <ExportCell/>

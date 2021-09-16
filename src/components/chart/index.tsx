@@ -2,7 +2,7 @@
 import Highcharts from 'highcharts/highstock'; // HighChart图表
 import initExport from 'highcharts/modules/exporting';
 import HSIndicators from 'highcharts/indicators/indicators';
-import { globalOptions } from './option_gloabl';
+import { globalOptions } from '@/indices/chart_common/gloabl';
 
 let isSetOption = false;
 

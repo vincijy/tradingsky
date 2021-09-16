@@ -1,7 +1,8 @@
-import { getAnnotationManager } from '@/utils/annotation';
-import store from '@/store/index';
 
-export const options = {
+/**
+ * 个性化图表配置, 用于覆盖默认的配置项
+ */
+export const chart = {
   yAxis: [
     {
       // 左侧轴
@@ -28,30 +29,6 @@ export const options = {
       gridLineColor: 'rgba(240,240,240,.67)',
     },
   ],
-  xAxis: {
-    labels: {
-      formatter: function():string {
-        // JS时间戳
-        const value = (this as any).value;
-
-        // TODO: 使用统一的时间格式化工具函数, 避免一些容易搞错的问题
-        const date = new Date(value);
-        return `${date.getMonth() + 1}月 ${date.getDate()}日`;
-      },
-    },
-    events: {
-      setExtremes: function(event:any) {
-        if (store.getState().chart.annotationVisible) {
-          const ano = getAnnotationManager();
-          if (!ano) {
-            return;
-          }
-          ano.clearAnnotationCircle();
-          ano.drawAnnotationCircle();
-        }
-      },
-    },
-  },
   series: [
     {
       name: '活跃地址量',
@@ -72,11 +49,11 @@ export const options = {
     {
       type: 'sma',
       linkedTo: 'activeAddress',
-      name: '',
+      name: '活跃地址量(7日均线)',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {
-        period: 0,
+        period: 7,
       },
       visible: true,
       showInLegend: true,

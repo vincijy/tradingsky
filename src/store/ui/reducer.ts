@@ -1,4 +1,4 @@
-import { menus } from '@/config/menu';
+import { menus } from '@/indices';
 import { GuardScenes } from '@authing/react-ui-components'; // 登录框
 import * as A from './action_type';
 import { IUiState, IAction, TypePaylodMapKey } from './def';

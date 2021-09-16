@@ -3,27 +3,30 @@ import React, { memo, useEffect } from 'react';
 
 import { useAppSelector, useAppDispatch } from '@/hooks';
 import { getAnnotationManager } from '@/utils/annotation';
-
+import { privateDefaultOptions } from '@/indices/chart_private_default';
 // 功能
-import { menus } from '@/config/menu'; // 分类数据
+import { menus } from '@/indices'; // 分类数据
 
 // 组件
 import { Menu } from 'antd';
 import { filter, includes } from 'lodash';
+import { updateChartOption } from '@/store/chart/action';
+import { commonOptions } from '@/indices/chart_common';
 import { changeMenu } from '../../../store/ui/action';
-
 import { MenuWrapper } from './style';
 
 export default memo(function LSChartMenu() {
   const dispatch = useAppDispatch();
 
   const { menu: selectedMenu, subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
+
   /**
    * 根据菜单的路径更新redux
    * @param e 读取菜单的路径
    * @returns void
    */
   const onSelect = (e:{keyPath:string[]}) => {
+    console.log('onSelect');
     const { keyPath } = e;
     const [subMenuKey, menuKey] = keyPath;
 
@@ -34,19 +37,32 @@ export default memo(function LSChartMenu() {
       return;
     }
 
-    const selectedSubMenuItem = selectedMenuItem.subMenus.find((item) => item.key === subMenuKey);
+    const s = selectedMenuItem.subMenus.find((item) => item.key === subMenuKey);
 
-    if (!selectedSubMenuItem) {
+    if (!s) {
       console.error('Not found selectedSubMenuItem');
       return;
     }
     const action = changeMenu({
       currentMenu: {
         menu: selectedMenuItem,
-        subMenu: selectedSubMenuItem,
+        subMenu: s,
       },
     });
     dispatch(action);
+
+    // 根据菜单修改自定义图表配置
+    if (s.chart) {
+      dispatch(updateChartOption({
+        options: Object.assign(commonOptions, s.chart),
+      }));
+    } else {
+      dispatch(updateChartOption({
+        options: Object.assign(commonOptions, privateDefaultOptions),
+      }));
+    }
+
+    // 清空, TODO: fix bug
     const an = getAnnotationManager();
     an && an.clearAnnotationCircle();
   };

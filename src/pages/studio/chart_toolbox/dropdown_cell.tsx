@@ -18,20 +18,30 @@ interface IProps {
      * 标题
      */
     name:ToolBoxCellName;
+
+    /**
+     * 默认初始选项值
+     */
+    defaultSeleted?:string;
 }
 
-export default memo(function ToolBoxCell(props:IProps) {
-  const { menuList, selectCallback, name } = props;
+export default memo(function ToolboxCell(props:IProps) {
+  const { menuList, selectCallback, name, defaultSeleted } = props;
   const menus = menuList;
   if (menus.length === 0) {
     console.error('menuList should contain at least one menu');
   }
   const [seleted, setSeleted] = useState(menus[0]);
+
+  // https://thewebdev.info/2021/03/14/how-to-fix-the-react-usestate-hook-not-setting-initial-value-problem/
+  useEffect(() => {
+    defaultSeleted && setSeleted(defaultSeleted);
+  }, [defaultSeleted]);
+
   const selectMenu = (type:string) => {
     setSeleted(type);
     selectCallback(type);
   };
-
   const getMenuList = () => (
     <Menu>
       {

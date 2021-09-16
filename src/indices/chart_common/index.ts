@@ -2,9 +2,10 @@
 import { getAnnotationManager } from '@/utils/annotation';
 import store from '@/store/index';
 import * as Layout from '../../config/layout';
-import { rangeSelector } from './option_range_selector';
-import { tooltip } from './option_tooltip';
-import { legend } from './option_legend';
+import { rangeSelector } from './range_selector';
+import { tooltip } from './tooltip';
+import { legend } from './legend';
+import { xAxis } from './x_axis';
 /**
  * 多种图表的通用配置
  */
@@ -73,4 +74,5 @@ export const commonOptions = {
   rangeSelector: rangeSelector,
   legend: legend,
   tooltip: tooltip,
+  xAxis: xAxis,
 };
