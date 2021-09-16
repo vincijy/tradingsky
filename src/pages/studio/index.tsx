@@ -36,7 +36,7 @@ export default memo(function LSChartPage() {
         <ChartLeft>
           <Sider
             className='side'
-            width={232}
+            width={280}
             style={{ display: isShow ? 'block' : 'none' }}>
             <LSChartMenu />
           </Sider>

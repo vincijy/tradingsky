@@ -32,7 +32,7 @@ export const PirateWrapper = styled.div `
         background: url(${join}) no-repeat center; // 图片填充
         background-size: 125% 125%;
         margin-top: 30px; // 向上合并一点
-        margin-bottom: 30px; // 向footer的间距
+        margin-bottom: 10px; // 向footer的间距
 
         @media screen and (min-width: 1550px) {
             height: 1000px; // 宽屏适配

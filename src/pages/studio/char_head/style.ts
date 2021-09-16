@@ -21,7 +21,7 @@ export const ChartTitleArea = styled.div `
         display: inline-block;
         vertical-align: middle;
         height: 100%;
-        line-height: 30px;
+        /* line-height: 30px; */
         margin-left: 4px;
     }
 `;

@@ -4,6 +4,8 @@ import restriction from '@/assets/img/restriction.jpg';
 import qrcode from '@/assets/img/qrcode.jpg';
 
 export const BoxWrapper = styled.div `
+    border: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
+
     .ant-card-body {
         padding: 1px 4px;
         // TODO: css layout design

@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
 export const DescribeWrapper = styled.div `
+
+    .ant-card-head{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); // 下边框
+    }
+
     .content-describe{
         margin-top: 28px;
         text-align: left;
         font-size: large;
+        border: 1px solid rgba(0, 0, 0, 0.1); // 外边框
 
         @media screen and (min-width: 1024px) and (max-width: 1366px) { // 移动端适配 iPad pro：拉长边距
             margin-top: 65px;

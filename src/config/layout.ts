@@ -1,7 +1,7 @@
 /**
  * 导航栏高度
  */
-export const NAV_BAR_HEIGHT = 70;
+export const NAV_BAR_HEIGHT = 50;
 
 /**
   * 导航栏下方的GAP内边距
@@ -26,7 +26,7 @@ const CHART_OUTLINE_BOTTOM_OFFSET = 36;
 /**
  * 图表的高度计算
  */
-export const CHART_HEIGHT = window.innerHeight - CHART_OUTLINE_TOP - CHART_OUTLINE_BOTTOM_OFFSET;
+export const CHART_HEIGHT = window.innerHeight - CHART_OUTLINE_TOP - CHART_OUTLINE_BOTTOM_OFFSET + 100;
 
 /**
  * 表头标题区域高度
