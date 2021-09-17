@@ -147,3 +147,13 @@ export interface IAnnotationConfig {
       // TODO
     };
   }
+
+
+/**
+ * 常用的色带颜色
+ */
+export enum BandColor {
+  lightRed = 'rgba(238,17,17,0.1)',
+  lightGreen = 'rgba(0,177,106,0.1)',
+  lightPurple = 'rgba(98,126,234,0.1)',
+}

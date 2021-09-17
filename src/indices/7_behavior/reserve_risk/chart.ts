@@ -1,4 +1,4 @@
-
+import { BandColor } from '../../def';
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
@@ -17,6 +17,24 @@ export const chart = {
         style: { color: 'rgb(247, 147, 26)' },
       },
       gridLineWidth: 0, // 去指标grid网格背景
+      plotBands: [
+        {
+          from: 0.02,
+          to: 0.06,
+          color: BandColor.lightRed,
+          label: {
+            text: '',
+          },
+        },
+        {
+          from: 0.001,
+          to: 0.002,
+          color: BandColor.lightGreen,
+          label: {
+            text: '',
+          },
+        },
+      ],
     },
     {
       // 右侧轴线
