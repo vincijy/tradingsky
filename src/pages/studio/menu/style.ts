@@ -44,4 +44,28 @@ export const MenuWrapper = styled.div `
         }
     }
 
+    .my-favorite{ // 收藏栏
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+        .ant-menu-sub{
+            height: 40px;
+        }
+    }
+
+    .asset-select{ // 数据切换
+        display: flex;
+
+        justify-content: center;
+        margin: 10px 0;
+
+        img{ // 两个小icon
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 4px;
+            margin-bottom: 2px;
+        }
+    }
 `;

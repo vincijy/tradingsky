@@ -7,6 +7,7 @@ export const investorBehavior:D.MenuItem = {
   icon: <ThunderboltOutlined />,
   key: 'sub8',
   visible: true,
+  assetList: ['btc', 'eth'],
   subMenus: [
     {
       name: '储备风险',
@@ -15,7 +16,6 @@ export const investorBehavior:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'behavior/reserve_risk',
       },
       introduce: {
@@ -23,7 +23,7 @@ export const investorBehavior:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '用于量化长期持有者市场信心的指标',
       toolbox: {
         annotation: {
@@ -209,7 +209,6 @@ export const investorBehavior:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'behavior/long_behavior',
       },
       introduce: {
@@ -217,7 +216,7 @@ export const investorBehavior:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '量化长期持有者的宏观支出模式和行为变化',
       toolbox: {
         annotation: {
@@ -235,7 +234,6 @@ export const investorBehavior:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'behavior/long_sell',
       },
       introduce: {
@@ -243,7 +241,7 @@ export const investorBehavior:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '量化长期持有者抛压大小的指标',
       toolbox: {
         annotation: {
@@ -261,7 +259,6 @@ export const investorBehavior:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'behavior/realized_age',
       },
       introduce: {
@@ -269,7 +266,7 @@ export const investorBehavior:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc'],
       catalogText: '不同年龄的投资者抛售占比',
       toolbox: {
         annotation: {
@@ -287,7 +284,6 @@ export const investorBehavior:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'behavior/hodl_age',
       },
       introduce: {
@@ -295,7 +291,7 @@ export const investorBehavior:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc', 'eth'],
       catalogText: '不同年龄的投资者持有占比',
       toolbox: {
         annotation: {

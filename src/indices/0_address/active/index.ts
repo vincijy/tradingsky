@@ -10,11 +10,10 @@ export const active:D.SubMenuItem = {
   vipRequired: false,
   visible: true,
   args: {
-    asset: 'btc',
     index: 'address/active',
   },
   introduce: introduce,
-  assetList: 'BTC,ETH',
+  assetList: ['btc', 'eth'],
   catalogText: '每天发生交易的地址数量统计',
   toolbox: {
     annotation: {

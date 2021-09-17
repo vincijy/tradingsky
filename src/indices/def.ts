@@ -32,7 +32,6 @@ export interface SubMenuItem {
      * 传入参数
      */
      args:{
-        asset:string;
         index:string;
      };
 
@@ -48,7 +47,7 @@ export interface SubMenuItem {
      /**
       * 资产类别
       */
-      assetList:string;
+      assetList:string[];
 
      /**
       * 目录页指标介绍
@@ -109,6 +108,11 @@ export interface MenuItem {
      * 二级菜单
      */
     subMenus:SubMenuItem[];
+
+    /**
+      * 资产类别
+      */
+    assetList:string[];
   }
 
 export interface Idate {

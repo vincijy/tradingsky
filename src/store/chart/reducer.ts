@@ -8,6 +8,7 @@ const initState:IChartState = {
   btcPriceData: [],
   options: mergeOptions,
   annotationVisible: false,
+  dataAsset: 'btc',
 };
 
 export function reducer(state:IChartState = initState, action:IAction<TypePaylodMapKey>):IChartState {
@@ -26,6 +27,11 @@ export function reducer(state:IChartState = initState, action:IAction<TypePaylod
       return {
         ...state,
         annotationVisible: (action as IAction<'TOGGLE_ANNOTATION'>).payload.annotationVisible,
+      };
+    case A.CHANGE_ASSET:
+      return {
+        ...state,
+        dataAsset: (action as IAction<'CHANGE_ASSET'>).payload.dataAsset,
       };
     default:
       return state;

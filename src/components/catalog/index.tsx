@@ -118,7 +118,7 @@ export default memo(function LSCatalog() {
                       key: `${item.key}:${subItem.key}`,
                       序号: `R${++index}`,
                       名称: `${subItem.name}`,
-                      资产种类: `${subItem.assetList}`,
+                      资产种类: `${subItem.assetList.map((item) => item.toUpperCase())}`,
                       指标介绍: `${subItem.catalogText}`,
                       等级: `${
                         subItem.vipRequired ? '付费' : '免费'

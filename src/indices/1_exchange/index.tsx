@@ -7,6 +7,7 @@ export const exchange:D.MenuItem = {
   icon: <PullRequestOutlined />,
   key: 'sub2',
   visible: true,
+  assetList: ['btc', 'eth'],
   subMenus: [
     {
       name: '交易所余额占比',
@@ -15,7 +16,6 @@ export const exchange:D.MenuItem = {
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'exchange/balance_percent',
       },
       introduce: {
@@ -23,7 +23,7 @@ export const exchange:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc', 'eth'],
       catalogText: '交易所余额的供应量占比',
       toolbox: {
         annotation: {
@@ -41,7 +41,6 @@ export const exchange:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'exchange/position_change',
       },
       introduce: {
@@ -49,7 +48,7 @@ export const exchange:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc', 'eth'],
       catalogText: '交易所钱包净持仓变化（流入/流出）',
       toolbox: {
         annotation: {
@@ -67,7 +66,6 @@ export const exchange:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'exchange/flow_change',
       },
       introduce: {
@@ -75,7 +73,7 @@ export const exchange:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc', 'eth'],
       catalogText: '交易所净流量变化',
       toolbox: {
         annotation: {
@@ -93,7 +91,6 @@ export const exchange:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'exchange/funding_rate',
       },
       introduce: {
@@ -101,7 +98,7 @@ export const exchange:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc', 'eth'],
       catalogText: '交易所永续期货合约的平均融资利率（单位：%）',
       toolbox: {
         annotation: {

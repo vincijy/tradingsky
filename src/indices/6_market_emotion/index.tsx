@@ -8,6 +8,7 @@ export const marketEmotion:D.MenuItem = {
   icon: <AlertOutlined />,
   key: 'sub7',
   visible: true,
+  assetList: ['btc', 'eth'],
   subMenus: [
     {
       name: 'spent outputs 利润率（SOPR）',
@@ -16,7 +17,6 @@ export const marketEmotion:D.MenuItem = {
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'sentiment/sopr',
       },
       introduce: {
@@ -24,7 +24,7 @@ export const marketEmotion:D.MenuItem = {
         isURL: true,
         weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673526568452248',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc', 'eth'],
       catalogText: '衡量投资者行为的短期抄底指标',
       toolbox: {
         annotation: {
@@ -42,7 +42,6 @@ export const marketEmotion:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'sentiment/market_greed',
       },
       introduce: {
@@ -50,7 +49,7 @@ export const marketEmotion:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc', 'eth'],
       catalogText: '衡量市场情绪及贪婪度的精准顶部指标',
       toolbox: {
         annotation: {

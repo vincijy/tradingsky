@@ -8,6 +8,7 @@ export const evaluateIndice:D.MenuItem = {
   icon: <LineChartOutlined />,
   key: 'sub6',
   visible: true,
+  assetList: ['btc', 'eth'],
   subMenus: [
     {
       name: 'Stock-to-Flow 模型',
@@ -16,7 +17,6 @@ export const evaluateIndice:D.MenuItem = {
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'value/stock_flow',
       },
       introduce: {
@@ -24,7 +24,7 @@ export const evaluateIndice:D.MenuItem = {
         isURL: true,
         weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673526568452248',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '从稀缺性角度预测比特币未来估值的模型',
       toolbox: {
         annotation: {
@@ -42,7 +42,6 @@ export const evaluateIndice:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'value/stockflow_deflection',
       },
       introduce: {
@@ -50,7 +49,7 @@ export const evaluateIndice:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '比特币价格相对于S/F模型的偏差量',
       toolbox: {
         annotation: {
@@ -68,7 +67,6 @@ export const evaluateIndice:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'value/cvdd',
       },
       introduce: {
@@ -76,7 +74,7 @@ export const evaluateIndice:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '量化比特币底部区域的精准指标',
       toolbox: {
         annotation: {
@@ -166,7 +164,6 @@ export const evaluateIndice:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'value/market_health',
       },
       introduce: {
@@ -174,7 +171,7 @@ export const evaluateIndice:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '衡量市场健康程度的指标',
       toolbox: {
         annotation: {
@@ -296,7 +293,6 @@ export const evaluateIndice:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'value/fairvalue_deflection',
       },
       introduce: {
@@ -304,7 +300,7 @@ export const evaluateIndice:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '相对于已实现市值评估市值是否被高估/低估',
       toolbox: {
         annotation: {

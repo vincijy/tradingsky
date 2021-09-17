@@ -8,6 +8,7 @@ export const address:D.MenuItem = {
   icon: <MergeCellsOutlined />,
   key: 'sub1',
   visible: true,
+  assetList: ['btc', 'eth'],
   subMenus: [
     active,
     {
@@ -17,7 +18,6 @@ export const address:D.MenuItem = {
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'address/new',
       },
       introduce: {
@@ -25,7 +25,7 @@ export const address:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc', 'eth'],
       catalogText: '每天区块链网络新增地址数量统计',
       toolbox: {
         annotation: {
@@ -99,7 +99,6 @@ export const address:D.MenuItem = {
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'address/balance_more001',
       },
       introduce: {
@@ -107,7 +106,7 @@ export const address:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc', 'eth'],
       catalogText: '持币余额 > 0.01 的地址数量',
       toolbox: {
         annotation: {
@@ -125,7 +124,6 @@ export const address:D.MenuItem = {
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'address/balance_more1',
       },
       introduce: {
@@ -133,7 +131,7 @@ export const address:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc', 'eth'],
       catalogText: '持币余额 > 1 的地址数量',
       toolbox: {
         annotation: {
@@ -151,7 +149,6 @@ export const address:D.MenuItem = {
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'address/balance_more100',
       },
       introduce: {
@@ -159,7 +156,7 @@ export const address:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc', 'eth'],
       catalogText: '持币余额 > 100 的地址数量',
       toolbox: {
         annotation: {
@@ -177,7 +174,6 @@ export const address:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'address/more_1y',
       },
       introduce: {
@@ -185,7 +181,7 @@ export const address:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '持有一年以上没有移动的供应量占比',
       toolbox: {
         annotation: {
@@ -307,7 +303,6 @@ export const address:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'address/balance_more1k',
       },
       introduce: {
@@ -315,7 +310,7 @@ export const address:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc', 'eth'],
       catalogText: '巨鲸地址数量统计（余额 > 1K）',
       toolbox: {
         annotation: {

@@ -14,6 +14,9 @@ export interface IPayloadToggleAnnotation {
     annotationVisible:boolean;
 };
 
+export interface IPayloadChangeAsset {
+    dataAsset:string;
+}
 
 
 export interface IChartState {
@@ -21,13 +24,14 @@ export interface IChartState {
     // TODO: fix types
     options:any;
     annotationVisible:boolean;
+    dataAsset:string;
 }
 
 export interface IPayloadMap {
     [A.SET_BTC_PRICE_DATA]:IPayloadSetBtcPriceData;
     [A.UPDATE_CHART_OPTION]:IPayloadUpdateChartOption;
     [A.TOGGLE_ANNOTATION]:IPayloadToggleAnnotation;
-
+    [A.CHANGE_ASSET]:IPayloadChangeAsset;
 }
 
 export type TypePaylodMapKey = keyof IPayloadMap;

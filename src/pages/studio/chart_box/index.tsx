@@ -162,11 +162,12 @@ export default memo(function LSChartBox() {
 
   // 读取选中的菜单
   const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
-  const { args: { index, asset },
+  const { args: { index },
     loginRequired,
     vipRequired,
     name,
   } = selectedSubMenu;
+  const asset = useAppSelector((state) => state.chart.dataAsset); // 切换币种
 
   // 读取用户的信息
   const isLogin = useAppSelector((state) => state.user.isLogin);

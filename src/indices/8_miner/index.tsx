@@ -7,6 +7,7 @@ export const miner:D.MenuItem = {
   icon: <PieChartOutlined />,
   key: 'sub9',
   visible: true,
+  assetList: ['btc', 'eth'],
   subMenus: [
     {
       name: '哈希带',
@@ -15,7 +16,6 @@ export const miner:D.MenuItem = {
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'miner/hash_ribbon',
       },
       introduce: {
@@ -23,7 +23,7 @@ export const miner:D.MenuItem = {
         isURL: true,
         weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673526568452248',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '基于哈希率量化挖矿难度与价格的关系',
       toolbox: {
         annotation: {
@@ -289,7 +289,6 @@ export const miner:D.MenuItem = {
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'miner/difficulty_ribbon',
       },
       introduce: {
@@ -297,7 +296,7 @@ export const miner:D.MenuItem = {
         isURL: true,
         weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673526568452248',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '基于7种不同的挖矿难度平均线量化比特币底部的指标',
       toolbox: {
         annotation: {
@@ -467,7 +466,6 @@ export const miner:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'miner/puell',
       },
       introduce: {
@@ -475,7 +473,7 @@ export const miner:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '基于挖矿利润衡量比特币市场周期',
       toolbox: {
         annotation: {
@@ -661,7 +659,6 @@ export const miner:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'miner/transaction_fee',
       },
       introduce: {
@@ -669,7 +666,7 @@ export const miner:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '矿工从交易费用获取的收入所占百分比',
       toolbox: {
         annotation: {

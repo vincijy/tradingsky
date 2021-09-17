@@ -8,15 +8,15 @@ export const institution:D.MenuItem = {
   icon: <PayCircleOutlined />,
   key: 'sub3',
   visible: true,
+  assetList: ['btc', 'eth'],
   subMenus: [
     {
-      name: '灰度持仓量（GBTC）',
-      key: '灰度持仓量（GBTC）',
+      name: '灰度基金持仓量',
+      key: '灰度基金持仓量',
       loginRequired: true, // 免费指标
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'institution/grayscale_holding',
       },
       introduce: {
@@ -24,7 +24,7 @@ export const institution:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc', 'eth'],
       catalogText: '灰度信托基金持有的BTC数量',
       toolbox: {
         annotation: {
@@ -36,13 +36,12 @@ export const institution:D.MenuItem = {
       },
     },
     {
-      name: '灰度溢价（GBTC）',
-      key: '灰度溢价（GBTC）',
+      name: '灰度基金溢价',
+      key: '灰度基金溢价',
       loginRequired: true,
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'institution/grayscale_premium',
       },
       introduce: {
@@ -50,7 +49,7 @@ export const institution:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc', 'eth'],
       catalogText: '灰度信托基金的总价值相对于信托持有的比特币资产净值的溢价',
       toolbox: {
         annotation: {
@@ -62,13 +61,12 @@ export const institution:D.MenuItem = {
       },
     },
     {
-      name: '灰度净流量（GBTC）',
-      key: '灰度净流量（GBTC）',
+      name: '灰度基金净流量',
+      key: '灰度基金净流量',
       loginRequired: true,
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'institution/grayscale_flow',
       },
       introduce: {
@@ -76,7 +74,7 @@ export const institution:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc', 'eth'],
       catalogText: '灰度信托基金持有比特币的流入/流出数量',
       toolbox: {
         annotation: {
@@ -94,7 +92,6 @@ export const institution:D.MenuItem = {
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'institution/purpose_holding',
       },
       introduce: {
@@ -102,7 +99,7 @@ export const institution:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: 'Purpose Bitcoin ETF 持有的BTC数量',
       toolbox: {
         annotation: {
@@ -120,7 +117,6 @@ export const institution:D.MenuItem = {
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'institution/purpose_flow',
       },
       introduce: {
@@ -128,7 +124,7 @@ export const institution:D.MenuItem = {
         isURL: false,
         weiboURL: '',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: 'Purpose Bitcoin ETF 持有比特币的流入/流出数量',
       toolbox: {
         annotation: {

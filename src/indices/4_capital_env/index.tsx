@@ -8,6 +8,7 @@ export const capitalEnv:D.MenuItem = {
   icon: <ProjectOutlined />,
   key: 'sub5',
   visible: true,
+  assetList: ['btc', 'eth'],
   subMenus: [
     {
       name: '稳定币累计流通量',
@@ -16,7 +17,6 @@ export const capitalEnv:D.MenuItem = {
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'capital/stable_circulating',
       },
       introduce: {
@@ -24,7 +24,7 @@ export const capitalEnv:D.MenuItem = {
         isURL: true,
         weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673526568452248',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '所有稳定币发行供应量统计',
       toolbox: {
         annotation: {
@@ -42,7 +42,6 @@ export const capitalEnv:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'capital/ssr',
       },
       introduce: {
@@ -50,7 +49,7 @@ export const capitalEnv:D.MenuItem = {
         isURL: true,
         weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673543412514917',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '稳定币与比特币之间的供给关系',
       toolbox: {
         annotation: {

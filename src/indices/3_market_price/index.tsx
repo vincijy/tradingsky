@@ -7,6 +7,7 @@ export const marketPrice:D.MenuItem = {
   icon: <FlagOutlined />,
   key: 'sub4',
   visible: true,
+  assetList: ['btc', 'eth'],
   subMenus: [
     {
       name: '距最高点的回撤幅度',
@@ -15,7 +16,6 @@ export const marketPrice:D.MenuItem = {
       vipRequired: false,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'market/price_drawdown',
       },
       introduce: {
@@ -23,7 +23,7 @@ export const marketPrice:D.MenuItem = {
         isURL: true,
         weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673427649724507',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc', 'eth'],
       catalogText: '资产价格距历史最高点的下跌幅度（单位：%）',
       toolbox: {
         annotation: {
@@ -41,7 +41,6 @@ export const marketPrice:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'market/realized_pl',
       },
       introduce: {
@@ -49,7 +48,7 @@ export const marketPrice:D.MenuItem = {
         isURL: true,
         weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673543412514917',
       },
-      assetList: 'BTC',
+      assetList: ['btc'],
       catalogText: '链上移动硬币的净损益',
       toolbox: {
         annotation: {
@@ -67,7 +66,6 @@ export const marketPrice:D.MenuItem = {
       vipRequired: true,
       visible: true,
       args: {
-        asset: 'btc',
         index: 'market/profit_percent',
       },
       introduce: {
@@ -75,7 +73,7 @@ export const marketPrice:D.MenuItem = {
         isURL: true,
         weiboURL: 'https://weibo.com/ttarticle/p/show?id=2309404673543412514917',
       },
-      assetList: 'BTC,ETH',
+      assetList: ['btc', 'eth'],
       catalogText: '盈利的比特币数量占总量的百分比',
       toolbox: {
         annotation: {
