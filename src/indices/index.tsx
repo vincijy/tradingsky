@@ -1,5 +1,3 @@
-import { MergeCellsOutlined, PullRequestOutlined, PayCircleOutlined, FlagOutlined, ProjectOutlined, LineChartOutlined, AlertOutlined, ThunderboltOutlined, PieChartOutlined } from '@ant-design/icons';
-import React from 'react';
 import * as D from './def';
 import { address } from './0_address';
 import { exchange } from './1_exchange';
@@ -7,8 +5,8 @@ import { institution } from './2_institution';
 import { marketPrice } from './3_market_price';
 import { capitalEnv } from './4_capital_env';
 import { evaluateIndice } from './5_evaluate_indice';
-import { marketEmotion } from './6_market_emotion';
-import { investorBehavior } from './7_investor_behavior';
+import { sentiment } from './6_sentiment';
+import { investorBehavior } from './7_behavior';
 import { miner } from './8_miner';
 export const menus:D.MenuItem[] = [
   /**
@@ -44,7 +42,7 @@ export const menus:D.MenuItem[] = [
   /**
    * 市场情绪
    */
-  marketEmotion,
+  sentiment,
 
   /**
    * 投资者行为
