@@ -1,6 +1,7 @@
 import { MergeCellsOutlined, PullRequestOutlined, PayCircleOutlined, FlagOutlined, ProjectOutlined, LineChartOutlined, AlertOutlined, ThunderboltOutlined, PieChartOutlined } from '@ant-design/icons';
 import React from 'react';
 import * as D from '../def';
+import { balancePercent } from './balance_percent';
 
 export const exchange:D.MenuItem = {
   name: '交易所',
@@ -9,31 +10,7 @@ export const exchange:D.MenuItem = {
   visible: true,
   assetList: ['btc', 'eth'],
   subMenus: [
-    {
-      name: '交易所余额占比',
-      key: '交易所余额占比',
-      loginRequired: true, // 免费指标
-      vipRequired: false,
-      visible: true,
-      args: {
-        index: 'exchange/balance_percent',
-      },
-      introduce: {
-        text: '灰度比特币信托基金（GBTC）的总价值相对于信托持有的比特币资产净值（NAV）的溢价。',
-        isURL: false,
-        weiboURL: '',
-      },
-      assetList: ['btc', 'eth'],
-      catalogText: '交易所余额的供应量占比',
-      toolbox: {
-        annotation: {
-          enabled: false, // 无标注
-        },
-        sma: {
-          enabled: true,
-        },
-      },
-    },
+    balancePercent,
     {
       name: '交易所净头寸变化',
       key: '交易所净头寸变化',

@@ -31,7 +31,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '活跃地址量',
+      name: '余额 > 100地址量',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -49,11 +49,11 @@ export const chart = {
     {
       type: 'sma',
       linkedTo: 'series0',
-      name: '活跃地址量(7日均线)',
+      name: '余额 > 100地址量',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {
-        period: 7,
+        period: 0,
       },
       visible: true,
       showInLegend: true,
