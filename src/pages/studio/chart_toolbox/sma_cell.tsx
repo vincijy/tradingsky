@@ -3,6 +3,7 @@ import React, { memo } from 'react';
 import { useAppDispatch, useAppSelector } from '@/hooks';
 import { updateChartOption } from '@/store/chart/action';
 import { getChart } from '@/components/chart';
+import { mergeOption } from '@/utils/merge_option';
 import DropDownCell from './dropdown_cell';
 import { ToolBoxCellName } from './def';
 
@@ -18,7 +19,7 @@ export default memo(function SmaCell() {
 
     // TODO: fix type
     // 修改serie.name为xxx几日均线
-    const newOptions = Object.assign({}, chart.options) as any;
+    const newOptions = mergeOption({}, chart.options) as any;
     const serie = newOptions.series.find((s:any) => s.type === 'sma');
     serie.name = `${name}(${selectedMenu}均线)`;
 

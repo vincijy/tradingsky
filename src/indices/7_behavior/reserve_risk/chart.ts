@@ -1,8 +1,25 @@
+import { getTimeStamp } from '@/utils/date';
 import { BandColor } from '../../def';
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
 export const chart = {
+  xAxis: {
+    // TODO: it is for test, delete it
+    plotBands: [{
+      color: BandColor.lightYellow,
+      from: getTimeStamp({
+        year: 2021,
+        month: 5,
+        day: 12,
+      }),
+      to: getTimeStamp({
+        year: 2021,
+        month: 6,
+        day: 4,
+      }),
+    }],
+  },
   yAxis: [
     {
       // 左侧轴

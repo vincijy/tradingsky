@@ -21,6 +21,7 @@ import { commonOptions } from '@/indices/chart_common';
 import btcLogo from '@/assets/img/btc_logo.png';
 import ethLogo from '@/assets/img/eth_logo.svg';
 
+import { mergeOption } from '@/utils/merge_option';
 import { changeMenu } from '../../../store/ui/action';
 import { MenuWrapper } from './style';
 
@@ -65,11 +66,11 @@ export default memo(function LSChartMenu() {
     // 根据菜单修改自定义图表配置
     if (s.chart) {
       dispatch(updateChartOption({
-        options: Object.assign(commonOptions, s.chart),
+        options: mergeOption(commonOptions, s.chart),
       }));
     } else {
       dispatch(updateChartOption({
-        options: Object.assign(commonOptions, privateDefaultOptions),
+        options: mergeOption(commonOptions, privateDefaultOptions),
       }));
     }
 
@@ -104,9 +105,20 @@ export default memo(function LSChartMenu() {
   return (
     <MenuWrapper>
       <div className='asset-select'>
-        <Select onSelect={ changeDataAsset } defaultValue={asset} style={{ width: 260 }} >
-          <Select.Option value='btc'><img src={btcLogo} height='16px' style={{ marginRight: '3px' }}/>比特币</Select.Option>
-          <Select.Option value='eth'><img src={ethLogo} height='16px' style={{ marginRight: '3px' }}/>以太坊</Select.Option>
+        <Select
+          onSelect={ changeDataAsset }
+          defaultValue={asset}
+          style={{ width: 260 }} >
+          <Select.Option value='btc'><img
+            src={btcLogo}
+            height='16px'
+            style={{ marginRight: '3px' }}/>比特币
+          </Select.Option>
+          <Select.Option value='eth'><img
+            src={ethLogo}
+            height='16px'
+            style={{ marginRight: '3px' }}/>以太坊
+          </Select.Option>
         </Select>
       </div>
       <Menu
@@ -117,7 +129,11 @@ export default memo(function LSChartMenu() {
         openKeys={openKeys} // 一级菜单展开项
         onOpenChange={onOpenChange} // 监听打开的
       >
-        <Menu.SubMenu key='我的收藏' icon={<HeartOutlined />} title='我的收藏' className='my-favorite'>
+        <Menu.SubMenu
+          key='我的收藏'
+          icon={<HeartOutlined />}
+          title='我的收藏'
+          className='my-favorite'>
           <Menu.Item key='h1'>Option 1</Menu.Item>
         </Menu.SubMenu>
         {

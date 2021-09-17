@@ -55,7 +55,6 @@ export default memo(function LSChartDoubleLine(props:IProps) {
 
   const options = useAppSelector((state) => state.chart.options);
 
-  // const options = Object.assign({}, storeOption);
   // TODO: highchart option ts config
   (options.series[0] as any).data = convert(dataA);
   (options.series[1] as any).data = convert(dataB);
