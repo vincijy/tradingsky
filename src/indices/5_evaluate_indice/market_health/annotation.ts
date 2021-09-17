@@ -5,9 +5,17 @@ export const annotation:D.IAnnotationConfig = {
       {
         color: 'green',
         date: {
-          year: 2011,
+          year: 2010,
           month: 10,
-          day: 20,
+          day: 3,
+        },
+      },
+      {
+        color: 'green',
+        date: {
+          year: 2011,
+          month: 11,
+          day: 18,
         },
       },
       {
@@ -31,6 +39,14 @@ export const annotation:D.IAnnotationConfig = {
         date: {
           year: 2020,
           month: 3,
+          day: 17,
+        },
+      },
+      {
+        color: 'green',
+        date: {
+          year: 2021,
+          month: 7,
           day: 20,
         },
       },
@@ -39,9 +55,17 @@ export const annotation:D.IAnnotationConfig = {
       {
         color: 'green',
         date: {
-          year: 2011,
+          year: 2010,
           month: 10,
-          day: 20,
+          day: 3,
+        },
+      },
+      {
+        color: 'green',
+        date: {
+          year: 2011,
+          month: 11,
+          day: 18,
         },
       },
       {
@@ -65,6 +89,14 @@ export const annotation:D.IAnnotationConfig = {
         date: {
           year: 2020,
           month: 3,
+          day: 17,
+        },
+      },
+      {
+        color: 'green',
+        date: {
+          year: 2021,
+          month: 7,
           day: 20,
         },
       },
