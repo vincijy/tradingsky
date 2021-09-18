@@ -15,8 +15,14 @@ export const chart = {
       labels: {
         // 橙色
         style: { color: 'rgb(247, 147, 26)' },
+        formatter: function():string {
+          let percent = Number((this as any).value * 100).toFixed(0);
+          percent += '%';
+          return percent;
+        },
       },
       gridLineWidth: 0, // 去指标grid网格背景
+      alignTicks: false,
     },
     {
       // 右侧轴线
@@ -39,6 +45,7 @@ export const chart = {
       id: 'series0',
       visible: false,
       showInLegend: false,
+      type: 'column', // 柱状图
     },
     {
       name: '价格',

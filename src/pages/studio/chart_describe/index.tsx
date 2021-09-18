@@ -12,7 +12,6 @@ export default memo(function LSChartDescribe() {
   const { introduce,
     assetList,
   } = selectedSubMenu;
-  console.log(assetList);
 
   return (
     <DescribeWrapper>
