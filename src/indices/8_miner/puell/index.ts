@@ -23,5 +23,5 @@ export const puell = {
   },
   introduce: introduce,
   annotation: annotation,
-  chart: chart,
+  chart: { btc: chart, eth: chart },
 };

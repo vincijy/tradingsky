@@ -23,5 +23,5 @@ export const reserveRisk = {
   },
   introduce: introduce,
   annotaiton: annotation,
-  chart: chart,
+  chart: { btc: chart, eth: chart },
 };

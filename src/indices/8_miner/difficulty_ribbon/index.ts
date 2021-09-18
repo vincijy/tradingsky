@@ -23,5 +23,5 @@ export const difficultyRibbon = {
   },
   annotation: annotation,
   introduce: introduce,
-  chart: chart,
+  chart: { btc: chart, eth: chart },
 };

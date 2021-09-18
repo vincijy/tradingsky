@@ -23,7 +23,7 @@ export const fairDeflection:D.SubMenuItem = {
       enabled: true,
     },
   },
-  chart: chart,
+  chart: { btc: chart, eth: chart },
   annotation: annotation,
 };
 

@@ -22,5 +22,5 @@ export const addressMore1k:D.SubMenuItem = {
       enabled: true,
     },
   },
-  chart: chart,
+  chart: { btc: chart, eth: chart },
 };

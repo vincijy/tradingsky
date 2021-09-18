@@ -23,5 +23,5 @@ export const marketGreed:D.SubMenuItem = {
     },
   },
   annotation: annotation,
-  chart: chart,
+  chart: { btc: chart, eth: chart },
 };

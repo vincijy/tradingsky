@@ -1,5 +1,5 @@
 // 第三方
-import React, { memo, useEffect } from 'react';
+import React, { memo } from 'react';
 import { Select } from 'antd';
 
 import { useAppSelector, useAppDispatch } from '@/hooks';
@@ -11,8 +11,6 @@ import { changeAsset } from '@/store/chart/action';
 
 // 组件
 import { Menu } from 'antd';
-import MenuItem from 'antd/lib/menu/MenuItem';
-import SubMenu from 'antd/lib/menu/SubMenu';
 
 import { HeartOutlined } from '@ant-design/icons';
 import { filter, includes } from 'lodash';
@@ -38,7 +36,6 @@ export default memo(function LSChartMenu() {
    * @returns void
    */
   const onSelect = (e:{keyPath:string[]}) => {
-    console.log('onSelect');
     const { keyPath } = e;
     const [subMenuKey, menuKey] = keyPath;
 
@@ -66,7 +63,7 @@ export default memo(function LSChartMenu() {
     // 根据菜单修改自定义图表配置
     if (s.chart) {
       dispatch(updateChartOption({
-        options: mergeOption(commonOptions, s.chart),
+        options: mergeOption(commonOptions, s.chart[asset]),
       }));
     } else {
       dispatch(updateChartOption({

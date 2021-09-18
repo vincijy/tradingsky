@@ -15,7 +15,7 @@ export interface IPayloadToggleAnnotation {
 };
 
 export interface IPayloadChangeAsset {
-    dataAsset:string;
+    dataAsset:'btc' | 'eth';
 }
 
 
@@ -24,7 +24,7 @@ export interface IChartState {
     // TODO: fix types
     options:any;
     annotationVisible:boolean;
-    dataAsset:string;
+    dataAsset:'btc' | 'eth';
 }
 
 export interface IPayloadMap {

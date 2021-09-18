@@ -21,5 +21,5 @@ export const sopr = {
     },
   },
   introduce: introduce,
-  chart: chart,
+  chart: { btc: chart, eth: chart },
 };

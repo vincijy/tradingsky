@@ -22,5 +22,5 @@ export const sfDeflection:D.SubMenuItem = {
       enabled: true,
     },
   },
-  chart: chart,
+  chart: { btc: chart, eth: chart },
 };

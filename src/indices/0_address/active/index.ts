@@ -23,6 +23,6 @@ export const active:D.SubMenuItem = {
       enabled: true,
     },
   },
-  chart: chart,
+  chart: { btc: chart, eth: chart },
   annotation: annotation,
 };

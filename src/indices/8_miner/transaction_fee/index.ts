@@ -20,5 +20,5 @@ export const transactionFee = {
     },
   },
   introduce: introduce,
-  chart: chart,
+  chart: { btc: chart, eth: chart },
 };

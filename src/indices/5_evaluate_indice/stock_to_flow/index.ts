@@ -22,5 +22,5 @@ export const stockFlow:D.SubMenuItem = {
       enabled: true,
     },
   },
-  chart: chart,
+  chart: { btc: chart, eth: chart },
 };

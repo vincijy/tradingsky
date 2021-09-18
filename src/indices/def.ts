@@ -77,7 +77,10 @@ export interface SubMenuItem {
        * 个性化图表配置, TODO: fix type
        * 缺省情况下图表沿用默认配置
        */
-      chart?:any;
+      chart?:{
+        btc:any;
+        eth:any;
+      };
 
       /**
        * 批注的相关配置

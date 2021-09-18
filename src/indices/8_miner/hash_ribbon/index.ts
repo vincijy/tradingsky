@@ -23,5 +23,5 @@ export const hashRibbon = {
   },
   introduce: introduce,
   annotation: annotation,
-  chart: chart,
+  chart: { btc: chart, eth: chart },
 };

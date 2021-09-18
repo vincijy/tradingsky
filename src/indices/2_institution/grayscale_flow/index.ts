@@ -22,5 +22,5 @@ export const grayscaleFlow:D.SubMenuItem = {
       enabled: false,
     },
   },
-  chart: chart,
+  chart: { btc: chart, eth: chart },
 };
