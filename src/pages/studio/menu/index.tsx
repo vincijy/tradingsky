@@ -62,6 +62,7 @@ export default memo(function LSChartMenu() {
 
     // 根据菜单修改自定义图表配置
     if (s.chart) {
+      // 合并通用配置与当前菜单当前对应币种的图表配置
       dispatch(updateChartOption({
         options: mergeOption(commonOptions, s.chart[asset]),
       }));

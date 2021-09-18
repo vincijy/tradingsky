@@ -86,7 +86,7 @@ export default memo(function LSChartDoubleLine(props:IProps) {
     console.log('chart instance init...');
     setChart(chart);
   };
-
+  const recreate = true;
   return (
     // doc: https://www.highcharts.com.cn/docs/highcharts-react/
     // eg: https://stackblitz.com/edit/react-nwseym?file=index.js
@@ -95,6 +95,7 @@ export default memo(function LSChartDoubleLine(props:IProps) {
       constructorType={ constructorType.stockChart }
       options={ options }
       callback={ callback }
+      immutable={ recreate }
     />
   );
 });

@@ -30,6 +30,7 @@ export default memo(function SmaCell() {
     serie.params = {
       period: period,
     };
+    // 更新图表配置
     dispatch(updateChartOption({
       options: newOptions,
     }));

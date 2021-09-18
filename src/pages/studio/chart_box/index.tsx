@@ -6,7 +6,7 @@ import { Spin } from 'antd';
 import { useAppSelector, useAppDispatch } from '@/hooks';
 
 import LSChartDoubleLine from '@/components/chart/line';
-import { getHighCharts } from '@/components/chart';
+import { getChart, getHighCharts } from '@/components/chart';
 import { getChartData, getAssetPrice } from '@/api/chart';
 
 import { LoadingOutlined } from '@ant-design/icons';
@@ -18,6 +18,7 @@ import { Provider } from 'react-redux'; // 集中管理状态
 import store from '@/store';
 import LSChartToolbox from '../chart_toolbox';
 import LSChartHead from '../char_head';
+import LSChartCover from '../chart_cover';
 import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip } from './style';
 
 const antIcon = (
@@ -315,6 +316,7 @@ export default memo(function LSChartBox() {
       <div id='container' >
         <LSChartHead/>
         <LSChartToolbox />
+        {/* <LSChartCover/> */}
         <LSChartDoubleLine
           seriesA={ { data: dataA, name: name } }
           seriesB={ { data: dataB, name: '价格' } }

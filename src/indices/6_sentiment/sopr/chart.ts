@@ -16,7 +16,7 @@ export const chart = {
         // 橙色
         style: { color: 'rgb(247, 147, 26)' },
       },
-      gridLineWidth: 0, // 去指标grid网格背景
+      gridLineWidth: 0, // 去指标grid网格背景,
     },
     {
       // 右侧轴线

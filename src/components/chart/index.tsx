@@ -29,9 +29,6 @@ export function getChart() {
 }
 
 export function setChart(c:Highcharts.Chart) {
-  if (!chart) {
-    chart = c;
-  }
-  return chart;
+  chart = c;
 }
 (window as any).getChart = getChart;
