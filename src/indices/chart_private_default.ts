@@ -8,12 +8,13 @@ export const privateDefaultOptions = {
       },
       align: 'right',
       opposite: false,
+      alignTicks: false,
       className: 'highcharts-navigator-yaxis',
       labels: {
         // 橙色
         style: { color: 'rgb(247, 147, 26)' },
       },
-      gridLineWidth: 0, // 去指标grid网格背景
+      gridLineColor: 'rgba(240,240,240,.67)',
     },
     {
       // 右侧轴线
@@ -24,6 +25,8 @@ export const privateDefaultOptions = {
       align: 'left',
       type: 'logarithmic', // 对数刻度
       gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineWidth: 0, // 去指标grid网格背景
+
     },
   ],
   series: [

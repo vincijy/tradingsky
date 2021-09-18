@@ -10,6 +10,7 @@ export const chart = {
         text: '',
       },
       align: 'right',
+      alignTicks: false,
       opposite: false,
       className: 'highcharts-navigator-yaxis',
       labels: {

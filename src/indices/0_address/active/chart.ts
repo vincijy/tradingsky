@@ -5,10 +5,16 @@
 export const chart = {
   yAxis: [
     {
+      TickInterval: 200000, // 刻度间隔
+      minTickInterval: 25000, // 最小刻度间隔
+      zoomEnabled: true, // 允许缩放
+      alignTicks: false, // 左右y轴不对齐
+      Tickmember: 12, // 允许存在的最多刻度
       // 左侧轴
       title: {
         text: '',
       },
+      // minorTickInterval: 'auto',
       align: 'right',
       opposite: false,
       className: 'highcharts-navigator-yaxis',
@@ -16,7 +22,8 @@ export const chart = {
         // 橙色
         style: { color: 'rgb(247, 147, 26)' },
       },
-      gridLineWidth: 0, // 去指标grid网格背景
+      gridLineColor: 'rgba(240,240,240,.67)',
+
     },
     {
       // 右侧轴线
@@ -26,7 +33,7 @@ export const chart = {
       opposite: true,
       align: 'left',
       type: 'logarithmic', // 对数刻度
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineWidth: 0, // 去指标grid网格背景
     },
   ],
   series: [

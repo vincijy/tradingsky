@@ -44,7 +44,7 @@ export const commonOptions = {
   },
   plotOptions: {
     series: {
-      lineWidth: 1,
+      lineWidth: 1.5,
       animation: !1,
       connectNulls: !0,
       groupPadding: 0,
