@@ -161,3 +161,15 @@ export enum BandColor {
   lightPurple = 'rgba(98,126,234,0.1)',
   lightYellow = '#FCFFC5',
 }
+
+
+/**
+ * 常用的色带颜色
+ */
+export enum LineColor {
+  red = '#eb4444',
+  orange = '#f78410',
+  yellow = '#f5db4c',
+  green = '#26c811',
+  blue = '#4467eb',
+}

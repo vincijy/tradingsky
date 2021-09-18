@@ -1,7 +1,9 @@
 import * as D from '../../def';
 import { introduce } from './introduce';
 import { annotation } from './annotation';
-import { chart } from './chart';
+import { chartBtc } from './chart_btc';
+import { chartEth } from './chart_eth';
+
 export const marketGreed:D.SubMenuItem = {
   name: '市场贪婪度',
   key: '市场贪婪度',
@@ -23,5 +25,5 @@ export const marketGreed:D.SubMenuItem = {
     },
   },
   annotation: annotation,
-  chart: { btc: chart, eth: chart },
+  chart: { btc: chartBtc, eth: chartEth },
 };
