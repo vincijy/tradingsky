@@ -83,7 +83,7 @@ export default memo(function LSChartMenu() {
     setOpenKeys(newOpenKeys as string[]);
   };
 
-  const changeDataAsset = (value:string) => { // 币种切换
+  const changeDataAsset = (value:'eth' | 'btc') => { // 币种切换
     if (value === 'btc'){
       const action = changeAsset({
         dataAsset: 'btc',
@@ -97,6 +97,9 @@ export default memo(function LSChartMenu() {
 
       dispatch(action);
     }
+    dispatch(updateChartOption({
+      options: selectedSubMenu.chart[value],
+    }));
   };
 
   return (
