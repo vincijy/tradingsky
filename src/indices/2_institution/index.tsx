@@ -1,5 +1,5 @@
 
-import { MergeCellsOutlined, PullRequestOutlined, PayCircleOutlined, FlagOutlined, ProjectOutlined, LineChartOutlined, AlertOutlined, ThunderboltOutlined, PieChartOutlined } from '@ant-design/icons';
+import { PayCircleOutlined } from '@ant-design/icons';
 import React from 'react';
 import * as D from '../def';
 import { grayscaleHolding } from './grayscale_holding';

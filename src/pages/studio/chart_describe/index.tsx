@@ -12,6 +12,7 @@ export default memo(function LSChartDescribe() {
   const { introduce,
     assetList,
   } = selectedSubMenu;
+  console.log(assetList);
 
   return (
     <DescribeWrapper>
@@ -30,7 +31,7 @@ export default memo(function LSChartDescribe() {
               </a> : ''
           }
           <p className='title' >更新币种：</p>
-          <p className='content' >{assetList}</p>
+          <p className='content' >{ assetList.map((item:string) => item.toUpperCase()) + '' }</p>
         </Card>
       </div>
     </DescribeWrapper>

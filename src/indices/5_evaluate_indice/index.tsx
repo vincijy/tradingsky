@@ -1,5 +1,5 @@
 
-import { MergeCellsOutlined, PullRequestOutlined, PayCircleOutlined, FlagOutlined, ProjectOutlined, LineChartOutlined, AlertOutlined, ThunderboltOutlined, PieChartOutlined } from '@ant-design/icons';
+import { LineChartOutlined } from '@ant-design/icons';
 import React from 'react';
 import * as D from '../def';
 import { stockFlow } from './stock_to_flow';
@@ -13,7 +13,7 @@ export const evaluateIndice:D.MenuItem = {
   icon: <LineChartOutlined />,
   key: 'sub6',
   visible: true,
-  assetList: ['btc', 'eth'],
+  assetList: ['btc'],
   subMenus: [
     stockFlow,
     sfDeflection,

@@ -1,5 +1,5 @@
 
-import { MergeCellsOutlined, PullRequestOutlined, PayCircleOutlined, FlagOutlined, ProjectOutlined, LineChartOutlined, AlertOutlined, ThunderboltOutlined, PieChartOutlined } from '@ant-design/icons';
+import { PieChartOutlined } from '@ant-design/icons';
 import React from 'react';
 import * as D from '../def';
 import { hashRibbon } from './hash_ribbon';
@@ -11,7 +11,7 @@ export const miner:D.MenuItem = {
   icon: <PieChartOutlined />,
   key: 'sub9',
   visible: true,
-  assetList: ['btc', 'eth'],
+  assetList: ['btc'],
   subMenus: [
     hashRibbon,
     difficultyRibbon,

@@ -7,7 +7,7 @@ import { useAppSelector, useAppDispatch } from '@/hooks';
 
 import LSChartDoubleLine from '@/components/chart/line';
 import { getHighCharts } from '@/components/chart';
-import { getChartData, getBtcPrice } from '@/api/chart';
+import { getChartData, getAssetPrice } from '@/api/chart';
 
 import { LoadingOutlined } from '@ant-design/icons';
 import { setBtcPriceData } from '@/store/chart/action';
@@ -232,7 +232,7 @@ export default memo(function LSChartBox() {
       }
 
       // 价格
-      getBtcPrice()
+      getAssetPrice(asset)
         .then((res) => {
           resolve(res.data.rows || []);
         })
@@ -249,9 +249,10 @@ export default memo(function LSChartBox() {
         dataA.length > 0 && setDataA(dataA);
         if (dataB.length > 0) {
           setDataB(dataB);
-          dipatch(setBtcPriceData({
-            btcPriceData: dataB,
-          }));
+          // 价格缓存
+          // dipatch(setBtcPriceData({
+          //   btcPriceData: dataB,
+          // }));
         } else {
           setDataB(btcPriceData);
         }

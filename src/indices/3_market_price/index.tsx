@@ -1,4 +1,4 @@
-import { MergeCellsOutlined, PullRequestOutlined, PayCircleOutlined, FlagOutlined, ProjectOutlined, LineChartOutlined, AlertOutlined, ThunderboltOutlined, PieChartOutlined } from '@ant-design/icons';
+import { FlagOutlined } from '@ant-design/icons';
 import React from 'react';
 import * as D from '../def';
 import { priceDrawdown } from './price_drawdown';

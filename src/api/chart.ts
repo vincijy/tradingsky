@@ -17,8 +17,8 @@ export function getChartData(index:string, asset:string):AxiosPromise<IResponseC
  * BTC 价格线, 图表中公用的一条线
  * @returns
  */
-export function getBtcPrice():AxiosPromise<IResponseChartData> {
-  const asset = 'btc';
+export function getAssetPrice(asset:string):AxiosPromise<IResponseChartData> {
+  // const asset = 'btc';
   const index = 'market/price_close';
   return request({
     url: `/api/v1/charts/${asset}/${index}`,

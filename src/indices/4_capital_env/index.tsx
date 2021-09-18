@@ -1,5 +1,5 @@
 
-import { MergeCellsOutlined, PullRequestOutlined, PayCircleOutlined, FlagOutlined, ProjectOutlined, LineChartOutlined, AlertOutlined, ThunderboltOutlined, PieChartOutlined } from '@ant-design/icons';
+import { ProjectOutlined } from '@ant-design/icons';
 import React from 'react';
 import * as D from '../def';
 import { circulating } from './stable_circulating';
@@ -10,7 +10,7 @@ export const capitalEnv:D.MenuItem = {
   icon: <ProjectOutlined />,
   key: 'sub5',
   visible: true,
-  assetList: ['btc', 'eth'],
+  assetList: ['btc'],
   subMenus: [
     circulating,
     ssr,

@@ -13,7 +13,7 @@ export const moreOneyear:D.SubMenuItem = {
     index: 'address/more_1y',
   },
   introduce: introduce,
-  assetList: ['btc', 'eth'],
+  assetList: ['btc'],
   catalogText: '持有一年以上没有移动的供应量占比',
   toolbox: {
     annotation: {
