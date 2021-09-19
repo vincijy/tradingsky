@@ -19,7 +19,7 @@ import store from '@/store';
 import LSChartToolbox from '../chart_toolbox';
 import LSChartHead from '../char_head';
 import LSChartCover from '../chart_cover';
-import { BoxWrapper, ChartLoadingWrapper, WaterMask, ButtonArea, VipTip } from './style';
+import { BoxWrapper, ChartLoadingWrapper, WaterMask } from './style';
 
 const antIcon = (
   <LoadingOutlined
@@ -28,36 +28,6 @@ const antIcon = (
 );
 
 export default memo(function LSChartBox() {
-  // 添加水印
-  const [hasAddedCover, setHasAddedCover] = useState(false);
-  const [hasAddedMountedDom, setHasAddedMountedDom] = useState(false);
-
-  /**
-   * 添加封面(用于遮挡图表)
-   * @returns
-   */
-  const addCover = () => {
-    if (hasAddedCover) {
-      return;
-    }
-    const chartRoot = document.querySelector('.highcharts-root');
-
-    // 添加图表封面
-    const div = document.createElement('div');
-    div.setAttribute('id', 'highchart-cover');
-    chartRoot?.insertAdjacentElement('afterend', div);
-    setHasAddedCover(true);
-  };
-
-  /**
-   * 移除封面
-   */
-  const removeCover = () => {
-    const cover = document.querySelector('#highchart-cover');
-    cover && cover.remove();
-    setHasAddedCover(false);
-  };
-
   /**
    * resize
    */
@@ -68,98 +38,6 @@ export default memo(function LSChartBox() {
       });
     }, 0);
   };
-
-  /**
-   * 添加一个提供水印, loading 挂载的节点
-   */
-  const addMountedDom = () => {
-    if (hasAddedMountedDom) {
-      return;
-    }
-    const chartRoot = document.querySelector('.highcharts-root');
-
-    // 添加图表封面
-    const div = document.createElement('div');
-    div.setAttribute('id', 'mounted-dom');
-    chartRoot?.insertAdjacentElement('afterend', div);
-    setHasAddedMountedDom(true);
-  };
-
-  /**
-   * 添加水印
-   */
-  const addWaterMask = () => {
-    const mountedDom = document.querySelector('#mounted-dom');
-    const waterMaskDom = document.querySelector('#water-mask');
-    mountedDom && !waterMaskDom && ReactDOM.render(
-      <WaterMask id='water-mask'/>,
-      mountedDom,
-    );
-  };
-
-  const removeWaterMask = () => {
-    const mountedDom = document.querySelector('#mounted-dom');
-    const waterMaskDom = document.querySelector('#water-mask');
-    mountedDom && waterMaskDom && ReactDOM.unmountComponentAtNode(
-      mountedDom,
-    );
-  };
-
-  /**
-   * 添加登录和注册按钮
-   * @returns
-   */
-  const addBtns = () => {
-    const bg = document.querySelector('#highchart-cover');
-    if (!bg) {
-      return;
-    }
-    bg && ReactDOM.render(
-      <Provider store={ store }>
-        <ButtonArea>
-          <div className='button-tip'>
-          登录解锁图表页面
-          </div>
-          <div className='buttons-wrap'>
-            <LoginButton
-              type='primary'
-              text='登录'
-            />
-            <RegisterButton
-              type='primary'
-              text='注册'
-            />
-          </div>
-        </ButtonArea>
-      </Provider>,
-      bg,
-    );
-  };
-
-  /**
-  * 移除登录和注册按钮
-  */
-  const removeBtns = () => {
-    const bg = document.querySelector('#highchart-cover');
-    bg && ReactDOM.unmountComponentAtNode(bg);
-  };
-
-  const addVipTip = () => {
-    const bg = document.querySelector('#highchart-cover');
-    ReactDOM.render(
-      <VipTip>
-        <div className='vip-tip-text'>
-          付费解锁高级数据
-        </div>
-        <div className='qrcode-wrap'>
-          <div className='qrcode'/>
-        </div>
-      </VipTip>,
-      bg,
-    );
-  };
-
-  const dipatch = useAppDispatch();
 
   // 读取选中的菜单
   const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
@@ -175,29 +53,28 @@ export default memo(function LSChartBox() {
   const userInfo = useAppSelector((state) => state.user.userInfo);
   const role = userInfo.role || { code: 'level1', description: '' };
 
+
+  const [vipRequired__, setvipRequired__] = useState(false);
+  const [loginRegisterRequiredVisible, setLoginRegisterRequiredVisible] = useState(false);
+  const [noDataVisible, setNoDataVisible] = useState(false);
+  const [coverImgVisible, setCoverImgVisible] = useState(false);
+
   useLayoutEffect(() => {
     reflow();
-    addMountedDom();
 
     // 如果需要登录, 但是没有登录
     if (loginRequired && !isLogin) {
-      addCover();
-      addBtns();
-      removeWaterMask();
+      setCoverImgVisible(true);
+      setLoginRegisterRequiredVisible(true);
       return;
     }
 
     // 检查是否为VIP,TODO: fix type, enum
     if (loginRequired && vipRequired && role.code !== 'level2') {
-      addCover();
-      addVipTip();
-      removeWaterMask();
+      setCoverImgVisible(true);
+      setvipRequired__(true);
       return;
     }
-
-    // 否则移除
-    removeCover();
-    removeBtns();
   }, [loginRequired, vipRequired, isLogin]);
 
   const btcPriceData = useAppSelector((state) => state.chart.btcPriceData);
@@ -276,47 +153,33 @@ export default memo(function LSChartBox() {
   }, [index, asset]);
 
 
-  /**
-   * 显示loading
-   */
+  const [loadingVisible, setLoadingVisible] = useState(false);
   const showLoading = () => {
-    const dom = document.querySelector('#mounted-dom');
-    if (!dom) {
-      return;
-    }
-    const loadingDom = document.querySelector('#chart-loading');
-    if (loadingDom) {
-      return;
-    }
-    const newDom = dom.cloneNode(true) as Element;
-    newDom.setAttribute('id', 'loading-mounted-dom');
-    dom.insertAdjacentElement('afterend', newDom);
-    removeWaterMask();
-    ReactDOM.render(
-      <ChartLoadingWrapper id='chart-loading'>
-        <Spin
-          indicator={antIcon}
-          tip='加载中...'
-          size='large'/>
-      </ChartLoadingWrapper>
-      , newDom);
+    setLoadingVisible(true);
   };
-
-  /**
-   * 隐藏loading
-   */
   const hideLoading = () => {
-    const dom = document.querySelector('#loading-mounted-dom');
-    dom && ReactDOM.unmountComponentAtNode(dom);
-    addWaterMask();
+    setLoadingVisible(false);
+    setvipRequired__(false);
+    setCoverImgVisible(false);
+    setNoDataVisible(false);
   };
-
+  const oneVisible = loginRegisterRequiredVisible || vipRequired__ || loadingVisible || coverImgVisible || noDataVisible;
   return (
     <BoxWrapper>
       <div id='container' >
         <LSChartHead/>
         <LSChartToolbox />
-        {/* <LSChartCover/> */}
+        {
+          oneVisible &&
+          <LSChartCover
+            loginRegisterRequiredVisible={loginRegisterRequiredVisible}
+            vipRequiredVisible={vipRequired__}
+            loadingVisible={loadingVisible}
+            coverImgVisible={coverImgVisible}
+            noDataVisible={noDataVisible}
+          />
+        }
+
         <LSChartDoubleLine
           seriesA={ { data: dataA, name: name } }
           seriesB={ { data: dataB, name: '价格' } }
