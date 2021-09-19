@@ -172,4 +172,5 @@ export enum LineColor {
   yellow = '#f5db4c',
   green = '#26c811',
   blue = '#4467eb',
+  darkGreen = 'rgb(0, 177, 106)',
 }

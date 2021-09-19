@@ -1,7 +1,8 @@
 import * as D from '../../def';
 import { annotation } from './annotation';
 import { introduce } from './introduce';
-import { chart } from './chart';
+import { chartBtc } from './chart_btc';
+import { chartEth } from './chart_eth';
 
 export const profitPercent:D.SubMenuItem = {
   name: '流通盈利率',
@@ -23,6 +24,6 @@ export const profitPercent:D.SubMenuItem = {
       enabled: true,
     },
   },
-  chart: { btc: chart, eth: chart },
+  chart: { btc: chartBtc, eth: chartEth },
   annotation: annotation,
 };

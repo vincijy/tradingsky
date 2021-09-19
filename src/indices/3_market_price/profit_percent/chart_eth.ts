@@ -2,42 +2,26 @@ import { LineColor, BandColor } from '../../def';
 
 const zones = [
   {
-    value: -.8,
-    color: 'rgb(247, 147, 26)',
-  },
-  {
-    value: .3,
+    value: .4,
     color: LineColor.green,
   },
   {
-    value: 7,
-    color: 'rgb(247, 147, 26)',
+    value: .95,
+    color: '#0d75f8',
   },
   {
-    value: 12,
     color: LineColor.red,
   },
 ];
 
 const plotLines = [{
-  value: -.8,
+  value: .4,
   color: '#5a5a5a',
   dashStyle: 'Dot',
   width: 1,
 
 }, {
-  value: .3,
-  color: '#5a5a5a',
-  dashStyle: 'Dot',
-  width: 1,
-}, {
-  value: 7,
-  color: '#5a5a5a',
-  dashStyle: 'Dot',
-  width: 1,
-
-}, {
-  value: 11,
+  value: .95,
   color: '#5a5a5a',
   dashStyle: 'Dot',
   width: 1,
@@ -45,17 +29,17 @@ const plotLines = [{
 
 const plotBands = [
   {
-    from: -.8,
-    to: .3,
-    color: BandColor.lightGreen,
+    from: .95,
+    to: 1.03,
+    color: BandColor.lightRed,
     label: {
       text: '',
     },
   },
   {
-    from: 7,
-    to: 11,
-    color: BandColor.lightRed,
+    from: 0,
+    to: .4,
+    color: BandColor.lightGreen,
     label: {
       text: '',
     },
@@ -65,10 +49,11 @@ const plotBands = [
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
-export const chart = {
+export const chartEth = {
   yAxis: [
     {
-      minTickInterval: 0.02, // 最小刻度间隔
+      TickInterval: 0.05, // 刻度间隔
+      minTickInterval: 0.001, // 最小刻度间隔
       zoomEnabled: true, // 允许缩放
       alignTicks: false, // 左右y轴不对齐
       // 左侧轴
@@ -79,11 +64,16 @@ export const chart = {
       opposite: false,
       className: 'highcharts-navigator-yaxis',
       labels: {
-        style: { color: '#c57514' }, // 刻度（橙色）
+        style: { color: '#4e64bb' }, // 蓝色
+        formatter: function():string {
+          let percent = Number((this as any).value * 100).toFixed(1);
+          percent += '%';
+          return percent;
+        },
       },
+      plotLines: plotLines, // 分度线
+      plotBands: plotBands, // 颜色带
       gridLineColor: 'rgba(240,240,240,.67)',
-      plotLines: plotLines,
-      plotBands: plotBands,
     },
     {
       // 右侧轴线
@@ -98,10 +88,10 @@ export const chart = {
   ],
   series: [
     {
-      name: '公允价值偏差量',
+      name: '流通盈利率',
       data: [],
-      // 橙色
-      color: 'rgb(247, 147, 26)',
+      // 蓝色
+      color: '#0d75f8',
       yAxis: 0,
       id: 'series0',
       visible: false,
@@ -117,11 +107,11 @@ export const chart = {
     {
       type: 'sma',
       linkedTo: 'series0',
-      name: '公允价值偏差量',
-      color: 'rgb(247, 147, 26)',
+      name: '流通盈利率',
+      color: '#0d75f8',
       yAxis: 0,
       params: {
-        period: 7,
+        period: 50,
       },
       visible: true,
       showInLegend: true,

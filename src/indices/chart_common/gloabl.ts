@@ -13,7 +13,7 @@ export const globalOptions = { // 全局配置
     loading: '加载中',
     months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
     noData: '没有数据',
-    numericSymbols: [ 'K', 'M', 'G', 'T', 'P', 'E'],
+    numericSymbols: [ 'K', 'M', 'B', 'T', 'P', 'E'], // 千、百万、十亿
     printChart: '打印图表',
     resetZoom: '恢复缩放',
     resetZoomTitle: '恢复图表',

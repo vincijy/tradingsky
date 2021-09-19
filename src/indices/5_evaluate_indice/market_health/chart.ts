@@ -1,3 +1,47 @@
+import { LineColor, BandColor } from '../../def';
+
+const zones = [
+  {
+    value: 150000,
+    color: 'rgb(247, 147, 26)',
+  },
+  {
+    value: 250000,
+    color: LineColor.green,
+  },
+  {
+    color: 'rgb(247, 147, 26)',
+  },
+];
+
+const plotLines = [{
+  value: 150000,
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 1,
+
+}, {
+  value: 250000,
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 1,
+}, {
+  value: 1000000,
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 2,
+}];
+
+const plotBands = [
+  {
+    from: 150000,
+    to: 250000,
+    color: BandColor.lightGreen,
+    label: {
+      text: '',
+    },
+  },
+];
 
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
@@ -5,18 +49,22 @@
 export const chart = {
   yAxis: [
     {
+      zoomEnabled: true, // 允许缩放
+      alignTicks: false, // 左右y轴不对齐
       // 左侧轴
       title: {
         text: '',
       },
       align: 'right',
       opposite: false,
+      type: 'logarithmic', // 对数刻度
       className: 'highcharts-navigator-yaxis',
       labels: {
-        // 橙色
-        style: { color: 'rgb(247, 147, 26)' },
+        style: { color: '#c57514' }, // 刻度（橙色）
       },
-      gridLineWidth: 0, // 去指标grid网格背景
+      gridLineColor: 'rgba(240,240,240,.67)',
+      plotLines: plotLines,
+      plotBands: plotBands,
     },
     {
       // 右侧轴线
@@ -26,7 +74,7 @@ export const chart = {
       opposite: true,
       align: 'left',
       type: 'logarithmic', // 对数刻度
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineWidth: 0, // 去指标grid网格背景
     },
   ],
   series: [
@@ -39,6 +87,7 @@ export const chart = {
       id: 'series0',
       visible: false,
       showInLegend: false,
+      zones: zones,
     },
     {
       name: '价格',
@@ -60,6 +109,7 @@ export const chart = {
       marker: {
         enabled: false, // https://stackoverflow.com/questions/14642779/highcharts-how-can-i-turn-off-the-points
       },
+      zones: zones,
     },
   ],
 };
