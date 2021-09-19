@@ -1,3 +1,4 @@
+
 export interface SubMenuItem {
     /**
      * 显示的标题
@@ -86,6 +87,14 @@ export interface SubMenuItem {
        * 批注的相关配置
        */
       annotation?:IAnnotationConfig;
+
+      /**
+       * X轴起始时间
+       */
+      xStart?:{
+        btc:IDate;
+        eth:IDate;
+      };
 }
 
 export interface MenuItem {
@@ -118,12 +127,12 @@ export interface MenuItem {
     assetList:string[];
   }
 
-export interface Idate {
+export interface IDate {
     year:number; month:number; day:number; hour?:number; minute?:number; second?:number;
 }
 
 export interface IPoint {
-  date:Idate;
+  date:IDate;
   color:'green' | 'red';
 }
 
