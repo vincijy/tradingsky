@@ -1,6 +1,7 @@
 import * as D from '../../def';
 import { introduce } from './introduce';
-import { chart } from './chart';
+import { chart } from './chart_btc';
+import { chartEth } from './chart_eth';
 
 export const grayscaleFlow:D.SubMenuItem = {
   name: '灰度基金净流量',
@@ -22,5 +23,5 @@ export const grayscaleFlow:D.SubMenuItem = {
       enabled: false,
     },
   },
-  chart: { btc: chart, eth: chart },
+  chart: { btc: chart, eth: chartEth },
 };

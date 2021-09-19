@@ -173,4 +173,6 @@ export enum LineColor {
   green = '#26c811',
   blue = '#4467eb',
   darkGreen = 'rgb(0, 177, 106)',
+  lightOrange = '#ffa756',
+  ethBlue = '#0d75f8'
 }

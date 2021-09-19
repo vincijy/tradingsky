@@ -5,8 +5,8 @@
 export const chart = {
   yAxis: [
     {
-      TickInterval: 200000, // 刻度间隔
-      minTickInterval: 25000, // 最小刻度间隔
+      TickInterval: 2500, // 刻度间隔
+      minTickInterval: 10, // 最小刻度间隔
       zoomEnabled: true, // 允许缩放
       alignTicks: false, // 左右y轴不对齐
       Tickmember: 12, // 允许存在的最多刻度
@@ -14,16 +14,14 @@ export const chart = {
       title: {
         text: '',
       },
-      // minorTickInterval: 'auto',
       align: 'right',
       opposite: false,
       className: 'highcharts-navigator-yaxis',
       labels: {
         // 橙色
         style: { color: 'rgb(247, 147, 26)' },
+        gridLineColor: 'rgba(240,240,240,.67)',
       },
-      gridLineColor: 'rgba(240,240,240,.67)',
-
     },
     {
       // 右侧轴线
@@ -38,7 +36,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '活跃地址量',
+      name: '余额 > 100地址量',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -56,11 +54,11 @@ export const chart = {
     {
       type: 'sma',
       linkedTo: 'series0',
-      name: '活跃地址量(7日均线)',
+      name: '余额 > 100地址量',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {
-        period: 7,
+        period: 0,
       },
       visible: true,
       showInLegend: true,

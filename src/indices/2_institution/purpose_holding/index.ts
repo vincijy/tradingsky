@@ -1,6 +1,6 @@
 import * as D from '../../def';
 import { introduce } from './introduce';
-import { chart } from './chart';
+import { chart } from './chart_btc';
 
 export const purposeHolding:D.SubMenuItem = {
   name: 'Purpose Bitcoin ETF持仓量',

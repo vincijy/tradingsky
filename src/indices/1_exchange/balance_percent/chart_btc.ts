@@ -5,8 +5,8 @@
 export const chart = {
   yAxis: [
     {
-      TickInterval: 0.1, // 刻度间隔
-      minTickInterval: 0.001, // 最小刻度间隔
+      TickInterval: 0.025, // 刻度间隔
+      minTickInterval: 0.0002, // 最小刻度间隔
       zoomEnabled: true, // 允许缩放
       alignTicks: false, // 左右y轴不对齐
       Tickmember: 12, // 允许存在的最多刻度
@@ -21,12 +21,12 @@ export const chart = {
         // 橙色
         style: { color: 'rgb(247, 147, 26)' },
         formatter: function():string {
-          let percent = Number((this as any).value * 100).toFixed(1);
+          let percent = Number((this as any).value * 100).toFixed(2);
           percent += '%';
           return percent;
         },
       },
-      gridLineWidth: 0, // 去指标grid网格背景
+      gridLineColor: 'rgba(240,240,240,.67)',
     },
     {
       // 右侧轴线
@@ -36,12 +36,12 @@ export const chart = {
       opposite: true,
       align: 'left',
       type: 'logarithmic', // 对数刻度
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineWidth: 0, // 去指标grid网格背景
     },
   ],
   series: [
     {
-      name: '一年以上持有量占比',
+      name: '交易所余额占比',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -59,7 +59,7 @@ export const chart = {
     {
       type: 'sma',
       linkedTo: 'series0',
-      name: '一年以上持有量占比',
+      name: '交易所余额占比',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {
