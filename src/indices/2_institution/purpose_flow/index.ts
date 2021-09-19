@@ -1,6 +1,6 @@
 import * as D from '../../def';
 import { introduce } from './introduce';
-import { chart } from './chart';
+import { chart } from './chart_btc';
 
 export const purposeFlow:D.SubMenuItem = {
   name: 'Purpose Bitcoin ETF净流量',

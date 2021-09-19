@@ -1,6 +1,7 @@
 import * as D from '../../def';
 import { introduce } from './introduce';
-import { chart } from './chart';
+import { chart } from './chart_btc';
+import { chartEth } from './chart_eth';
 
 export const newAddress:D.SubMenuItem = {
   name: '新增地址量',
@@ -22,5 +23,5 @@ export const newAddress:D.SubMenuItem = {
       enabled: true,
     },
   },
-  chart: { btc: chart, eth: chart },
+  chart: { btc: chart, eth: chartEth },
 };

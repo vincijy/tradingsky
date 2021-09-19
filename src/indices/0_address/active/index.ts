@@ -1,7 +1,8 @@
 import * as D from '../../def';
 import { annotation } from './annotation';
 import { introduce } from './introduce';
-import { chart } from './chart';
+import { chart } from './chart_btc';
+import { chartEth } from './chart_eth';
 
 export const active:D.SubMenuItem = {
   name: '活跃地址量',
@@ -23,6 +24,6 @@ export const active:D.SubMenuItem = {
       enabled: true,
     },
   },
-  chart: { btc: chart, eth: chart },
+  chart: { btc: chart, eth: chartEth },
   annotation: annotation,
 };

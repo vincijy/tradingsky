@@ -1,12 +1,13 @@
+import { LineColor } from '../../def';
 
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
-export const chart = {
+export const chartEth = {
   yAxis: [
     {
-      TickInterval: 0.1, // 刻度间隔
-      minTickInterval: 0.001, // 最小刻度间隔
+      TickInterval: 5000, // 刻度间隔
+      minTickInterval: 100, // 最小刻度间隔
       zoomEnabled: true, // 允许缩放
       alignTicks: false, // 左右y轴不对齐
       Tickmember: 12, // 允许存在的最多刻度
@@ -19,14 +20,9 @@ export const chart = {
       className: 'highcharts-navigator-yaxis',
       labels: {
         // 橙色
-        style: { color: 'rgb(247, 147, 26)' },
-        formatter: function():string {
-          let percent = Number((this as any).value * 100).toFixed(1);
-          percent += '%';
-          return percent;
-        },
+        style: { color: '#3c414c' }, // 刻度（黑色）
       },
-      gridLineWidth: 0, // 去指标grid网格背景
+      gridLineColor: 'rgba(240,240,240,.67)',
     },
     {
       // 右侧轴线
@@ -36,19 +32,21 @@ export const chart = {
       opposite: true,
       align: 'left',
       type: 'logarithmic', // 对数刻度
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineWidth: 0, // 去指标grid网格背景
     },
   ],
   series: [
     {
-      name: '一年以上持有量占比',
+      name: '灰度基金净流量',
       data: [],
       // 橙色
-      color: 'rgb(247, 147, 26)',
+      color: LineColor.red,
+      negativeColor: LineColor.darkGreen,
       yAxis: 0,
       id: 'series0',
       visible: false,
       showInLegend: false,
+      type: 'column', // 柱状图
     },
     {
       name: '价格',
@@ -59,7 +57,7 @@ export const chart = {
     {
       type: 'sma',
       linkedTo: 'series0',
-      name: '一年以上持有量占比',
+      name: '灰度基金净流量',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {

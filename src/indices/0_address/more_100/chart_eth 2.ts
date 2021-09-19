@@ -2,22 +2,26 @@
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
-export const chart = {
+export const chartEth = {
   yAxis: [
     {
+      TickInterval: 5000, // 刻度间隔
+      minTickInterval: 10, // 最小刻度间隔
+      zoomEnabled: true, // 允许缩放
+      alignTicks: false, // 左右y轴不对齐
+      Tickmember: 12, // 允许存在的最多刻度
       // 左侧轴
       title: {
         text: '',
       },
       align: 'right',
-      alignTicks: false,
       opposite: false,
       className: 'highcharts-navigator-yaxis',
       labels: {
         // 橙色
-        style: { color: 'rgb(247, 147, 26)' },
+        style: { color: '#0d75f8' },
+        gridLineColor: 'rgba(240,240,240,.67)',
       },
-      gridLineWidth: 0, // 去指标grid网格背景
     },
     {
       // 右侧轴线
@@ -27,15 +31,15 @@ export const chart = {
       opposite: true,
       align: 'left',
       type: 'logarithmic', // 对数刻度
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineWidth: 0, // 去指标grid网格背景
     },
   ],
   series: [
     {
-      name: '新增地址量',
+      name: '余额 > 100地址量',
       data: [],
-      // 橙色
-      color: 'rgb(247, 147, 26)',
+      // 蓝色
+      color: '#0d75f8',
       yAxis: 0,
       id: 'series0',
       visible: false,
@@ -50,11 +54,11 @@ export const chart = {
     {
       type: 'sma',
       linkedTo: 'series0',
-      name: '新增地址量(7日均线)',
-      color: 'rgb(247, 147, 26)',
+      name: '余额 > 100地址量',
+      color: '#0d75f8',
       yAxis: 0,
       params: {
-        period: 7,
+        period: 0,
       },
       visible: true,
       showInLegend: true,

@@ -1,6 +1,6 @@
 import * as D from '../../def';
 import { introduce } from './introduce';
-import { chart } from './chart';
+import { chart } from './chart_btc';
 import { annotation } from './annotation';
 
 export const fundingRate:D.SubMenuItem = {
@@ -24,5 +24,4 @@ export const fundingRate:D.SubMenuItem = {
     },
   },
   chart: { btc: chart, eth: chart },
-  annotation: annotation,
 };
