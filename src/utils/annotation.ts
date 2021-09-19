@@ -2,6 +2,7 @@ import { getChart } from '@/components/chart';
 import { Point } from 'highcharts';
 import store from '@/store';
 import { IAnnotationConfig } from '@/indices/def';
+import { findFirstGreater, getTimeStamp } from './date';
 
 interface IStoredcircle {
     circle:any;
@@ -72,18 +73,6 @@ class AnnotationManager {
     const point = this.getPointByDate(date, data);
     point && this.createCircleByPoint(point, color);
   };
-  private getTimeStamp = (obj:{
-    year:number; month:number; day:number; hour?:number; minute?:number; second?:number;
-  }) => {
-    const { year, month, day } = obj;
-    const t = new Date(year, month - 1, day).getTime();
-    return t;
-  };
-
- private findFirstGreater = (values:number[], value:number, valueInterval:number) => {
-   const index = values.findIndex((v) => v - value > valueInterval);
-   return index;
- };
  private getPointByDate = (
    date:{
           year:number; month:number; day:number; hour?:number; minute?:number; second?:number;
@@ -106,11 +95,11 @@ class AnnotationManager {
 
    const { year, month, day } = date;
    const xList = data.map((cell) => cell.x);
-   const t = this.getTimeStamp({ year, month, day });
+   const t = getTimeStamp({ year, month, day });
    /**
        * 寻找到第一个大于的值
        */
-   const index = this.findFirstGreater(xList, t, xInterval);
+   const index = findFirstGreater(xList, t, xInterval);
 
    /**
        * TODO: 补充一点逻辑使得更严谨

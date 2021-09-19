@@ -22,4 +22,16 @@ export const longBehavior = {
   },
   introduce: introduce,
   chart: { btc: chart, eth: chart },
+  xStart: {
+    btc: {
+      year: 2016,
+      month: 6,
+      day: 18,
+    },
+    eth: {
+      year: 2015,
+      month: 3,
+      day: 18,
+    },
+  },
 };

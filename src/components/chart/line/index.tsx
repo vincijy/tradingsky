@@ -4,6 +4,8 @@ import { memo } from 'react';
 // 图标React 封装
 import HighchartsReact from 'highcharts-react-official';
 import { useAppSelector } from '@/hooks';
+import { getTimeStamp, findFirstGreater } from '@/utils/date';
+import { IDate } from '@/indices/def';
 import { getHighCharts, setChart } from '../index';
 
 import { constructorType } from '../def';
@@ -48,6 +50,17 @@ const convert = (data:TypeDataRow):[number, number][] => {
   return newData;
 };
 
+const cutData = (data:[number, number][], dataAsset:'btc'|'eth', d:IDate) => {
+  const t = getTimeStamp(d);
+  if (data.length === 0) {
+    return [];
+  }
+  const newData = data.map((item) => item[0]);
+  const interval = newData[1] - newData[0];
+  const index = findFirstGreater(newData, t, interval) - 1;
+  return data.splice(index);
+};
+
 export default memo(function LSChartDoubleLine(props:IProps) {
   const { seriesA, seriesB } = props;
   const{ data: dataA, name: nameA } = seriesA;
@@ -55,9 +68,18 @@ export default memo(function LSChartDoubleLine(props:IProps) {
 
   const options = useAppSelector((state) => state.chart.options);
 
-  // TODO: highchart option ts config
-  (options.series[0] as any).data = convert(dataA);
-  (options.series[1] as any).data = convert(dataB);
+  const xStart = useAppSelector((state) => state.ui.currentMenu.subMenu.xStart);
+  const asset = useAppSelector((state) => state.chart.dataAsset);
+
+  if (xStart) {
+    // TODO: highchart option ts config
+    (options.series[0] as any).data = cutData(convert(dataA), asset, xStart[asset]);
+    (options.series[1] as any).data = cutData(convert(dataB), asset, xStart[asset]);
+  } else {
+    // TODO: highchart option ts config
+    (options.series[0] as any).data = convert(dataA);
+    (options.series[1] as any).data = convert(dataB);
+  }
   (options.series[0] as any).name = nameA;
   (options.series[1] as any).name = nameB;
 
