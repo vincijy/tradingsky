@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks';
 import { updateChartOption } from '@/store/chart/action';
 import { getChart } from '@/components/chart';
 import { mergeOption } from '@/utils/merge_option';
+import { commonOptions } from '@/indices/chart_common';
 import DropDownCell from './dropdown_cell';
 import { ToolBoxCellName } from './def';
 
@@ -19,7 +20,8 @@ export default memo(function SmaCell() {
 
     // TODO: fix type
     // 修改serie.name为xxx几日均线
-    const newOptions = mergeOption({}, chart.options) as any;
+    // TODO: 晚上配置合并, 这里顺序有关系
+    const newOptions = mergeOption(chart.options, commonOptions) as any;
     const serie = newOptions.series.find((s:any) => s.type === 'sma');
     serie.name = `${name}(${selectedMenu}均线)`;
 

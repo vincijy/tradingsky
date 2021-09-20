@@ -6,6 +6,8 @@ import HighchartsReact from 'highcharts-react-official';
 import { useAppSelector } from '@/hooks';
 import { getTimeStamp, findFirstGreater } from '@/utils/date';
 import { IDate } from '@/indices/def';
+import { mergeOption } from '@/utils/merge_option';
+import { commonOptions } from '@/indices/chart_common';
 import { getHighCharts, setChart } from '../index';
 
 import { constructorType } from '../def';
@@ -105,7 +107,9 @@ export default memo(function LSChartDoubleLine(props:IProps) {
    * @param chart Highcharts.Chart
    */
   const callback = (chart:Highcharts.Chart) => {
-    console.log('chart instance init...');
+    // TODO: 顺序
+    const ops = mergeOption(chart.options, commonOptions);
+    chart.update(ops, true);
     setChart(chart);
   };
   const recreate = true;
