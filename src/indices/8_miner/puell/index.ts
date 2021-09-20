@@ -24,4 +24,16 @@ export const puell = {
   introduce: introduce,
   annotation: annotation,
   chart: { btc: chart, eth: chart },
+  xStart: {
+    btc: {
+      year: 2011,
+      month: 11,
+      day: 18,
+    },
+    eth: {
+      year: 2011,
+      month: 11,
+      day: 18,
+    },
+  },
 };

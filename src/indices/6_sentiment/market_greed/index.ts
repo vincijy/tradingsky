@@ -26,4 +26,16 @@ export const marketGreed:D.SubMenuItem = {
   },
   annotation: annotation,
   chart: { btc: chartBtc, eth: chartEth },
+  xStart: {
+    btc: {
+      year: 2010,
+      month: 7,
+      day: 21,
+    },
+    eth: {
+      year: 2015,
+      month: 11,
+      day: 9,
+    },
+  },
 };

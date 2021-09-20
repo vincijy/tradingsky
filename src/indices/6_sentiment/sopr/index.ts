@@ -1,5 +1,6 @@
 import { introduce } from './introduce';
-import { chart } from './chart';
+import { chartBtc } from './chart_btc';
+import { chartEth } from './chart_eth';
 
 export const sopr = {
   name: 'spent outputs 利润率（SOPR）',
@@ -21,5 +22,17 @@ export const sopr = {
     },
   },
   introduce: introduce,
-  chart: { btc: chart, eth: chart },
+  chart: { btc: chartBtc, eth: chartEth },
+  xStart: {
+    btc: {
+      year: 2013,
+      month: 1,
+      day: 1,
+    },
+    eth: {
+      year: 2015,
+      month: 8,
+      day: 8,
+    },
+  },
 };

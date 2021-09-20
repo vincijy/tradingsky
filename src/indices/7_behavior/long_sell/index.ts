@@ -22,4 +22,16 @@ export const longSell = {
   },
   introduce: introduce,
   chart: { btc: chart, eth: chart },
+  xStart: {
+    btc: {
+      year: 2010,
+      month: 7,
+      day: 25,
+    },
+    eth: {
+      year: 2010,
+      month: 7,
+      day: 25,
+    },
+  },
 };

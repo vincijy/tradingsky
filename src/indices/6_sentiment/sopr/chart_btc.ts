@@ -2,48 +2,19 @@ import { LineColor } from '../../def';
 
 const zones = [
   {
-    value: 0,
+    value: 1,
     color: LineColor.red,
   },
   {
-    value: 0.25,
-    color: LineColor.orange,
-  },
-  {
-    value: 0.5,
-    color: LineColor.yellow,
-  },
-  {
-    value: 0.75,
-    color: LineColor.green,
-  },
-  {
-    value: 1,
-    color: LineColor.blue,
+    color: LineColor.darkGreen,
   },
 ];
 
 const plotLines = [{
-  value: 0,
+  value: 1,
   color: '#5a5a5a',
-  dashStyle: 'Dot',
-  width: 1,
-
-}, {
-  value: 0.25,
-  color: '#5a5a5a',
-  dashStyle: 'Dot',
-  width: 1,
-}, {
-  value: 0.5,
-  color: '#5a5a5a',
-  dashStyle: 'Dot',
-  width: 1,
-}, {
-  value: 0.75,
-  color: '#5a5a5a',
-  dashStyle: 'Dot',
-  width: 1,
+  // dashStyle: 'Dot',
+  width: 2,
 }];
 
 /**
@@ -52,11 +23,9 @@ const plotLines = [{
 export const chartBtc = {
   yAxis: [
     {
-      TickInterval: 0.25, // 刻度间隔
-      minTickInterval: 0.005, // 最小刻度间隔
+      minTickInterval: 0.0025, // 最小刻度间隔
       zoomEnabled: true, // 允许缩放
       alignTicks: false, // 左右y轴不对齐
-      Tickmember: 11, // 允许存在的最多刻度
       // 左侧轴
       title: {
         text: '',
@@ -65,10 +34,11 @@ export const chartBtc = {
       opposite: false,
       className: 'highcharts-navigator-yaxis',
       labels: {
+        // 橙色
         style: { color: '#c57514' }, // 刻度（橙色）
       },
-      plotLines: plotLines, // 分度线
       gridLineColor: 'rgba(240,240,240,.67)',
+      plotLines: plotLines,
     },
     {
       // 右侧轴线
@@ -83,10 +53,10 @@ export const chartBtc = {
   ],
   series: [
     {
-      name: '市场贪婪度',
+      name: 'spent outputs 利润率（SOPR）',
       data: [],
-      // 橙色
-      color: 'rgb(247, 147, 26)',
+      // 绿色
+      color: LineColor.darkGreen,
       yAxis: 0,
       id: 'series0',
       visible: false,
@@ -102,11 +72,11 @@ export const chartBtc = {
     {
       type: 'sma',
       linkedTo: 'series0',
-      name: '市场贪婪度',
-      color: 'rgb(247, 147, 26)',
+      name: 'spent outputs 利润率（SOPR）',
+      color: LineColor.darkGreen,
       yAxis: 0,
       params: {
-        period: 0,
+        period: 7,
       },
       visible: true,
       showInLegend: true,

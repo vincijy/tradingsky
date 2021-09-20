@@ -1,10 +1,46 @@
+import { getTimeStamp } from '@/utils/date';
+import { LineColor, BandColor } from '../../def';
+
+const plotLines:any = [{
+  value: getTimeStamp({
+    year: 2012,
+    month: 11,
+    day: 28,
+  }),
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 1,
+}, {
+  value: getTimeStamp({
+    year: 2016,
+    month: 7,
+    day: 10,
+  }),
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 1,
+}, {
+  value: getTimeStamp({
+    year: 2020,
+    month: 5,
+    day: 12,
+  }),
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 1,
+}];
 
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
 export const chart = {
+  xAxis: [{
+    plotLines: plotLines,
+  }],
   yAxis: [
     {
+      zoomEnabled: true, // 允许缩放
+      alignTicks: false, // 左右y轴不对齐
       // 左侧轴
       title: {
         text: '',
@@ -13,10 +49,14 @@ export const chart = {
       opposite: false,
       className: 'highcharts-navigator-yaxis',
       labels: {
-        // 橙色
-        style: { color: 'rgb(247, 147, 26)' },
+        style: { color: '#c57514' }, // 刻度（橙色）
+        formatter: function():string {
+          let percent = Number((this as any).value * 100).toFixed(1);
+          percent += '%';
+          return percent;
+        },
       },
-      gridLineWidth: 0, // 去指标grid网格背景
+      gridLineColor: 'rgba(240,240,240,.67)',
     },
     {
       // 右侧轴线
@@ -26,12 +66,12 @@ export const chart = {
       opposite: true,
       align: 'left',
       type: 'logarithmic', // 对数刻度
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineWidth: 0, // 去指标grid网格背景
     },
   ],
   series: [
     {
-      name: 'Stock-to-Flow 模型偏差量',
+      name: '矿工交易费收入占比',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -49,11 +89,11 @@ export const chart = {
     {
       type: 'sma',
       linkedTo: 'series0',
-      name: 'Stock-to-Flow 模型偏差量',
+      name: '矿工交易费收入占比',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {
-        period: 0,
+        period: 7,
       },
       visible: true,
       showInLegend: true,

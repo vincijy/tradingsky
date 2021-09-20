@@ -2,7 +2,7 @@ import { LineColor } from '../../def';
 
 const zones = [
   {
-    value: 0,
+    value: -.5,
     color: LineColor.red,
   },
   {
@@ -24,13 +24,23 @@ const zones = [
 ];
 
 const plotLines = [{
-  value: 0,
+  value: -.5,
   color: '#5a5a5a',
   dashStyle: 'Dot',
   width: 1,
 
 }, {
   value: 0.25,
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 1,
+}, {
+  value: 0.5,
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 1,
+}, {
+  value: 0.75,
   color: '#5a5a5a',
   dashStyle: 'Dot',
   width: 1,
@@ -42,6 +52,10 @@ const plotLines = [{
 export const chartEth = {
   yAxis: [
     {
+      TickInterval: 0.25, // 刻度间隔
+      minTickInterval: 0.025, // 最小刻度间隔
+      zoomEnabled: true, // 允许缩放
+      alignTicks: false, // 左右y轴不对齐
       // 左侧轴
       title: {
         text: '',
@@ -50,14 +64,10 @@ export const chartEth = {
       opposite: false,
       className: 'highcharts-navigator-yaxis',
       labels: {
-        // 橙色
-        style: { color: 'rgb(247, 147, 26)' },
+        style: { color: '#4e64bb' }, // 蓝色
       },
-      gridLineWidth: 0, // 去指标grid网格背景
+      gridLineColor: 'rgba(240,240,240,.67)',
       plotLines: plotLines, // 分度线
-      min: -5,
-      max: 1,
-      alignTicks: false,
     },
     {
       // 右侧轴线
@@ -67,15 +77,15 @@ export const chartEth = {
       opposite: true,
       align: 'left',
       type: 'logarithmic', // 对数刻度
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineWidth: 0, // 去指标grid网格背景
     },
   ],
   series: [
     {
-      name: 'Stock-to-Flow 模型偏差量',
+      name: '市场贪婪度',
       data: [],
-      // 橙色
-      color: 'rgb(247, 147, 26)',
+      // 蓝色
+      color: '#0d75f8',
       yAxis: 0,
       id: 'series0',
       visible: false,
@@ -91,7 +101,7 @@ export const chartEth = {
     {
       type: 'sma',
       linkedTo: 'series0',
-      name: 'Stock-to-Flow 模型偏差量',
+      name: '市场贪婪度',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {

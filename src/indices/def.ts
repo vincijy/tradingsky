@@ -91,6 +91,8 @@ export interface SubMenuItem {
       /**
        * X轴起始时间
        */
+
+      // ToDo：币种可选
       xStart?:{
         btc:IDate;
         eth:IDate;

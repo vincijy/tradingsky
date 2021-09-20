@@ -25,7 +25,6 @@ export const chartEth = {
       opposite: false,
       className: 'highcharts-navigator-yaxis',
       labels: {
-        // 橙色
         style: { color: '#3c414c' },
       },
       plotLines: plotLines, // 分隔线

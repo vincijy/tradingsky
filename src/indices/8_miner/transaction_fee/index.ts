@@ -1,5 +1,6 @@
 import { introduce } from './introduce';
 import { chart } from './chart';
+
 export const transactionFee = {
   name: '矿工交易费用收入占比',
   key: '矿工交易费用收入占比',
@@ -21,4 +22,16 @@ export const transactionFee = {
   },
   introduce: introduce,
   chart: { btc: chart, eth: chart },
+  xStart: {
+    btc: {
+      year: 2010,
+      month: 7,
+      day: 25,
+    },
+    eth: {
+      year: 2010,
+      month: 7,
+      day: 25,
+    },
+  },
 };
