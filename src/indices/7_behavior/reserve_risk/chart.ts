@@ -1,27 +1,35 @@
-import { getTimeStamp } from '@/utils/date';
 import { BandColor } from '../../def';
+
+const plotBands = [
+  {
+    from: 0.001,
+    to: 0.002,
+    color: BandColor.lightGreen,
+    label: {
+      text: '',
+    },
+  },
+  {
+    from: 0.02,
+    to: 0.06,
+    color: BandColor.lightRed,
+    label: {
+      text: '',
+    },
+  },
+];
+
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
 export const chart = {
-  xAxis: {
-    // TODO: it is for test, delete it
-    plotBands: [{
-      color: BandColor.lightYellow,
-      from: getTimeStamp({
-        year: 2021,
-        month: 5,
-        day: 12,
-      }),
-      to: getTimeStamp({
-        year: 2021,
-        month: 6,
-        day: 4,
-      }),
-    }],
-  },
   yAxis: [
     {
+      TickInterval: 0.002, // 刻度间隔
+      minTickInterval: 0.002, // 最小刻度间隔
+      zoomEnabled: true, // 允许缩放
+      alignTicks: false, // 左右y轴不对齐
+      Tickmember: 11, // 允许存在的最多刻度
       // 左侧轴
       title: {
         text: '',
@@ -34,24 +42,7 @@ export const chart = {
         style: { color: 'rgb(247, 147, 26)' },
       },
       gridLineWidth: 0, // 去指标grid网格背景
-      plotBands: [
-        {
-          from: 0.02,
-          to: 0.06,
-          color: BandColor.lightRed,
-          label: {
-            text: '',
-          },
-        },
-        {
-          from: 0.001,
-          to: 0.002,
-          color: BandColor.lightGreen,
-          label: {
-            text: '',
-          },
-        },
-      ],
+      plotBands: plotBands,
     },
     {
       // 右侧轴线
@@ -66,7 +57,7 @@ export const chart = {
   ],
   series: [
     {
-      name: 'Stock-to-Flow 模型偏差量',
+      name: '储备风险',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -84,11 +75,11 @@ export const chart = {
     {
       type: 'sma',
       linkedTo: 'series0',
-      name: 'Stock-to-Flow 模型偏差量',
+      name: '储备风险',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {
-        period: 0,
+        period: 7,
       },
       visible: true,
       showInLegend: true,

@@ -1,10 +1,21 @@
 
+const plotLines = [{
+  value: 1,
+  color: '#5a5a5a',
+  dashStyle: 'Solid',
+  width: 2,
+}];
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
 export const chart = {
   yAxis: [
     {
+      TickInterval: 0.0005, // 刻度间隔
+      minTickInterval: 0.005, // 最小刻度间隔
+      zoomEnabled: true, // 允许缩放
+      alignTicks: false, // 左右y轴不对齐
+      Tickmember: 13, // 允许存在的最多刻度
       // 左侧轴
       title: {
         text: '',
@@ -16,7 +27,8 @@ export const chart = {
         // 橙色
         style: { color: 'rgb(247, 147, 26)' },
       },
-      gridLineWidth: 0, // 去指标grid网格背景,
+      gridLineWidth: 0, // 去指标grid网格背景
+      plotLines: plotLines, // 分度线
     },
     {
       // 右侧轴线

@@ -1,4 +1,23 @@
-
+// 个性化样式：600k—700k红色阴影带；100k—300k绿色阴影带
+import { BandColor } from '@/indices/def';
+const plotBands = [
+  {
+    from: 600 * 1000,
+    to: 700 * 1000,
+    color: BandColor.lightRed,
+    label: {
+      text: '',
+    },
+  },
+  {
+    from: 100 * 1000,
+    to: 300 * 1000,
+    color: BandColor.lightGreen,
+    label: {
+      text: '',
+    },
+  },
+];
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
@@ -17,6 +36,7 @@ export const chart = {
         style: { color: 'rgb(247, 147, 26)' },
       },
       gridLineWidth: 0, // 去指标grid网格背景
+      plotBands: plotBands,
     },
     {
       // 右侧轴线
@@ -31,7 +51,7 @@ export const chart = {
   ],
   series: [
     {
-      name: 'Stock-to-Flow 模型偏差量',
+      name: '',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -49,7 +69,7 @@ export const chart = {
     {
       type: 'sma',
       linkedTo: 'series0',
-      name: 'Stock-to-Flow 模型偏差量',
+      name: '',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {

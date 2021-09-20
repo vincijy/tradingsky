@@ -15,13 +15,20 @@ export const reserveRisk = {
   catalogText: '用于量化长期持有者市场信心的指标',
   toolbox: {
     annotation: {
-      enabled: true, // 有标注
+      enabled: false, // 有标注
     },
     sma: {
       enabled: true,
     },
   },
   introduce: introduce,
-  annotaiton: annotation,
+  annotation: annotation,
   chart: { btc: chart, eth: chart },
+  xStart: {
+    btc: {
+      year: 2010,
+      month: 8,
+      day: 15,
+    },
+  },
 };
