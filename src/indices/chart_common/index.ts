@@ -11,8 +11,12 @@ import { xAxis } from './x_axis';
  */
 export const commonOptions = {
   navigator: {
-    height: 26, // 导航栏高度(图表下方时间范围选择器)
+    height: 35, // 导航栏高度(图表下方时间范围选择器)
+    maskFill: 'rgba(60, 65, 76, 0.1)',
   },
+  scrollbar: {
+		  enabled: false,
+	 },
 
   chart: {
     height: Layout.CHART_HEIGHT, // 图表高度, 图表的高度 = 纯图表高 + naviagator高度 +  日历高度

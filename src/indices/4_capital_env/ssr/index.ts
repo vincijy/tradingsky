@@ -25,4 +25,16 @@ export const ssr:D.SubMenuItem = {
   },
   chart: { btc: chart, eth: chart },
   annotation: annotation,
+  xStart: {
+    btc: {
+      year: 2018,
+      month: 9,
+      day: 5,
+    },
+    eth: {
+      year: 2018,
+      month: 9,
+      day: 5,
+    },
+  },
 };

@@ -19,7 +19,7 @@ export const chartEth = {
       className: 'highcharts-navigator-yaxis',
       labels: {
         // 蓝色
-        style: { color: '#0d75f8' },
+        style: { color: '#4e64bb' },
         formatter: function():string {
           let percent = Number((this as any).value * 100).toFixed(2);
           percent += '%';

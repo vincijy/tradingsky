@@ -1,6 +1,10 @@
 import { LineColor } from '../../def';
 
 const plotLines = [{
+  value: 0,
+  color: '#5a5a5a',
+  width: 2,
+}, {
   value: 0.001,
   color: LineColor.red,
   width: 2,

@@ -24,4 +24,16 @@ export const grayscaleHolding:D.SubMenuItem = {
     },
   },
   chart: { btc: chart, eth: chartEth },
+  xStart: {
+    btc: {
+      year: 2020,
+      month: 12,
+      day: 21,
+    },
+    eth: {
+      year: 2020,
+      month: 12,
+      day: 21,
+    },
+  },
 };

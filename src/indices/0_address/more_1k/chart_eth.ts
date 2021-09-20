@@ -19,9 +19,9 @@ export const chartEth = {
       className: 'highcharts-navigator-yaxis',
       labels: {
         // 蓝色
-        style: { color: '#0d75f8' },
+        style: { color: '#4e64bb' },
       },
-      gridLineWidth: 0, // 去指标grid网格背景
+      gridLineColor: 'rgba(240,240,240,.67)',
     },
     {
       // 右侧轴线
@@ -31,7 +31,7 @@ export const chartEth = {
       opposite: true,
       align: 'left',
       type: 'logarithmic', // 对数刻度
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineWidth: 0, // 去指标grid网格背景
     },
   ],
   series: [

@@ -1,5 +1,19 @@
 import { LineColor } from '../../def';
 
+const plotLines = [{
+  value: 0,
+  color: '#5a5a5a',
+  width: 2,
+},{
+  value: 0.001,
+  color: LineColor.red,
+  width: 2,
+}, {
+  value: -0.001,
+  color: LineColor.darkGreen,
+  width: 2,
+}];
+
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
@@ -28,6 +42,7 @@ export const chart = {
         },
       },
       gridLineColor: 'rgba(240,240,240,.67)',
+      plotLines: plotLines,
     },
     {
       // 右侧轴线

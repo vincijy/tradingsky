@@ -19,7 +19,7 @@ export const chartEth = {
       className: 'highcharts-navigator-yaxis',
       labels: {
         // 橙色
-        style: { color: '#0d75f8' },
+        style: { color: '#4e64bb' },
       },
       gridLineWidth: 0, // 去指标grid网格背景
     },

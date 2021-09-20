@@ -23,4 +23,16 @@ export const purposeFlow:D.SubMenuItem = {
     },
   },
   chart: { btc: chart, eth: chart },
+  xStart: {
+    btc: {
+      year: 2021,
+      month: 2,
+      day: 23,
+    },
+    eth: {
+      year: 2021,
+      month: 2,
+      day: 23,
+    },
+  },
 };

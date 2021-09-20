@@ -19,7 +19,7 @@ export const chart = {
       className: 'highcharts-navigator-yaxis',
       labels: {
         // 橙色
-        style: { color: 'rgb(247, 147, 26)' },
+        style: { color: '#c57514' },
       },
       gridLineColor: 'rgba(240,240,240,.67)',
 

@@ -59,7 +59,7 @@ export const chart = {
       name: '已实现净损益',
       data: [],
       // 图例（红色）
-      color: 'red',
+      color: LineColor.darkGreen,
       yAxis: 0,
       id: 'series0',
       visible: false,

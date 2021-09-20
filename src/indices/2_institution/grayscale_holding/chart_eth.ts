@@ -20,7 +20,7 @@ export const chartEth = {
       opposite: false,
       className: 'highcharts-navigator-yaxis',
       labels: {
-        style: { color: LineColor.ethBlue },
+        style: { color: '#4e64bb' },
       },
       gridLineColor: 'rgba(240,240,240,.67)',
     },

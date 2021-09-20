@@ -46,8 +46,8 @@ export const chart = {
     {
       name: '交易所净流量变化',
       data: [],
-      color: LineColor.red,
-      negativeColor: LineColor.darkGreen,
+      color: LineColor.darkGreen,
+      negativeColor: LineColor.red,
       yAxis: 0,
       id: 'series0',
       visible: false,
@@ -63,8 +63,8 @@ export const chart = {
       type: 'sma',
       linkedTo: 'series0',
       name: '交易所净流量变化',
-      color: LineColor.red,
-      negativeColor: LineColor.darkGreen,
+      color: LineColor.darkGreen,
+      negativeColor: LineColor.red,
       yAxis: 0,
       params: {
         period: 14,
