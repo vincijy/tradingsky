@@ -21,7 +21,7 @@ export default memo(function SmaCell() {
     // TODO: fix type
     // 修改serie.name为xxx几日均线
     // TODO: 晚上配置合并, 这里顺序有关系
-    const newOptions = mergeOption(chart.options, commonOptions) as any;
+    const newOptions = mergeOption(commonOptions, chart.options) as any;
     const serie = newOptions.series.find((s:any) => s.type === 'sma');
     serie.name = `${name}(${selectedMenu}均线)`;
 

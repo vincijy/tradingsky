@@ -17,6 +17,17 @@ export interface IDataUnit {
   t:number;
   v:number;
   index:number;
+
+  BUSD?:number;
+  DAI?:number;
+  EURS?:number;
+  GUSD?:number;
+  HUSD?:number;
+  PAX?:number;
+  SAI?:number;
+  USDC?:number;
+  USDT?:number;
+  sUSD?:number;
 };
 
 export type TypeDataRow = IDataUnit[]

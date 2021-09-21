@@ -26,7 +26,7 @@ if (!isProductionBuild) {
   (window as any).store = store;
 }
 
-let preSmaPeriod = 0;
+// let preSmaPeriod = 0;
 let preAnnotationVisible = false;
 store.subscribe(() => {
   const v = store.getState().chart.annotationVisible;
@@ -35,12 +35,12 @@ store.subscribe(() => {
   }
   preAnnotationVisible = v;
 
-  const period = store.getState().chart.options.series[2].params.period;
-  if (preSmaPeriod !== period) {
-    console.log('period change');
-    const an = getAnnotationManager();
-    an && an.clearAnnotationCircle();
-    an && v && an.drawAnnotationCircle();
-  }
-  preSmaPeriod = period;
+  // const period = store.getState().chart.options.series.find((s as any) => s.type === 'sma').params.period;
+  // if (preSmaPeriod !== period) {
+  //   console.log('period change');
+  //   const an = getAnnotationManager();
+  //   an && an.clearAnnotationCircle();
+  //   an && v && an.drawAnnotationCircle();
+  // }
+  // preSmaPeriod = period;
 });

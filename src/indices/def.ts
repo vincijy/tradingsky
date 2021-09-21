@@ -187,3 +187,17 @@ export enum LineColor {
   lightOrange = '#ffa756',
   ethBlue = '#0d75f8'
 }
+
+
+export enum StableAssetColor {
+  'BUSD' = '#00cfba',
+  'DAI' = '#00e376',
+  'EURS' = '#ff9127',
+  'GUSD' = '#a2ff34',
+  'HUSD' = '#ffd300',
+  'PAX' = '#ff60ff',
+  'SAI' = '#b352f2',
+  'sUSD' = '#4478f4',
+  'USDC' = '#00cfba',
+  'USDT' = '#00abf8',
+};
