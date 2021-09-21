@@ -18,7 +18,7 @@ export const difficultyRibbon = {
       enabled: true, // 有标注
     },
     sma: {
-      enabled: true,
+      enabled: false,
     },
   },
   annotation: annotation,

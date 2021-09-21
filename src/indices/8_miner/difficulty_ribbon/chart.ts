@@ -10,7 +10,7 @@ export const chart = {
         text: '',
       },
       align: 'right',
-      opposite: false,
+      opposite: true,
       className: 'highcharts-navigator-yaxis',
       labels: {
         // 橙色
@@ -31,14 +31,84 @@ export const chart = {
   ],
   series: [
     {
-      name: 'Stock-to-Flow 模型偏差量',
+      name: 'ma9',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
-      id: 'series0',
-      visible: false,
-      showInLegend: false,
+      id: 'ma9',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'ma14',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: 'ma14',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'ma25',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: 'ma25',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'ma40',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: 'ma40',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'ma60',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: 'ma60',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'ma90',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: 'ma90',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'ma128',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: 'ma128',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'ma200',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: 'ma200',
+      visible: true,
+      showInLegend: true,
     },
     {
       name: '价格',
@@ -46,20 +116,20 @@ export const chart = {
       color: 'rgba(0,0,0,0.5)',
       yAxis: 1,
     },
-    {
-      type: 'sma',
-      linkedTo: 'series0',
-      name: 'Stock-to-Flow 模型偏差量',
-      color: 'rgb(247, 147, 26)',
-      yAxis: 0,
-      params: {
-        period: 0,
-      },
-      visible: true,
-      showInLegend: true,
-      marker: {
-        enabled: false, // https://stackoverflow.com/questions/14642779/highcharts-how-can-i-turn-off-the-points
-      },
-    },
+    // {
+    //   type: 'sma',
+    //   linkedTo: 'series0',
+    //   name: '',
+    //   color: 'rgb(247, 147, 26)',
+    //   yAxis: 0,
+    //   params: {
+    //     period: 0,
+    //   },
+    //   visible: true,
+    //   showInLegend: true,
+    //   marker: {
+    //     enabled: true, // https://stackoverflow.com/questions/14642779/highcharts-how-can-i-turn-off-the-points
+    //   },
+    // },
   ],
 };

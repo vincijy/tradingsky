@@ -142,7 +142,20 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
       '7y_10y',
     ];
     handleOData(o, startDate);
-  } else {
+  } else if(currentMenu.key === '难度彩虹带') {
+    const o = [
+      'ma9',
+      'ma14',
+      'ma25',
+      'ma40',
+      'ma60',
+      'ma90',
+      'ma128',
+      'ma200',
+    ];
+    handleOData(o, startDate);
+  }
+  else {
     handleNormalIndices(startDate);
   }
 
