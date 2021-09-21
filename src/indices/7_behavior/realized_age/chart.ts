@@ -31,35 +31,130 @@ export const chart = {
   ],
   series: [
     {
-      name: 'Stock-to-Flow 模型偏差量',
+      name: '1d_1w',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
-      id: 'series0',
-      visible: false,
-      showInLegend: false,
+      id: '1d_1w',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: '1m_3m',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: '1m_3m',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: '1w_1m',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: '1w_1m',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: '1y_2y',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: '1y_2y',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: '2y_3y',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: '2y_3y',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: '3m_6m',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: '3m_6m',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: '3y_5y',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: '3y_5y',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: '5y_7y',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: '5y_7y',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: '6m_12m',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: '6m_12m',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: '7y_10y',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: '7y_10y',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: '24h',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: '24h',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'more_10y',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: 'more_10y',
+      visible: true,
+      showInLegend: true,
     },
     {
       name: '价格',
       data: [],
       color: 'rgba(0,0,0,0.5)',
       yAxis: 1,
-    },
-    {
-      type: 'sma',
-      linkedTo: 'series0',
-      name: 'Stock-to-Flow 模型偏差量',
-      color: 'rgb(247, 147, 26)',
-      yAxis: 0,
-      params: {
-        period: 0,
-      },
-      visible: true,
-      showInLegend: true,
-      marker: {
-        enabled: false, // https://stackoverflow.com/questions/14642779/highcharts-how-can-i-turn-off-the-points
-      },
     },
   ],
 };

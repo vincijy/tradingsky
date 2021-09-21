@@ -13,6 +13,9 @@ import { constructorType } from '../def';
 import * as D from './def';
 import { convert, cutDataByDate } from './util';
 
+interface IRow{
+  index:number; t:number; o:any;
+}
 export default memo(function LSChartDoubleLine(props:D.IProps) {
   const { seriesA, seriesB } = props;
   const{ data: dataA, name: nameA } = seriesA;
@@ -75,9 +78,70 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
     }
   };
 
+  const handleOData = (keysOfO:string[], startDate:IDate|null) => {
+    const o = {} as any;
+    keysOfO.forEach((k) => {
+      o[k] = [];
+    });
+    const data = dataA as IRow[];
+    data.forEach((item) => {
+      // JS的时间戳和unix的 相差* 1000
+      const x = item.t * 1000;
+      for (const key of Object.keys(o)) {
+        if (!(item as any)['o']) {
+          continue;
+        }
+        const value = ((item as any)['o'] as any)[key];
+        if (value !== undefined) {
+          (o as any)[key].push([x, value]);
+        }
+      }
+    });
+
+    for (const name of Object.keys(o)) {
+      const serie = series.find((s) => s.name === name);
+      if (serie) {
+        const data:[number, number][] = (o as any)[name];
+        serie.data = dataMayCut(data, startDate);
+      }
+    }
+  };
+
   // '稳定币累计流通量' 特殊情况处理 TODO分离出特定逻辑, 由外部注入
   if (currentMenu.key === '稳定币累计流通量') {
     handleMultiIndices(startDate);
+  } else if (currentMenu.key === '持有年龄分布') {
+    const o = [
+      '1d_1w',
+      '1m_3m',
+      '1w_1m',
+      '1y_2y',
+      '2y_3y',
+      '3m_6m',
+      '3y_5y',
+      '5y_7y',
+      '6m_12m',
+      '7y_10y',
+      '24h',
+      'more_10y',
+    ];
+    handleOData(o, startDate);
+  } else if (currentMenu.key === '出售时的年龄分布占比') {
+    const o = [
+      '1d_1w',
+      '1h',
+      '1h_24h',
+      '1m_3m',
+      '1w_1m',
+      '1y_2y',
+      '2y_3y',
+      '3m_6m',
+      '3y_5y',
+      '5y_7y',
+      '6m_12m',
+      '7y_10y',
+    ];
+    handleOData(o, startDate);
   } else {
     handleNormalIndices(startDate);
   }
