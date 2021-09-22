@@ -28,20 +28,12 @@ export interface IDataUnit {
   USDC?:number;
   USDT?:number;
   sUSD?:number;
-  o?:{
-    '1d_1w':number;
-    '1m_3m':number;
-    '1w_1m':number;
-    '1y_2y':number;
-    '2y_3y':number;
-    '3m_6m':number;
-    '3y_5y':number;
-    '5y_7y':number;
-    '6m_12m':number;
-    '7y_10y':number;
-    '24h':number;
-    'more_10y':number;
-  };
+
+  // for cvvd
+  v_cvdd:number;
+  v_pru:number;
+
+  o:any;
 };
 
 export type TypeDataRow = IDataUnit[]

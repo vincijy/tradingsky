@@ -23,6 +23,11 @@ export const convert = (data:TypeDataRow):D.IConvertValues => {
     USDC: [],
     USDT: [],
     sUSD: [],
+
+    // for cvvd
+    'v_cvdd': [],
+    'v_pru': [],
+
   };
 
   data.forEach((item) => {

@@ -45,7 +45,9 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
 
   const handleMultiIndices = (startDate:IDate|null) => {
     // 指标配置上的name必须对应得上
-    for (const name of D.CURRENCIES) {
+    let ks:string[] = [];
+    ks = ks.concat(D.CURRENCIES).concat(['v_cvdd', 'v_pru']);
+    for (const name of ks) {
       const serie = series.find((s) => s.name === name);
       if (serie) {
         const res = convert(dataA);
@@ -108,7 +110,7 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
   };
 
   // '稳定币累计流通量' 特殊情况处理 TODO分离出特定逻辑, 由外部注入
-  if (currentMenu.key === '稳定币累计流通量') {
+  if (currentMenu.key === '稳定币累计流通量' || currentMenu.key === 'CVDD底部指标') {
     handleMultiIndices(startDate);
   } else if (currentMenu.key === '持有年龄分布') {
     const o = [

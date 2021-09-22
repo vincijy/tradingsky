@@ -31,35 +31,30 @@ export const chart = {
   ],
   series: [
     {
-      name: 'CVDD底部指标',
+      name: 'v_cvdd',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
-      id: 'series0',
-      visible: false,
-      showInLegend: false,
+      id: 'v_cvdd',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'v_pru',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: 'v_pru',
+      visible: true,
+      showInLegend: true,
     },
     {
       name: '价格',
       data: [],
       color: 'rgba(0,0,0,0.5)',
       yAxis: 1,
-    },
-    {
-      type: 'sma',
-      linkedTo: 'series0',
-      name: 'CVDD底部指标',
-      color: 'rgb(247, 147, 26)',
-      yAxis: 0,
-      params: {
-        period: 0,
-      },
-      visible: true,
-      showInLegend: true,
-      marker: {
-        enabled: false, // https://stackoverflow.com/questions/14642779/highcharts-how-can-i-turn-off-the-points
-      },
     },
   ],
 };

@@ -32,6 +32,10 @@ export interface IConvertValues {
   USDC:[number, number][];
   USDT:[number, number][];
   sUSD:[number, number][];
+
+  // for cvvd
+  v_cvdd:[number, number][];
+  v_pru:[number, number][];
 }
 
 export interface IDataAgeHold {
