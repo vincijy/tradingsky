@@ -31,35 +31,30 @@ export const chart = {
   ],
   series: [
     {
-      name: 'Stock-to-Flow 模型',
+      name: 'daysTillHalving',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
-      id: 'series0',
-      visible: false,
-      showInLegend: false,
+      id: 'daysTillHalving',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'ratio',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: 'ratio',
+      visible: true,
+      showInLegend: true,
     },
     {
       name: '价格',
       data: [],
       color: 'rgba(0,0,0,0.5)',
       yAxis: 1,
-    },
-    {
-      type: 'sma',
-      linkedTo: 'series0',
-      name: 'Stock-to-Flow 模型',
-      color: 'rgb(247, 147, 26)',
-      yAxis: 0,
-      params: {
-        period: 0,
-      },
-      visible: true,
-      showInLegend: true,
-      marker: {
-        enabled: false, // https://stackoverflow.com/questions/14642779/highcharts-how-can-i-turn-off-the-points
-      },
     },
   ],
 };

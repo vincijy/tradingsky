@@ -19,7 +19,7 @@ export const stockFlow:D.SubMenuItem = {
       enabled: false, // 无标注
     },
     sma: {
-      enabled: true,
+      enabled: false,
     },
   },
   chart: { btc: chart, eth: chart },
