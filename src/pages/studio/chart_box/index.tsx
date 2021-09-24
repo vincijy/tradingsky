@@ -81,7 +81,7 @@ export default memo(function LSChartBox() {
   const initData:TypeDataRow = [];
   const [dataA, setDataA] = useState(initData);
   const [dataB, setDataB] = useState(btcPriceData);
-
+  const dispatch = useAppDispatch();
   /**
    * 请求接口数据
    */
@@ -128,7 +128,7 @@ export default memo(function LSChartBox() {
         if (dataB.length > 0) {
           setDataB(dataB);
           // 价格缓存
-          // dipatch(setBtcPriceData({
+          // dispatch(setBtcPriceData({
           //   btcPriceData: dataB,
           // }));
         } else {

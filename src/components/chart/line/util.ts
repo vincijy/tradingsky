@@ -138,7 +138,10 @@ const getSmaValues = (
 };
 
 export const assignSmaDataToSerie = (serie:D.ISerie, sma:D.ISerie) => {
-
+  serie.visible = true;
+  serie.showInLegend = true;
+  sma.visible = false;
+  sma.showInLegend = false;
   // 检查0日均线情况下, 均线不显示, 恢复显示原数据
   if (sma && sma.params) {
     if (sma.params.period === 0) {
