@@ -1,4 +1,8 @@
-
+// buy: 0
+// capitulation: 1
+// crossed: 0
+// ma30: 5688013.04857583
+// ma60: 5838596.360764877
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
@@ -31,12 +35,52 @@ export const chart = {
   ],
   series: [
     {
-      name: 'Stock-to-Flow 模型偏差量',
+      name: 'buy',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
-      id: 'series0',
+      id: 'buy',
+      visible: false,
+      showInLegend: false,
+    },
+    {
+      name: 'capitulation',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: 'capitulation',
+      visible: false,
+      showInLegend: false,
+    },
+    {
+      name: 'crossed',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: 'crossed',
+      visible: false,
+      showInLegend: false,
+    },
+    {
+      name: 'ma30',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: 'ma30',
+      visible: false,
+      showInLegend: false,
+    },
+    {
+      name: 'ma60',
+      data: [],
+      // 橙色
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      id: 'ma60',
       visible: false,
       showInLegend: false,
     },
@@ -49,7 +93,7 @@ export const chart = {
     {
       type: 'sma',
       linkedTo: 'series0',
-      name: 'Stock-to-Flow 模型偏差量',
+      name: 'kkk',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {

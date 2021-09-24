@@ -146,6 +146,15 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
       'ma200',
     ];
     handleOData(o, startDate);
+  } else if(currentMenu.key === '哈希带') {
+    const o = [
+      'buy',
+      'capitulation',
+      'crossed',
+      'ma30',
+      'ma60',
+    ];
+    handleOData(o, startDate);
   } else if (currentMenu.key === 'Stock-to-Flow 模型') {
     const o = [
       'daysTillHalving',
