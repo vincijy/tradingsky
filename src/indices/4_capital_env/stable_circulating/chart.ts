@@ -172,11 +172,12 @@ export const chart = {
       type: 'area',
       stack: 0,
     },
-    {
-      name: '价格',
-      data: [],
-      color: 'rgba(0,0,0,0.5)',
-      yAxis: 1,
-    },
+    // TODO: 确认开启崩溃的原因
+    // {
+    //   name: '价格',
+    //   data: [],
+    //   color: 'rgba(0,0,0,0.5)',
+    //   yAxis: 1,
+    // },
   ],
 };

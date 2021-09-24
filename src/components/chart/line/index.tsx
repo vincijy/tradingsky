@@ -42,8 +42,11 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
   if (!price) {
     console.error('Not price line', currentMenu.name);
   }
-  const priceV = dataMayCut(convert(dataB).v, startDate);
-  price.data = priceV;
+
+  if (price) {
+    const priceV = dataMayCut(convert(dataB).v, startDate);
+    price.data = priceV;
+  }
 
   const handleMultiIndices = (startDate:IDate|null) => {
     // 指标配置上的name必须对应得上
