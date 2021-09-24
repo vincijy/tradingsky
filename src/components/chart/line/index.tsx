@@ -43,6 +43,7 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
     console.error('Not price line', currentMenu.name);
   }
   const priceV = dataMayCut(convert(dataB).v, startDate);
+  price.data = priceV;
 
   const handleMultiIndices = (startDate:IDate|null) => {
     // 指标配置上的name必须对应得上
@@ -63,7 +64,6 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
   const handleNormalIndices = (startDate:IDate|null) => {
     const data = convert(dataA).v;
     series[0].data = dataMayCut(data, startDate);
-    price.data = priceV;
     const sma = series.find((s:D.ISerie) => s.type === 'sma');
     sma && assignSmaDataToSerie(series[0], sma);
   };
