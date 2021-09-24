@@ -199,5 +199,17 @@ export const chartBtc = {
       visible: true,
       showInLegend: true,
     },
+    {
+      type: 'sma',
+      linkedTo: '24h',
+      name: 'sma',
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      params: {
+        period: 0,
+      },
+      visible: false,
+      showInLegend: false,
+    },
   ],
 };
