@@ -1,6 +1,6 @@
 import * as D from '../../def';
 import { introduce } from './introduce';
-import { chart } from './chart';
+import { chartBtc } from './chart';
 
 export const circulating:D.SubMenuItem = {
   name: '稳定币累计流通量',
@@ -22,5 +22,5 @@ export const circulating:D.SubMenuItem = {
       enabled: false,
     },
   },
-  chart: { btc: chart, eth: chart },
+  chart: { btc: chartBtc, eth: chartBtc },
 };

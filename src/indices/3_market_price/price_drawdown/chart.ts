@@ -1,23 +1,35 @@
 import { LineColor } from '../../def';
 
-const zones = [
-  {
-    value: -.25,
-    color: LineColor.blue,
-  },
-  {
-    value: -.5,
-    color: LineColor.green,
-  },
-  {
-    value: -.75,
-    color: LineColor.yellow,
-  },
-  {
-    value: -1,
-    color: LineColor.red,
-  },
-];
+const plotLines = [{
+  value: -.25,
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 1,
+}, {
+  value: -.5,
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 1,
+}, {
+  value: -.75,
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 1,
+}];
+
+const zones = [{
+  value: -0.75,
+  className: 'zone-0',
+  color: LineColor.red,
+}, {
+  value: -0.5,
+  className: 'zone-1',
+  color: LineColor.lightOrange,
+}, {
+  value: -0.25,
+  className: 'zone-2',
+  color: LineColor.darkGreen,
+}];
 
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
@@ -43,6 +55,7 @@ export const chart = {
         },
       },
       gridLineColor: 'rgba(240,240,240,.67)',
+      plotLines: plotLines,
     },
     {
       // 右侧轴线
@@ -60,12 +73,15 @@ export const chart = {
       name: '距最高点的回撤幅度',
       data: [],
       // 橙色
-      color: 'rgb(247, 147, 26)',
+      // color: 'rgb(247, 147, 26)',
       yAxis: 0,
       id: 'series0',
       visible: false,
       showInLegend: false,
-      type: 'column', // 柱状图
+      type: 'area', // 柱状图
+      lineWidth: 0.5,
+      fillOpacity: 0.6,
+      zones: zones,
     },
     {
       name: '价格',
@@ -87,6 +103,7 @@ export const chart = {
       marker: {
         enabled: false, // https://stackoverflow.com/questions/14642779/highcharts-how-can-i-turn-off-the-points
       },
+      zones: zones,
     },
   ],
 };

@@ -109,34 +109,35 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
     handleMultiIndices(startDate);
   } else if (currentMenu.key === '持有年龄分布') {
     const o = [
+      '24h',
       '1d_1w',
-      '1m_3m',
       '1w_1m',
+      '1m_3m',
+      '3m_6m',
+      '6m_12m',
       '1y_2y',
       '2y_3y',
-      '3m_6m',
       '3y_5y',
       '5y_7y',
-      '6m_12m',
       '7y_10y',
-      '24h',
       'more_10y',
     ];
     handleOData(o, startDate);
   } else if (currentMenu.key === '出售时的年龄分布占比') {
     const o = [
-      '1d_1w',
       '1h',
       '1h_24h',
-      '1m_3m',
+      '1d_1w',
       '1w_1m',
+      '1m_3m',
+      '3m_6m',
+      '6m_12m',
       '1y_2y',
       '2y_3y',
-      '3m_6m',
       '3y_5y',
       '5y_7y',
-      '6m_12m',
       '7y_10y',
+      'more_10y',
     ];
     handleOData(o, startDate);
   } else if (currentMenu.key === '哈希带') {

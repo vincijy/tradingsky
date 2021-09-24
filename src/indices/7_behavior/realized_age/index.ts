@@ -1,5 +1,5 @@
 import { introduce } from './introduce';
-import { chart } from './chart';
+import { chartBtc } from './chart';
 
 export const realizedAge = {
   name: '出售时的年龄分布占比',
@@ -21,5 +21,17 @@ export const realizedAge = {
     },
   },
   introduce: introduce,
-  chart: { btc: chart, eth: chart },
+  chart: { btc: chartBtc, eth: chartBtc },
+  xStart: {
+    btc: {
+      year: 2010,
+      month: 7,
+      day: 18,
+    },
+    eth: {
+      year: 2010,
+      month: 7,
+      day: 18,
+    },
+  },
 };

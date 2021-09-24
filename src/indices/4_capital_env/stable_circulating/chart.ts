@@ -13,9 +13,16 @@ import { StableAssetColor } from '../../def';
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
-export const chart = {
+export const chartBtc = {
+  chart: {
+    type: 'area',
+  },
   yAxis: [
     {
+      zoomEnabled: true, // 允许缩放
+      alignTicks: false, // 左右y轴不对齐
+      Tickmember: 12, // 允许存在的最多刻度
+      tickPixelInterval: 50,
       // 左侧轴
       title: {
         text: '',
@@ -27,6 +34,7 @@ export const chart = {
         // 橙色
         style: { color: 'rgb(247, 147, 26)' },
       },
+      // gridLineColor: 'rgba(240,240,240,.67)',
       gridLineWidth: 0, // 去指标grid网格背景
     },
     {
@@ -34,59 +42,53 @@ export const chart = {
       title: {
         text: '',
       },
+      zoomEnabled: true, // 允许缩放
       opposite: true,
       align: 'left',
       type: 'logarithmic', // 对数刻度
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineWidth: 0, // 去指标grid网格背景
     },
   ],
   plotOptions: {
     area: {
       stacking: 'normal',
+      lineWidth: 0,
+      yAxis: 0,
+      marker: {
+        lineWidth: 0.3,
+        lineColor: '#ffffff',
+      },
     },
   },
   series: [
     {
       name: 'busd',
       data: [],
-      // 橙色
-      color: StableAssetColor.BUSD,
+      color: StableAssetColor.SAI,
       yAxis: 0,
       id: 'busd',
       visible: true,
       showInLegend: true,
-
-      type: 'area',
-      fillColor: 'red',
-      fillOpacity: 0.75,
-      stack: 0,
     },
     {
       name: 'dai',
       data: [],
       // 橙色
-      color: StableAssetColor.DAI,
+      color: StableAssetColor.EURS,
       yAxis: 0,
       id: 'dai',
       visible: true,
       showInLegend: true,
-
-      type: 'area',
-      fillColor: 'green',
-      fillOpacity: 0.75,
-      stack: 0,
     },
     {
       name: 'eurs',
       data: [],
       // 橙色
-      color: StableAssetColor.EURS,
+      color: StableAssetColor.DAI,
       yAxis: 0,
       id: 'eurs',
       visible: true,
       showInLegend: true,
-      type: 'area',
-      stack: 0,
     },
     {
       name: 'gusd',
@@ -97,8 +99,6 @@ export const chart = {
       id: 'gusd',
       visible: true,
       showInLegend: true,
-      type: 'area',
-      stack: 0,
     },
     {
       name: 'husd',
@@ -109,8 +109,16 @@ export const chart = {
       id: 'husd',
       visible: true,
       showInLegend: true,
-      type: 'area',
-      stack: 0,
+    },
+    {
+      name: 'sUSD',
+      data: [],
+      // 橙色
+      color: StableAssetColor.sUSD,
+      yAxis: 0,
+      id: 'series9',
+      visible: true,
+      showInLegend: true,
     },
     {
       name: 'pax',
@@ -121,20 +129,16 @@ export const chart = {
       id: 'pax',
       visible: true,
       showInLegend: true,
-      type: 'area',
-      stack: 0,
     },
     {
       name: 'sai',
       data: [],
       // 橙色
-      color: StableAssetColor.SAI,
+      color: StableAssetColor.BUSD,
       yAxis: 0,
       id: 'sai',
       visible: true,
       showInLegend: true,
-      type: 'area',
-      stack: 0,
     },
     {
       name: 'susd',
@@ -145,8 +149,6 @@ export const chart = {
       id: 'susd',
       visible: true,
       showInLegend: true,
-      type: 'area',
-      stack: 0,
     },
     {
       name: 'usdc',

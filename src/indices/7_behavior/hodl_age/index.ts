@@ -1,5 +1,5 @@
 import { introduce } from './introduce';
-import { chart } from './chart';
+import { chartBtc } from './chart';
 
 export const hodlAge = {
   name: '持有年龄分布',
@@ -21,5 +21,17 @@ export const hodlAge = {
     },
   },
   introduce: introduce,
-  chart: { btc: chart, eth: chart },
+  chart: { btc: chartBtc, eth: chartBtc },
+  xStart: {
+    btc: {
+      year: 2009,
+      month: 1,
+      day: 9,
+    },
+    eth: {
+      year: 2015,
+      month: 7,
+      day: 31,
+    },
+  },
 };
