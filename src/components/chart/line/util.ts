@@ -14,16 +14,16 @@ type TypeKey = keyof D.IConvertValues;
 export const convert = (data:TypeDataRow):D.IConvertValues => {
   const res:D.IConvertValues = {
     v: [],
-    BUSD: [],
-    DAI: [],
-    EURS: [],
-    GUSD: [],
-    HUSD: [],
-    PAX: [],
-    SAI: [],
-    USDC: [],
-    USDT: [],
-    sUSD: [],
+    busd: [],
+    dai: [],
+    eurs: [],
+    gusd: [],
+    husd: [],
+    pax: [],
+    sai: [],
+    susd: [],
+    usdc: [],
+    usdt: [],
 
     // for cvvd
     v_cvdd: [],

@@ -54,8 +54,10 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
       const serie = series.find((s) => s.name === name);
       if (serie) {
         const res = convert(dataA);
+        console.log(res);
         const data:[number, number][] = (res as any)[name];
         serie.data = dataMayCut(data, startDate);
+        console.log(serie.data);
         sma && assignSmaDataToSerie(series[0], sma);
       }
     }

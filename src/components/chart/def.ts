@@ -18,16 +18,16 @@ export interface IDataUnit {
   v:number;
   index:number;
 
-  BUSD?:number;
-  DAI?:number;
-  EURS?:number;
-  GUSD?:number;
-  HUSD?:number;
-  PAX?:number;
-  SAI?:number;
-  USDC?:number;
-  USDT?:number;
-  sUSD?:number;
+  busd?:number;
+  dai?:number;
+  eurs?:number;
+  gusd?:number;
+  husd?:number;
+  pax?:number;
+  sai?:number;
+  susd?:number;
+  usdc?:number;
+  usdt?:number;
 
   // for cvvd
   v_cvdd:number;

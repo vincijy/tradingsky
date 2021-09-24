@@ -22,16 +22,17 @@ export interface IProps {
 
 export interface IConvertValues {
   v:[number, number][];
-  BUSD:[number, number][];
-  DAI:[number, number][];
-  EURS:[number, number][];
-  GUSD:[number, number][];
-  HUSD:[number, number][];
-  PAX:[number, number][];
-  SAI:[number, number][];
-  USDC:[number, number][];
-  USDT:[number, number][];
-  sUSD:[number, number][];
+
+  busd:[number, number][];
+  dai:[number, number][];
+  eurs:[number, number][];
+  gusd:[number, number][];
+  husd:[number, number][];
+  pax:[number, number][];
+  sai:[number, number][];
+  susd:[number, number][];
+  usdc:[number, number][];
+  usdt:[number, number][];
 
   // for cvvd
   v_cvdd:[number, number][];
@@ -66,14 +67,14 @@ export interface ISerie {
 }
 
 export const CURRENCIES = [
-  'BUSD',
-  'DAI',
-  'EURS',
-  'GUSD',
-  'HUSD',
-  'PAX',
-  'SAI',
-  'USDC',
-  'USDT',
-  'sUSD',
+  'busd',
+  'dai',
+  'eurs',
+  'gusd',
+  'husd',
+  'pax',
+  'sai',
+  'susd',
+  'usdc',
+  'usdt',
 ];

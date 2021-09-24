@@ -1,4 +1,14 @@
 import { StableAssetColor } from '../../def';
+// busd?:number;
+// dai?:number;
+// eurs?:number;
+// gusd?:number;
+// husd?:number;
+// pax?:number;
+// sai?:number;
+// susd?:number;
+// usdc?:number;
+// usdt?:number;
 
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
@@ -37,12 +47,12 @@ export const chart = {
   },
   series: [
     {
-      name: 'BUSD',
+      name: 'busd',
       data: [],
       // 橙色
       color: StableAssetColor.BUSD,
       yAxis: 0,
-      id: 'series0',
+      id: 'busd',
       visible: true,
       showInLegend: true,
 
@@ -52,12 +62,12 @@ export const chart = {
       stack: 0,
     },
     {
-      name: 'DAI',
+      name: 'dai',
       data: [],
       // 橙色
       color: StableAssetColor.DAI,
       yAxis: 0,
-      id: 'series1',
+      id: 'dai',
       visible: true,
       showInLegend: true,
 
@@ -67,122 +77,106 @@ export const chart = {
       stack: 0,
     },
     {
-      name: 'EURS',
+      name: 'eurs',
       data: [],
       // 橙色
       color: StableAssetColor.EURS,
       yAxis: 0,
-      id: 'series2',
+      id: 'eurs',
       visible: true,
       showInLegend: true,
       type: 'area',
       stack: 0,
     },
     {
-      name: 'GUSD',
+      name: 'gusd',
       data: [],
       // 橙色
       color: StableAssetColor.GUSD,
       yAxis: 0,
-      id: 'series3',
+      id: 'gusd',
       visible: true,
       showInLegend: true,
       type: 'area',
       stack: 0,
     },
     {
-      name: 'HUSD',
+      name: 'husd',
       data: [],
       // 橙色
       color: StableAssetColor.HUSD,
       yAxis: 0,
-      id: 'series4',
+      id: 'husd',
       visible: true,
       showInLegend: true,
       type: 'area',
       stack: 0,
     },
     {
-      name: 'PAX',
+      name: 'pax',
       data: [],
       // 橙色
       color: StableAssetColor.PAX,
       yAxis: 0,
-      id: 'series5',
+      id: 'pax',
       visible: true,
       showInLegend: true,
       type: 'area',
       stack: 0,
     },
     {
-      name: 'SAI',
+      name: 'sai',
       data: [],
       // 橙色
       color: StableAssetColor.SAI,
       yAxis: 0,
-      id: 'series6',
+      id: 'sai',
       visible: true,
       showInLegend: true,
       type: 'area',
       stack: 0,
     },
     {
-      name: 'USDC',
+      name: 'susd',
       data: [],
       // 橙色
       color: StableAssetColor.USDC,
       yAxis: 0,
-      id: 'series7',
+      id: 'susd',
       visible: true,
       showInLegend: true,
       type: 'area',
       stack: 0,
     },
     {
-      name: 'USDT',
+      name: 'usdc',
       data: [],
       // 橙色
       color: StableAssetColor.USDT,
       yAxis: 0,
-      id: 'series8',
+      id: 'usdc',
       visible: true,
       showInLegend: true,
       type: 'area',
       stack: 0,
     },
     {
-      name: 'sUSD',
+      name: 'usdt',
       data: [],
       // 橙色
       color: StableAssetColor.sUSD,
       yAxis: 0,
-      id: 'series9',
+      id: 'usdt',
       visible: true,
       showInLegend: true,
       type: 'area',
       stack: 0,
     },
-    // TOOD: 先不放上去, 有点问题
-    // {
-    //   name: '价格',
-    //   data: [],
-    //   color: 'rgba(0,0,0,0.5)',
-    //   yAxis: 1,
-    // },
-    // {
-    //   type: 'sma',
-    //   linkedTo: 'series0',
-    //   name: '稳定币累计流通量',
-    //   color: 'rgb(247, 147, 26)',
-    //   yAxis: 0,
-    //   params: {
-    //     period: 0,
-    //   },
-    //   visible: true,
-    //   showInLegend: true,
-    //   marker: {
-    //     enabled: false, // https://stackoverflow.com/questions/14642779/highcharts-how-can-i-turn-off-the-points
-    //   },
-    // },
+    {
+      name: '价格',
+      data: [],
+      color: 'rgba(0,0,0,0.5)',
+      yAxis: 1,
+    },
   ],
 };
