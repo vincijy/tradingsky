@@ -156,5 +156,14 @@ export const chart = {
       color: 'rgba(0,0,0,0.5)',
       yAxis: 1,
     },
+    {
+      type: 'sma',
+      linkedTo: '1d_1w',
+      params: {
+        period: 7,
+      },
+      visible: false,
+      showInLegend: false,
+    },
   ],
 };

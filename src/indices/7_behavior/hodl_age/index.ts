@@ -17,7 +17,7 @@ export const hodlAge = {
       enabled: false, // 无标注
     },
     sma: {
-      enabled: false,
+      enabled: true,
     },
   },
   introduce: introduce,

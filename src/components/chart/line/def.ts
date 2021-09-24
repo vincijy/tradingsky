@@ -61,6 +61,7 @@ export interface ISerie {
   type:string;
   params?:{
     period:number;
+    index:number;
   };
 }
 

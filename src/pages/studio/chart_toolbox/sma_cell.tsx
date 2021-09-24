@@ -39,7 +39,7 @@ export default memo(function SmaCell() {
   };
 
   // read sma, TODO: assert
-  const defaultSeleted = useAppSelector((state) => state.chart.options.series[2].params.period);
+  const defaultSeleted = useAppSelector((state) => state.chart.options.series.find((s:any) => s.type === 'sma').params.period);
 
   const menus = [0, 7, 14, 30, 50, 90, 180].map((n) => `${n}日`);
   return (

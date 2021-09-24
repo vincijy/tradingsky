@@ -12,7 +12,7 @@ import { getHighCharts, setChart } from '../index';
 
 import { constructorType } from '../def';
 import * as D from './def';
-import { convert, cutDataByDate } from './util';
+import { convert, cutDataByDate, assignSmaDataToSerie } from './util';
 
 interface IRow{
   index:number; t:number; o:any;
@@ -48,98 +48,24 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
     // 指标配置上的name必须对应得上
     let ks:string[] = [];
     ks = ks.concat(D.CURRENCIES).concat(['v_cvdd', 'v_pru']);
+    const sma = series.find((s:D.ISerie) => s.type === 'sma');
     for (const name of ks) {
       const serie = series.find((s) => s.name === name);
       if (serie) {
         const res = convert(dataA);
         const data:[number, number][] = (res as any)[name];
         serie.data = dataMayCut(data, startDate);
+        sma && assignSmaDataToSerie(series[0], sma);
       }
     }
   };
 
-  const getSmaValues = (
-    series:any,
-    params:any,
-  ) => {
-    let period:number = params.period as any,
-      xVal:Array<number> = series.xData as any,
-      yVal:Array<(number|Array<(number|null)>|null)> = series.yData as any,
-      yValLen = yVal.length,
-      range = 0,
-      sum = 0,
-      SMA:Array<Array<number>> = [],
-      xData:Array<number> = [],
-      yData:Array<number> = [],
-      index = -1,
-      i:(number|undefined),
-      SMAPoint:(Array<number>|undefined);
-
-    const data:[number, number][] = [];
-    if (xVal.length < period) {
-      return;
-    }
-
-    // Switch index for OHLC / Candlestick / Arearange
-    if (Array.isArray(yVal[0])) {
-      index = params.index ? params.index : 0;
-    }
-
-    // Accumulate first N-points
-    while (range < period - 1) {
-      sum += index < 0 ? yVal[range] : (yVal as any)[range][index];
-      range++;
-    }
-
-    // Calculate value one-by-one for each period in visible data
-    for (i = range; i < yValLen; i++) {
-      sum += index < 0 ? yVal[i] : (yVal as any)[i][index];
-
-      SMAPoint = [xVal[i], sum / period];
-      SMA.push(SMAPoint);
-      xData.push(SMAPoint[0]);
-      yData.push(SMAPoint[1]);
-      data.push([SMAPoint[0], SMAPoint[1]]);
-
-      sum -= (
-        index < 0 ?
-          yVal[i - range] :
-          (yVal as any)[i - range][index]
-      );
-    }
-
-    return {
-      values: SMA,
-      xData: xData,
-      yData: yData,
-      data: data,
-    };
-  };
   const handleNormalIndices = (startDate:IDate|null) => {
     const data = convert(dataA).v;
     series[0].data = dataMayCut(data, startDate);
     price.data = priceV;
-
     const sma = series.find((s:D.ISerie) => s.type === 'sma');
-
-    // 检查0日均线情况下, 均线不显示, 恢复显示原数据
-    if (sma && sma.params) {
-      series[0].visible = true;
-      series[0].showInLegend = true;
-      sma.visible = false;
-      sma.showInLegend = false;
-      if (sma.params.period === 0) {
-        return;
-      }
-      const xData = series[0].data.map((item) => item[0]);
-      const yData = series[0].data.map((item) => item[1]);
-      const smaValues = getSmaValues({ xData, yData }, sma.params);
-      if (!smaValues) {
-        return;
-      }
-      const { data } = smaValues;
-      series[0].data = data;
-    }
+    sma && assignSmaDataToSerie(series[0], sma);
   };
 
   const handleOData = (keysOfO:string[], startDate:IDate|null) => {
@@ -164,9 +90,11 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
 
     for (const name of Object.keys(o)) {
       const serie = series.find((s) => s.name === name);
+      const sma = series.find((s) => s.type === 'sma');
       if (serie) {
         const data:[number, number][] = (o as any)[name];
         serie.data = dataMayCut(data, startDate);
+        sma && assignSmaDataToSerie(serie, sma);
       }
     }
   };

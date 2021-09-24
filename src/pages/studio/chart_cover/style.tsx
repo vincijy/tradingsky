@@ -12,13 +12,13 @@ export const CoverWrapper = styled.div `
     height: ${Layout.CHART_HEIGHT - Layout.CHART_HEADER_HEIGHT - 45 }px;
     z-index: 1;
     background: white;
-    border: 1px solid red;
+    // border: 1px solid red;
     // border-top: 1px solid rgb(226, 226, 226);
     // border-bottom: 1px solid rgb(226, 226, 226);
     .content{
         text-align: left;
         font-size: large;
-        border: 1px solid green;
+        // border: 1px solid green;
         width: 100%;
         height: 100%;
         display: flex;
@@ -83,7 +83,7 @@ export const ToolBoxCellWrapper = styled.div `
 `;
 
 export const ChartLoadingWrapper = styled.div `
-    border: 1px solid red;
+    // border: 1px solid red;
     display: flex;
     justify-content: center;
 `;
@@ -94,7 +94,7 @@ export const ButtonArea = styled.div `
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid red;
+    // border: 1px solid red;
 
     display: flex;
     aligin-items: center;
