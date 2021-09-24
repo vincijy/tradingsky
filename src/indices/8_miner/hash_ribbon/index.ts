@@ -18,10 +18,22 @@ export const hashRibbon = {
       enabled: false, // 无标注
     },
     sma: {
-      enabled: true,
+      enabled: false,
     },
   },
   introduce: introduce,
   annotation: annotation,
   chart: { btc: chart, eth: chart },
+  xStart: {
+    btc: {
+      year: 2010,
+      month: 7,
+      day: 25,
+    },
+    eth: {
+      year: 2010,
+      month: 7,
+      day: 25,
+    },
+  },
 };

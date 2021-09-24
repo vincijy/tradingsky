@@ -1,4 +1,34 @@
+import { getTimeStamp } from '@/utils/date';
 import { LineColor, BandColor } from '../../def';
+
+const xPlotLines = [{
+  value: getTimeStamp({
+    year: 2012,
+    month: 11,
+    day: 28,
+  }),
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 1,
+}, {
+  value: getTimeStamp({
+    year: 2016,
+    month: 7,
+    day: 10,
+  }),
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 1,
+}, {
+  value: getTimeStamp({
+    year: 2020,
+    month: 5,
+    day: 12,
+  }),
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 1,
+}];
 
 const zones = [
   {
@@ -21,6 +51,9 @@ const plotLines = [{
  * 个性化图表配置, 用于覆盖默认的配置项
  */
 export const chart = {
+  xAxis: {
+    plotLines: xPlotLines,
+  },
   yAxis: [
     {
       minTickInterval: 0.2, // 最小刻度间隔

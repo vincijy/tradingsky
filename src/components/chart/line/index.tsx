@@ -139,6 +139,15 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
       '7y_10y',
     ];
     handleOData(o, startDate);
+  } else if (currentMenu.key === '哈希带') {
+    const o = [
+      'buy',
+      'capitulation',
+      'crossed',
+      'ma30',
+      'ma60',
+    ];
+    handleOData(o, startDate);
   } else if(currentMenu.key === '难度彩虹带') {
     const o = [
       'ma9',
@@ -151,23 +160,13 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
       'ma200',
     ];
     handleOData(o, startDate);
-  } else if(currentMenu.key === '哈希带') {
-    const o = [
-      'buy',
-      'capitulation',
-      'crossed',
-      'ma30',
-      'ma60',
-    ];
-    handleOData(o, startDate);
-  } else if (currentMenu.key === 'Stock-to-Flow 模型') {
+  } else if(currentMenu.key === 'Stock-to-Flow 模型') {
     const o = [
       'daysTillHalving',
       'ratio',
     ];
     handleOData(o, startDate);
-  }
-  else {
+  } else {
     handleNormalIndices(startDate);
   }
 

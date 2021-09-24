@@ -11,6 +11,11 @@ const zones = [
 ];
 
 const plotLines = [{
+  value: 0,
+  color: '#5a5a5a',
+  dashStyle: 'Dot',
+  width: 2,
+}, {
   value: -2,
   color: '#5a5a5a',
   dashStyle: 'Dot',

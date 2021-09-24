@@ -28,12 +28,12 @@ export const grayscaleFlow:D.SubMenuItem = {
     btc: {
       year: 2020,
       month: 12,
-      day: 23,
+      day: 24,
     },
     eth: {
       year: 2020,
       month: 12,
-      day: 23,
+      day: 24,
     },
   },
 };
