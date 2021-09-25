@@ -30,6 +30,7 @@ export const chartBtc = {
         },
       },
       gridLineColor: 'rgba(240,240,240,.67)',
+      min: 0,
     },
     {
       // 右侧轴线
@@ -42,10 +43,6 @@ export const chartBtc = {
       gridLineWidth: 0, // 去指标grid网格背景
     },
   ],
-  tooltip: {
-    valueDecimals: 5,
-    valueSuffix: '%',
-  },
 
   plotOptions: {
     area: {
@@ -206,6 +203,7 @@ export const chartBtc = {
       yAxis: 1,
       visible: true,
       showInLegend: true,
+      type: 'line',
     },
     {
       type: 'sma',

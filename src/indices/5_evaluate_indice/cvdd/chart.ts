@@ -63,31 +63,27 @@ export const chart = {
   yAxis: [
     {
       zoomEnabled: true, // 允许缩放
+      TickInterval: 0.2, // 刻度间隔
+      minTickInterval: 0.1,
+      tickPixelInterval: 40,
       alignTicks: false, // 左右y轴不对齐
+      tickPosition: 'outside',
+      tickmarkPlacement: 'on',
       // 左侧轴
       title: {
         text: '',
       },
-      align: 'right',
+      align: 'left',
       opposite: false,
       className: 'highcharts-navigator-yaxis',
       labels: {
         // 橙色
-        style: { color: '#c57514' }, // 刻度（橙色）
+        style: { color: '#3c414c' }, // 刻度（橙色）
       },
       type: 'logarithmic', // 对数刻度
       gridLineColor: 'rgba(240,240,240,.67)',
     },
-    {
-      // 右侧轴线
-      title: {
-        text: '',
-      },
-      opposite: true,
-      align: 'left',
-      type: 'logarithmic', // 对数刻度
-      gridLineWidth: 0, // 去指标grid网格背景
-    },
+
   ],
   series: [
     {
@@ -114,7 +110,7 @@ export const chart = {
       name: '价格',
       data: [],
       color: 'rgba(0,0,0,0.5)',
-      yAxis: 1,
+      yAxis: 0,
     },
   ],
 };

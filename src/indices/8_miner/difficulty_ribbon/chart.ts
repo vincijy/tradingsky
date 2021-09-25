@@ -146,17 +146,19 @@ const plotBands = [
  * 个性化图表配置, 用于覆盖默认的配置项
  */
 export const chart = {
+
   xAxis: {
     plotLines: plotLines,
     plotBands: plotBands,
   },
   yAxis: [
     {
-      TickInterval: 1, // 刻度间隔
+      TickInterval: 0.1, // 刻度间隔
       minTickInterval: 1, // 最小刻度间隔
       zoomEnabled: true, // 允许缩放
       tickPixelInterval: 15,
       alignTicks: false, // 左右y轴不对齐
+      // min: 0,
       // 左侧轴
       title: {
         text: '',
@@ -165,7 +167,6 @@ export const chart = {
       opposite: false,
       className: 'highcharts-navigator-yaxis',
       labels: {
-        // 橙色
         style: { color: '#3c414c' }, // 刻度（黑色）
       },
       type: 'logarithmic', // 对数刻度
@@ -184,62 +185,12 @@ export const chart = {
   ],
   series: [
     {
-      name: 'ma9',
+      name: 'ma200',
       data: [],
-      // 蓝色
-      color: '#0504aa',
+      // 红色
+      color: '#e50000',
       yAxis: 0,
-      id: 'ma9',
-      visible: true,
-      showInLegend: true,
-    },
-    {
-      name: 'ma14',
-      data: [],
-      // 蓝色
-      color: '#0343df',
-      yAxis: 0,
-      id: 'ma14',
-      visible: true,
-      showInLegend: true,
-    },
-    {
-      name: 'ma25',
-      data: [],
-      // 绿色
-      color: '#6495ed',
-      yAxis: 0,
-      id: 'ma25',
-      visible: true,
-      showInLegend: true,
-    },
-    {
-      name: 'ma40',
-      data: [],
-      // 绿色
-      color: '#15b01a',
-      yAxis: 0,
-      id: 'ma40',
-      visible: true,
-      showInLegend: true,
-    },
-    {
-      name: 'ma60',
-      data: [],
-      // 绿色
-      color: '#98FB98',
-      yAxis: 0,
-      id: 'ma60',
-      visible: true,
-      showInLegend: true,
-    },
-    {
-      name: 'ma90',
-      data: [],
-      // 橙色
-      color: '#fbdd7e',
-      yAxis: 0,
-      id: 'ma90',
+      id: 'ma200',
       visible: true,
       showInLegend: true,
     },
@@ -254,12 +205,62 @@ export const chart = {
       showInLegend: true,
     },
     {
-      name: 'ma200',
+      name: 'ma90',
       data: [],
-      // 红色
-      color: '#e50000',
+      // 橙色
+      color: '#fbdd7e',
       yAxis: 0,
-      id: 'ma200',
+      id: 'ma90',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'ma60',
+      data: [],
+      // 绿色
+      color: '#98FB98',
+      yAxis: 0,
+      id: 'ma60',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'ma40',
+      data: [],
+      // 绿色
+      color: '#15b01a',
+      yAxis: 0,
+      id: 'ma40',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'ma25',
+      data: [],
+      // 绿色
+      color: '#6495ed',
+      yAxis: 0,
+      id: 'ma25',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'ma14',
+      data: [],
+      // 蓝色
+      color: '#0343df',
+      yAxis: 0,
+      id: 'ma14',
+      visible: true,
+      showInLegend: true,
+    },
+    {
+      name: 'ma9',
+      data: [],
+      // 蓝色
+      color: '#0504aa',
+      yAxis: 0,
+      id: 'ma9',
       visible: true,
       showInLegend: true,
     },
@@ -269,20 +270,20 @@ export const chart = {
       color: 'rgba(0,0,0,0.5)',
       yAxis: 1,
     },
-    // {
-    //   type: 'sma',
-    //   linkedTo: 'series0',
-    //   name: '',
-    //   color: 'rgb(247, 147, 26)',
-    //   yAxis: 0,
-    //   params: {
-    //     period: 0,
-    //   },
-    //   visible: true,
-    //   showInLegend: true,
-    //   marker: {
-    //     enabled: true, // https://stackoverflow.com/questions/14642779/highcharts-how-can-i-turn-off-the-points
-    //   },
-    // },
+  //   {
+  //     type: 'sma',
+  //     linkedTo: 'series0',
+  //     name: '',
+  //     color: 'rgb(247, 147, 26)',
+  //     yAxis: 0,
+  //     params: {
+  //       period: 7,
+  //     },
+  //     visible: true,
+  //     showInLegend: true,
+  //     marker: {
+  //       enabled: true, // https://stackoverflow.com/questions/14642779/highcharts-how-can-i-turn-off-the-points
+  //     },
+  //   },
   ],
 };

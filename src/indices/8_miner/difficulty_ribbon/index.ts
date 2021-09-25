@@ -26,14 +26,14 @@ export const difficultyRibbon = {
   chart: { btc: chart, eth: chart },
   xStart: {
     btc: {
-      year: 2010,
-      month: 7,
-      day: 25,
+      year: 2011,
+      month: 8,
+      day: 22,
     },
     eth: {
-      year: 2010,
-      month: 7,
-      day: 25,
+      year: 2011,
+      month: 8,
+      day: 22,
     },
   },
 };

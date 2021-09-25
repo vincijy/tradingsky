@@ -22,7 +22,7 @@ export const chartBtc = {
     {
       TickInterval: 0.1, // 刻度间隔
       minTickInterval: 0.1, // 最小刻度间隔
-      zoomEnabled: false, // 允许缩放
+      zoomEnabled: true, // 允许缩放
       alignTicks: false, // 左右y轴不对齐
       Tickmember: 12, // 允许存在的最多刻度
       // 左侧轴
@@ -54,10 +54,6 @@ export const chartBtc = {
     },
   ],
 
-  tooltip: {
-    valueDecimals: 5,
-    valueSuffix: '%',
-  },
 
   plotOptions: {
     area: {
@@ -198,6 +194,7 @@ export const chartBtc = {
       yAxis: 1,
       visible: true,
       showInLegend: true,
+      type: 'line',
     },
     {
       type: 'sma',

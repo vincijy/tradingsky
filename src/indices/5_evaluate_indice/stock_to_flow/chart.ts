@@ -42,10 +42,16 @@ const plotLines = [{
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
-export const chart = {
+export const chartBtc = {
   xAxis: {
     plotLines: plotLines,
   },
+  colorAxis: [{
+    layout: 'horizontal',
+    min: 0,
+    max: 1400,
+    minColor: '#7cb5ec',
+  }],
   yAxis: [
     {
       // 左侧轴
@@ -74,13 +80,16 @@ export const chart = {
       gridLineWidth: 0, // 去指标grid网格背景
     },
   ],
+  plotOptions: {
+    line: {
+      colorkey: 'daysTillHalving',
+    },
+  },
   series: [
     {
       name: 'daysTillHalving',
       data: [],
-      // 黑色
-      color: 'rgba(0,0,0,0.5)',
-      yAxis: 0,
+      colorAxis: 0,
       id: 'daysTillHalving',
       visible: true,
       showInLegend: true,
@@ -88,6 +97,7 @@ export const chart = {
     {
       name: 'ratio',
       data: [],
+      type: 'line',
       // 橙色
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
@@ -98,8 +108,13 @@ export const chart = {
     {
       name: '价格',
       data: [],
-      color: 'rgba(0,0,0,0.5)',
-      yAxis: 1,
+      colorKey: 'daysTillHalving',
+      lineWidth: 0,
+      coloraxis: 0,
+      marker: {
+        enabled: true,
+        radius: 2,
+      },
     },
     // {
     //   type: 'sma',

@@ -1,6 +1,6 @@
 import * as D from '../../def';
 import { introduce } from './introduce';
-import { chart } from './chart';
+import { chartBtc } from './chart';
 
 export const stockFlow:D.SubMenuItem = {
   name: 'Stock-to-Flow 模型',
@@ -22,5 +22,5 @@ export const stockFlow:D.SubMenuItem = {
       enabled: false,
     },
   },
-  chart: { btc: chart, eth: chart },
+  chart: { btc: chartBtc, eth: chartBtc },
 };

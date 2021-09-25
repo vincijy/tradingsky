@@ -151,14 +151,14 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
     handleOData(o, startDate);
   } else if(currentMenu.key === '难度彩虹带') {
     const o = [
-      'ma9',
-      'ma14',
-      'ma25',
-      'ma40',
-      'ma60',
-      'ma90',
-      'ma128',
       'ma200',
+      'ma128',
+      'ma90',
+      'ma60',
+      'ma40',
+      'ma25',
+      'ma14',
+      'ma9',
     ];
     handleOData(o, startDate);
   } else if(currentMenu.key === 'Stock-to-Flow 模型') {

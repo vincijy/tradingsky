@@ -22,16 +22,4 @@ export const hodlAge = {
   },
   introduce: introduce,
   chart: { btc: chartBtc, eth: chartBtc },
-  xStart: {
-    btc: {
-      year: 2009,
-      month: 1,
-      day: 9,
-    },
-    eth: {
-      year: 2015,
-      month: 7,
-      day: 31,
-    },
-  },
 };
