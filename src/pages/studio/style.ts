@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const ChartWrapper = styled.div `
     display: flex;
     border-top: 1px solid rgba(0, 0, 0, 0.1); // 上边框
+    width: 100%;
+    overflow-x: hidden;
     
     .site-layout-background {
         text-align: center;
@@ -15,8 +17,11 @@ export const ChartWrapper = styled.div `
         margin: 0px 13px; // 避免移动端出现左右的滚动条
         padding: 0px 16px;
         overflow: 'initial';
-        // TODO: css layout design
-        // border: 1px solid green;
+        @media screen and (min-width: 0px) and (max-width: 767px) { // 移动端适配
+            margin: 0px 0px; // 避免移动端出现左右的滚动条
+            padding: 0px 0px;
+            width: 100%;
+        }
     }
 `;
 
@@ -53,4 +58,11 @@ export const AppFooter = styled.div `
             }
         }
     }
+`;
+
+export const SiteModal = styled.div `
+    width: 100%;
+    opacity: 0.8;
+    background: black;
+    z-index: 2;
 `;

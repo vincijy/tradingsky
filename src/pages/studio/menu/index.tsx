@@ -20,9 +20,9 @@ import btcLogo from '@/assets/img/btc_logo.png';
 import ethLogo from '@/assets/img/eth_logo.svg';
 
 import { mergeOption } from '@/utils/merge_option';
-import { changeMenu } from '../../../store/ui/action';
+import { isMobile } from '@/utils/is';
+import { changeMenu, toggleMenuVisible } from '../../../store/ui/action';
 import { MenuWrapper } from './style';
-
 
 export default memo(function LSChartMenu() {
   const dispatch = useAppDispatch();
@@ -75,6 +75,10 @@ export default memo(function LSChartMenu() {
     // 清空, TODO: fix bug
     const an = getAnnotationManager();
     an && an.clearAnnotationCircle();
+
+    isMobile() && dispatch(toggleMenuVisible({
+      menuVisible: false,
+    }));
   };
 
   const [openKeys, setOpenKeys] = React.useState([selectedMenu.key]);

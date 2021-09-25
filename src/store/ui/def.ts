@@ -14,6 +14,10 @@ export interface IPayloadsetLoginPanelVisible {
     loginPanelVisible:boolean;
 }
 
+export interface IPayloadToggleMenuVisible {
+    menuVisible:boolean;
+}
+
 export interface IPayloadsetChangeAuthingPanel {
     authingPanel:{
         visible:boolean;
@@ -30,12 +34,15 @@ export interface IUiState {
       visible:boolean;
       view:GuardScenes;
     };
+    menuVisible:boolean;
 }
 
 export interface IPayloadMap {
     [A.CHANGE_MENU]:IPayloadChangeMenu;
     [A.TOGGLE_LOGIN_PANEL_VISIBLE]:IPayloadsetLoginPanelVisible;
     [A.CHANGE_AUTHING_PANEL]:IPayloadsetChangeAuthingPanel;
+    [A.TOGGLE_MENU_VISIBLE]:IPayloadToggleMenuVisible;
+
 }
 
 
