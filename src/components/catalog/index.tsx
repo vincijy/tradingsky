@@ -46,18 +46,11 @@ const columns = [
     key: '等级',
     dataIndex: '等级',
     width: 80,
-    render: function rank(){
+    render: function rank(level:string){
       return (
-        // menus.map((menuItem) => {
-        // menuItem.subMenus.map((SubMenuItem) => {
-        //   if(SubMenuItem.vipRequired){
-        //     <span className='vip-icon'>L2</span>;
-        //   }else{
-        //     <span className='free-icon'>L1</span>;
-        //   }
-        // });
-        // })
-        <span className='vip-icon'>L2</span>
+        <span className={level === 'L2' ? 'vip-icon' : 'free-icon'}>
+          { level }
+        </span>
       );
     },
   },
@@ -121,7 +114,7 @@ export default memo(function LSCatalog() {
                       资产种类: `${subItem.assetList.map((item) => item.toUpperCase())}`,
                       指标介绍: `${subItem.catalogText}`,
                       等级: `${
-                        subItem.vipRequired ? '付费' : '免费'
+                        subItem.vipRequired ? 'L2' : 'L1'
                       }`,
                     }
                   ))
