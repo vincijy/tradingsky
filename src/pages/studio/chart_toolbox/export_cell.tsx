@@ -42,9 +42,10 @@ export default memo(function ExportCell() {
       sourceWidth: width, // 图表宽
       type: exportType,
       filename: exportFileName,
+      // fallbackToExportServer: false,
     };
     const ano = getAnnotationManager();
-    c.exportChart(exportOption, {
+    c.exportChartLocal(exportOption, {
       chart: {
         events: {
           load: function(){

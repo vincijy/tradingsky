@@ -140,10 +140,11 @@ class AnnotationManager {
       * through data from 0 to length-1 with jQuery each(),
       * which errors due to the initial index being greater than 0.
       */
-     let data = c.series[0].data;
+     let data = c.series && c.series.length > 0 ? c.series[0].data : [];
      // 当切换到均线的时候, 源数据会被置空, 这个时候取均线为data
      if (data.length === 0) {
-       data = c.series[2].data;
+       const sma = c.series.find((s) => s.type === 'sma');
+       data = sma ? sma.data : [];
      }
      this.drawCircleByDate(
        p.date,

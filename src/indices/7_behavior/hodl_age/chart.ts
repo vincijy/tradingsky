@@ -189,6 +189,7 @@ export const chartBtc = {
     },
     {
       name: '价格',
+      id: '价格',
       data: [],
       color: 'rgba(0,0,0,0.5)',
       yAxis: 1,
