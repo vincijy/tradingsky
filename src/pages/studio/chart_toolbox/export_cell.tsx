@@ -1,14 +1,16 @@
 // 第三方
 import React, { memo } from 'react';
-import { getChart } from '@/components/chart';
-import { ExportingOptions, ExportingMimeTypeValue } from 'highcharts';
+import { getChart, setChart } from '@/components/chart';
+import { ExportingOptions, ExportingMimeTypeValue, ChartEventsOptions } from 'highcharts';
 import { useAppSelector } from '@/hooks';
 import { getAnnotationManager } from '@/utils/annotation';
+import { cloneDeep } from 'lodash';
 import ToolBoxCell from './dropdown_cell';
 import { ToolBoxCellName } from './def';
-
+// import { ChartLoadCallbackFunction } from 'highcharts';
 export default memo(function ExportCell() {
-  const menus = ['png', 'jpg', 'pdf'];
+  // TODO: 'pdf'
+  const menus = ['png', 'jpg'];
   const exportFileName = useAppSelector((state) => state.ui.currentMenu.subMenu.name );
   const exportChart = (menu:string) => {
     const type = menu;
@@ -44,11 +46,17 @@ export default memo(function ExportCell() {
       filename: exportFileName,
       // fallbackToExportServer: false,
     };
+    /**
+     * ISSUE: https://github.com/gevgeny/angular2-highcharts/issues/158
+     * Workaround is to store the original chartObject before export and restore after
+     */
+    const copyOfChartInstance = cloneDeep(c);
     const ano = getAnnotationManager();
     c.exportChartLocal(exportOption, {
       chart: {
         events: {
           load: function(){
+            setChart(copyOfChartInstance);
             if (!ano) {
               return;
             }
@@ -59,6 +67,7 @@ export default memo(function ExportCell() {
         },
       },
     });
+    setChart(copyOfChartInstance);
   };
   return (
     <ToolBoxCell
