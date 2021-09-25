@@ -16,16 +16,18 @@ import LoginButton from '@/components/login_btn';
 import RegisterButton from '@/components/register_btn';
 import { Provider } from 'react-redux'; // 集中管理状态
 import store from '@/store';
+import axios from 'axios';
+import { CancelTokenSource } from 'axios';
 import LSChartToolbox from '../chart_toolbox';
 import LSChartHead from '../char_head';
 import LSChartCover from '../chart_cover';
 import { BoxWrapper, ChartLoadingWrapper, WaterMask } from './style';
-
 const antIcon = (
   <LoadingOutlined
     style={{ fontSize: 24 }}
     spin />
 );
+let source:CancelTokenSource | undefined;
 
 export default memo(function LSChartBox() {
   /**
@@ -92,9 +94,10 @@ export default memo(function LSChartBox() {
     setDataA(initData);
     setDataB(initData);
     showLoading();
-
+    source && source.cancel();
+    source = axios.CancelToken.source();
     const p1 = new Promise<TypeDataRow>((resolve, reject) => {
-      getChartData(index, asset)
+      getChartData(index, asset, source)
         .then((res) => {
           resolve(res.data.rows || initData);
         })

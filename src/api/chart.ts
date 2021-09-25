@@ -1,16 +1,20 @@
 // 二次封装的axios
-import { AxiosPromise } from 'axios';
+import { AxiosPromise, CancelTokenSource } from 'axios';
 import request from '../utils/request';
 import { IResponseChartData } from './def';
 /**
  * 获取后端接口数据
  * @returns
  */
-export function getChartData(index:string, asset:string):AxiosPromise<IResponseChartData> {
-  return request({
+export function getChartData(index:string, asset:string, source?:CancelTokenSource):AxiosPromise<IResponseChartData> {
+  const config = {
     url: `/api/v1/charts/${asset}/${index}`,
     params: {},
-  });
+  };
+  if (source) {
+    (config as any).cancelToken = source.token;
+  }
+  return request(config);
 };
 
 /**
