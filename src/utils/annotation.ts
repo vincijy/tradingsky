@@ -49,6 +49,7 @@ class AnnotationManager {
     const attrs = {
       fill: '#FFFFFF',
       stroke: color,
+      opacity: 0.8,
       'stroke-width': 2,
       zIndex: 0,
       'stroke-dasharray': 5,
