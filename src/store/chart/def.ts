@@ -2,8 +2,13 @@ import { Action } from 'redux-actions';
 import { TypeDataRow } from '@/components/chart/def';
 import * as A from './action_type';
 
-export interface IPayloadSetBtcPriceData {
-    btcPriceData:TypeDataRow;
+interface IAssetPriceData {
+    btc:TypeDataRow;
+    eth:TypeDataRow;
+}
+
+export interface IPayloadSetPriceData {
+    priceData:IAssetPriceData;
 };
 
 export interface IPayloadUpdateChartOption {
@@ -20,7 +25,7 @@ export interface IPayloadChangeAsset {
 
 
 export interface IChartState {
-    btcPriceData:TypeDataRow;
+    priceData:IAssetPriceData;
     // TODO: fix types
     options:any;
     annotationVisible:boolean;
@@ -28,7 +33,7 @@ export interface IChartState {
 }
 
 export interface IPayloadMap {
-    [A.SET_BTC_PRICE_DATA]:IPayloadSetBtcPriceData;
+    [A.SET_PRICE_DATA]:IPayloadSetPriceData;
     [A.UPDATE_CHART_OPTION]:IPayloadUpdateChartOption;
     [A.TOGGLE_ANNOTATION]:IPayloadToggleAnnotation;
     [A.CHANGE_ASSET]:IPayloadChangeAsset;

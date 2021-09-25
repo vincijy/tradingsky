@@ -1,4 +1,4 @@
-export const SET_BTC_PRICE_DATA = 'SET_BTC_PRICE_DATA';
+export const SET_PRICE_DATA = 'SET_PRICE_DATA';
 
 export const UPDATE_CHART_OPTION = 'UPDATE_CHART_OPTION';
 

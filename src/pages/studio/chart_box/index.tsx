@@ -10,7 +10,7 @@ import { getChart, getHighCharts } from '@/components/chart';
 import { getChartData, getAssetPrice } from '@/api/chart';
 
 import { LoadingOutlined } from '@ant-design/icons';
-import { setBtcPriceData } from '@/store/chart/action';
+import { setPriceData } from '@/store/chart/action';
 import { TypeDataRow } from '@/components/chart/def';
 import LoginButton from '@/components/login_btn';
 import RegisterButton from '@/components/register_btn';
@@ -77,10 +77,11 @@ export default memo(function LSChartBox() {
     }
   }, [loginRequired, vipRequired, isLogin]);
 
-  const btcPriceData = useAppSelector((state) => state.chart.btcPriceData);
+  const priceData = useAppSelector((state) => state.chart.priceData);
+  const currrentAsset = useAppSelector((state) => state.chart.dataAsset);
   const initData:TypeDataRow = [];
   const [dataA, setDataA] = useState(initData);
-  const [dataB, setDataB] = useState(btcPriceData);
+  const [dataB, setDataB] = useState(priceData[currrentAsset]);
   const dispatch = useAppDispatch();
   /**
    * 请求接口数据
@@ -104,7 +105,7 @@ export default memo(function LSChartBox() {
     });
     const p2 = new Promise<TypeDataRow>((resolve, reject) => {
       // 如果已经请求过了, 不必再次请求
-      if (btcPriceData.length !== 0) {
+      if (priceData[currrentAsset].length !== 0) {
         resolve(initData);
         return;
       }
@@ -128,11 +129,23 @@ export default memo(function LSChartBox() {
         if (dataB.length > 0) {
           setDataB(dataB);
           // 价格缓存
-          // dispatch(setBtcPriceData({
-          //   btcPriceData: dataB,
-          // }));
+          if (currrentAsset === 'btc') {
+            dispatch(setPriceData({
+              priceData: {
+                ...priceData,
+                btc: dataB,
+              },
+            }));
+          } else if(currrentAsset === 'eth') {
+            dispatch(setPriceData({
+              priceData: {
+                ...priceData,
+                eth: dataB,
+              },
+            }));
+          };
         } else {
-          setDataB(btcPriceData);
+          setDataB(priceData[currrentAsset]);
         }
       })
       .catch((err) => {

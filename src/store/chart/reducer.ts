@@ -8,7 +8,10 @@ import { IChartState, IAction, TypePaylodMapKey } from './def';
 const mergeOptions = mergeOption(commonOptions, initialPrivateOption);
 
 const initState:IChartState = {
-  btcPriceData: [],
+  priceData: {
+    btc: [],
+    eth: [],
+  },
   options: mergeOptions,
   annotationVisible: false,
   dataAsset: 'btc',
@@ -16,10 +19,10 @@ const initState:IChartState = {
 
 export function reducer(state:IChartState = initState, action:IAction<TypePaylodMapKey>):IChartState {
   switch (action.type) {
-    case A.SET_BTC_PRICE_DATA:
+    case A.SET_PRICE_DATA:
       return {
         ...state,
-        btcPriceData: (action as IAction<'SET_BTC_PRICE_DATA'>).payload.btcPriceData,
+        priceData: (action as IAction<'SET_PRICE_DATA'>).payload.priceData,
       };
     case A.UPDATE_CHART_OPTION:
       return {
