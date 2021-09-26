@@ -44,7 +44,32 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
 
   if (price) {
     const priceV = dataMayCut(convert(dataB).v, startDate);
-    price.data = priceV;
+    if (currentMenu.key === 'Stock-to-Flow 模型') {
+      const plotLines = options.xAxis.plotLines;
+      price.data = priceV.map((item) => ({ x: item[0], y: item[1] }));
+      const t0 = plotLines[0].value;
+      const t1 = plotLines[1].value;
+      const t2 = plotLines[2].value;
+      const t3 = plotLines[3].value;
+      const dt0 = t1 - t0;
+      const dt1 = t2 - t1;
+      const dt2 = t3 - t2;
+      for (const cell of price.data) {
+        if (cell.x < t0) {
+          cell.colorValue = 1400 - ((t0 - cell.x) / dt0 * 1400);
+        } else if (t0 < cell.x && cell.x <= t1) {
+          cell.colorValue = (cell.x - t0) / dt0 * 1400;
+        } else if(t1 < cell.x && cell.x <= t2) {
+          cell.colorValue = (cell.x - t1) / dt1 * 1400;
+        } else if (t2 < cell.x && cell.x <= t3) {
+          cell.colorValue = (cell.x - t2) / dt2 * 1400;
+        } else {
+          cell.colorValue = (cell.x - t2) / dt2 * 1400;
+        }
+      }
+    } else {
+      price.data = priceV;
+    }
   }
 
   const handleMultiIndices = (startDate:IDate|null) => {

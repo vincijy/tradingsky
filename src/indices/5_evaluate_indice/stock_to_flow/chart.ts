@@ -39,6 +39,8 @@ const plotLines = [{
   width: 1,
 }];
 
+console.log(plotLines, 'plotLines');
+
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
@@ -50,7 +52,13 @@ export const chartBtc = {
     layout: 'horizontal',
     min: 0,
     max: 1400,
-    minColor: '#7cb5ec',
+    stops: [
+      [0, 'rgb(68, 103, 235)'],
+      [0.25, 'rgb(38, 200, 17)'],
+      [0.5, 'rgb(245, 219, 76)'],
+      [0.75, 'rgb(247, 132, 16)'],
+      [1, 'rgb(235, 68, 68)'],
+    ],
   }],
   yAxis: [
     {
@@ -80,11 +88,6 @@ export const chartBtc = {
       gridLineWidth: 0, // 去指标grid网格背景
     },
   ],
-  plotOptions: {
-    line: {
-      colorkey: 'daysTillHalving',
-    },
-  },
   series: [
     {
       name: 'daysTillHalving',
@@ -108,7 +111,8 @@ export const chartBtc = {
     {
       name: '价格',
       data: [],
-      colorKey: 'daysTillHalving',
+      colorKey: 'colorValue',
+      // colorKey: 'daysTillHalving',
       lineWidth: 0,
       coloraxis: 0,
       marker: {
@@ -116,20 +120,5 @@ export const chartBtc = {
         radius: 2,
       },
     },
-    // {
-    //   id: 'sma',
-    //   linkedTo: 'series0',
-    //   name: 'Stock-to-Flow 模型',
-    //   color: 'rgb(247, 147, 26)',
-    //   yAxis: 0,
-    //   params: {
-    //     period: 0,
-    //   },
-    //   visible: true,
-    //   showInLegend: true,
-    //   marker: {
-    //     enabled: false, // https://stackoverflow.com/questions/14642779/highcharts-how-can-i-turn-off-the-points
-    //   },
-    // },
   ],
 };
