@@ -25,25 +25,25 @@ const zones = [
 
 const plotLines = [{
   value: 0,
-  color: '#5a5a5a',
+  color: '#3c414c',
   dashStyle: 'Dot',
-  width: 1,
+  width: 1.2,
 
 }, {
   value: 0.25,
-  color: '#5a5a5a',
+  color: '#3c414c',
   dashStyle: 'Dot',
-  width: 1,
+  width: 1.2,
 }, {
   value: 0.5,
-  color: '#5a5a5a',
+  color: '#3c414c',
   dashStyle: 'Dot',
-  width: 1,
+  width: 1.2,
 }, {
   value: 0.75,
-  color: '#5a5a5a',
+  color: '#3c414c',
   dashStyle: 'Dot',
-  width: 1,
+  width: 1.2,
 }];
 
 /**
