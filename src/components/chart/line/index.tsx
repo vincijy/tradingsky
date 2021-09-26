@@ -13,14 +13,13 @@ import { getHighCharts, setChart } from '../index';
 import { constructorType } from '../def';
 import * as D from './def';
 import { convert, cutDataByDate, assignSmaDataToSerie } from './util';
-
 interface IRow{
   index:number; t:number; o:any;
 }
 export default memo(function LSChartDoubleLine(props:D.IProps) {
   const { seriesA, seriesB } = props;
-  const{ data: dataA, name: nameA } = seriesA;
-  const{ data: dataB, name: nameB } = seriesB;
+  const{ data: dataA } = seriesA;
+  const{ data: dataB } = seriesB;
 
   const options = useAppSelector((state) => state.chart.options);
   const xStart = useAppSelector((state) => state.ui.currentMenu.subMenu.xStart);
@@ -181,7 +180,8 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
     chart.update(ops, true);
     setChart(chart);
   };
-  const recreate = true;
+
+  const recreate = useAppSelector((state) => state.ui.chartRecreated);
   return (
     // doc: https://www.highcharts.com.cn/docs/highcharts-react/
     // eg: https://stackblitz.com/edit/react-nwseym?file=index.js

@@ -21,7 +21,7 @@ import ethLogo from '@/assets/img/eth_logo.svg';
 
 import { mergeOption } from '@/utils/merge_option';
 import { isMobile } from '@/utils/is';
-import { changeMenu, toggleMenuVisible } from '../../../store/ui/action';
+import { changeMenu, toggleChartRecreated, toggleMenuVisible } from '../../../store/ui/action';
 import { MenuWrapper } from './style';
 
 export default memo(function LSChartMenu() {
@@ -59,6 +59,11 @@ export default memo(function LSChartMenu() {
       },
     });
     dispatch(action);
+
+    // 允许重建chart
+    dispatch(toggleChartRecreated({
+      chartRecreated: true,
+    }));
 
     // 根据菜单修改自定义图表配置
     if (s.chart) {

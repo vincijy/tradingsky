@@ -14,6 +14,7 @@ const initState:IUiState = {
     visible: false,
     view: GuardScenes.Login,
   },
+  chartRecreated: false,
 };
 
 export function reducer(state:IUiState = initState, action:IAction<TypePaylodMapKey>):IUiState {
@@ -37,6 +38,11 @@ export function reducer(state:IUiState = initState, action:IAction<TypePaylodMap
       return {
         ...state,
         menuVisible: (action as IAction<'TOGGLE_MENU_VISIBLE'>).payload.menuVisible,
+      };
+    case A.TOGGLE_CHART_RECREATED:
+      return {
+        ...state,
+        chartRecreated: (action as IAction<'TOGGLE_CHART_RECREATED'>).payload.chartRecreated,
       };
     default:
       return state;

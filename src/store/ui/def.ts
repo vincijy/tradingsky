@@ -18,6 +18,11 @@ export interface IPayloadToggleMenuVisible {
     menuVisible:boolean;
 }
 
+export interface IPayloadToggleChartRecreated {
+    chartRecreated:boolean;
+}
+
+
 export interface IPayloadsetChangeAuthingPanel {
     authingPanel:{
         visible:boolean;
@@ -35,6 +40,7 @@ export interface IUiState {
       view:GuardScenes;
     };
     menuVisible:boolean;
+    chartRecreated:boolean;
 }
 
 export interface IPayloadMap {
@@ -42,6 +48,7 @@ export interface IPayloadMap {
     [A.TOGGLE_LOGIN_PANEL_VISIBLE]:IPayloadsetLoginPanelVisible;
     [A.CHANGE_AUTHING_PANEL]:IPayloadsetChangeAuthingPanel;
     [A.TOGGLE_MENU_VISIBLE]:IPayloadToggleMenuVisible;
+    [A.TOGGLE_CHART_RECREATED]:IPayloadToggleChartRecreated;
 
 }
 

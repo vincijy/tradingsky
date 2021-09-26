@@ -5,6 +5,7 @@ import { updateChartOption } from '@/store/chart/action';
 import { getChart } from '@/components/chart';
 import { mergeOption } from '@/utils/merge_option';
 import { commonOptions } from '@/indices/chart_common';
+import { toggleChartRecreated } from '@/store/ui/action';
 import DropDownCell from './dropdown_cell';
 import { ToolBoxCellName } from './def';
 
@@ -35,6 +36,10 @@ export default memo(function SmaCell() {
     // 更新图表配置
     dispatch(updateChartOption({
       options: newOptions,
+    }));
+    // 允许重建chart
+    dispatch(toggleChartRecreated({
+      chartRecreated: false,
     }));
   };
 
