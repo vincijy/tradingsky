@@ -70,7 +70,7 @@ export const chartBtc = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: 'spent outputs 利润率（SOPR）',
       color: LineColor.darkGreen,

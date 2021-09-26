@@ -105,7 +105,7 @@ export const chartEth = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: '流通盈利率',
       color: '#0d75f8',

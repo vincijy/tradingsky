@@ -22,7 +22,7 @@ export default memo(function SmaCell() {
     // 修改serie.name为xxx几日均线
     // TODO: 晚上配置合并, 这里顺序有关系
     const newOptions = mergeOption(commonOptions, chart.options) as any;
-    const serie = newOptions.series.find((s:any) => s.type === 'sma');
+    const serie = newOptions.series.find((s:any) => s.id === 'sma');
     serie.name = `${name}(${selectedMenu}均线)`;
 
     // 读取周期(数字)
@@ -39,7 +39,7 @@ export default memo(function SmaCell() {
   };
 
   // read sma, TODO: assert
-  const defaultSeleted = useAppSelector((state) => state.chart.options.series.find((s:any) => s.type === 'sma').params.period);
+  const defaultSeleted = useAppSelector((state) => state.chart.options.series.find((s:any) => s.id === 'sma').params.period);
 
   const menus = [0, 7, 14, 30, 50, 90, 180].map((n) => `${n}日`);
   return (

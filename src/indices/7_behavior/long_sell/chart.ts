@@ -119,7 +119,7 @@ export const chart = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: '长期持有者抛售趋势',
       color: 'rgb(247, 147, 26)',

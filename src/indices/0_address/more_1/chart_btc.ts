@@ -52,7 +52,7 @@ export const chart = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: '余额 > 1地址量(7日均线）',
       color: 'rgb(247, 147, 26)',

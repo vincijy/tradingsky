@@ -96,7 +96,7 @@ export const chart = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: '市场健康程度',
       color: 'rgb(247, 147, 26)',

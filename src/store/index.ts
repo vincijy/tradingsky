@@ -35,7 +35,7 @@ store.subscribe(() => {
   }
   preAnnotationVisible = v;
 
-  // const period = store.getState().chart.options.series.find((s as any) => s.type === 'sma').params.period;
+  // const period = store.getState().chart.options.series.find((s as any) => s.id === 'sma').params.period;
   // if (preSmaPeriod !== period) {
   //   console.log('period change');
   //   const an = getAnnotationManager();

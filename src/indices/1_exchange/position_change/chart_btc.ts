@@ -60,7 +60,7 @@ export const chart = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: '交易所净头寸变化',
       color: LineColor.red,

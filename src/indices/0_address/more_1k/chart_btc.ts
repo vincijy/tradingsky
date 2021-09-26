@@ -52,7 +52,7 @@ export const chart = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: '巨鲸地址数量（>1k）',
       color: 'rgb(247, 147, 26)',

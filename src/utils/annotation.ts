@@ -143,7 +143,7 @@ class AnnotationManager {
      let data = c.series && c.series.length > 0 ? c.series[0].data : [];
      // 当切换到均线的时候, 源数据会被置空, 这个时候取均线为data
      if (data.length === 0) {
-       const sma = c.series.find((s) => s.type === 'sma');
+       const sma = c.series.find((s) => (s as any).id === 'sma');
        data = sma ? sma.data : [];
      }
      this.drawCircleByDate(

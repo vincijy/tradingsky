@@ -55,7 +55,7 @@ export const chart = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: 'Purpose Bitcoin ETF持仓量',
       color: LineColor.lightOrange,

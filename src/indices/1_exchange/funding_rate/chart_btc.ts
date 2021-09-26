@@ -83,7 +83,7 @@ export const chart = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: '期货资金费率',
       color: LineColor.darkGreen,

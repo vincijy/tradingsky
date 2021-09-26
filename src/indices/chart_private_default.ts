@@ -47,7 +47,7 @@ export const privateDefaultOptions = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'activeAddress',
       name: '',
       color: 'rgb(247, 147, 26)',

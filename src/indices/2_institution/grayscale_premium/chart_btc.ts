@@ -65,7 +65,7 @@ export const chart = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: '灰度基金溢价',
       color: LineColor.darkGreen,

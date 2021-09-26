@@ -110,7 +110,7 @@ export const chart = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: '储备风险',
       color: 'rgb(247, 147, 26)',

@@ -109,7 +109,7 @@ export const chart = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: '普埃尔倍数',
       color: 'rgb(247, 147, 26)',

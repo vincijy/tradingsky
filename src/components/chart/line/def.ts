@@ -64,6 +64,7 @@ export interface ISerie {
     period:number;
     index:number;
   };
+  id:string;
 }
 
 export const CURRENCIES = [

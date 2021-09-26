@@ -103,7 +103,7 @@ export const chart = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: 'Stock-to-Flow 模型偏差量',
       color: 'rgb(247, 147, 26)',

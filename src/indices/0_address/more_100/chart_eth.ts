@@ -52,7 +52,7 @@ export const chartEth = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: '余额 > 100地址量',
       color: '#0d75f8',

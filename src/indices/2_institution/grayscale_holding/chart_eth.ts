@@ -54,7 +54,7 @@ export const chartEth = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: '灰度基金持仓量',
       color: LineColor.ethBlue,

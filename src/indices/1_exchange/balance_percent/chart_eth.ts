@@ -57,7 +57,7 @@ export const chartEth = {
       yAxis: 1,
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: 'series0',
       name: '交易所余额占比',
       color: '#0d75f8',

@@ -52,7 +52,7 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
     // 指标配置上的name必须对应得上
     let ks:string[] = [];
     ks = ks.concat(D.CURRENCIES).concat(['v_cvdd', 'v_pru']);
-    const sma = series.find((s:D.ISerie) => s.type === 'sma');
+    const sma = series.find((s:D.ISerie) => s.id === 'sma');
     for (const name of ks) {
       const serie = series.find((s) => s.name === name);
       if (serie) {
@@ -69,7 +69,7 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
   const handleNormalIndices = (startDate:IDate|null) => {
     const data = convert(dataA).v;
     series[0].data = dataMayCut(data, startDate);
-    const sma = series.find((s:D.ISerie) => s.type === 'sma');
+    const sma = series.find((s:D.ISerie) => s.id === 'sma');
     sma && assignSmaDataToSerie(series[0], sma);
   };
 
@@ -95,7 +95,7 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
 
     for (const name of Object.keys(o)) {
       const serie = series.find((s) => s.name === name);
-      const sma = series.find((s) => s.type === 'sma');
+      const sma = series.find((s) => s.id === 'sma');
       if (serie) {
         const data:[number, number][] = (o as any)[name];
         serie.data = dataMayCut(data, startDate);

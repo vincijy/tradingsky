@@ -198,7 +198,7 @@ export const chartBtc = {
       type: 'line',
     },
     {
-      type: 'sma',
+      id: 'sma',
       linkedTo: '24h',
       name: 'sma',
       color: 'rgb(247, 147, 26)',
