@@ -7,6 +7,7 @@ export const chartEth = {
     {
       TickInterval: 500, // 刻度间隔
       minTickInterval: 2, // 最小刻度间隔
+      // tickPixelInterval: 50,
       zoomEnabled: true, // 允许缩放
       alignTicks: false, // 左右y轴不对齐
       Tickmember: 12, // 允许存在的最多刻度

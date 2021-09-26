@@ -2,7 +2,7 @@
 import { ProjectOutlined } from '@ant-design/icons';
 import React from 'react';
 import * as D from '../def';
-import { circulating } from './stable_circulating';
+// import { circulating } from './stable_circulating';
 import { ssr } from './ssr';
 
 export const capitalEnv:D.MenuItem = {
@@ -12,7 +12,7 @@ export const capitalEnv:D.MenuItem = {
   visible: true,
   assetList: ['btc'],
   subMenus: [
-    circulating,
+    // circulating,
     ssr,
   ],
 };
