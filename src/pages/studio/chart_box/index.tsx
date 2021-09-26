@@ -41,8 +41,8 @@ export default memo(function LSChartBox() {
   const userInfo = useAppSelector((state) => state.user.userInfo);
   const role = userInfo.role || { code: 'level1', description: '' };
 
-
-  const [vipRequired__, setvipRequired__] = useState(false);
+  // 初始化状态
+  const [vipRequiredvisible, setvipRequiredVisible] = useState(false);
   const [loginRegisterRequiredVisible, setLoginRegisterRequiredVisible] = useState(false);
   const [noDataVisible, setNoDataVisible] = useState(false);
   const [coverImgVisible, setCoverImgVisible] = useState(false);
@@ -50,19 +50,32 @@ export default memo(function LSChartBox() {
   useLayoutEffect(() => {
     reflow();
 
-    // 如果需要登录, 但是没有登录
+    // 如果需要登录, 但是没有登录, 要求登录(背景图 + 登录按钮)
     if (loginRequired && !isLogin) {
+      setLoadingVisible(false);
+      setvipRequiredVisible(false);
       setCoverImgVisible(true);
+      setNoDataVisible(false);
       setLoginRegisterRequiredVisible(true);
       return;
     }
 
-    // 检查是否为VIP,TODO: fix type, enum
+    // 如果非VIP, 要求VIP(背景图 + VIP入口)
     if (loginRequired && vipRequired && role.code !== 'level2') {
+      setLoadingVisible(false);
+      setvipRequiredVisible(true);
       setCoverImgVisible(true);
-      setvipRequired__(true);
+      setNoDataVisible(false);
+      setLoginRegisterRequiredVisible(false);
       return;
     }
+
+    // 全部重置为false, 必要的时候开启
+    setLoadingVisible(false);
+    setvipRequiredVisible(false);
+    setCoverImgVisible(false);
+    setNoDataVisible(false);
+    setLoginRegisterRequiredVisible(false);
   }, [loginRequired, vipRequired, isLogin]);
 
   const priceData = useAppSelector((state) => state.chart.priceData);
@@ -71,6 +84,7 @@ export default memo(function LSChartBox() {
   const [dataA, setDataA] = useState(initData);
   const [dataB, setDataB] = useState(priceData[currrentAsset]);
   const dispatch = useAppDispatch();
+
   /**
    * 请求接口数据
    */
@@ -142,6 +156,7 @@ export default memo(function LSChartBox() {
       });
   };
 
+  // 请求接口
   useEffect(() => {
     if (loginRequired && !isLogin) {
       return;
@@ -161,12 +176,9 @@ export default memo(function LSChartBox() {
   };
   const hideLoading = () => {
     setLoadingVisible(false);
-    setvipRequired__(false);
-    setCoverImgVisible(false);
-    setNoDataVisible(false);
   };
   const menuVisible = useAppSelector((state) => state.ui.menuVisible);
-  const oneVisible = loginRegisterRequiredVisible || vipRequired__ || loadingVisible || coverImgVisible || noDataVisible;
+  const oneVisible = loginRegisterRequiredVisible || vipRequiredvisible || loadingVisible || coverImgVisible || noDataVisible;
   return (
     <BoxWrapper>
       <div id='container' >
@@ -179,7 +191,7 @@ export default memo(function LSChartBox() {
           oneVisible &&
           <LSChartCover
             loginRegisterRequiredVisible={loginRegisterRequiredVisible}
-            vipRequiredVisible={vipRequired__}
+            vipRequiredVisible={vipRequiredvisible}
             loadingVisible={loadingVisible}
             coverImgVisible={coverImgVisible}
             noDataVisible={noDataVisible}
