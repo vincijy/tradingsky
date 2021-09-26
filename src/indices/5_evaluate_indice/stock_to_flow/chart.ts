@@ -62,6 +62,11 @@ export const chartBtc = {
   }],
   yAxis: [
     {
+      TickInterval: 0.1, // 刻度间隔
+      minTickInterval: 1, // 最小刻度间隔
+      zoomEnabled: true, // 允许缩放
+      // tickPixelInterval: 15,
+      alignTicks: false, // 左右y轴不对齐
       // 左侧轴
       title: {
         text: '',
@@ -72,7 +77,7 @@ export const chartBtc = {
       labels: {
         // 橙色
         style: { color: '#3c414c' }, // 刻度（黑色）
-        format: '{text} $',
+        format: '{text}$',
       },
       type: 'logarithmic', // 对数刻度
       gridLineColor: 'rgba(240,240,240,.67)',
@@ -94,15 +99,14 @@ export const chartBtc = {
       data: [],
       colorAxis: 0,
       id: 'daysTillHalving',
-      visible: true,
-      showInLegend: true,
+      visible: false,
+      showInLegend: false,
     },
     {
       name: 'ratio',
       data: [],
       type: 'line',
-      // 橙色
-      color: 'rgb(247, 147, 26)',
+      color: '#3c414c',
       yAxis: 0,
       id: 'ratio',
       visible: true,
@@ -112,7 +116,6 @@ export const chartBtc = {
       name: '价格',
       data: [],
       colorKey: 'colorValue',
-      // colorKey: 'daysTillHalving',
       lineWidth: 0,
       coloraxis: 0,
       marker: {

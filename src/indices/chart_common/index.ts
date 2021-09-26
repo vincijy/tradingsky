@@ -22,6 +22,7 @@ export const commonOptions = {
     height: Layout.CHART_HEIGHT, // 图表高度, 图表的高度 = 纯图表高 + naviagator高度 +  日历高度
     zoomType: 'x',
     pinchType: 'x',
+    selectionMarkerFill: 'rgba(0,0,0, 0.2)',
     panning: true,
     panKey: 'shift',
     marginTop: Layout.CHART_CONTENT_MARGIN_TOP,
