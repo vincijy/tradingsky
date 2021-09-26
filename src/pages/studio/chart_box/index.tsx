@@ -1,4 +1,4 @@
-import { memo, useEffect, useState, useLayoutEffect } from 'react';
+import { memo, useEffect, useState, useLayoutEffect, useCallback, useMemo } from 'react';
 import { useAppSelector, useAppDispatch } from '@/hooks';
 import LSChartDoubleLine from '@/components/chart/line';
 import { getHighCharts } from '@/components/chart';
@@ -39,7 +39,7 @@ export default memo(function LSChartBox() {
   // 读取用户的信息
   const isLogin = useAppSelector((state) => state.user.isLogin);
   const userInfo = useAppSelector((state) => state.user.userInfo);
-  const role = userInfo.role || { code: 'level1', description: '' };
+  const role = useMemo(() => userInfo.role || { code: 'level1', description: '' }, [userInfo]);
 
   // 初始化状态
   const [vipRequiredvisible, setvipRequiredVisible] = useState(false);
@@ -49,7 +49,6 @@ export default memo(function LSChartBox() {
 
   useLayoutEffect(() => {
     reflow();
-
     // 如果需要登录, 但是没有登录, 要求登录(背景图 + 登录按钮)
     if (loginRequired && !isLogin) {
       setLoadingVisible(false);
@@ -76,7 +75,7 @@ export default memo(function LSChartBox() {
     setCoverImgVisible(false);
     setNoDataVisible(false);
     setLoginRegisterRequiredVisible(false);
-  }, [loginRequired, vipRequired, isLogin]);
+  }, [loginRequired, vipRequired, isLogin, role]);
 
   const priceData = useAppSelector((state) => state.chart.priceData);
   const currrentAsset = useAppSelector((state) => state.chart.dataAsset);
@@ -85,9 +84,6 @@ export default memo(function LSChartBox() {
   const [dataB, setDataB] = useState(priceData[currrentAsset]);
   const dispatch = useAppDispatch();
 
-  /**
-   * 请求接口数据
-   */
   const requestData = () => {
     // 左边指标、右边价格
     // 指标
@@ -96,6 +92,8 @@ export default memo(function LSChartBox() {
     showLoading();
     source && source.cancel();
     source = axios.CancelToken.source();
+
+    // 请求指标数据的promise
     const p1 = new Promise<TypeDataRow>((resolve, reject) => {
       getChartData(index, asset, source)
         .then((res) => {
@@ -106,6 +104,8 @@ export default memo(function LSChartBox() {
           reject();
         });
     });
+
+    // 请求价格数据的promise
     const p2 = new Promise<TypeDataRow>((resolve, reject) => {
       // 如果已经请求过了, 不必再次请求
       if (priceData[currrentAsset].length !== 0) {
@@ -167,7 +167,9 @@ export default memo(function LSChartBox() {
     }
     // TODO: vip
     requestData();
-  }, [index, asset]);
+
+    // 在指标和币种切换的时候,重新请求数据
+  }, [asset, index, isLogin, role, vipRequired, loginRequired, userInfo]);
 
 
   const [loadingVisible, setLoadingVisible] = useState(false);

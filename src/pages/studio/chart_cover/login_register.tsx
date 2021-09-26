@@ -4,10 +4,7 @@ import { Provider } from 'react-redux'; // 集中管理状态
 import store from '@/store';
 import LoginButton from '@/components/login_btn';
 import RegisterButton from '@/components/register_btn';
-import LSChartToolbox from '../chart_toolbox';
-import LSChartHead from '../char_head';
-import LSChartCover from '../chart_cover';
-import { ChartLoadingWrapper, ButtonArea } from './style';
+import { ButtonArea } from './style';
 
 export default memo(function LoginRegisterRequired() {
   return (

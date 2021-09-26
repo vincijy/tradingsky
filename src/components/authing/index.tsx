@@ -56,7 +56,7 @@ export default memo(function AuthingPanel() {
         userInfo.role = res.data;
         const v = JSON.stringify(userInfo);
         localStorage.setItem('userInfo', v);
-        window.location.reload();
+        window.location.reload(); // 提交后刷新页面
         navigateToChartPage();
       })
       .catch((err) => {
@@ -77,6 +77,9 @@ export default memo(function AuthingPanel() {
         userInfo.role = res.data;
         const v = JSON.stringify(userInfo);
         localStorage.setItem('userInfo', v);
+        dispatch(UA.updateUserInfo({
+          userInfo,
+        })); // 把注册用户信息存入redux
         navigateToChartPage();
       })
       .catch((err) => {
