@@ -9,6 +9,7 @@ import { toggleMenuVisible } from '@/store/ui/action';
 import { updateLayout } from '@/store/ui/action';
 import { updateUserInfo } from '@/store/user/action';
 import { setUserCollection } from '@/api/user';
+import { IUserInfo } from '@/store/user/def';
 import { BarWrapper } from './style';
 
 export default memo(function LSChartBar() {
@@ -52,7 +53,7 @@ export default memo(function LSChartBar() {
 
   const [hasCollected, setHasCollected] = useState((false));
   const collect = async() => {
-    setHasCollected(!hasCollected);
+    setHasCollected(true);
     if (!userInfo.collection) {
       userInfo.collection = {
         keyPaths: [
@@ -71,15 +72,35 @@ export default memo(function LSChartBar() {
         subMenuKey: selectedSubMenu.key,
       });
     }
+    await store(userInfo);
+  };
 
+  /**
+   * 存储在本地缓存 & redux, 服务端
+   * @param userInfo 用户信息
+   */
+  const store = async(userInfo:IUserInfo) => {
     dispatch(updateUserInfo({
       userInfo,
     }));
-
     await setUserCollection({
       collection: JSON.stringify(userInfo.collection),
     });
     localStorage.setItem('userInfo', JSON.stringify(userInfo));
+  };
+
+  const deCollect = async() => {
+    setHasCollected(false);
+    if (!userInfo || !userInfo.collection) {
+      return;
+    }
+    const keys = userInfo.collection.keyPaths.map((item) => item.subMenuKey);
+    if (!keys.includes(selectedSubMenu.key)) {
+      return;
+    }
+    const keyPaths = userInfo.collection.keyPaths;
+    userInfo.collection.keyPaths = keyPaths.filter((item) => item.subMenuKey === selectedSubMenu.key);
+    await store(userInfo);
   };
 
   useEffect(() => {
@@ -105,14 +126,18 @@ export default memo(function LSChartBar() {
         </Button>
         <Button
           size='small'
-          onClick={ collect }
+          onClick={ hasCollected ? deCollect : collect }
         >
           {
             hasCollected ?
-              <HeartFilled /> :
+              <HeartFilled style={{ color: 'red' } }/> :
               <HeartOutlined />
           }
-          收藏
+          {
+            hasCollected ?
+              '收藏' :
+              '收藏'
+          }
         </Button>
       </div>
     </BarWrapper>
