@@ -1,5 +1,5 @@
 // 第三方
-import React, { memo } from 'react';
+import React, { memo, Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom'; // 路由相关文件
 import { renderRoutes } from 'react-router-config'; // 路由集中配置
 import { Provider } from 'react-redux'; // 集中管理状态
@@ -12,13 +12,15 @@ import { FontStyle } from './style';
 
 // 组件
 import LSAppHeader from './components/header'; // 导航
-import AuthingPanel from './components/authing';
+const AuthingPanel = React.lazy(() => import('./components/authing'));
 
 export default memo(function App() {
   return (
     <Provider store={store}>
       <FontStyle />
-      <AuthingPanel/>
+      <Suspense fallback={<div>Loading...</div>}>
+        <AuthingPanel/>
+      </Suspense>
       <BrowserRouter>
         <LSAppHeader />
         {renderRoutes(routes)}  {/* 集中管理路由 */}
