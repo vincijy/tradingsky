@@ -10,6 +10,7 @@ import { headerLinks } from '@/config/header'; // 映射数据
 
 // 组件
 import { Menu, Dropdown, Avatar } from 'antd'; // 组件库
+import discordLogo from '@/assets/img/discord_logo.svg';
 import { WeiboOutlined, WechatOutlined, TwitterOutlined, DownOutlined, UserOutlined } from '@ant-design/icons'; // 图标
 
 import '@authing/react-ui-components/lib/index.min.css';
@@ -109,6 +110,12 @@ export default memo(function LSAppHeader() {
         </HeaderLeft>
         <HeaderRight>
           <div className='side'>
+            <a
+              href='https://discord.gg/PNYDupePbA'
+              target='_blank'
+              rel='noreferrer'>
+              <img style={{ height: '17.5px', marginBottom: '3.5px' }} src={discordLogo} />
+            </a>
             <a
               href='https://weibo.com/u/7657665166?is_all=1'
               target='_blank'

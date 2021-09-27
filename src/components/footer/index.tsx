@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 // 组件
 import { Button } from 'antd';
 import { WeiboOutlined, WechatOutlined, TwitterOutlined } from '@ant-design/icons';
+import discordLogo from '@/assets/img/discord_logo_white.svg';
 import { useDynamicRender } from '@/utils/dynamic';
 import { FooterWrapper, FooterLeft, FooterRight } from './style'; // 样式
 export default memo(function LSAppFooter() {
@@ -16,7 +17,7 @@ export default memo(function LSAppFooter() {
     <div className='content'>
       <FooterLeft>
         <div>
-                    暗淡蓝点 © 2021 - 版权所有
+                    链数查 © 2021 - 版权所有
         </div>
       </FooterLeft>
       <FooterRight>
@@ -31,6 +32,15 @@ export default memo(function LSAppFooter() {
             </div>
           </li>
           <div className='footer-iphone'>
+            <Button
+              type='link'
+              href='https://discord.gg/PNYDupePbA'
+              style={{
+                color: 'white',
+              }}
+              target='_blank' >
+              <img style={{ height: '12px', marginRight: '-6px' }} src={discordLogo} />
+            </Button>
             <Button
               type='link'
               icon={<WeiboOutlined/>}
