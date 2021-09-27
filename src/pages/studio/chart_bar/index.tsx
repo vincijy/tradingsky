@@ -24,7 +24,7 @@ export default memo(function LSChartBar() {
     const { width: w } = el.getBoundingClientRect();
     dispatch(updateLayout({
       layout: {
-        chartBoxWidth: w,
+        chartBoxWidth: w - 3,
       },
     }));
   };
