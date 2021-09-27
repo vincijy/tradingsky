@@ -1,12 +1,16 @@
 import { menus } from '@/indices';
 import { GuardScenes } from '@authing/react-ui-components'; // 登录框
 import { isMobile } from '@/utils/is';
+import { appInitState } from '@/config';
 import * as A from './action_type';
 import { IUiState, IAction, TypePaylodMapKey } from './def';
+
+const { menuIndex, subMenuIndex } = appInitState;
 const initState:IUiState = {
   currentMenu: {
-    menu: menus[1],
-    subMenu: menus[1].subMenus[0],
+    // 默认展示sopr
+    menu: menus[menuIndex],
+    subMenu: menus[menuIndex].subMenus[subMenuIndex],
   },
   menuVisible: !isMobile(),
   loginPanelVisible: false,

@@ -1,18 +1,13 @@
-import { commonOptions } from '@/indices/chart_common';
-import { chart as initialPrivateOption } from '@/indices/0_address/active/chart_btc';
-import { mergeOption } from '@/utils/merge_option';
+import { appInitState } from '@/config';
 import * as A from './action_type';
 import { IChartState, IAction, TypePaylodMapKey } from './def';
-
-// 初始化配置
-const mergeOptions = mergeOption(commonOptions, initialPrivateOption);
 
 const initState:IChartState = {
   priceData: {
     btc: [],
     eth: [],
   },
-  options: mergeOptions,
+  options: appInitState.chartOptions,
   annotationVisible: false,
   dataAsset: 'btc',
 };

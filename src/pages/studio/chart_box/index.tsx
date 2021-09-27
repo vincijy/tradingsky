@@ -138,6 +138,7 @@ export default memo(function LSChartBox() {
     Promise.all([p1, p2])
       .then((res) => {
         hideLoading();
+        console.log('ddddddd');
         const [dataA, dataB] = res;
         dataA.length > 0 && setDataA(dataA);
         if (dataB.length > 0) {
