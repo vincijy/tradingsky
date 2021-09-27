@@ -8,15 +8,16 @@ export const ChartTitleArea = styled.div `
     z-index: 1;
     text-align: left;
     img {
-        widht: 16px;
-        height: 16px;
+        widht: 1rem;
+        height: 1rem;
         display: inline-block;
         vertical-align: middle;
         margin-left: 4px;
+        margin-bottom: 2px;
     }
 
     .chart-title {
-        font-size: 0.8rem;
+        font-size: 1rem;
         display: inline-block;
         vertical-align: middle;
         height: ${Layout.CHART_HEADER_HEIGHT}px;;

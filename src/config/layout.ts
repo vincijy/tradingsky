@@ -31,7 +31,7 @@ export const CHART_HEIGHT = window.innerHeight - CHART_OUTLINE_TOP - CHART_OUTLI
 /**
  * 表头标题区域高度
  */
-export const CHART_HEADER_HEIGHT = 30;
+export const CHART_HEADER_HEIGHT = 34;
 
 /**
  * 表头标题区域距离window顶部的距离, + CHART_OUTLINE_TOP 使得恰好在图表上边缘, 然后向下偏移自身高度的一半来达到居中的目的
