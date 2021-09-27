@@ -10,14 +10,14 @@ export const annotation:D.IAnnotationConfig = {
           day: 9,
         },
       },
-      {
-        color: 'red',
-        date: {
-          year: 2019,
-          month: 6,
-          day: 28,
-        },
-      },
+      // {
+      //   color: 'red',
+      //   date: {
+      //     year: 2019,
+      //     month: 6,
+      //     day: 28,
+      //   },
+      // },
       {
         color: 'green',
         date: {
@@ -42,30 +42,30 @@ export const annotation:D.IAnnotationConfig = {
           day: 25,
         },
       },
-      {
-        color: 'red',
-        date: {
-          year: 2021,
-          month: 1,
-          day: 8,
-        },
-      },
-      {
-        color: 'red',
-        date: {
-          year: 2021,
-          month: 2,
-          day: 21,
-        },
-      },
-      {
-        color: 'red',
-        date: {
-          year: 2021,
-          month: 3,
-          day: 14,
-        },
-      },
+      // {
+      //   color: 'red',
+      //   date: {
+      //     year: 2021,
+      //     month: 1,
+      //     day: 8,
+      //   },
+      // },
+      // {
+      //   color: 'red',
+      //   date: {
+      //     year: 2021,
+      //     month: 2,
+      //     day: 21,
+      //   },
+      // },
+      // {
+      //   color: 'red',
+      //   date: {
+      //     year: 2021,
+      //     month: 3,
+      //     day: 14,
+      //   },
+      // },
       {
         color: 'green',
         date: {
@@ -84,14 +84,14 @@ export const annotation:D.IAnnotationConfig = {
           day: 9,
         },
       },
-      {
-        color: 'red',
-        date: {
-          year: 2019,
-          month: 6,
-          day: 28,
-        },
-      },
+      // {
+      //   color: 'red',
+      //   date: {
+      //     year: 2019,
+      //     month: 6,
+      //     day: 28,
+      //   },
+      // },
       {
         color: 'green',
         date: {
@@ -116,30 +116,30 @@ export const annotation:D.IAnnotationConfig = {
           day: 25,
         },
       },
-      {
-        color: 'red',
-        date: {
-          year: 2021,
-          month: 1,
-          day: 8,
-        },
-      },
-      {
-        color: 'red',
-        date: {
-          year: 2021,
-          month: 2,
-          day: 21,
-        },
-      },
-      {
-        color: 'red',
-        date: {
-          year: 2021,
-          month: 3,
-          day: 14,
-        },
-      },
+      // {
+      //   color: 'red',
+      //   date: {
+      //     year: 2021,
+      //     month: 1,
+      //     day: 8,
+      //   },
+      // },
+      // {
+      //   color: 'red',
+      //   date: {
+      //     year: 2021,
+      //     month: 2,
+      //     day: 21,
+      //   },
+      // },
+      // {
+      //   color: 'red',
+      //   date: {
+      //     year: 2021,
+      //     month: 3,
+      //     day: 14,
+      //   },
+      // },
       {
         color: 'green',
         date: {

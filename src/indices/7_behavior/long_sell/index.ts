@@ -14,7 +14,7 @@ export const longSell = {
   catalogText: '量化长期持有者抛压大小的指标',
   toolbox: {
     annotation: {
-      enabled: true, // 有标注
+      enabled: false, // 有标注
     },
     sma: {
       enabled: true,

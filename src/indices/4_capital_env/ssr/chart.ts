@@ -19,7 +19,7 @@ const plotLines = [{
   value: -2,
   color: '#5a5a5a',
   dashStyle: 'Dot',
-  width: 1.5,
+  width: 2,
 }];
 
 const plotBands = [

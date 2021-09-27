@@ -2,14 +2,14 @@ import * as D from '../../def';
 export const annotation:D.IAnnotationConfig = {
   circle: {
     pricePoints: [
-      {
-        color: 'red',
-        date: {
-          year: 2010,
-          month: 11,
-          day: 8,
-        },
-      },
+      // {
+      //   color: 'red',
+      //   date: {
+      //     year: 2010,
+      //     month: 11,
+      //     day: 8,
+      //   },
+      // },
       {
         color: 'red',
         date: {
@@ -63,7 +63,7 @@ export const annotation:D.IAnnotationConfig = {
         date: {
           year: 2020,
           month: 3,
-          day: 13,
+          day: 18,
         },
       },
       {
@@ -84,14 +84,14 @@ export const annotation:D.IAnnotationConfig = {
       },
     ],
     IndicePoints: [
-      {
-        color: 'red',
-        date: {
-          year: 2010,
-          month: 11,
-          day: 8,
-        },
-      },
+      // {
+      //   color: 'red',
+      //   date: {
+      //     year: 2010,
+      //     month: 11,
+      //     day: 8,
+      //   },
+      // },
       {
         color: 'red',
         date: {
@@ -145,7 +145,7 @@ export const annotation:D.IAnnotationConfig = {
         date: {
           year: 2020,
           month: 3,
-          day: 13,
+          day: 18,
         },
       },
       {

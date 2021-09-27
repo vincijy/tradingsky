@@ -33,7 +33,7 @@ export const grayscaleHolding:D.SubMenuItem = {
     eth: {
       year: 2020,
       month: 12,
-      day: 27,
+      day: 30,
     },
   },
 };

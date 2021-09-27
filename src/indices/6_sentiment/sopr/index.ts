@@ -1,3 +1,4 @@
+import { annotation } from './annotation';
 import { introduce } from './introduce';
 import { chartBtc } from './chart_btc';
 import { chartEth } from './chart_eth';
@@ -15,13 +16,14 @@ export const sopr = {
   catalogText: '衡量投资者行为的短期抄底指标',
   toolbox: {
     annotation: {
-      enabled: true, // 有标注
+      enabled: false, // 有标注
     },
     sma: {
       enabled: true,
     },
   },
   introduce: introduce,
+  annotation: annotation,
   chart: { btc: chartBtc, eth: chartEth },
   xStart: {
     btc: {

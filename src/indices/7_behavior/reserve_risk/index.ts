@@ -1,8 +1,9 @@
+import * as D from '../../def';
 import { annotation } from './annotation';
 import { introduce } from './introduce';
 import { chart } from './chart';
 
-export const reserveRisk = {
+export const reserveRisk:D.SubMenuItem = {
   name: '储备风险',
   key: '储备风险',
   loginRequired: true, // 付费指标
@@ -22,7 +23,7 @@ export const reserveRisk = {
     },
   },
   introduce: introduce,
-  annotaiton: annotation,
+  annotation: annotation,
   chart: { btc: chart, eth: chart },
   xStart: {
     btc: {

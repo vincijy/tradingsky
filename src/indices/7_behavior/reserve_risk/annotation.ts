@@ -1,5 +1,6 @@
 import { IAnnotationConfig } from '@/indices/def';
-export const annotation:IAnnotationConfig = {
+import * as D from '../../def';
+export const annotation:D.IAnnotationConfig = {
   circle: {
     pricePoints: [
       {
@@ -74,14 +75,14 @@ export const annotation:IAnnotationConfig = {
           day: 16,
         },
       },
-      {
-        color: 'green',
-        date: {
-          year: 2021,
-          month: 7,
-          day: 21,
-        },
-      },
+      // {
+      //   color: 'green',
+      //   date: {
+      //     year: 2021,
+      //     month: 7,
+      //     day: 21,
+      //   },
+      // },
     ],
     IndicePoints: [
       {
@@ -156,14 +157,14 @@ export const annotation:IAnnotationConfig = {
           day: 16,
         },
       },
-      {
-        color: 'green',
-        date: {
-          year: 2021,
-          month: 7,
-          day: 21,
-        },
-      },
+      // {
+      //   color: 'green',
+      //   date: {
+      //     year: 2021,
+      //     month: 7,
+      //     day: 21,
+      //   },
+      // },
     ],
   },
 };

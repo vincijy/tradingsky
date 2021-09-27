@@ -27,7 +27,7 @@ export const annotation:D.IAnnotationConfig = {
         },
       },
       {
-        color: 'red',
+        color: 'green',
         date: {
           year: 2015,
           month: 1,
@@ -77,7 +77,7 @@ export const annotation:D.IAnnotationConfig = {
         },
       },
       {
-        color: 'red',
+        color: 'green',
         date: {
           year: 2015,
           month: 1,

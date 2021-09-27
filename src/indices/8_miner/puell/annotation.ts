@@ -28,14 +28,6 @@ export const annotation:IAnnotationConfig = {
         },
       },
       {
-        color: 'red',
-        date: {
-          year: 2017,
-          month: 12,
-          day: 18,
-        },
-      },
-      {
         color: 'green',
         date: {
           year: 2011,
@@ -107,14 +99,6 @@ export const annotation:IAnnotationConfig = {
           year: 2017,
           month: 12,
           day: 19,
-        },
-      },
-      {
-        color: 'red',
-        date: {
-          year: 2017,
-          month: 12,
-          day: 18,
         },
       },
       {
