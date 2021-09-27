@@ -33,6 +33,7 @@ export default memo(function LSChartBox() {
     loginRequired,
     vipRequired,
     name,
+    assetList,
   } = selectedSubMenu;
   const asset = useAppSelector((state) => state.chart.dataAsset); // 切换币种
 
@@ -69,13 +70,23 @@ export default memo(function LSChartBox() {
       return;
     }
 
+    // 如果当前指标币种无, 展示没数据
+    if (!assetList.includes(asset)) {
+      setLoadingVisible(false);
+      setvipRequiredVisible(false);
+      setCoverImgVisible(false);
+      setNoDataVisible(true);
+      setLoginRegisterRequiredVisible(false);
+      return;
+    }
+
     // 全部重置为false, 必要的时候开启
     setLoadingVisible(false);
     setvipRequiredVisible(false);
     setCoverImgVisible(false);
     setNoDataVisible(false);
     setLoginRegisterRequiredVisible(false);
-  }, [loginRequired, vipRequired, isLogin, role]);
+  }, [loginRequired, vipRequired, isLogin, role, asset, assetList]);
 
   const priceData = useAppSelector((state) => state.chart.priceData);
   const currrentAsset = useAppSelector((state) => state.chart.dataAsset);
@@ -165,6 +176,12 @@ export default memo(function LSChartBox() {
     if (vipRequired && role.code !== 'level2') {
       return;
     }
+
+    // 当前币种无该指标
+    if (!assetList.includes(asset)) {
+      return;
+    }
+
     // TODO: vip
     requestData();
 
