@@ -86,6 +86,7 @@ export const ChartLoadingWrapper = styled.div `
     // border: 1px solid red;
     display: flex;
     justify-content: center;
+    align-items: center;
 `;
 
 
