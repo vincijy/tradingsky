@@ -1,10 +1,8 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 
 import { Button } from 'antd';
-import { MenuFoldOutlined, HeartOutlined } from '@ant-design/icons';
+import { MenuFoldOutlined, HeartFilled, HeartOutlined } from '@ant-design/icons';
 import { useAppSelector, useAppDispatch } from '@/hooks';
-
-import { menus } from '@/indices'; // 分类数据
 import { getHighCharts } from '@/components/chart';
 
 import { toggleMenuVisible } from '@/store/ui/action';
@@ -52,7 +50,9 @@ export default memo(function LSChartBar() {
     reflowChart();
   };
 
-  const collect = () => {
+  const [hasCollected, setHasCollected] = useState((false));
+  const collect = async() => {
+    setHasCollected(!hasCollected);
     if (!userInfo.collection) {
       userInfo.collection = {
         keyPaths: [
@@ -63,27 +63,37 @@ export default memo(function LSChartBar() {
         ],
       };
     }
-    if (!userInfo.collection.keyPaths.map((item) => item.subMenuKey).includes(selectedSubMenu.key)) {
+
+    const keys = userInfo.collection.keyPaths.map((item) => item.subMenuKey);
+    if (!keys.includes(selectedSubMenu.key)) {
       userInfo.collection.keyPaths.push({
         menuKey: selectedMenu.key,
         subMenuKey: selectedSubMenu.key,
       });
     }
+
     dispatch(updateUserInfo({
       userInfo,
     }));
 
-    const params = {
+    await setUserCollection({
       collection: JSON.stringify(userInfo.collection),
-    };
-
-    setUserCollection(params).then(() => {
-      console.log('setUserCollect, done');
-    }).catch(() => {
-      console.error('error');
     });
+    localStorage.setItem('userInfo', JSON.stringify(userInfo));
   };
 
+  useEffect(() => {
+    if (userInfo.collection) {
+      const keyPaths = userInfo.collection.keyPaths;
+      for (const kp of keyPaths) {
+        if (kp.subMenuKey === selectedSubMenu.key) {
+          setHasCollected(true);
+          return;
+        }
+      }
+      setHasCollected(false);
+    }
+  }, [userInfo, selectedSubMenu]);
 
   return (
     <BarWrapper>
@@ -97,7 +107,12 @@ export default memo(function LSChartBar() {
           size='small'
           onClick={ collect }
         >
-          <HeartOutlined />收藏
+          {
+            hasCollected ?
+              <HeartFilled /> :
+              <HeartOutlined />
+          }
+          收藏
         </Button>
       </div>
     </BarWrapper>
