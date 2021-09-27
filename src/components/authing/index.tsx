@@ -13,7 +13,6 @@ import * as UA from '@/store/user/action'; // 改变登录状态
 import { IUserInfo } from '@/store/user/def';
 import { authingConfig, authingComponentConfig } from '@/config';
 
-
 export default memo(function AuthingPanel() {
   const dispatch = useAppDispatch();
   const config = useAppSelector((state) => ({
@@ -38,7 +37,8 @@ export default memo(function AuthingPanel() {
 
   const history = useHistory();
   const isLogin = useAppSelector((state) => state.user.isLogin);
-  const onLogin = (userInfo:IUserInfo) => { // 成功登录
+
+  const onLogin = async(userInfo:IUserInfo) => { // 成功登录
     dispatch(UA.toggleLogin({
       isLogin: true,
     }));
@@ -46,37 +46,26 @@ export default memo(function AuthingPanel() {
       userInfo,
     }));
 
-    // 缓存
+    const { data: role } = await getUserRole();
+    // Authing存储的字段
+    const { data: words } = await getUserColletion();
+    const collctionWord = words.find((w) => w.key === 'collection');
+    // eslint-disable-next-line require-atomic-updates
+    userInfo.role = role;
+    if (collctionWord) {
+      // eslint-disable-next-line require-atomic-updates
+      userInfo.collection = JSON.parse(collctionWord.value) || { keypaths: [] };
+    }
+
     const v = JSON.stringify(userInfo);
     localStorage.setItem('userInfo', v);
 
-    // 获取权限
-    getUserRole()
-      .then((res) => {
-        userInfo.role = res.data;
-        // const v = JSON.stringify(userInfo);
-        // localStorage.setItem('userInfo', v);
-        // 获取用户收藏的指标
-        // eslint-disable-next-line promise/no-nesting
-        getUserColletion()
-          .then((res) => {
-            userInfo.collection = JSON.parse(res.data.value) || { subMenus: [] };
-            const v = JSON.stringify(userInfo);
-            localStorage.setItem('userInfo', v);
-            navigateToChartPage();
-            window.location.reload();
-          })
-          .catch((err) => {
-            console.error(err);
-          });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    navigateToChartPage();
+    window.location.reload();
   };
 
   const navigateToChartPage = () => {
-    history.push('/chart');
+    history && history.push('/chart');
   };
 
   const onRegister = (userInfo:IUserInfo) => { // 成功注册

@@ -10,3 +10,10 @@ export interface Params {
 export interface IResponseChartData {
     rows:TypeDataRow;
 };
+
+export interface IAuthingWord {
+    dataType:string;
+    key:string;
+    label:string;
+    value:string;
+};

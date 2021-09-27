@@ -12,7 +12,7 @@ export default memo(function LSHomeMain() {
 
   // handle function
   const goChart = () => {
-    history.push('/chart');
+    history && history.push('/chart');
   };
 
   return (

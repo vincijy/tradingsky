@@ -53,7 +53,7 @@ export default memo(function LSAppHeader() {
   };
 
   const logout = () => { // 退出登录
-    history.push('/chart');
+    history && history.push('/chart');
     authenticationClient.logout();
     dispatch(UA.toggleLogin({
       isLogin: false,

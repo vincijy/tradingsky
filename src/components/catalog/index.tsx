@@ -85,7 +85,7 @@ export default memo(function LSCatalog() {
         subMenu: subMenuItem,
       },
     }));
-    history.push('/chart');
+    history && history.push('/chart');
     // 页面滚动到顶部
     document.body.scrollTop = document.documentElement.scrollTop = 0;
   };

@@ -2,6 +2,8 @@
 import { AxiosPromise } from 'axios';
 import { IRole, ICollection } from '@/store/user/def';
 import request from '../utils/request';
+import { IAuthingWord } from './def';
+
 /**
  * 获取后端接口数据
  * @returns
@@ -20,7 +22,7 @@ export function makeUserRole():AxiosPromise<IRole> {
   });
 };
 
-export function getUserColletion():AxiosPromise<{value:string}> {
+export function getUserColletion():AxiosPromise<IAuthingWord[]> {
   return request({
     url: '/api/v1/auth/collect',
     params: {},
