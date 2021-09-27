@@ -98,9 +98,9 @@ export default memo(function LSChartMenu() {
       }));
     }
 
-    // 清空, TODO: fix bug
-    const an = getAnnotationManager();
-    an && an.clearAnnotationCircle();
+    const ano = getAnnotationManager();
+    ano && ano.clearAnnotationCircle();
+    s.toolbox && s.toolbox.annotation.enabled && ano && ano.rePaint();
 
     isMobile() && dispatch(toggleMenuVisible({
       menuVisible: false,

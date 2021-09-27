@@ -21,11 +21,7 @@ export const xAxis = {
     setExtremes: function(event:any) {
       if (store.getState().chart.annotationVisible) {
         const ano = getAnnotationManager();
-        if (!ano) {
-          return;
-        }
-        ano.clearAnnotationCircle();
-        ano.drawAnnotationCircle();
+        ano && ano.rePaint();
       }
     },
   },

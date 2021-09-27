@@ -176,6 +176,10 @@ class AnnotationManager {
   public setConfig(ancfg:IAnnotationConfig) {
     this.ancfg = ancfg;
   }
+  public rePaint = () => {
+    this.clearAnnotationCircle();
+    this.drawAnnotationCircle();
+  }
 }
 
 let annotationManager:AnnotationManager;
