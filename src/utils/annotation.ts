@@ -2,6 +2,7 @@ import { getChart } from '@/components/chart';
 import { Point } from 'highcharts';
 import store from '@/store';
 import { IAnnotationConfig } from '@/indices/def';
+import { colorAttrMap } from '@/config/annotation';
 import { findFirstGreater, getTimeStamp } from './date';
 
 interface IStoredcircle {
@@ -13,6 +14,7 @@ interface IStoredcircle {
     };
     attrs:{};
 }
+
 class AnnotationManager {
   public circleStorage:IStoredcircle[];
   private ancfg:IAnnotationConfig;
@@ -46,14 +48,11 @@ class AnnotationManager {
       y,
       r,
     };
-    const attrs = {
-      fill: '#FFFFFF',
-      stroke: color,
-      opacity: 0.8,
-      'stroke-width': 2,
-      zIndex: 0,
-      'stroke-dasharray': 5,
-    };
+    if (color !== 'green' && color !== 'red') {
+      console.error('color should only be green or red');
+      return;
+    }
+    const attrs = colorAttrMap[color as 'green' | 'red'];
     const circle = c.renderer.circle(option.x, option.y, option.r)
       .attr(attrs).add();
     this.circleStorage.push({ circle, option, attrs });
