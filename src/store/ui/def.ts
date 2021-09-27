@@ -27,7 +27,14 @@ export interface IPayloadsetChangeAuthingPanel {
     authingPanel:{
         visible:boolean;
         view:GuardScenes;
-    };}
+    };
+}
+
+export interface IPayloadUpdateLayout {
+    layout:{
+        chartBoxWidth:number;
+    };
+}
 
 export interface IUiState {
     currentMenu:{
@@ -41,6 +48,9 @@ export interface IUiState {
     };
     menuVisible:boolean;
     chartRecreated:boolean;
+    layout:{
+        chartBoxWidth:number;
+    };
 }
 
 export interface IPayloadMap {
@@ -49,6 +59,7 @@ export interface IPayloadMap {
     [A.CHANGE_AUTHING_PANEL]:IPayloadsetChangeAuthingPanel;
     [A.TOGGLE_MENU_VISIBLE]:IPayloadToggleMenuVisible;
     [A.TOGGLE_CHART_RECREATED]:IPayloadToggleChartRecreated;
+    [A.UPDATE_LAYOUT]:IPayloadUpdateLayout;
 
 }
 

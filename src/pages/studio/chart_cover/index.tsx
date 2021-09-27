@@ -1,6 +1,8 @@
 // 第三方
 import React, { memo, useState } from 'react';
 import { useAppSelector } from '@/hooks';
+import { useAppDispatch } from '@/hooks';
+import { updateLayout } from '@/store/ui/action';
 import { CoverWrapper } from './style';
 import Loading from './loading';
 import NoData from './no_data';
@@ -23,8 +25,8 @@ export default memo(function LSChartCover(props:IProps = {
   coverImgVisible: true,
   noDataVisible: false,
 }) {
-  const [width, setWidth] = useState(100);
-
+  const dispatch = useAppDispatch();
+  const width = useAppSelector((state) => state.ui.layout.chartBoxWidth);
   // 渲染完成后, 动态设置宽度为图表的宽度
   setTimeout(() => {
     const el = document.querySelector('.site-layout-background');
@@ -32,7 +34,11 @@ export default memo(function LSChartCover(props:IProps = {
       return;
     }
     const { width: w } = el.getBoundingClientRect();
-    setWidth(w);
+    dispatch(updateLayout({
+      layout: {
+        chartBoxWidth: w - 3,
+      },
+    }));
   }, 0);
 
   const { loadingVisible, loginRegisterRequiredVisible, vipRequiredVisible, coverImgVisible, noDataVisible } = props;

@@ -15,6 +15,9 @@ const initState:IUiState = {
     view: GuardScenes.Login,
   },
   chartRecreated: false,
+  layout: {
+    chartBoxWidth: 0,
+  },
 };
 
 export function reducer(state:IUiState = initState, action:IAction<TypePaylodMapKey>):IUiState {
@@ -43,6 +46,11 @@ export function reducer(state:IUiState = initState, action:IAction<TypePaylodMap
       return {
         ...state,
         chartRecreated: (action as IAction<'TOGGLE_CHART_RECREATED'>).payload.chartRecreated,
+      };
+    case A.UPDATE_LAYOUT:
+      return {
+        ...state,
+        layout: (action as IAction<'UPDATE_LAYOUT'>).payload.layout,
       };
     default:
       return state;

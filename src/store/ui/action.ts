@@ -12,3 +12,5 @@ export const changeAuthingPanel = createAction<D.IPayloadsetChangeAuthingPanel>(
 export const toggleMenuVisible = createAction<D.IPayloadToggleMenuVisible>(A.TOGGLE_MENU_VISIBLE);
 
 export const toggleChartRecreated = createAction<D.IPayloadToggleChartRecreated>(A.TOGGLE_CHART_RECREATED);
+
+export const updateLayout = createAction<D.IPayloadUpdateLayout>(A.UPDATE_LAYOUT);
