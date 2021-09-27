@@ -9,6 +9,11 @@ export const xAxis = {
 
       // TODO: 使用统一的时间格式化工具函数, 避免一些容易搞错的问题
       const date = new Date(value);
+
+      if ((this as any).tickPositionInfo.unitName === 'year') {
+        return `${date.getFullYear()}年`;
+      }
+
       return `${date.getMonth() + 1}月 ${date.getDate()}日`;
     },
   },
