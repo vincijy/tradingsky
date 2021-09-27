@@ -6,6 +6,9 @@ function replaceByPrivate(newOption:any, privateOption:any) {
   if (privateOption.chart && privateOption.chart.plotBackgroundImage) {
     newOption.chart.plotBackgroundImage = privateOption.chart.plotBackgroundImage;
   }
+  if (privateOption.chart && privateOption.chart.tooltip) {
+    newOption.tooltip.formatter = privateOption.chart.tooltip.formatter;
+  }
 }
 
 export function mergeOption(commonOption:any, privateOption:any) {

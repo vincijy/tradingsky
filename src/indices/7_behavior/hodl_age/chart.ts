@@ -15,6 +15,23 @@
  * 个性化图表配置, 用于覆盖默认的配置项
  */
 export const chartBtc = {
+  tooltip: {
+    formatter: function():string {
+      const that = this as any;
+      return that.points.reduce(function(s:any, point:any) {
+        const normal = `${s}<br/>
+        <div style='color: ${point.color};font-size:16px;'>•</div>
+        ${ point.series.name }: ${ (point.y * 100).toFixed(2) }%`;
+
+        const price = `${s}<br/>
+        <div style='color: ${point.color};font-size:16px;'>•</div>
+        ${ point.series.name }: ${ point.y }`;
+
+        return point.series.name === '价格' ? price : normal;
+
+      }, `<b>${ new Date(that.x).toLocaleDateString('zh-CN')}</b>`);
+    },
+  },
   chart: {
     type: 'area',
   },
