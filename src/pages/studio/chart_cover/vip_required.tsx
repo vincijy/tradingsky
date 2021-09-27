@@ -11,7 +11,7 @@ export default memo(function VipRequired() {
         <div className='qrcode-wrap'>
           <div className='qrcode'/>
         </div>
-      </VipTip>,
+      </VipTip>
     </div>
   );
 });
