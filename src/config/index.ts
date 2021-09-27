@@ -1,4 +1,3 @@
-import { GuardMode, GuardScenes } from '@authing/react-ui-components'; // 登录框
 import '@authing/react-ui-components/lib/index.min.css';
 import { chartBtc as initialPrivateOption } from '@/indices/6_sentiment/sopr/chart_btc';
 import { commonOptions } from '@/indices/chart_common';
@@ -24,9 +23,9 @@ export const authingConfig = {
 };
 
 export const authingComponentConfig = {
-  mode: GuardMode.Modal,
+  mode: 'modal',
   title: '欢迎来到LianShuCha',
-  defaultScenes: GuardScenes.Login,
+  defaultScenes: 'login',
   // escCloseable: 'true',
   logo: `${smallLogo}`,
   contentCss: 'true',

@@ -4,7 +4,7 @@ import { useAppDispatch } from '@/hooks';
 import { changeAuthingPanel } from '@/store/ui/action';
 // 组件
 import { Button } from 'antd';
-import { GuardScenes } from '@authing/react-ui-components'; // 登录框
+// import { GuardScenes } from '@authing/react-ui-components'; // 登录框
 
 interface IState {
   text:string;
@@ -19,7 +19,7 @@ export default memo(function LoginButton(props:IState) {
     dispatch(changeAuthingPanel({
       authingPanel: {
         visible: true,
-        view: GuardScenes.Login,
+        view: 'login',
       },
     }));
   };

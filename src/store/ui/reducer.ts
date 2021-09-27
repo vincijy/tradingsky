@@ -1,5 +1,4 @@
 import { menus } from '@/indices';
-import { GuardScenes } from '@authing/react-ui-components'; // 登录框
 import { isMobile } from '@/utils/is';
 import { appInitState } from '@/config';
 import * as A from './action_type';
@@ -16,7 +15,7 @@ const initState:IUiState = {
   loginPanelVisible: false,
   authingPanel: {
     visible: false,
-    view: GuardScenes.Login,
+    view: 'login',
   },
   chartRecreated: false,
   layout: {

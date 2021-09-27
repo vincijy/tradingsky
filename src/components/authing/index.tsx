@@ -1,9 +1,11 @@
 // 第三方
-import { memo, useLayoutEffect } from 'react';
+import React, { memo, useLayoutEffect, lazy, Suspense } from 'react';
 import { useAppSelector, useAppDispatch } from '@/hooks';
 import { useHistory } from 'react-router';
 
-import { AuthingGuard, GuardScenes } from '@authing/react-ui-components'; // 登录框
+
+const AuthingGuard = React.lazy(():any => import('./authing'));
+
 import '@authing/react-ui-components/lib/index.min.css';
 
 import { changeAuthingPanel } from '@/store/ui/action';
@@ -98,7 +100,7 @@ export default memo(function AuthingPanel() {
 
   useLayoutEffect(() => {
     // authing 有毛病, 先通过这样模拟点击
-    if (config.defaultScenes === GuardScenes.Register) {
+    if (config.defaultScenes === 'register') {
       const el = document.querySelector('.authing-guard-to-register-btn');
       el && (el as HTMLElement).click();
     } else {
@@ -108,22 +110,24 @@ export default memo(function AuthingPanel() {
   });
 
   return (
-    <AuthingGuard
-      appId={authingConfig.appId}
-      config={config}
-      visible={isLogin ? false : authingPanel.visible } //
-      onClose={close}
-      onLoad={() => { // 加载中
-        onCloseModal();
-      }}
-      onLogin={onLogin}
-      onRegister={onRegister}
-      onRegisterInfoCompleted={() => { // 成功补充注册信息
-        window.location.reload(); // 提交后刷新页面
-      }}
-      onLoginError={() => {
-        console.error('提示：出现错误');
-      }}
-    />
+    <Suspense fallback={<div>Loading...</div>}>
+      <AuthingGuard
+        appId={authingConfig.appId}
+        config={config}
+        visible={isLogin ? false : authingPanel.visible } //
+        onClose={close}
+        onLoad={() => { // 加载中
+          onCloseModal();
+        }}
+        onLogin={onLogin}
+        onRegister={onRegister}
+        onRegisterInfoCompleted={() => { // 成功补充注册信息
+          window.location.reload(); // 提交后刷新页面
+        }}
+        onLoginError={() => {
+          console.error('提示：出现错误');
+        }}
+      />
+    </Suspense>
   );
 });

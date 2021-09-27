@@ -1,6 +1,5 @@
 import { SubMenuItem, MenuItem } from '@/indices/def';
 import { Action } from 'redux-actions';
-import { GuardScenes } from '@authing/react-ui-components'; // 登录框
 import * as A from './action_type';
 
 export interface IPayloadChangeMenu {
@@ -26,7 +25,7 @@ export interface IPayloadToggleChartRecreated {
 export interface IPayloadsetChangeAuthingPanel {
     authingPanel:{
         visible:boolean;
-        view:GuardScenes;
+        view:'login'|'register';
     };
 }
 
@@ -44,7 +43,7 @@ export interface IUiState {
     loginPanelVisible:boolean;
     authingPanel:{
       visible:boolean;
-      view:GuardScenes;
+      view:'login'|'register';
     };
     menuVisible:boolean;
     chartRecreated:boolean;
