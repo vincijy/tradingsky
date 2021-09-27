@@ -21,6 +21,7 @@ import ethLogo from '@/assets/img/eth_logo.svg';
 
 import { mergeOption } from '@/utils/merge_option';
 import { isMobile } from '@/utils/is';
+import { SubMenuItem } from '@/indices/def';
 import { changeMenu, toggleChartRecreated, toggleMenuVisible } from '../../../store/ui/action';
 import { MenuWrapper } from './style';
 
@@ -28,6 +29,22 @@ export default memo(function LSChartMenu() {
   const dispatch = useAppDispatch();
 
   const { menu: selectedMenu, subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
+
+  const collection = useAppSelector((state) => state.user.userInfo.collection);
+
+  if(collection) {
+    // TODO
+    const collectionSubMenus:SubMenuItem[] = [];
+    collection.keyPaths.forEach((kp) => {
+      const menu = menus.find((item) => item.key === kp.menuKey);
+      if (!menu) {
+        return;
+      }
+      const subMenu = menu.subMenus.find((item) => item.key === kp.subMenuKey);
+      subMenu && collectionSubMenus.push(subMenu);
+    });
+    menus[0].subMenus = collectionSubMenus;
+  }
 
   const asset = useAppSelector((state) => state.chart.dataAsset);
   /**
@@ -37,8 +54,12 @@ export default memo(function LSChartMenu() {
    */
   const onSelect = (e:{keyPath:string[]}) => {
     const { keyPath } = e;
-    const [subMenuKey, menuKey] = keyPath;
-
+    // eslint-disable-next-line prefer-const
+    let [subMenuKey, menuKey] = keyPath;
+    const prefix = 'collection:';
+    if (subMenuKey.includes(prefix)) {
+      subMenuKey = subMenuKey.split(':')[1];
+    }
     const selectedMenuItem = menus.find((item) => item.key === menuKey);
 
     if (!selectedMenuItem) {
@@ -112,6 +133,8 @@ export default memo(function LSChartMenu() {
     }));
   };
 
+  const exceptFirst = menus.slice(1);
+
   return (
     <MenuWrapper>
       <div className='asset-select'>
@@ -144,10 +167,20 @@ export default memo(function LSChartMenu() {
           icon={<HeartOutlined />}
           title='我的收藏'
           className='my-favorite'>
-          <Menu.Item key='h1'>Option 1</Menu.Item>
+          {
+            menus[0] && menus[0].subMenus &&
+              menus[0].subMenus.map((subMenu__) =>
+                <Menu.Item key={`collection:${subMenu__.key}`}>
+                  {
+                    subMenu__.vipRequired ? <span className='vip-icon'>L2</span> : <span className='free-icon'>L1</span>
+                  }
+                  { subMenu__.name }
+                </Menu.Item>,
+              )
+          }
         </Menu.SubMenu>
         {
-          menus.filter((Item) => Item.assetList.indexOf(`${asset}`) > -1).map((menuItem) => (
+          exceptFirst.filter((Item) => Item.assetList.indexOf(`${asset}`) > -1).map((menuItem) => (
             <Menu.SubMenu
               key={menuItem.key}
               icon={menuItem.icon}

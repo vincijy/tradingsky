@@ -8,7 +8,7 @@ import '@authing/react-ui-components/lib/index.min.css';
 
 import { changeAuthingPanel } from '@/store/ui/action';
 
-import { getUserRole, makeUserRole } from '@/api/user';
+import { getUserRole, makeUserRole, getUserColletion } from '@/api/user';
 import * as UA from '@/store/user/action'; // 改变登录状态
 import { IUserInfo } from '@/store/user/def';
 import { authingConfig, authingComponentConfig } from '@/config';
@@ -54,10 +54,21 @@ export default memo(function AuthingPanel() {
     getUserRole()
       .then((res) => {
         userInfo.role = res.data;
-        const v = JSON.stringify(userInfo);
-        localStorage.setItem('userInfo', v);
-        window.location.reload(); // 提交后刷新页面
-        navigateToChartPage();
+        // const v = JSON.stringify(userInfo);
+        // localStorage.setItem('userInfo', v);
+        // 获取用户收藏的指标
+        // eslint-disable-next-line promise/no-nesting
+        getUserColletion()
+          .then((res) => {
+            userInfo.collection = JSON.parse(res.data.value) || { subMenus: [] };
+            const v = JSON.stringify(userInfo);
+            localStorage.setItem('userInfo', v);
+            navigateToChartPage();
+            window.location.reload();
+          })
+          .catch((err) => {
+            console.error(err);
+          });
       })
       .catch((err) => {
         console.error(err);

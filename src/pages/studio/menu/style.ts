@@ -49,7 +49,7 @@ export const MenuWrapper = styled.div `
         border-top: 1px solid rgba(0, 0, 0, 0.1);
 
         .ant-menu-sub{
-            height: 40px;
+            // height: 40px;
         }
     }
 

@@ -5,8 +5,8 @@ import * as A from './action_type';
 import { IUiState, IAction, TypePaylodMapKey } from './def';
 const initState:IUiState = {
   currentMenu: {
-    menu: menus[0],
-    subMenu: menus[0].subMenus[0],
+    menu: menus[1],
+    subMenu: menus[1].subMenus[0],
   },
   menuVisible: !isMobile(),
   loginPanelVisible: false,

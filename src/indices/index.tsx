@@ -10,6 +10,17 @@ import { investorBehavior } from './7_behavior';
 import { miner } from './8_miner';
 export const menus:D.MenuItem[] = [
   /**
+   * 我的收藏
+   */
+  {
+    name: '我的收藏',
+    key: '我的收藏',
+    subMenus: [],
+    icon: '',
+    visible: true,
+    assetList: ['btc', 'eth'],
+  },
+  /**
    * 地址
    */
   address,
