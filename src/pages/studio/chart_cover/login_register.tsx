@@ -18,14 +18,14 @@ export default memo(function LoginRegisterRequired() {
             <LoginButton
               type='primary'
               text='登录'
-            />
+            />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <RegisterButton
               type='primary'
               text='注册'
             />
           </div>
         </ButtonArea>
-      </Provider>,
+      </Provider>
     </div>
   );
 });

@@ -12,7 +12,7 @@ import LSChartCover from '.';
 export default memo(function NoData() {
   return (
     <ChartLoadingWrapper id='chart-loading'>
-       该数据仅比特币拥有
+       该数据仅比特币拥有&nbsp;
       <InfoCircleOutlined />
     </ChartLoadingWrapper>
   );
