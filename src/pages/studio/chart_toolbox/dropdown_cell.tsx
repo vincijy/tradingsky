@@ -63,11 +63,11 @@ export default memo(function ToolboxCell(props:IProps) {
           overlay={getMenuList()}
           placement='bottomRight'>
           <div
-            className='ant-dropdown-link toolbox-cell'
+            className='ant-dropdown-link toolbox-cell-dropdown'
             onClick={(e) => e.preventDefault()}>
-            <div className='toolbox-cell-text-up'>{ seleted }</div>
-            <div className='toolbox-cell-text-down'>{ name }
-              <DownOutlined className='toolbox-btn-icon'/>
+            <div className='toolbox-cell-text-up'>{ name }</div>
+            <div className='toolbox-cell-text-down'>{ seleted }
+              <DownOutlined className='toolbox-btn-icon-dropdown'/>
             </div>
           </div>
         </Dropdown>

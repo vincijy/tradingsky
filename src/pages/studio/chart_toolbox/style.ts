@@ -43,10 +43,23 @@ export const ToolBoxCellWrapper = styled.div `
         -webkit-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        text-align: center;
+    }
+    .toolbox-cell-dropdown {
+        border-right: 1px solid rgb(226, 226, 226);
+        padding: 0.15rem 1rem;
+        cursor: pointer;
+
+        // 文本不可选中
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        text-align: left;
     }
     .toolbox-cell-text-up {
         font-size: 0.65rem;
-        color: rgb(128, 128, 128);
+        // color: rgb(128, 128, 128);
         white-space: nowrap;
     }
     .toolbox-cell-text-down {
@@ -54,9 +67,15 @@ export const ToolBoxCellWrapper = styled.div `
     }
 
     .toolbox-btn-icon {
-        color: rgb(128, 128, 128);
-        font-size: 0.625rem; // 这个无效, 会被antd-card中的css强行覆盖
-        margin-left: 0.5rem;
-        display: inline;
+        margin-left: 0;
+        font-size: 0.9rem;
+        color: black;
+        font-weight: bold;
+    }
+    .toolbox-btn-icon-dropdown {
+        font-size: 0.625rem;
+        color: black;
+        font-weight: bold;
+        margin-left: 0.25rem;
     }
 `;

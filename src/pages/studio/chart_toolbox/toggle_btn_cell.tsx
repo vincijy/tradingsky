@@ -62,15 +62,13 @@ export default memo(function ToggleBtnCell(props:IProps) {
           <div
             className='toolbox-cell-text-up'
           >
-            { currentStatus === true ? trueStatusText : falseStatusText }
+            { name }
           </div>
           <div
             className='toolbox-cell-text-down'
           >
-            { name }
-            { currentStatus === true ?
-              TrueStatusIcon() :
-              FalseStatusIcon()
+            {
+              currentStatus === true ? TrueStatusIcon() : FalseStatusIcon()
             }
           </div>
         </div>

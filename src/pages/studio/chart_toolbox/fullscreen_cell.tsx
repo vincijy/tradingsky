@@ -2,7 +2,7 @@
 // 第三方
 import React, { memo } from 'react';
 import { getChart } from '@/components/chart';
-import { FullscreenExitOutlined } from '@ant-design/icons';
+import { ExpandOutlined } from '@ant-design/icons';
 import ToggleBtnCell from './toggle_btn_cell';
 import { ToolBoxCellName } from './def';
 
@@ -19,10 +19,10 @@ export default memo(function FullScreenCell() {
 
   const getTrueStatusIcon = () => (
     // hack: 因为全屏就看不到这个按钮了, 所以都是 '非全屏'
-    <FullscreenExitOutlined className='toolbox-btn-icon'/>
+    <ExpandOutlined className='toolbox-btn-icon'/>
   );
   const getFalseStatusIcon = () => (
-    <FullscreenExitOutlined className='toolbox-btn-icon'/>
+    <ExpandOutlined className='toolbox-btn-icon'/>
   );
   return (
     <ToggleBtnCell
