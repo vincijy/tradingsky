@@ -7,7 +7,7 @@ import { getAnnotationManager } from '@/utils/annotation';
 import { privateDefaultOptions } from '@/indices/chart_private_default';
 // 功能
 import { menus } from '@/indices'; // 分类数据
-import { changeAsset } from '@/store/chart/action';
+import { changeAsset, toggleAnnotation } from '@/store/chart/action';
 
 // 组件
 import { Menu } from 'antd';
@@ -27,6 +27,7 @@ import { MenuWrapper } from './style';
 
 export default memo(function LSChartMenu() {
   const dispatch = useAppDispatch();
+  const annotationVisible = useAppSelector((state) => state.chart.annotationVisible);
 
   const { menu: selectedMenu, subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
 
@@ -73,13 +74,15 @@ export default memo(function LSChartMenu() {
       console.error('Not found selectedSubMenuItem');
       return;
     }
-    const action = changeMenu({
+    dispatch(changeMenu({
       currentMenu: {
         menu: selectedMenuItem,
         subMenu: s,
       },
-    });
-    dispatch(action);
+    }));
+    dispatch(toggleAnnotation({
+      annotationVisible: false,
+    }));
 
     // 允许重建chart
     dispatch(toggleChartRecreated({
@@ -100,7 +103,6 @@ export default memo(function LSChartMenu() {
 
     const ano = getAnnotationManager();
     ano && ano.clearAnnotationCircle();
-    s.toolbox && s.toolbox.annotation.enabled && ano && ano.rePaint();
 
     isMobile() && dispatch(toggleMenuVisible({
       menuVisible: false,

@@ -4,10 +4,14 @@ import React, { memo, useEffect } from 'react';
 import { getChart } from '@/components/chart';
 import { ExpandOutlined } from '@ant-design/icons';
 import { getAnnotationManager } from '@/utils/annotation';
+import { useAppSelector } from '@/hooks';
 import ToggleBtnCell from './toggle_btn_cell';
 import { ToolBoxCellName } from './def';
 
 export default memo(function FullScreenCell() {
+
+  const annotationVisible = useAppSelector((state) => state.chart.annotationVisible);
+
   const toggleFullScreen = (currentStatus:boolean) => {
     const c = getChart();
     if (!c) {
@@ -15,8 +19,10 @@ export default memo(function FullScreenCell() {
       return;
     }
     c.fullscreen.open();
-    const ano = getAnnotationManager();
-    ano && ano.rePaint();
+    if (annotationVisible) {
+      const ano = getAnnotationManager();
+      ano && ano.rePaint();
+    }
   };
 
   useEffect(() => {
