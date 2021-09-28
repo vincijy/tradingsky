@@ -3,11 +3,12 @@ import { useAppSelector, useAppDispatch } from '@/hooks';
 import LSChartDoubleLine from '@/components/chart/line';
 import { getHighCharts } from '@/components/chart';
 import { getChartData, getAssetPrice } from '@/api/chart';
-import { setPriceData } from '@/store/chart/action';
+import { setPriceData, toggleAnnotation } from '@/store/chart/action';
 import { TypeDataRow } from '@/components/chart/def';
 import axios from 'axios';
 import { CancelTokenSource } from 'axios';
 import { isMobile } from '@/utils/is';
+import { getAnnotationManager } from '@/utils/annotation';
 import LSChartToolbox from '../chart_toolbox';
 import LSChartHead from '../char_head';
 import LSChartCover from '../chart_cover';
@@ -138,29 +139,45 @@ export default memo(function LSChartBox() {
     Promise.all([p1, p2])
       .then((res) => {
         hideLoading();
-        console.log('ddddddd');
         const [dataA, dataB] = res;
+
+        // 指标数据更新
         dataA.length > 0 && setDataA(dataA);
-        if (dataB.length > 0) {
-          setDataB(dataB);
-          // 价格缓存
-          if (currrentAsset === 'btc') {
+
+
+        // 价格数据更新
+        if (dataB.length === 0) {
+          return;
+        }
+        setDataB(dataB);
+
+        // 关闭批注
+        dispatch(toggleAnnotation({
+          annotationVisible: false,
+        }));
+        const an = getAnnotationManager();
+        an && an.clearAnnotationCircle();
+
+        // 存到redux
+        switch (currrentAsset) {
+          case 'btc':
             dispatch(setPriceData({
               priceData: {
                 ...priceData,
                 btc: dataB,
               },
             }));
-          } else if(currrentAsset === 'eth') {
+            break;
+          case 'eth':
             dispatch(setPriceData({
               priceData: {
                 ...priceData,
                 eth: dataB,
               },
             }));
-          };
-        } else {
-          setDataB(priceData[currrentAsset]);
+            break;
+          default:
+            break;
         }
       })
       .catch((err) => {

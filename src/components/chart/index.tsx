@@ -5,6 +5,8 @@ import HSIndicators from 'highcharts/indicators/indicators';
 import { globalOptions } from '@/indices/chart_common/gloabl';
 import offlineExporting from 'highcharts/modules/offline-exporting';
 import colorAxis from 'highcharts/modules/coloraxis';
+import { isProdEnv } from '@/utils/is';
+
 let isSetOption = false;
 
 /**
@@ -34,4 +36,7 @@ export function getChart() {
 export function setChart(c:Highcharts.Chart) {
   chart = c;
 }
-(window as any).getChart = getChart;
+
+if (!isProdEnv) {
+  (window as any).getChart = getChart;
+}

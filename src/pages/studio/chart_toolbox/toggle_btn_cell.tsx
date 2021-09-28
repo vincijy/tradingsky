@@ -27,12 +27,12 @@ interface IProps {
     /**
      * 默认状态
      */
-    defaultStatus:boolean;
+     currentStatus:boolean;
 
     /**
-     * @param currentStatus 当前状态
+     *
      */
-    clickCallback:(currentStatus:boolean) => void;
+    clickCallback:() => void;
 
     /**
      * cell 标题
@@ -41,15 +41,10 @@ interface IProps {
 }
 
 export default memo(function ToggleBtnCell(props:IProps) {
-  const { trueStatusText, falseStatusText, defaultStatus, clickCallback, name } = props;
-  const { TrueStatusIcon, FalseStatusIcon } = props;
-  const [currentStatus, setCurrentStatus] = useState(defaultStatus);
-
+  const { currentStatus, clickCallback, name, TrueStatusIcon, FalseStatusIcon } = props;
   const doClick = (e:React.MouseEvent) => {
     e.preventDefault();
-    const newStatus = !currentStatus;
-    setCurrentStatus(newStatus);
-    clickCallback(newStatus);
+    clickCallback();
   };
 
   return (

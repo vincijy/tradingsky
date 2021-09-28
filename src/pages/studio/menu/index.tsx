@@ -27,8 +27,6 @@ import { MenuWrapper } from './style';
 
 export default memo(function LSChartMenu() {
   const dispatch = useAppDispatch();
-  const annotationVisible = useAppSelector((state) => state.chart.annotationVisible);
-
   const { menu: selectedMenu, subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
 
   const collection = useAppSelector((state) => state.user.userInfo.collection);
@@ -116,7 +114,12 @@ export default memo(function LSChartMenu() {
     setOpenKeys(newOpenKeys as string[]);
   };
 
-  const changeDataAsset = (value:'eth' | 'btc') => { // 币种切换
+  /**
+   * 币种切换以后需要:
+   *  1 批注重新绘制
+   * @param value 币种
+   */
+  const changeDataAsset = (value:'eth' | 'btc') => {
     if (value === 'btc'){
       const action = changeAsset({
         dataAsset: 'btc',

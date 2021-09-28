@@ -1,8 +1,8 @@
 // 基本工具
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { getAnnotationManager } from '@/utils/annotation';
 // 导入所有的reducer模块
+import { isProdEnv } from '@/utils/is';
 import { rootReducer } from './reducer';
 
 // devtool插件
@@ -20,27 +20,7 @@ export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;
 
-const isProductionBuild = process.env.NODE_ENV === 'production';
 
-if (!isProductionBuild) {
+if (!isProdEnv) {
   (window as any).store = store;
 }
-
-// let preSmaPeriod = 0;
-let preAnnotationVisible = false;
-store.subscribe(() => {
-  const v = store.getState().chart.annotationVisible;
-  if (preAnnotationVisible !== v) {
-    console.log('visible change');
-  }
-  preAnnotationVisible = v;
-
-  // const period = store.getState().chart.options.series.find((s as any) => s.id === 'sma').params.period;
-  // if (preSmaPeriod !== period) {
-  //   console.log('period change');
-  //   const an = getAnnotationManager();
-  //   an && an.clearAnnotationCircle();
-  //   an && v && an.drawAnnotationCircle();
-  // }
-  // preSmaPeriod = period;
-});

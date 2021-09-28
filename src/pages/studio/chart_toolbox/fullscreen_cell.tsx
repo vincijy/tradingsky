@@ -12,7 +12,7 @@ export default memo(function FullScreenCell() {
 
   const annotationVisible = useAppSelector((state) => state.chart.annotationVisible);
 
-  const toggleFullScreen = (currentStatus:boolean) => {
+  const openFullScreen = () => {
     const c = getChart();
     if (!c) {
       console.error('Chart not init');
@@ -52,10 +52,10 @@ export default memo(function FullScreenCell() {
   return (
     <ToggleBtnCell
       name={ ToolBoxCellName.FullScreen }
-      clickCallback={(currentStatus:boolean) => toggleFullScreen(currentStatus)}
+      clickCallback={() => openFullScreen()}
       trueStatusText='非全屏' // hack: 因为全屏就看不到这个按钮了, 所以文本都是 '非全屏'
       falseStatusText='非全屏'
-      defaultStatus={ false }
+      currentStatus={ false }
       TrueStatusIcon={ () => getTrueStatusIcon() }
       FalseStatusIcon={ () => getFalseStatusIcon() }
     />
