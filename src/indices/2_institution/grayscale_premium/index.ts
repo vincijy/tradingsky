@@ -26,14 +26,14 @@ export const grayscalePremium:D.SubMenuItem = {
   chart: { btc: chart, eth: chartEth },
   xStart: {
     btc: {
-      year: 2020,
-      month: 12,
-      day: 27,
+      year: 2021,
+      month: 1,
+      day: 1,
     },
     eth: {
-      year: 2020,
-      month: 12,
-      day: 29,
+      year: 2021,
+      month: 1,
+      day: 3,
     },
   },
 };
