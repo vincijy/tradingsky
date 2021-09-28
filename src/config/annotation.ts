@@ -6,18 +6,18 @@
  */
 export const colorAttrMap = {
   'green': {
-    'fill': 'rgba(144, 237, 125, 0.5)',
+    'fill': '#bbedd0',
     'stroke': 'rgb(144, 237, 125)',
     'stroke-width': 1,
-    'opacity': 1,
+    'opacity': 0.8,
     'zIndex': 0,
 
   },
   'red': {
-    'fill': 'rgba(124, 181, 236, 0.5)',
-    'stroke': 'rgb(124, 181, 236)',
+    'fill': '#ffa5a7',
+    'stroke': '#fc6c6e',
     'stroke-width': 1,
-    'opacity': 1,
+    'opacity': 0.8,
     'zIndex': 0,
   },
 };
