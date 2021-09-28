@@ -151,13 +151,6 @@ export default memo(function LSChartBox() {
         }
         setDataB(dataB);
 
-        // 关闭批注
-        dispatch(toggleAnnotation({
-          annotationVisible: false,
-        }));
-        const an = getAnnotationManager();
-        an && an.clearAnnotationCircle();
-
         // 存到redux
         switch (currrentAsset) {
           case 'btc':

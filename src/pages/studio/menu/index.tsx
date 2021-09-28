@@ -136,6 +136,12 @@ export default memo(function LSChartMenu() {
     dispatch(updateChartOption({
       options: selectedSubMenu.chart[value],
     }));
+    // 关闭批注
+    dispatch(toggleAnnotation({
+      annotationVisible: false,
+    }));
+    const an = getAnnotationManager();
+    an && an.clearAnnotationCircle();
   };
 
   const exceptFirst = menus.slice(1);
