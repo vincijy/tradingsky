@@ -6,12 +6,14 @@ import { getChart } from '@/components/chart';
 import { mergeOption } from '@/utils/merge_option';
 import { commonOptions } from '@/indices/chart_common';
 import { toggleChartRecreated } from '@/store/ui/action';
+import { getAnnotationManager } from '@/utils/annotation';
 import DropDownCell from './dropdown_cell';
 import { ToolBoxCellName } from './def';
 
 export default memo(function SmaCell() {
   const dispatch = useAppDispatch();
   const name = useAppSelector((state) => state.ui.currentMenu.subMenu.name);
+  const annotationVisible = useAppSelector((state) => state.chart.annotationVisible);
   const setSma = (selectedMenu:string) => {
     const chart = getChart();
     if (!chart || !chart.options) {
@@ -41,6 +43,10 @@ export default memo(function SmaCell() {
     dispatch(toggleChartRecreated({
       chartRecreated: false,
     }));
+    if (annotationVisible) {
+      const ano = getAnnotationManager();
+      ano && ano.rePaint();
+    }
   };
 
   // read sma, TODO: assert
