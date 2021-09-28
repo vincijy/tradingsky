@@ -1,11 +1,11 @@
 // 第三方
+import ReactDOM from 'react-dom';
 import React, { memo, useLayoutEffect, lazy, Suspense } from 'react';
 import { useAppSelector, useAppDispatch } from '@/hooks';
 import { useHistory } from 'react-router';
-
-
+import { Provider } from 'react-redux';
+import store from '@/store';
 const AuthingGuard = React.lazy(():any => import('./authing'));
-
 import '@authing/react-ui-components/lib/index.min.css';
 
 import { changeAuthingPanel } from '@/store/ui/action';
@@ -15,7 +15,7 @@ import * as UA from '@/store/user/action'; // 改变登录状态
 import { IUserInfo } from '@/store/user/def';
 import { authingConfig, authingComponentConfig } from '@/config';
 
-export default memo(function AuthingPanel() {
+const AuthingPanel = memo(function AuthingPanel() {
   const dispatch = useAppDispatch();
   const config = useAppSelector((state) => ({
     ...authingComponentConfig,
@@ -110,7 +110,7 @@ export default memo(function AuthingPanel() {
   });
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div style={{ 'width': '20px', 'height': '20px', 'border': '1px solid red' }}/>}>
       <AuthingGuard
         appId={authingConfig.appId}
         config={config}
@@ -131,3 +131,14 @@ export default memo(function AuthingPanel() {
     </Suspense>
   );
 });
+
+export function injectAuthingPanel() {
+  const el = document.querySelector('#authing_root');
+  el && ReactDOM.render(
+      <Suspense fallback={<span/>}>
+        <Provider store={store}>
+          <AuthingPanel/>
+        </Provider>
+      </Suspense> as any, el);
+}
+
