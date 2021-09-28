@@ -111,7 +111,7 @@ export default memo(function LSAppHeader() {
         <HeaderRight>
           <div className='side'>
             <a
-              href='https://discord.gg/PNYDupePbA'
+              href='https://discord.gg/jmKw6PRQ7W'
               target='_blank'
               rel='noreferrer'>
               <img style={{ height: '17.5px', marginBottom: '3.5px' }} src={discordLogo} />

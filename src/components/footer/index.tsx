@@ -34,7 +34,7 @@ export default memo(function LSAppFooter() {
           <div className='footer-iphone'>
             <Button
               type='link'
-              href='https://discord.gg/PNYDupePbA'
+              href='https://discord.gg/jmKw6PRQ7W'
               style={{
                 color: 'white',
               }}

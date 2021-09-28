@@ -39,6 +39,10 @@ export const ChartLeft = styled.div `
         @media screen and (min-width: 1024px) and (max-width: 1366px) { // 移动端适配 iPad pro：放大高度
             height: 1310px;
         }
+
+        @media screen and (min-width: 1550px) {
+            height: 1400px; // 大屏适配
+        }
     }
 `;
 
