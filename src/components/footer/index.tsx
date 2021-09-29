@@ -39,7 +39,7 @@ export default memo(function LSAppFooter() {
                 color: 'white',
               }}
               target='_blank' >
-              <img style={{ height: '12px', marginRight: '-6px' }} src={discordLogo} />
+              <img style={{ height: '12.5px', marginRight: '-6px', marginBottom: '3.5px' }} src={discordLogo} />
             </Button>
             <Button
               type='link'
