@@ -121,7 +121,7 @@ export default memo(function LSChartBox() {
     const p2 = new Promise<TypeDataRow>((resolve, reject) => {
       // 如果已经请求过了, 不必再次请求
       if (priceData[currrentAsset].length !== 0) {
-        resolve(initData);
+        resolve(priceData[currrentAsset]);
         return;
       }
 
