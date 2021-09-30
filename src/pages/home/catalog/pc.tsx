@@ -1,22 +1,10 @@
 // 第三方
 import { memo } from 'react';
-import { useHistory } from 'react-router-dom';
 import { useDynamicRender } from '@/utils/dynamic';
-// 组件
-import { Button } from 'antd';
-
 // 本地
-import { CatalogWrapper, CatalogBottom } from './style';
+import { CatalogWrapper } from './pc_style';
 
 export default memo(function LSHomeCatalog() {
-
-  // other hook
-  const history = useHistory();
-
-  // handle function
-  const goCatalog = () => {
-    history.push('/catalog');
-  };
 
   const content = (
     <div className='catalog-container'>

@@ -2,12 +2,10 @@
 import { memo } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { Button } from 'antd';
-import RegisterButton from '@/components/register_btn';
 import { Carousel } from 'antd';
-import { MainWrapper } from './style';
+import { MainWrapper } from './style_mobile';
 
-export default memo(function LSHomeMain() {
+export default memo(function LSHomeMainMobile() {
   // other hook
   const history = useHistory();
 
@@ -20,16 +18,15 @@ export default memo(function LSHomeMain() {
     <MainWrapper>
       <div className='content'>
         <div className='home-container'>
-          <h2>
+          <div className='home-slogon'>
+            <h2>
             链数查：链上数据使投资变得更透明
-          </h2>
-          <h2 className='main-iphone'>
-            链上数据使投资变得更透明
-          </h2>
-          <p>
+            </h2>
+            <p>
                           您的链上数据访问门户，点击查看您的第一张动态数据图表
-          </p>
-          <div className='btns'>
+            </p>
+          </div>
+          <div className='btn-area'>
             <a
               target='_blank'
               rel='noreferrer'
@@ -41,16 +38,16 @@ export default memo(function LSHomeMain() {
             <div className='pad_inner_box'>
               <Carousel autoplay>
                 <div>
-                  <h3></h3>
+                  <h3 />
                 </div>
                 <div>
-                  <h3></h3>
+                  <h3 />
                 </div>
                 <div>
-                  <h3></h3>
+                  <h3 />
                 </div>
                 <div>
-                  <h3></h3>
+                  <h3 />
                 </div>
               </Carousel>
             </div>

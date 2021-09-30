@@ -1,30 +1,28 @@
 // 第三方
-import React, { memo } from 'react';
+import React, { memo, Suspense } from 'react';
 // 功能
 
 // 组件
 import LSAppFooter from '@/components/footer'; // 尾部
 
-import LSHomeMain from './main'; // 主介绍
-import LSHomeCatalog from './catalog'; // 指标列表
-import LSHomeInsight from './insight'; // 洞见
-import LSHomePirate from './pirate'; // 成为海盗
+import { isMobile } from '@/utils/is';
+import LSHomeMainPC from './main/pc'; // 主介绍
+import LSHomeMainMobile from './main/mobile'; // 主介绍
 
 import { HomePageWrapper } from './style';
+
+const LSHomeCatalog = isMobile() ?
+  React.lazy(() => import('./catalog/mobile')) :
+  React.lazy(() => import('./catalog/pc'));
 
 export default memo(function LSHomePage() {
   return (
     <HomePageWrapper>
-      <LSHomeMain />
-      <LSHomeCatalog/>
+      { isMobile() ? <LSHomeMainMobile/> : <LSHomeMainPC /> }
+      <Suspense fallback='<span></span>'>
+        <LSHomeCatalog/>
+      </Suspense>
       <LSAppFooter/>
     </HomePageWrapper>
   );
 });
-
-
-
-// <LSHomeCatalog/>
-// <LSHomeInsight/>
-// <LSHomePirate/>
-// <LSAppFooter/>
