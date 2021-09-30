@@ -22,12 +22,12 @@ export const CatalogWrapper = styled.div `
         visibility: visible;
         animation-duration: 0.6s;
         animation-name: fadeInUp;
-        padding: 20px;
+        width: 90vw;
         .small-text {
             margin-top: 15px;
             font-size: 14px;
             color: gray;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             text-align: center;
             width: 100%;
         }
