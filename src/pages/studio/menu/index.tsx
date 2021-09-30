@@ -90,11 +90,18 @@ export default memo(function LSChartMenu() {
     setOpenKeys(newOpenKeys as string[]);
   };
 
+  const selectCallback = () => {
+    // TODO:
+    setOpenKeys([]);
+  };
+
   const exceptFirst = menus.slice(1);
   return (
     <MenuWrapper>
       <AssetSelector />
-      <CollectionMenus />
+      <CollectionMenus
+        selectCallback={ selectCallback }
+        onOpenChangeCallback={selectCallback}/>
       <Menu
         mode='inline'
         defaultOpenKeys={[]}

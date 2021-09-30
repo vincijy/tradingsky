@@ -20,8 +20,12 @@ import { isMobile } from '@/utils/is';
 import { SubMenuItem } from '@/indices/def';
 import { changeMenu, toggleChartRecreated, toggleMenuVisible } from '../../../store/ui/action';
 import { MenuWrapper } from './style';
-
-export default memo(function CollectionMenus() {
+interface IProps {
+  selectCallback:() => void;
+  onOpenChangeCallback:() => void;
+}
+export default memo(function CollectionMenus(props:IProps) {
+  const { selectCallback, onOpenChangeCallback } = props;
   const dispatch = useAppDispatch();
   const { menu: selectedMenu, subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
 
@@ -53,6 +57,7 @@ export default memo(function CollectionMenus() {
    * @returns void
    */
   const onSelect = (e:{keyPath:string[]}) => {
+    selectCallback();
     const { keyPath } = e;
     const [subMenuKey, menuKey] = keyPath;
     const selectedMenuItem = menus.find((item) => item.key === menuKey);
@@ -107,6 +112,7 @@ export default memo(function CollectionMenus() {
   const onOpenChange = (keys:React.Key[]) => {
     const newOpenKeys = filter(keys, (k) => !includes(openKeys, k));
     setOpenKeys(newOpenKeys as string[]);
+    onOpenChangeCallback();
   };
 
   return (
