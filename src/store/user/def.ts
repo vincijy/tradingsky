@@ -39,7 +39,12 @@ export interface ICollection {
     }[];
 }
 
+export interface IVipDate {
+    vipDate:Date;
+}
+
 export interface IUserInfo extends User {
     role?:IRole;
     collection?:ICollection;
+    vipDate?:IVipDate;
 }

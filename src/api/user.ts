@@ -1,6 +1,6 @@
 // 二次封装的axios
 import { AxiosPromise } from 'axios';
-import { IRole, ICollection } from '@/store/user/def';
+import { IRole, ICollection, IVipDate } from '@/store/user/def';
 import request from '../utils/request';
 import { IAuthingWord } from './def';
 
@@ -39,5 +39,12 @@ export function setUserCollection(params:ISetUserCollectParmas):AxiosPromise<ICo
     url: '/api/v1/auth/collect',
     data: params,
     method: 'POST',
+  });
+};
+
+export function getUserVipdate():AxiosPromise<IVipDate> {
+  return request({
+    url: '/api/v1/auth/vipdate',
+    params: {},
   });
 };

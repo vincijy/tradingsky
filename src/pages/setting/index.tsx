@@ -31,8 +31,8 @@ export default memo(function LSSettingPage() {
               <Form>
                 <Form.Item label='用户名'>
                   <Input
-                    placeholder='恭喜您成为LianShuCha内测用户'
-                    defaultValue='恭喜您成为LianShuCha内测用户' />
+                    placeholder='恭喜您成为LianShuCha的种子用户'
+                    defaultValue='恭喜您成为LianShuCha的种子用户' />
                 </Form.Item>
                 <Form.Item label='手机号'>
                   <Input
@@ -58,7 +58,19 @@ export default memo(function LSSettingPage() {
             tab='费用管理'
             key='2'
             style={{ marginBottom: '500px' }}>
-            正在开发中～
+            <Card
+              title='基本信息'
+              style={{ width: 500, marginBottom: '50px' }}>
+              <Form>
+                <Form.Item label='权限等级'>
+                  { userInfo.role?.description }
+                </Form.Item>
+                <Form.Item label='到期时间'>
+                  { userInfo.vipDate }
+                  {/* <Button style={{ borderRadius: '3px' }}>修改手机号</Button> */}
+                </Form.Item>
+              </Form>
+            </Card>
           </TabPane>
           <TabPane
             tab='开发者工具'

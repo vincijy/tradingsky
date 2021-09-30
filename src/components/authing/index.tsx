@@ -10,7 +10,7 @@ import '@authing/react-ui-components/lib/index.min.css';
 
 import { changeAuthingPanel } from '@/store/ui/action';
 
-import { getUserRole, makeUserRole, getUserColletion } from '@/api/user';
+import { getUserRole, makeUserRole, getUserColletion, getUserVipdate } from '@/api/user';
 import * as UA from '@/store/user/action'; // 改变登录状态
 import { IUserInfo } from '@/store/user/def';
 import { authingConfig, authingComponentConfig } from '@/config';
@@ -52,6 +52,8 @@ const AuthingPanel = memo(function AuthingPanel() {
     // Authing存储的字段
     const { data: words } = await getUserColletion();
     const collctionWord = words.find((w) => w.key === 'collection');
+    const { data: vipDate } = await getUserVipdate();
+    userInfo.vipDate = vipDate;
     // eslint-disable-next-line require-atomic-updates
     userInfo.role = role;
     if (collctionWord) {
