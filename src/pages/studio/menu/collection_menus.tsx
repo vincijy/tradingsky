@@ -10,22 +10,41 @@ import { toggleAnnotation } from '@/store/chart/action';
 // 组件
 import { Menu } from 'antd';
 
+import { HeartOutlined } from '@ant-design/icons';
 import { filter, includes } from 'lodash';
 import { updateChartOption } from '@/store/chart/action';
 import { commonOptions } from '@/indices/chart_common';
 
 import { mergeOption } from '@/utils/merge_option';
 import { isMobile } from '@/utils/is';
+import { SubMenuItem } from '@/indices/def';
 import { changeMenu, toggleChartRecreated, toggleMenuVisible } from '../../../store/ui/action';
 import { MenuWrapper } from './style';
-import CollectionMenus from './collection_menus';
-import AssetSelector from './asset_selector';
 
-export default memo(function LSChartMenu() {
+export default memo(function CollectionMenus() {
   const dispatch = useAppDispatch();
   const { menu: selectedMenu, subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
 
-  const [menus] = useState(indiceMenus);
+  const userInfo = useAppSelector((state) => state.user.userInfo);
+  const [menus, setMenus] = useState(indiceMenus);
+  useEffect(() => {
+    if (!userInfo.collection) {
+      return;
+    }
+    const collectionSubMenus:SubMenuItem[] = [];
+    userInfo.collection.keyPaths.forEach((kp) => {
+      const menu = menus.find((item) => item.key === kp.menuKey);
+      if (!menu) {
+        return;
+      }
+      const subMenu = menu.subMenus.find((item) => item.key === kp.subMenuKey);
+      subMenu && collectionSubMenus.push(subMenu);
+    });
+    menus[0].subMenus = collectionSubMenus;
+    const newMenus = ([] as any).concat(menus);
+    setMenus(newMenus);
+  }, [userInfo]);
+
   const asset = useAppSelector((state) => state.chart.dataAsset);
   /**
    * 根据菜单的路径更新redux
@@ -36,7 +55,6 @@ export default memo(function LSChartMenu() {
     const { keyPath } = e;
     const [subMenuKey, menuKey] = keyPath;
     const selectedMenuItem = menus.find((item) => item.key === menuKey);
-
     if (!selectedMenuItem) {
       console.error('selectedMenuItem not found');
       return;
@@ -90,11 +108,8 @@ export default memo(function LSChartMenu() {
     setOpenKeys(newOpenKeys as string[]);
   };
 
-  const exceptFirst = menus.slice(1);
   return (
     <MenuWrapper>
-      <AssetSelector />
-      <CollectionMenus />
       <Menu
         mode='inline'
         defaultOpenKeys={[]}
@@ -103,26 +118,25 @@ export default memo(function LSChartMenu() {
         openKeys={openKeys} // 一级菜单展开项
         onOpenChange={onOpenChange} // 监听打开的
       >
-        {
-          exceptFirst.filter((Item) => Item.assetList.indexOf(`${asset}`) > -1).map((menuItem) => (
-            <Menu.SubMenu
-              key={`${menuItem.key}`}
-              icon={menuItem.icon}
-              title={menuItem.name}>
-              {
-                menuItem.subMenus.filter((Item) => Item.assetList.indexOf(`${asset}`) > -1).map((subMenuItem) => (
-                  <Menu.Item
-                    key={subMenuItem.key}>
-                    {
-                      subMenuItem.vipRequired ? <span className='vip-icon'>L2</span> : <span className='free-icon'>L1</span>
-                    }
-                    {subMenuItem.name}
-                  </Menu.Item>
-                ))
-              }
-            </Menu.SubMenu>
-          ))
-        }
+        <Menu.SubMenu
+          key='我的收藏'
+          icon={<HeartOutlined />}
+          title='我的收藏'
+          className='my-favorite'>
+          {
+            menus[0] && menus[0].subMenus &&
+              menus[0].subMenus.map((subMenu__) =>
+                <Menu.Item key={`${subMenu__.key}`}>
+                  {
+                    subMenu__.vipRequired ?
+                      <span className='vip-icon'>L2</span> :
+                      <span className='free-icon'>L1</span>
+                  }
+                  { subMenu__.name }
+                </Menu.Item>,
+              )
+          }
+        </Menu.SubMenu>
       </Menu>
     </MenuWrapper>
   );

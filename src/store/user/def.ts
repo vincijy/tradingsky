@@ -15,9 +15,15 @@ export interface IPayloadUpdateUserInfo {
     userInfo:IUserInfo;
 }
 
+export interface IPayloadUpdateUserCollection {
+    collection:ICollection;
+}
+
 export interface IPayloadMap {
     [A.TOGGLE_LOGIN]:IPayloadToggleLogin;
     [A.UPDATE_USER_INFO]:IPayloadUpdateUserInfo;
+    [A.UPDATE_USER_COLLECTION]:IPayloadUpdateUserCollection;
+
 }
 
 export type TypePaylodKey = keyof IPayloadMap;

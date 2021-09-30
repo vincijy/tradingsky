@@ -197,7 +197,7 @@ export default memo(function LSChartBox() {
     requestData();
 
     // 在指标和币种切换的时候,重新请求数据
-  }, [asset, index, isLogin, role, vipRequired, loginRequired, userInfo]);
+  }, [asset, index, isLogin, role, vipRequired, loginRequired]);
 
 
   const [loadingVisible, setLoadingVisible] = useState(false);

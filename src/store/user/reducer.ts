@@ -32,6 +32,15 @@ export function reducer(
         ...state,
         userInfo: (action as IAction<'UPDATE_USER_INFO'>).payload.userInfo,
       };
+    case A.UPDATE_USER_COLLECTION:
+      console.log('collection', (action.payload as any).collection);
+      return {
+        ...state,
+        userInfo: {
+          ...state.userInfo,
+          collection: (action as IAction<'UPDATE_USER_COLLECTION'>).payload.collection,
+        },
+      };
     default:
       return state;
   }
