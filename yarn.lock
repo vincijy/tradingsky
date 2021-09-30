@@ -52,10 +52,10 @@
   resolved "https://registry.nlark.com/@authing/jose/download/@authing/jose-1.0.3.tgz#38ad8586150c526f38c5d6da5fd0065491217e23"
   integrity sha1-OK2FhhUMUm84xdbaX9AGVJEhfiM=
 
-"@authing/react-ui-components@^2.4.34":
-  version "2.4.40"
-  resolved "https://registry.nlark.com/@authing/react-ui-components/download/@authing/react-ui-components-2.4.40.tgz#662e67f4a2288a8f7351d4837a0da693d6247dc4"
-  integrity sha1-Zi5n9KIoio9zUdSDeg2mk9YkfcQ=
+"@authing/react-ui-components@^2.4.50":
+  version "2.4.50"
+  resolved "https://registry.yarnpkg.com/@authing/react-ui-components/-/react-ui-components-2.4.50.tgz#14dff6b1de7c820577d4101698309b240b79176e"
+  integrity sha512-OuN6lj8Rb3k3sFrQbEk0MTm2s9DOT1uFxOlFiuLIa+etVnfZJISaqH3BNYQ/vW2V7K5rnbWs2dDyo3UpMWuWYw==
   dependencies:
     antd "^4.8.0"
     authing-js-sdk "4.20.23"

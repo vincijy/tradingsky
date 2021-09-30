@@ -7,7 +7,7 @@ import { chartEth } from './chart_eth';
 export const active:D.SubMenuItem = {
   name: '活跃地址量',
   key: '活跃地址量',
-  loginRequired: false, // 所有人都能看的指标
+  loginRequired: true, // 所有人都能看的指标
   vipRequired: false,
   visible: true,
   args: {

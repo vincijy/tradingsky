@@ -4,6 +4,7 @@ import { shallowEqual } from 'react-redux';
 import { useAppSelector } from '@/hooks';
 
 import { Tabs, Card, Form, Input, Button } from 'antd';
+import { IdcardOutlined, SolutionOutlined } from '@ant-design/icons';
 import LSAppFooter from '@/components/footer'; // 尾部
 
 import { SettingWrapper } from './style';
@@ -62,12 +63,11 @@ export default memo(function LSSettingPage() {
               title='基本信息'
               style={{ width: 500, marginBottom: '50px' }}>
               <Form>
-                <Form.Item label='权限等级'>
-                  { userInfo.role?.description }
+                <Form.Item label={<span>权限等级 <IdcardOutlined/></span>}>
+                  { userInfo.role?.description === '付费用户' ? '付费用户' : '普通用户' }
                 </Form.Item>
-                <Form.Item label='到期时间'>
-                  { userInfo.vipDate }
-                  {/* <Button style={{ borderRadius: '3px' }}>修改手机号</Button> */}
+                <Form.Item label={<span>到期时间 <SolutionOutlined /></span>}>
+                  { userInfo.role?.description === '付费用户' ? userInfo.vipDate : '非付费用户'}
                 </Form.Item>
               </Form>
             </Card>

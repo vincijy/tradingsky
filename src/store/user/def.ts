@@ -40,7 +40,7 @@ export interface ICollection {
 }
 
 export interface IVipDate {
-    vipDate:Date;
+    vipDate:string;
 }
 
 export interface IUserInfo extends User {
