@@ -9,8 +9,10 @@ export const xAxis = {
 
       // TODO: 使用统一的时间格式化工具函数, 避免一些容易搞错的问题
       const date = new Date(value);
+      const selected = (this as any).chart.rangeSelector.selected;
 
-      if ((this as any).tickPositionInfo.unitName === 'year') {
+      // TODO: magic number
+      if (selected === undefined || selected === 6) {
         return `${date.getFullYear()}年`;
       }
 
