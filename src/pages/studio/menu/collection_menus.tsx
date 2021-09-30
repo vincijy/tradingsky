@@ -26,6 +26,7 @@ export default memo(function CollectionMenus() {
   const { menu: selectedMenu, subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
 
   const userInfo = useAppSelector((state) => state.user.userInfo);
+  const collection = useAppSelector((state) => state.user.userInfo.collection);
   const [menus, setMenus] = useState(indiceMenus);
   useEffect(() => {
     if (!userInfo.collection) {
@@ -43,7 +44,7 @@ export default memo(function CollectionMenus() {
     menus[0].subMenus = collectionSubMenus;
     const newMenus = ([] as any).concat(menus);
     setMenus(newMenus);
-  }, [userInfo]);
+  }, [userInfo, collection]);
 
   const asset = useAppSelector((state) => state.chart.dataAsset);
   /**
