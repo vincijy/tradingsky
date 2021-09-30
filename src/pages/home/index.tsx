@@ -17,9 +17,14 @@ export default memo(function LSHomePage() {
     <HomePageWrapper>
       <LSHomeMain />
       <LSHomeCatalog/>
-      <LSHomeInsight/>
-      <LSHomePirate/>
       <LSAppFooter/>
     </HomePageWrapper>
   );
 });
+
+
+
+// <LSHomeCatalog/>
+// <LSHomeInsight/>
+// <LSHomePirate/>
+// <LSAppFooter/>

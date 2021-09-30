@@ -2,11 +2,86 @@ import styled from 'styled-components';
 import { ossImgs } from '@/oss';
 
 export const CatalogWrapper = styled.div `
-    height: 800px; // 整体大小
-    background: url(${ossImgs.homeCatalog}) no-repeat center; // 图片填充
-    background-size: 95% 95%;
-    margin-top: -100px; // 向上合并一点
-
+    height: 100hv; // 整体大小
+    .catalog-container {
+        justify-content: center;
+        display: flex;
+        width: 100%;
+    }
+    .catalog-text-area {
+        text-align: left;
+        width: 39%;
+        height: 400px;
+        margin-top: 40px;
+        padding-left: 40px;
+        visibility: visible;
+        animation-duration: 0.6s;
+        animation-name: fadeInUp;
+        .head-text {
+            font-size: 33px;
+            font-weight: bold;
+        }
+        .small-text {
+            margin-top: 15px;
+            font-size: 14px;
+            color: gray;
+            margin-bottom: 25px;
+        }
+        p {
+            font-size: 18px;
+            color: #353030;
+            line-height: 30px;
+        }
+        .desc::before {
+            content: " ";
+            width: 8px;
+            height: 8px;
+            border-radius: 100%;
+            background: #fe4066;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 14px;
+        }
+    }
+    .catalog-img-area {
+        background: url(${ossImgs.catalog_chart}) no-repeat center; // 图片填充
+        background-size: 90% 90%;
+        width: 39%;
+        height: 400px;
+        padding: 20px;
+        background-color: #ecedef;
+        border-radius: 20px;
+        visibility: visible;
+        animation-duration: 0.6s;
+        animation-name: fadeInUp;
+    }
+    @-webkit-keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0,100%,0);
+            transform: translate3d(0,100%,0)
+        }
+    
+        100% {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none
+        }
+    }
+    
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0,100%,0);
+            transform: translate3d(0,100%,0)
+        }
+    
+        100% {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none
+        }
+    }
     @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：背景图片隐藏
         /* background: none */
         height: 280px;

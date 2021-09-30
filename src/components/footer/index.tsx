@@ -70,8 +70,10 @@ export default memo(function LSAppFooter() {
       </FooterRight>
     </div>
   );
-  useDynamicRender(content, 'footer_root');
+  // useDynamicRender(content, 'footer_root');
   return (
-    <FooterWrapper id='footer_root'/>
+    <FooterWrapper id='footer_root'>
+      { content }
+    </FooterWrapper>
   );
 });

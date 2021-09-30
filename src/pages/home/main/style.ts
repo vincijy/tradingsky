@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { ossImgs } from '@/oss';
 export const MainWrapper = styled.div `
-    height: 800px; // 整体大小
+    height: 100vh; // 整体大小
+    margin-bottom: 30rem;
 
     @media screen and (min-width: 1550px) {
-        height: 1000px; // 宽屏适配
+        height: 1000px // 宽屏适配
     }
 
     @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：背景图片缩小
@@ -16,8 +17,49 @@ export const MainWrapper = styled.div `
     }
     
     background: url(${ossImgs.homeMain}) no-repeat center; // 图片填充
-    background-size: 95% 95%;
+    background-size: 100% 100%;
 
+    .home-container {
+        color: white;
+        h2 {
+            color: white;
+        }
+        .btn {
+            padding: 0 50px;
+            height: 50px;
+            line-height: 48px;
+            display: inline-block;
+            background-color: #ffffff;
+            border-radius: 4px;
+            font-size: 16px;
+            margin: 25px auto 0;
+            text-decoration: none;
+            font-weight: bold;
+            box-sizing: border-box;
+            border: 2px solid #ffffff;
+            transition: opacity 0.3s;
+            color: #3f239c;
+        }
+        .pad {
+            border: 2px solid black;
+            width: 78%;
+            height: 40rem;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            border-radius: 30px;
+            background: black;
+            padding: 40px;
+            .pad_inner_box {
+                background: white;
+                width: 100%;
+                height: 100%;
+                background: url(${ossImgs.chart_0}) no-repeat center; // 图片填充
+                background-size: 100% 100%;
+            }
+        }
+    }
     .content{
         display: flex;
         align-items: center;
@@ -69,7 +111,7 @@ export const MainWrapper = styled.div `
 
         .btns{
             text-align: center;
-            margin-top: 70px; // 按钮向上间距
+            margin-top: 30px; // 按钮向上间距
 
             @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：按钮排版
                 margin-top: 25px;
