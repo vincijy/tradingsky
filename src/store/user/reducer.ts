@@ -33,7 +33,6 @@ export function reducer(
         userInfo: (action as IAction<'UPDATE_USER_INFO'>).payload.userInfo,
       };
     case A.UPDATE_USER_COLLECTION:
-      console.log('collection', (action.payload as any).collection);
       return {
         ...state,
         userInfo: {

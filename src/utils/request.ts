@@ -45,7 +45,6 @@ instance.interceptors.response.use(
           message.error('服务端错误');
           break;
         default:
-          console.log(err);
           message.error('其他错误信息');
       }
     }

@@ -15,7 +15,6 @@ export default memo(function RegisterButton(props:IState) {
   const { text, type } = props;
   const dispatch = useAppDispatch();
   const show = () => {
-    console.log('register show');
     dispatch(changeAuthingPanel({
       authingPanel: {
         visible: true,

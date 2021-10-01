@@ -39,7 +39,6 @@ const plotLines = [{
   width: 1,
 }];
 
-console.log(plotLines, 'plotLines');
 
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
