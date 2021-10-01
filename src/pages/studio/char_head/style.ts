@@ -12,7 +12,8 @@ export const ChartTitleArea = styled.div `
         /* border: 1px solid black; */
         height: 100%;
         position: relative;
-        width: 80vw;
+        /* width: 80vw; */
+        /* z-index: 0; */
     }
     img {
         width: 16px;
