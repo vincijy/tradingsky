@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { Carousel } from 'antd';
-import { MainWrapper } from './style_pc';
+import { MainWrapper } from './pc_style';
 
 export default memo(function LSHomeMain() {
   // other hook

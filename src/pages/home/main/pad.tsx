@@ -3,9 +3,9 @@ import { memo } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { Carousel } from 'antd';
-import { MainWrapper } from './mobile_style';
+import { MainWrapper } from './pad_style';
 
-export default memo(function LSHomeMainMobile() {
+export default memo(function LSHomeMainPad() {
   // other hook
   const history = useHistory();
 
