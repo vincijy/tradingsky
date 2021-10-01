@@ -28,12 +28,12 @@ export const grayscaleHolding:D.SubMenuItem = {
     btc: {
       year: 2021,
       month: 1,
-      day: 1,
+      day: 5,
     },
     eth: {
       year: 2021,
       month: 1,
-      day: 1,
+      day: 5,
     },
   },
 };
