@@ -1,5 +1,4 @@
 export const introduce = {
-  text: 'Purpose Bitcoin ETF 持有的BTC数量',
-  isURL: false,
-  weiboURL: '',
+  text: 'Purpose Bitcoin ETF 基金持有的BTC数量',
+  height: 1200,
 };

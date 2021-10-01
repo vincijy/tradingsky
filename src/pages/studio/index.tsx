@@ -30,11 +30,15 @@ export default memo(function LSChartPage() {
     }))
   );
 
+  // 选中的菜单
+  const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
+  const { introduce } = selectedSubMenu;
+
   return (
     <ChartWrapper>
       <Layout>
 
-        <ChartLeft>
+        <ChartLeft height={introduce.height}>
           <Sider
             className='side'
             width={280}

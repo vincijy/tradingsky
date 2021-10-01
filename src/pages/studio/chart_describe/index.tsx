@@ -5,7 +5,7 @@ import { Card } from 'antd';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-import { DescribeWrapper } from './style';
+import { DescribeWrapper, MarkdownWrapper } from './style';
 
 export default memo(function LSChartDescribe() {
 
@@ -15,41 +15,21 @@ export default memo(function LSChartDescribe() {
     assetList,
   } = selectedSubMenu;
 
-  const example = `
-
-## 指标介绍
-+ 关于资格
-+ 尼玛
-+ 滚
-
-## 指标使用
-+ fuck
-+ silly
-
-* Lists
-* [ ] todo
-* [x] done
-
-这是一个链接 [菜鸟教程](https://www.runoob.com)
-
-
-> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
-
-`;
-
-
-
   return (
     <DescribeWrapper>
       <div className='content-describe'>
         <Card
           title='指标介绍'
           className='bord-describe'>
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            className='lsc-markdown'>
-            { example }
-          </ReactMarkdown>
+          <MarkdownWrapper>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              className='lsc-markdown'>
+              { introduce.text }
+            </ReactMarkdown>
+            <h3 className='title' >更新币种：</h3>
+            <li>{ assetList.map((item:string) => item.toUpperCase()) + '' }</li>
+          </MarkdownWrapper>
         </Card>
       </div>
     </DescribeWrapper>

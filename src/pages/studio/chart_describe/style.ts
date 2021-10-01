@@ -64,3 +64,32 @@ export const DescribeWrapper = styled.div `
         font-weight: bold;
     }
 `;
+
+export const MarkdownWrapper = styled.div `
+
+    h3:nth-child(1){
+        margin-top: -10px;
+    }
+
+    h3{
+        margin: 5px 0;
+        margin-top: 25px;
+    }
+
+    li{
+        margin: 3px 0;
+    }
+
+    a{
+        color: #212F3D !important;
+        text-decoration: underline;
+    }
+
+    a:hover{
+        font-weight: 200;
+    }
+
+    li:hover{
+        cursor: default;
+    }
+`;

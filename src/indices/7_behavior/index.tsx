@@ -13,8 +13,8 @@ export const investorBehavior:D.MenuItem = {
   visible: true,
   assetList: ['btc', 'eth'],
   subMenus: [
-    longBehavior,
     reserveRisk,
+    longBehavior,
     longSell,
     realizedAge,
     hodlAge,

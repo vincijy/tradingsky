@@ -41,8 +41,7 @@ export interface SubMenuItem {
       */
       introduce:{
         text:string;
-        isURL:boolean;
-        weiboURL:string;
+        height:number;
       };
 
      /**

@@ -1,5 +1,8 @@
 export const introduce = {
-  text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
-  isURL: false,
-  weiboURL: '',
+  text: `### 使用方法
+  + 通过该指标我们可以直观的看到，不同时间点的卖出主要由什么持有年龄的投资者主导。
+  
+  ### 指标原理
+  + 出售时的年龄分布占比统计了不同持有时间的投资者抛售时的占比，颜色越浅，持有时间越短。`,
+  height: 1280,
 };

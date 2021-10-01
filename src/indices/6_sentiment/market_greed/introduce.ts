@@ -1,5 +1,19 @@
 export const introduce = {
-  text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
-  isURL: false,
-  weiboURL: '',
+  text: `### 使用方法
+  + • 蓝色线（0.75-1）：投资者极度贪婪
+  + • 绿色线（0.5-0.75）：投资者开始打破信仰
+  + • 黄色线（0.25-0.5）：投资者开始焦虑
+  + • 橙色线（0-0.25）：投资者开始恐惧
+  + • 红色线（0以下）：投资者极度绝望
+  + 关注蓝色线（数值0.75）：根据历史回测，指标到达0.75以上往往是牛市周期的顶部
+  + 关注红色线（数值0）：根据历史回测，指标跌到0以下往往是熊市周期的底部
+  
+  ### 指标原理
+  + 未实现盈亏 = 账上浮盈/浮亏的金额（持有但未卖出）
+  + 市场贪婪度 = 未实现盈亏占比 = 未实现盈亏 ÷ 市值
+  + 该指标用于衡量市场中的投资者情绪：「未实现盈利」占比较高时，说明投资者极度贪婪；当「未实现亏损」占比较高时投资者极度恐惧。
+  
+  ### 创作者
+  该指标来源于[Adamant Capital](https://medium.com/@adamant_capital/a-primer-on-bitcoin-investor-sentiment-and-changes-in-saving-behavior-a5fb70109d32)`,
+  height: 1560,
 };

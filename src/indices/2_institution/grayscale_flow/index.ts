@@ -26,14 +26,14 @@ export const grayscaleFlow:D.SubMenuItem = {
   chart: { btc: chart, eth: chartEth },
   xStart: {
     btc: {
-      year: 2021,
+      year: 2020,
       month: 1,
       day: 1,
     },
     eth: {
-      year: 2021,
+      year: 2020,
       month: 1,
-      day: 3,
+      day: 1,
     },
   },
 };

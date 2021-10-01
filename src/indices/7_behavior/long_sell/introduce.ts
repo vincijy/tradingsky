@@ -1,5 +1,9 @@
 export const introduce = {
-  text: '交易所余额统计了：Binance, Bitfinex, Bithumb, Bitmex, Bitstamp, Bittrex, Coinbase, Coincheck, Gate.io, Gemini, Hitbtc, Huobi, Kraken, Kucoin, Luno, Okex, Poloniex等主流交易所的余额总量。',
-  isURL: false,
-  weiboURL: '',
+  text: `### 使用方法
+  + 该指标可以帮助我们跟踪市场上的长期持有者是否在大量抛售，当指标出现峰值时，往往说明特定时间段内，长期持有者大量抛售，反之则处于积累状态。
+  
+  ### 指标原理
+  + CDD：coin数量 · 持有时间
+  + 该指标定义了一个随时间推移的CDD平均值，来帮助我们判断今天卖出coin的持有年龄是否比平时都高。`,
+  height: 1310,
 };

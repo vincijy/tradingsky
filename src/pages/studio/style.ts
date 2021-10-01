@@ -1,4 +1,10 @@
 import styled from 'styled-components';
+import * as D from './def';
+import { Props } from './def';
+// import { useAppSelector } from '@/hooks';
+
+// const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
+// const { introduce } = selectedSubMenu;
 
 export const ChartWrapper = styled.div `
     display: flex;
@@ -25,23 +31,23 @@ export const ChartWrapper = styled.div `
     }
 `;
 
-export const ChartLeft = styled.div `
+export const ChartLeft = styled.div<Props> `
     .side{
         overflow: auto;  // 上下滚轮
-        height: 1235px;
+        height: ${ (props) => `${props.height}px` };
         background-color: white;
         border-right: 1px solid rgba(0, 0, 0, 0.1); // 菜单栏右边框
 
         @media screen and (min-width: 768px) and (max-width: 1024px) { // 移动端适配 iPad：放大高度
-            height: 1289px;
+            height: ${ (props) => `${props.height + 110}px`} ;
         }
 
         @media screen and (min-width: 1024px) and (max-width: 1366px) { // 移动端适配 iPad pro：放大高度
-            height: 1310px;
+            height: ${ (props) => `${props.height + 80}px` };
         }
 
         @media screen and (min-width: 1550px) {
-            height: 1400px; // 大屏适配
+            height: ${ (props) => `${props.height + 180}px` }; // 大屏适配
         }
     }
 `;

@@ -52,7 +52,7 @@ export const CoverWrapper = styled.div `
 
 export const ToolBoxCellWrapper = styled.div `
     .toolbox-cell {
-        border-right: 1px solid rgb(226, 226, 226);
+        /* border-right: 1px solid rgb(226, 226, 226); */
         padding: 0.15rem 1rem;
         cursor: pointer;
 
