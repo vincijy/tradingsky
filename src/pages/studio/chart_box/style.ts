@@ -5,7 +5,6 @@ export const BoxWrapper = styled.div `
 
     .content{
         border-bottom: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
-        border-top: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
     }
 
     .ant-card-body {

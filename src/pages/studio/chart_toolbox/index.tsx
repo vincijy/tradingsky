@@ -15,7 +15,7 @@ export default memo(function LSChartToolbox() {
 
   return (
     <ToolBoxWrapper style={{ width: `${width}px` }}>
-      <div className='content'>
+      <div className='toolbox-content'>
         <ul>
           <li>
             { annotation && annotation.enabled && <AnnotationCell /> }

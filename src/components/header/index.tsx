@@ -89,7 +89,7 @@ export default memo(function LSAppHeader() {
   // JSX
   return (
     <HeaderWrapper>
-      <div className='content text-nowrap'>
+      <div className='header-content text-nowrap'>
         <HeaderLeft>
           <ul className='select-list'>
             <NavLink

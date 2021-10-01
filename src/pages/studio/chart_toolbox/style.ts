@@ -10,10 +10,11 @@ export const ToolBoxWrapper = styled.div `
     /* border-top: 1px solid rgb(226, 226, 226); */
     /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); // 边框效果 */
 
-    .content{
+    .toolbox-content{
         text-align: left;
         font-size: large;
-        // border: 1px solid red;
+        border-top: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
         width: 100%;
     }
     li {
