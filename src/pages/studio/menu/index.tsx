@@ -15,7 +15,7 @@ import { updateChartOption } from '@/store/chart/action';
 import { commonOptions } from '@/indices/chart_common';
 
 import { mergeOption } from '@/utils/merge_option';
-import { isMobile } from '@/utils/is';
+import { isMobile, isPad } from '@/utils/is';
 import { changeMenu, toggleChartRecreated, toggleMenuVisible } from '../../../store/ui/action';
 import { MenuWrapper } from './style';
 import CollectionMenus from './collection_menus';
@@ -78,7 +78,7 @@ export default memo(function LSChartMenu() {
     const ano = getAnnotationManager();
     ano && ano.clearAnnotationCircle();
 
-    isMobile() && dispatch(toggleMenuVisible({
+    (isMobile() || isPad()) && dispatch(toggleMenuVisible({
       menuVisible: false,
     }));
   };

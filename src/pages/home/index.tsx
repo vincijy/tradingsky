@@ -37,4 +37,3 @@ export default memo(function LSHomePage() {
     </HomePageWrapper>
   );
 });
-(window as any).isMobile = isMobile;

@@ -1,5 +1,5 @@
 import { menus } from '@/indices';
-import { isMobile } from '@/utils/is';
+import { isMobile, isPad } from '@/utils/is';
 import { appInitState } from '@/config';
 import * as A from './action_type';
 import { IUiState, IAction, TypePaylodMapKey } from './def';
@@ -11,7 +11,7 @@ const initState:IUiState = {
     menu: menus[menuIndex],
     subMenu: menus[menuIndex].subMenus[subMenuIndex],
   },
-  menuVisible: !isMobile(),
+  menuVisible: !isMobile() && !isPad(),
   loginPanelVisible: false,
   authingPanel: {
     visible: false,

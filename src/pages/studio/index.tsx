@@ -8,7 +8,7 @@ import LSAppFooter from '@/components/footer';
 import { Layout } from 'antd';
 import { useAppSelector, useAppDispatch } from '@/hooks';
 import { toggleMenuVisible } from '@/store/ui/action';
-import { isMobile } from '@/utils/is';
+import { isMobile, isPad } from '@/utils/is';
 import { ChartWrapper, ChartLeft, AppFooter, SiteModal } from './style';
 import LSChartMenu from './menu'; // 菜单
 import LSChartBar from './chart_bar'; // 功能栏
@@ -48,7 +48,7 @@ export default memo(function LSChartPage() {
         </ChartLeft>
 
         {
-          !(isMobile() && menuVisible) &&
+          !((isMobile() || isPad()) && menuVisible) &&
           <Layout className='site-layout' >
             <Content className='right-content-wrapper'>
               <div
@@ -65,7 +65,7 @@ export default memo(function LSChartPage() {
         }
 
         {
-          isMobile() && menuVisible &&
+          (isMobile() || isPad()) && menuVisible &&
             <SiteModal onClick={toggleMenu}/>
         }
       </Layout>
