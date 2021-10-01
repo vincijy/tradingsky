@@ -24,7 +24,7 @@ export const cvdd:D.SubMenuItem = {
     },
   },
   chart: { btc: chart, eth: chart },
-  annotation: annotation,
+  annotation: { btc: annotation, eth: annotation },
   xStart: {
     btc: {
       year: 2011,

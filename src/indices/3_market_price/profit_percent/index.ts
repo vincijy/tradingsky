@@ -25,5 +25,5 @@ export const profitPercent:D.SubMenuItem = {
     },
   },
   chart: { btc: chartBtc, eth: chartEth },
-  annotation: annotation,
+  annotation: { btc: annotation, eth: annotation },
 };

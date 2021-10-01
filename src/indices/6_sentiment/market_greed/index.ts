@@ -24,7 +24,7 @@ export const marketGreed:D.SubMenuItem = {
       enabled: true,
     },
   },
-  annotation: annotation,
+  annotation: { btc: annotation, eth: annotation },
   chart: { btc: chartBtc, eth: chartEth },
   xStart: {
     btc: {

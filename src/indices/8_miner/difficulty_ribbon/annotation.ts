@@ -1,6 +1,6 @@
-import { IAnnotationConfig } from '@/indices/def';
+import { IAnnotationConfig, IAnnotation } from '@/indices/def';
 
-export const annotation:IAnnotationConfig = {
+export const annotation:IAnnotation = {
   circle: {
     pricePoints: [
       // {

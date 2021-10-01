@@ -1,7 +1,7 @@
 import { getChart } from '@/components/chart';
 import { Point } from 'highcharts';
 import store from '@/store';
-import { IAnnotationConfig } from '@/indices/def';
+import { IAnnotation } from '@/indices/def';
 import { colorAttrMap } from '@/config/annotation';
 import { findFirstGreater, getTimeStamp } from './date';
 
@@ -17,8 +17,8 @@ interface IStoredcircle {
 
 class AnnotationManager {
   public circleStorage:IStoredcircle[];
-  private ancfg:IAnnotationConfig;
-  constructor(ancfg:IAnnotationConfig) {
+  private ancfg:IAnnotation;
+  constructor(ancfg:IAnnotation) {
     this.circleStorage = [];
     this.ancfg = ancfg;
   }
@@ -172,7 +172,7 @@ class AnnotationManager {
     });
     this.circleStorage = [];
   };
-  public setConfig(ancfg:IAnnotationConfig) {
+  public setConfig(ancfg:IAnnotation) {
     this.ancfg = ancfg;
   }
   public rePaint = () => {
@@ -184,14 +184,16 @@ class AnnotationManager {
 let annotationManager:AnnotationManager;
 export const getAnnotationManager = function() {
   const cfg = store.getState().ui.currentMenu.subMenu.annotation;
-  if (!cfg) {
+  const asset = store.getState().chart.dataAsset;;
+
+  if (!cfg || !cfg[asset]) {
     return;
   }
   if (!annotationManager) {
-    annotationManager = new AnnotationManager(cfg);
+    annotationManager = new AnnotationManager(cfg[asset]);
     return annotationManager;
   }
-  annotationManager.setConfig(cfg);
+  annotationManager.setConfig(cfg[asset]);
   return annotationManager;
 };
 

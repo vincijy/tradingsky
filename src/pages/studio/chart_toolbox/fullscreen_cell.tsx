@@ -35,7 +35,9 @@ export default memo(function FullScreenCell() {
     function exitHandler() {
       const doc = document as any;
       if (!doc.webkitIsFullScreen && !doc.mozFullScreen && !doc.msFullscreenElement) {
-        console.log('Exiting fullscreen. Doing chart stuff.');
+        if (!annotationVisible) {
+          return;
+        }
         const ano = getAnnotationManager();
         ano && ano.rePaint();
       }

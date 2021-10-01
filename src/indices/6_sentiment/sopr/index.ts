@@ -23,7 +23,7 @@ export const sopr = {
     },
   },
   introduce: introduce,
-  annotation: annotation,
+  // annotation: { btc: annotation, eth: annotation },
   chart: { btc: chartBtc, eth: chartEth },
   xStart: {
     btc: {

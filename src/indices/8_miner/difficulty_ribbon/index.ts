@@ -21,7 +21,7 @@ export const difficultyRibbon = {
       enabled: false,
     },
   },
-  annotation: annotation,
+  annotation: { btc: annotation, eth: annotation },
   introduce: introduce,
   chart: { btc: chart, eth: chart },
   xStart: {

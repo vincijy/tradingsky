@@ -22,7 +22,7 @@ export const hashRibbon = {
     },
   },
   introduce: introduce,
-  annotation: annotation,
+  annotation: { btc: annotation, eth: annotation },
   chart: { btc: chart, eth: chart },
   xStart: {
     btc: {

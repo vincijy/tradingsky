@@ -137,29 +137,34 @@ export interface IPoint {
   color:'green' | 'red';
 }
 
+export interface IAnnotation {
+  /**
+   * 画圈标注
+   */
+  circle?:{
+      pricePoints:IPoint[];
+      IndicePoints:IPoint[];
+  };
+
+  /**
+   * 画区域标注
+   */
+  area?:{
+    // TODO
+  };
+
+  /**
+   * 画线性标注
+   */
+  line?:{
+    // TODO
+  };
+}
+
 export interface IAnnotationConfig {
-    /**
-     * 画圈标注
-     */
-    circle?:{
-        pricePoints:IPoint[];
-        IndicePoints:IPoint[];
-    };
-
-    /**
-     * 画区域标注
-     */
-    area?:{
-      // TODO
-    };
-
-    /**
-     * 画线性标注
-     */
-    line?:{
-      // TODO
-    };
-  }
+  btc:IAnnotation;
+  eth:IAnnotation;
+}
 
 
 /**

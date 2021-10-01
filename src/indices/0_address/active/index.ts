@@ -25,5 +25,5 @@ export const active:D.SubMenuItem = {
     },
   },
   chart: { btc: chart, eth: chartEth },
-  annotation: annotation,
+  annotation: { btc: annotation, eth: annotation },
 };
