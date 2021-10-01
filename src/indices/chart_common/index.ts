@@ -6,6 +6,7 @@ import { rangeSelector } from './range_selector';
 import { tooltip } from './tooltip';
 import { legend } from './legend';
 import { xAxis } from './x_axis';
+import { plotBackgroundImage } from './bg';
 /**
  * 多种图表的通用配置
  */
@@ -17,8 +18,8 @@ export const commonOptions = {
   scrollbar: {
 		  enabled: false,
   },
-
   chart: {
+    plotBackgroundImage,
     height: Layout.CHART_HEIGHT, // 图表高度, 图表的高度 = 纯图表高 + naviagator高度 +  日历高度
     zoomType: 'x',
     pinchType: 'x',

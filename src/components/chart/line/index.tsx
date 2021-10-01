@@ -8,6 +8,7 @@ import { useAppSelector } from '@/hooks';
 import { mergeOption } from '@/utils/merge_option';
 import { commonOptions } from '@/indices/chart_common';
 import { IDate } from '@/indices/def';
+import { cloneDeep } from 'lodash';
 import { getHighCharts, setChart } from '../index';
 
 import { constructorType } from '../def';
@@ -200,8 +201,14 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
    * @param chart Highcharts.Chart
    */
   const callback = (chart:Highcharts.Chart) => {
-    // TODO: 顺序
-    const ops = mergeOption(chart.options, commonOptions);
+    // TODO: 顺序重构mergeOption
+    const copy = cloneDeep(commonOptions);
+
+    if (copy.chart && copy.chart.plotBackgroundImage) {
+      delete (copy.chart as any).plotBackgroundImage;
+    }
+
+    const ops = mergeOption(chart.options, copy);
     chart.update(ops, true);
     setChart(chart);
   };

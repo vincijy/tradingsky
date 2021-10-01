@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import waterMask from '@/assets/img/water_mask.jpg';
 import { ossImgs } from '@/oss';
 export const BoxWrapper = styled.div `
     border: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
@@ -91,7 +90,6 @@ export const WaterMask = styled.div ` // 水印
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.5;
-    background: url(${waterMask}) no-repeat center;
     background-size: 50%;
 `;
 

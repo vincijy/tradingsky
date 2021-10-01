@@ -1,5 +1,5 @@
 import { LineColor } from '../../def';
-
+import { plotBackgroundImage } from './bg';
 const plotLines = [{
   value: -.25,
   color: '#5a5a5a',
@@ -35,6 +35,9 @@ const zones = [{
  * 个性化图表配置, 用于覆盖默认的配置项
  */
 export const chart = {
+  chart: {
+    plotBackgroundImage,
+  },
   yAxis: [
     {
       alignTicks: false,

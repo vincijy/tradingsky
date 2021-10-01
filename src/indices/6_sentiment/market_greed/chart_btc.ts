@@ -1,5 +1,5 @@
 import { LineColor } from '../../def';
-
+import { plotBackgroundImage } from './bg';
 const zones = [
   {
     value: 0,
@@ -50,6 +50,9 @@ const plotLines = [{
  * 个性化图表配置, 用于覆盖默认的配置项
  */
 export const chartBtc = {
+  chart: {
+    plotBackgroundImage,
+  },
   yAxis: [
     {
       TickInterval: 0.25, // 刻度间隔
