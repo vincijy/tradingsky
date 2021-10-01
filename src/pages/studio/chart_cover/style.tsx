@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { ossImgs } from '@/oss';
 import * as Layout from '../../../config/layout';
+
 export const CoverWrapper = styled.div `
     // 布局
     position: absolute;
-    // 45 是toolbox高度, TODO, 想办法算出来
-    top: ${Layout.CHART_TOOLBOX_TOP + 45 }px;
-    height: ${Layout.CHART_HEIGHT - Layout.CHART_HEADER_HEIGHT - 45 }px;
+    top: ${Layout.CHART_TOOLBOX_TOP + Layout.TOOLBOX_HEIGHT + 3}px;
+    height: ${Layout.CHART_HEIGHT - Layout.CHART_HEADER_HEIGHT - Layout.TOOLBOX_HEIGHT }px;
     z-index: 1;
     background: white;
     // border: 1px solid red;
@@ -95,7 +95,6 @@ export const ButtonArea = styled.div `
     // border: 1px solid red;
 
     display: flex;
-    aligin-items: center;
     justify-content: center;
     flex-direction: column;
 

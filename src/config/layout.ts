@@ -44,9 +44,12 @@ export const CHART_HEADER_TOP = CHART_OUTLINE_TOP + CHART_HEADER_HEIGHT / 2; // 
 export const CHART_TOOLBOX_TOP = CHART_HEADER_TOP + CHART_HEADER_HEIGHT; // 工具栏距离窗口顶部距离
 
 /**
+ * 工具栏的高度
+ */
+export const TOOLBOX_HEIGHT = 45;
+
+/**
  * 表内容距离顶部的间距(空出位置来放header toolbox 等)
  */
 export const CHART_CONTENT_MARGIN_TOP = 104;
-
-
 

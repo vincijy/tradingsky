@@ -6,5 +6,5 @@ export const legend = {
   verticalAlign: 'top', // 图例位置
   margin: 0,
   align: 'right',
-  y: Layout.CHART_CONTENT_MARGIN_TOP + 24,
+  y: Layout.CHART_CONTENT_MARGIN_TOP + 26,
 };

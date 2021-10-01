@@ -117,7 +117,7 @@ const AuthingPanel = memo(function AuthingPanel() {
   });
 
   return (
-    <Suspense fallback={<div style={{ 'width': '20px', 'height': '20px', 'border': '1px solid red' }}/>}>
+    <Suspense fallback={<div/>}>
       <AuthingGuard
         appId={authingConfig.appId}
         config={config}

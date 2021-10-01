@@ -7,9 +7,7 @@ export const ToolBoxWrapper = styled.div `
     top: ${Layout.CHART_TOOLBOX_TOP}px;
     z-index: 1;
     background: white;
-    /* border-top: 1px solid rgb(226, 226, 226); */
-    /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); // 边框效果 */
-
+    height: ${Layout.TOOLBOX_HEIGHT}px;
     .toolbox-content{
         text-align: left;
         font-size: large;
