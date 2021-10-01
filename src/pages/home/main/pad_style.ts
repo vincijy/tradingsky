@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ossImgs } from '@/oss';
 export const MainWrapper = styled.div `
-    height: 1000px;
+    height: 100vh;
     background: url(${ossImgs.homeMain}) no-repeat center; // 图片填充
     background-size: 100% 58%;
     background-position-y: top;
@@ -17,7 +17,7 @@ export const MainWrapper = styled.div `
                 color: white;
                 text-align: center;
                 color: white;
-                margin-top: 140px;
+                margin-top: 15vh;
                 h2 {
                     font-size: 22px;
                     color: white;
