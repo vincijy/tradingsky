@@ -1,4 +1,3 @@
-import { annotation } from './annotation';
 import { introduce } from './introduce';
 import { chartBtc } from './chart_btc';
 import { chartEth } from './chart_eth';

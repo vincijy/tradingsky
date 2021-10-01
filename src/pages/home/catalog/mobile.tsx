@@ -12,7 +12,7 @@ export default memo(function LSHomeCatalog() {
       <ul className='catalog-text-area'>
         <li className='small-text'>更智能, 更易于使用</li>
         <li className='desc'>精选 40+ 指标, 100+图表, 种类丰富, 分类详细</li>
-        <li className='desc'>基于机器学习及各类算法标记链上地址标签2000万+</li>
+        <li className='desc'>基于机器学习算法标记链上地址标签2000万+</li>
         <li className='desc'>2000+ 付费用户, 区块链投资者、研究人员的理性选择</li>
         <li className='desc'>部署多个全节点，保证数据的稳定性和实时性</li>
         <li className='desc'>专业化的指标原理介绍，让您获取最前沿的数据解读</li>
