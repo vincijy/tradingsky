@@ -23,7 +23,7 @@ export default memo(function LSHomeMainMobile() {
             链数查：链上数据使投资变得更透明
             </h2>
             <p>
-                          您的链上数据访问门户，点击查看您的第一张动态数据图表
+            您的链上数据访问门户，点击查看您的第一张动态数据图表
             </p>
           </div>
           <div className='btn-area'>

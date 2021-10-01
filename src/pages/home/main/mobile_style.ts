@@ -5,7 +5,6 @@ export const MainWrapper = styled.div `
     background: url(${ossImgs.homeMain}) no-repeat center; // 图片填充
     background-size: 100% 58%;
     background-position-y: top;
-
     .content{
         display: flex;
         align-items: center;
@@ -18,13 +17,13 @@ export const MainWrapper = styled.div `
                 color: white;
                 margin-top: 80px;
                 h2 {
-                    font-size: 22px;
                     color: white;
+                    white-space: nowrap;
                 }
                 p{
                     margin-top: 25px;
-                    font-size: 14px;
                     text-align: center; // 文字居中
+                    white-space: nowrap;
                 }
             }
             .btn-area {
