@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 
 export const DescribeWrapper = styled.div `
+    .lsc-markdown {
+        h2 {
+            font-weight: bold;
+        }
+        a {
+            color: red;
+            font-weight: bold;
+        }
+    }
 
     .ant-card-head{
         border-bottom: 1px solid rgba(0, 0, 0, 0.1); // 下边框
@@ -20,10 +29,10 @@ export const DescribeWrapper = styled.div `
     }
 
     .bord-describe{
-        height: 200px;
+        /* height: 200px; */
         border-radius: 2px;
 
-        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：放大高度
+        /* @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：放大高度
             height: 300px;
         }
 
@@ -33,7 +42,7 @@ export const DescribeWrapper = styled.div `
 
         @media screen and (min-width: 1024px) and (max-width: 1366px) { // 移动端适配 iPad pro：放大高度
             height: 250px;
-        }
+        } */
     }
 
     .title{
