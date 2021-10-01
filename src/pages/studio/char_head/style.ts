@@ -7,21 +7,36 @@ export const ChartTitleArea = styled.div `
     height: ${Layout.CHART_HEADER_HEIGHT}px;
     z-index: 1;
     text-align: left;
+    /* border: 1px solid green; */
+    .lsc-head-wrapper {
+        /* border: 1px solid black; */
+        height: 100%;
+        position: relative;
+        width: 80vw;
+    }
     img {
-        widht: 1rem;
-        height: 1rem;
+        width: 16px;
+        height: 16px;
         display: inline-block;
-        vertical-align: middle;
-        margin-left: 4px;
-        margin-bottom: 2px;
+        vertical-align: text-bottom;
+        /* border: 1px solid red; */
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        left:2px;
     }
 
     .chart-title {
         font-size: 1rem;
         display: inline-block;
-        vertical-align: middle;
-        height: ${Layout.CHART_HEADER_HEIGHT}px;;
-        line-height: ${Layout.CHART_HEADER_HEIGHT}px;;
-        margin-left: 4px;
+        vertical-align: baseline;
+        /* border: 1px solid red; */
+        position: absolute;
+        top:50%;
+        left: 20px;
+        transform: translateY(-50%);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis
     }
 `;

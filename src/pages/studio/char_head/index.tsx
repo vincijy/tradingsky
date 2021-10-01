@@ -20,12 +20,18 @@ export default memo(function LSChartHead() {
 
   return (
     <ChartTitleArea>
-      <img
-        src={logo}
-        alt={assetName}
-        className='chart-head-img'
-      />
-      <span className='chart-title'> {assetName}: { name }</span>
+      <div className='lsc-head-wrapper'>
+        <img
+          src={logo}
+          alt={assetName}
+          className='chart-head-img'
+        />
+        <span
+          className='chart-title'
+          style={ { fontSize: isMobile() ? '14px' : '1rem' }}>
+          {assetName}: { name }
+        </span>
+      </div>
     </ChartTitleArea>
   );
 });
