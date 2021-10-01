@@ -1,5 +1,6 @@
 import * as D from '../../def';
-import { annotation } from './annotation';
+import { annotation } from './annotation_btc';
+import { annotationEth } from './annotation_eth';
 import { introduce } from './introduce';
 import { chartBtc } from './chart_btc';
 import { chartEth } from './chart_eth';
@@ -25,5 +26,5 @@ export const profitPercent:D.SubMenuItem = {
     },
   },
   chart: { btc: chartBtc, eth: chartEth },
-  annotation: { btc: annotation, eth: annotation },
+  annotation: { btc: annotation, eth: annotationEth },
 };

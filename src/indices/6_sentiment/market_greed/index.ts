@@ -1,6 +1,7 @@
 import * as D from '../../def';
 import { introduce } from './introduce';
-import { annotation } from './annotation';
+import { annotation } from './annotation_btc';
+import { annotationEth } from './annotation_eth';
 import { chartBtc } from './chart_btc';
 import { chartEth } from './chart_eth';
 
@@ -24,7 +25,7 @@ export const marketGreed:D.SubMenuItem = {
       enabled: true,
     },
   },
-  annotation: { btc: annotation, eth: annotation },
+  annotation: { btc: annotation, eth: annotationEth },
   chart: { btc: chartBtc, eth: chartEth },
   xStart: {
     btc: {
