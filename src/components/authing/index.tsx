@@ -49,15 +49,19 @@ const AuthingPanel = memo(function AuthingPanel() {
     }));
 
     const { data: role } = await getUserRole();
+    userInfo.role = role;
+
     // Authing存储的字段
     const { data: words } = await getUserColletion();
-    const collctionWord = words.find((w) => w.key === 'collection');
-    // eslint-disable-next-line require-atomic-updates
-    userInfo.role = role;
-    if (collctionWord) {
+    if (words) {
+      const collctionWord = words.find((w) => w.key === 'collection');
       // eslint-disable-next-line require-atomic-updates
-      userInfo.collection = JSON.parse(collctionWord.value) || { keypaths: [] };
+      if (collctionWord) {
+        // eslint-disable-next-line require-atomic-updates
+        userInfo.collection = JSON.parse(collctionWord.value) || { keypaths: [] };
+      }
     }
+
     // Vip到期时间
     const { data: vipDate } = await getUserVipdate();
     userInfo.vipDate = vipDate;
