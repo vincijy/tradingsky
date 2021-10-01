@@ -16,7 +16,7 @@ export const MainWrapper = styled.div `
                 color: white;
                 text-align: center;
                 color: white;
-                margin-top: 94px;
+                margin-top: 80px;
                 h2 {
                     font-size: 22px;
                     color: white;

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { ossImgs } from '@/oss';
 
 export const CatalogWrapper = styled.div `
-    height: 100hv; // 整体大小
+    height: 80hv; // 整体大小
     transform: translateY(-100px);
     .catalog-container {
         justify-content: center;
@@ -51,7 +51,7 @@ export const CatalogWrapper = styled.div `
         background: url(${ossImgs.catalog_chart}) no-repeat center; // 图片填充
         background-size: 90% 90%;
         width: 90vw;
-        height: 400px;
+        height: 57vw;
         padding: 20px;
         background-color: #ecedef;
         border-radius: 20px;
