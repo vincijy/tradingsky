@@ -28,7 +28,7 @@ export default memo(function LSHomeInsight() {
           style={{ width: '25vw', height: '18.75vw' }}
           cover={<img
             alt='链数查'
-            src={ossImgs.insightOne}
+            src={ossImgs.chart_0}
             style={{ width: '100%' }} />}
           bordered={false}
         />
@@ -38,7 +38,7 @@ export default memo(function LSHomeInsight() {
           style={{ width: '25vw', height: '18.75vw' }}
           cover={<img
             alt='链数查'
-            src={ossImgs.insightTwo}
+            src={ossImgs.chart_0}
             style={{ width: '100%' }} />}
           bordered={false}
         />
@@ -48,7 +48,7 @@ export default memo(function LSHomeInsight() {
           style={{ width: '25vw', height: '18.75vw' }}
           cover={<img
             alt='链数查'
-            src={ossImgs.insightThree}
+            src={ossImgs.chart_0}
             style={{ width: '100%' }} />}
           bordered={false}
         />

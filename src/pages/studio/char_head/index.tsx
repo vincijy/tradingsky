@@ -17,6 +17,7 @@ export default memo(function LSChartHead() {
       <img
         src={logo}
         alt={assetName}
+        className='chart-head-img'
       />
       <span className='chart-title'> {assetName}：{ name }</span>
     </ChartTitleArea>

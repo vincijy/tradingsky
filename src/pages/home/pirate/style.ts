@@ -20,7 +20,7 @@ export const PirateWrapper = styled.div `
         height: 600px;
     }
 
-    background: url(${ossImgs.homePirate}) no-repeat center; // 图片填充
+    /* background: url(${ossImgs.chart_0}) no-repeat center; // 图片填充 */
     background-size: 95% 95%;
     margin-top: -60px; // 向上合并一点
 

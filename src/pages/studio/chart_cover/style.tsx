@@ -1,9 +1,6 @@
 import styled from 'styled-components';
-import restriction from '@/assets/img/restriction.jpg';
-import waterMask from '@/assets/img/water_mask.jpg';
-import qrcode from '@/assets/img/qrcode.jpg';
+import { ossImgs } from '@/oss';
 import * as Layout from '../../../config/layout';
-
 export const CoverWrapper = styled.div `
     // 布局
     position: absolute;
@@ -48,7 +45,7 @@ export const CoverWrapper = styled.div `
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: url(${restriction}) no-repeat center;
+      background: url(${ossImgs.restriction}) no-repeat center;
       background-size: cover;
    }
 `;
@@ -155,7 +152,7 @@ export const VipTip = styled.div `
         .qrcode {
             width: 150px;
             height:150px;
-            background: url(${qrcode}) no-repeat center;
+            background: url(${ossImgs.qrcode}) no-repeat center;
             background-size: cover;
         }
     }

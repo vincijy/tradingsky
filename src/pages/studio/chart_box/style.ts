@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import waterMask from '@/assets/img/water_mask.jpg';
-import restriction from '@/assets/img/restriction.jpg';
-import qrcode from '@/assets/img/qrcode.jpg';
-
+import { ossImgs } from '@/oss';
 export const BoxWrapper = styled.div `
     border: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
 
@@ -62,7 +60,7 @@ export const BoxWrapper = styled.div `
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: url(${restriction}) no-repeat center;
+        background: url(${ossImgs.restriction}) no-repeat center;
         background-size: cover;
     }
 
