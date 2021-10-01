@@ -73,6 +73,8 @@ export const FooterRight = styled.div `
             @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：字体和间距
                 margin-top: 20px;
                 display: flex;
+
+                margin-left: -11px; // 垂直居中（discord）
             }
         }
 
