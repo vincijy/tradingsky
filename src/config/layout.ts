@@ -1,3 +1,5 @@
+import { isMobile } from '@/utils/is';
+
 /**
  * 导航栏高度
  */
@@ -26,7 +28,10 @@ const CHART_OUTLINE_BOTTOM_OFFSET = 36;
 /**
  * 图表的高度计算
  */
-export const CHART_HEIGHT = window.innerHeight - CHART_OUTLINE_TOP - CHART_OUTLINE_BOTTOM_OFFSET + 100;
+const CHART_HEIGHT_PC = window.innerHeight - CHART_OUTLINE_TOP - CHART_OUTLINE_BOTTOM_OFFSET + 100;
+const CHART_HEIGHT_MOBILE = 450;
+export const CHART_HEIGHT = isMobile() ? CHART_HEIGHT_MOBILE : CHART_HEIGHT_PC;
+
 
 /**
  * 表头标题区域高度
