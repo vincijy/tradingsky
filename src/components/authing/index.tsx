@@ -51,6 +51,10 @@ const AuthingPanel = memo(function AuthingPanel() {
     const { data: role } = await getUserRole();
     userInfo.role = role;
 
+    // Vip到期时间
+    const { data: vipDate } = await getUserVipdate();
+    userInfo.vipDate = vipDate;
+
     // Authing存储的字段
     const { data: words } = await getUserColletion();
     if (words) {
@@ -61,10 +65,6 @@ const AuthingPanel = memo(function AuthingPanel() {
         userInfo.collection = JSON.parse(collctionWord.value) || { keypaths: [] };
       }
     }
-
-    // Vip到期时间
-    const { data: vipDate } = await getUserVipdate();
-    userInfo.vipDate = vipDate;
 
     const v = JSON.stringify(userInfo);
     localStorage.setItem('userInfo', v);

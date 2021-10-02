@@ -83,7 +83,7 @@ export const annotationEth:D.IAnnotation = {
         },
       },
       {
-        color: 'green',
+        color: 'red',
         date: {
           year: 2021,
           month: 9,
@@ -173,7 +173,7 @@ export const annotationEth:D.IAnnotation = {
         },
       },
       {
-        color: 'green',
+        color: 'red',
         date: {
           year: 2021,
           month: 9,

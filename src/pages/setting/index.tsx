@@ -67,7 +67,7 @@ export default memo(function LSSettingPage() {
                   { userInfo.role?.description === '付费用户' ? '付费用户' : '普通用户' }
                 </Form.Item>
                 <Form.Item label={<span>到期时间 <SolutionOutlined /></span>}>
-                  { userInfo.role?.description === '付费用户' ? userInfo.vipDate : '非付费用户'}
+                  { userInfo.role?.description === '付费用户' ? userInfo.vipDate : '您非付费用户'}
                 </Form.Item>
               </Form>
             </Card>
