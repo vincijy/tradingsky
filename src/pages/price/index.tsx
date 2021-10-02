@@ -10,25 +10,25 @@ import { PriceWrapper, PricePageWrapper } from './style';
 
 const priceList = [
   {
-    title: 'VIP-L2',
+    title: '月费',
     price: '¥120',
     unit: '月',
     average: '日均4元',
-    content: 'Access dashboards with the best on-chain data and find out what is happening on the blockchain real-time.',
+    content: '每月付款，价格低至日均4元。解锁L1与L2的所有数据，满足您最基本的数据需求。',
   },
   {
-    title: 'VIP-L2',
+    title: '季费',
     price: '¥299',
     average: '日均3.3元',
     unit: '季',
-    content: 'Access dashboards with the best on-chain data and find out what is happening on the blockchain real-time.',
+    content: '季付款，价格低至日均3.3元。不仅满足您最基本的数据需求，还会为您提供数据市场的最新研报。',
   },
   {
-    title: 'VIP-L2',
+    title: '年费',
     price: '¥999',
     average: '日均2.7元',
     unit: '年',
-    content: 'Access dashboards with the best on-chain data and find out what is happening on the blockchain real-time.',
+    content: '年付款，价格低至日均2.7元。有更专业的科学家团队为您解读数据原理，帮助您与数据更好的结合。',
   },
 ];
 

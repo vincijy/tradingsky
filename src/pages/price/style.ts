@@ -3,6 +3,9 @@ export const PriceWrapper = styled.div `
     display: flex;
     justify-content: center;
     margin-top: 45px;
+    @media screen and (min-width: 1550px) {
+        height: 775px; // 宽屏适配
+    }
     .site-card-wrapper {
         padding: 30px;
         background: white;
@@ -19,14 +22,14 @@ export const PriceWrapper = styled.div `
 
         }
         .ant-card-head {
-            background: #492e9e;
+            background: white;
             .ant-card-head-title {
-                color: white;
+                color: black;
             }
         }
 
         .price-money {
-            color:  #492e9e;
+            color:  #000000;
             font-size: 64px;
             line-height: 72px;
             font-weight: 600;
@@ -37,16 +40,16 @@ export const PriceWrapper = styled.div `
         .price-average {
             font-size: 16px; 
             margin-bottom: 20px;
-            color: #aaaaaa;
+            color: #000000;
         }
         .price-desc {
-            color: #492e9e;
+            color: #000000;
             text-align: center;
             height: 200px;
             width: 200px;
         }
         button {
-            background: #492e9e;
+            background: #000000;
             margin-bottom: 40px;
         }
     }
