@@ -25,6 +25,11 @@ const routes = [
     exact: true,
     component: dc(() => import( '@/pages/pirate'), undefined),
   },
+  {
+    path: '/price',
+    exact: true,
+    component: dc(() => import( '@/pages/price'), undefined),
+  },
 ];
 
 export default routes;

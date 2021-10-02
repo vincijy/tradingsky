@@ -32,7 +32,7 @@ export default memo(function LSAppHeader() {
   // handle
   // TODO: fix any type
   const showItem = (item:any, index:number) => {
-    if(index < 3){
+    if(index < 4){
       return (
         <NavLink
           exact
