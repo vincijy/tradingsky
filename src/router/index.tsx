@@ -30,6 +30,16 @@ const routes = [
     exact: true,
     component: dc(() => import( '@/pages/price'), undefined),
   },
+  {
+    path: '/term',
+    exact: true,
+    component: dc(() => import( '@/pages/term'), undefined),
+  },
+  {
+    path: '/privacy',
+    exact: true,
+    component: dc(() => import( '@/pages/privacy'), undefined),
+  },
 ];
 
 export default routes;

@@ -23,6 +23,7 @@ export default memo(function LSChartDescribe() {
           className='bord-describe'>
           <MarkdownWrapper>
             <ReactMarkdown
+              linkTarget='_blank'
               remarkPlugins={[remarkGfm]}
               className='lsc-markdown'>
               { introduce.text }
