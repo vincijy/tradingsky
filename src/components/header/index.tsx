@@ -32,7 +32,15 @@ export default memo(function LSAppHeader() {
   // handle
   // TODO: fix any type
   const showItem = (item:any, index:number) => {
-    if(index < 4){
+    if(item.title === '洞见'){
+      return (
+        <a
+          href={item.link}
+          rel='noreferrer'
+          target='_blank' >{item.title}
+        </a>
+      );
+    }else{
       return (
         <NavLink
           exact
@@ -40,14 +48,6 @@ export default memo(function LSAppHeader() {
           activeClassName='active'>
           {item.title}
         </NavLink>
-      );
-    }else{
-      return (
-        <a
-          href={item.link}
-          rel='noreferrer'
-          target='_blank' >{item.title}
-        </a>
       );
     }
   };
