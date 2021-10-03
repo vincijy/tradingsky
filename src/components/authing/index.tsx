@@ -51,9 +51,15 @@ const AuthingPanel = memo(function AuthingPanel() {
     const { data: role } = await getUserRole();
     userInfo.role = role;
 
+    let v = JSON.stringify(userInfo);
+    localStorage.setItem('userInfo', v);
+
     // Vip到期时间
     const { data: vipDate } = await getUserVipdate();
     userInfo.vipDate = vipDate;
+
+    v = JSON.stringify(userInfo);
+    localStorage.setItem('userInfo', v);
 
     // Authing存储的字段
     const { data: words } = await getUserColletion();
@@ -66,7 +72,7 @@ const AuthingPanel = memo(function AuthingPanel() {
       }
     }
 
-    const v = JSON.stringify(userInfo);
+    v = JSON.stringify(userInfo);
     localStorage.setItem('userInfo', v);
 
     navigateToChartPage();
