@@ -1,7 +1,4 @@
 import '@authing/react-ui-components/lib/index.min.css';
-import { chartBtc as initialPrivateOption } from '@/indices/6_sentiment/sopr/chart_btc';
-import { commonOptions } from '@/indices/chart_common';
-import { mergeOption } from '@/utils/merge_option';
 
 import smallLogo from '@/assets/img/logo.png';
 // 开发环境
@@ -31,8 +28,3 @@ export const authingComponentConfig = {
   contentCss: 'true',
 };
 
-export const appInitState = {
-  chartOptions: mergeOption(commonOptions, initialPrivateOption),
-  menuIndex: 7,
-  subMenuIndex: 0,
-};

@@ -8,6 +8,7 @@ import { getHighCharts } from '@/components/chart';
 import { toggleMenuVisible } from '@/store/ui/action';
 import { updateLayout } from '@/store/ui/action';
 import CollectionButton from './collection_button';
+import ShareButton from './share_button';
 import { BarWrapper } from './style';
 
 export default memo(function LSChartBar() {
@@ -46,6 +47,7 @@ export default memo(function LSChartBar() {
     reflowChart();
   };
 
+
   return (
     <BarWrapper>
       <div className='bar'>
@@ -55,6 +57,7 @@ export default memo(function LSChartBar() {
           <MenuFoldOutlined />
         </Button>
         <CollectionButton />
+        <ShareButton />
       </div>
     </BarWrapper>
   );

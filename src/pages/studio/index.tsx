@@ -1,5 +1,5 @@
 // 第三方
-import React, { memo, useState, useCallback } from 'react';
+import React, { memo, useState, useCallback, useEffect } from 'react';
 
 // 功能
 
@@ -14,6 +14,7 @@ import LSChartMenu from './menu'; // 菜单
 import LSChartBar from './chart_bar'; // 功能栏
 import LSChartBox from './chart_box'; // 图表框
 import LSChartDescribe from './chart_describe';
+
 export default memo(function LSChartPage() {
 
   // 移动端适配, 在移动端, 初始化的时候不显示左侧菜单
@@ -46,7 +47,6 @@ export default memo(function LSChartPage() {
             <LSChartMenu />
           </Sider>
         </ChartLeft>
-
         {
           !((isMobile() || isPad()) && menuVisible) &&
           <Layout className='site-layout' >
@@ -65,6 +65,7 @@ export default memo(function LSChartPage() {
         }
 
         {
+          // 手机或者PAD的情况下, 如果菜单可见, 弹一层遮障
           (isMobile() || isPad()) && menuVisible &&
             <SiteModal onClick={toggleMenu}/>
         }

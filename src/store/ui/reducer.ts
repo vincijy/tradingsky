@@ -1,15 +1,14 @@
-import { menus } from '@/indices';
+
 import { isMobile, isPad } from '@/utils/is';
-import { appInitState } from '@/config';
+import { getAppInitState } from '@/config/init_state';
 import * as A from './action_type';
 import { IUiState, IAction, TypePaylodMapKey } from './def';
 
-const { menuIndex, subMenuIndex } = appInitState;
 const initState:IUiState = {
   currentMenu: {
     // 默认展示sopr
-    menu: menus[menuIndex],
-    subMenu: menus[menuIndex].subMenus[subMenuIndex],
+    menu: getAppInitState().menu,
+    subMenu: getAppInitState().subMenu,
   },
   menuVisible: !isMobile() && !isPad(),
   loginPanelVisible: false,
@@ -26,6 +25,10 @@ const initState:IUiState = {
 export function reducer(state:IUiState = initState, action:IAction<TypePaylodMapKey>):IUiState {
   switch (action.type) {
     case A.CHANGE_MENU:
+      // TODO: 处理
+      // eslint-disable-next-line no-case-declarations
+      const { args: { index } } = (action as IAction<'CHANGE_MENU'>).payload.currentMenu.subMenu;
+      window.history.pushState('', '', `/chart?index=${index}`);
       return {
         ...state,
         currentMenu: (action as IAction<'CHANGE_MENU'>).payload.currentMenu,

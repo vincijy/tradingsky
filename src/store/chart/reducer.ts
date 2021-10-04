@@ -1,13 +1,12 @@
-import { appInitState } from '@/config';
+import { getAppInitState } from '@/config/init_state';
 import * as A from './action_type';
 import { IChartState, IAction, TypePaylodMapKey } from './def';
-
 const initState:IChartState = {
   priceData: {
     btc: [],
     eth: [],
   },
-  options: appInitState.chartOptions,
+  options: getAppInitState().chartOptions,
   annotationVisible: false,
   dataAsset: 'btc',
 };
