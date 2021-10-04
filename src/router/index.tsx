@@ -1,44 +1,45 @@
 import { dynamicComponent as dc } from '@/utils/dynamic';
+import { lazy } from 'react';
 const routes = [
   {
     path: '/',
     exact: true,
-    component: dc(() => import('@/pages/home'), undefined),
+    component: lazy(() => import('@/pages/home')),
   },
   {
     path: '/chart',
     exact: true,
-    component: dc(() => import( '@/pages/studio'), undefined),
+    component: lazy(() => import( '@/pages/studio')),
   },
   {
     path: '/catalog',
     exact: true,
-    component: dc(() => import( '@/pages/catalog'), undefined),
+    component: lazy(() => import( '@/pages/catalog')),
   },
   {
     path: '/setting',
     exact: true,
-    component: dc(() => import( '@/pages/setting'), undefined),
+    component: lazy(() => import( '@/pages/setting')),
   },
   {
     path: '/pirate',
     exact: true,
-    component: dc(() => import( '@/pages/pirate'), undefined),
+    component: lazy(() => import( '@/pages/pirate')),
   },
   {
     path: '/price',
     exact: true,
-    component: dc(() => import( '@/pages/price'), undefined),
+    component: lazy(() => import( '@/pages/price')),
   },
   {
     path: '/term',
     exact: true,
-    component: dc(() => import( '@/pages/term'), undefined),
+    component: lazy(() => import( '@/pages/term')),
   },
   {
     path: '/privacy',
     exact: true,
-    component: dc(() => import( '@/pages/privacy'), undefined),
+    component: lazy(() => import( '@/pages/privacy')),
   },
 ];
 

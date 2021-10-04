@@ -143,6 +143,12 @@ export const VipTip = styled.div `
         font-size: 1rem;
         letter-spacing: 2px;
         font-size: bold;
+        text-align: center;
+        a {
+            color: rgb(247, 147, 26);
+            text-decoration: underline;
+            display: block;
+        }
     }
     .qrcode-wrap {
         display: flex;
