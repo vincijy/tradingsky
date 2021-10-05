@@ -8,7 +8,7 @@ const initState:IChartState = {
   },
   options: getAppInitState().chartOptions,
   annotationVisible: false,
-  dataAsset: 'btc',
+  dataAsset: getAppInitState().dataAsset,
 };
 
 export function reducer(state:IChartState = initState, action:IAction<TypePaylodMapKey>):IChartState {
