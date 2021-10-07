@@ -15,8 +15,14 @@ import { constructorType } from '../def';
 import * as D from './def';
 import { convert, cutDataByDate, assignSmaDataToSerie } from './util';
 interface IRow{
-  index:number; t:number; o:any;
-}
+  r:{
+    o:{
+      v:string;
+    };
+    t:string;
+  };
+};
+
 export default memo(function LSChartDoubleLine(props:D.IProps) {
   const { seriesA, seriesB } = props;
   const{ data: dataA } = seriesA;
@@ -27,14 +33,43 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
   const asset = useAppSelector((state) => state.chart.dataAsset);
   const currentMenu = useAppSelector((state) => state.ui.currentMenu.subMenu);
   const series = options.series as D.ISerie[];
+
+  // 确定对应币种的起始切割时间
   let startDate = null;
   if (xStart && xStart[asset] !== undefined) {
     startDate = xStart[asset];
   }
 
+  // 根据起始时间切割数据
   const dataMayCut = (data:[number, number][], startDate:IDate|null) => {
     const res:[number, number][] = startDate ? cutDataByDate(data, startDate) : data;
     return res;
+  };
+
+  // 处理STOF 价格线 彩虹
+  const handlePriceSTOF = (priceV:[number, number][]) => {
+    const plotLines = options.xAxis.plotLines;
+    price.data = priceV.map((item) => ({ x: item[0], y: item[1] }));
+    const t0 = plotLines[0].value;
+    const t1 = plotLines[1].value;
+    const t2 = plotLines[2].value;
+    const t3 = plotLines[3].value;
+    const dt0 = t1 - t0;
+    const dt1 = t2 - t1;
+    const dt2 = t3 - t2;
+    for (const cell of price.data) {
+      if (cell.x < t0) {
+        cell.colorValue = 1400 - ((t0 - cell.x) / dt0 * 1400);
+      } else if (t0 < cell.x && cell.x <= t1) {
+        cell.colorValue = (cell.x - t0) / dt0 * 1400;
+      } else if(t1 < cell.x && cell.x <= t2) {
+        cell.colorValue = (cell.x - t1) / dt1 * 1400;
+      } else if (t2 < cell.x && cell.x <= t3) {
+        cell.colorValue = (cell.x - t2) / dt2 * 1400;
+      } else {
+        cell.colorValue = (cell.x - t2) / dt2 * 1400;
+      }
+    }
   };
 
   // 价格线处理
@@ -44,155 +79,71 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
   }
 
   if (price) {
-    const priceV = dataMayCut(convert(dataB).v, startDate);
+    const d = convert(dataB).v;
+    if (!d) {
+      console.error('Cannot convert data');
+    }
+    const priceV = dataMayCut(d, startDate);
+    // 对于Stock-to-Flow 模型模型价格线需要特殊处理
     if (currentMenu.key === 'Stock-to-Flow 模型') {
-      const plotLines = options.xAxis.plotLines;
-      price.data = priceV.map((item) => ({ x: item[0], y: item[1] }));
-      const t0 = plotLines[0].value;
-      const t1 = plotLines[1].value;
-      const t2 = plotLines[2].value;
-      const t3 = plotLines[3].value;
-      const dt0 = t1 - t0;
-      const dt1 = t2 - t1;
-      const dt2 = t3 - t2;
-      for (const cell of price.data) {
-        if (cell.x < t0) {
-          cell.colorValue = 1400 - ((t0 - cell.x) / dt0 * 1400);
-        } else if (t0 < cell.x && cell.x <= t1) {
-          cell.colorValue = (cell.x - t0) / dt0 * 1400;
-        } else if(t1 < cell.x && cell.x <= t2) {
-          cell.colorValue = (cell.x - t1) / dt1 * 1400;
-        } else if (t2 < cell.x && cell.x <= t3) {
-          cell.colorValue = (cell.x - t2) / dt2 * 1400;
-        } else {
-          cell.colorValue = (cell.x - t2) / dt2 * 1400;
-        }
-      }
+      handlePriceSTOF(priceV);
     } else {
       price.data = priceV;
     }
   }
 
-  const handleMultiIndices = (startDate:IDate|null) => {
-    // 指标配置上的name必须对应得上
-    let ks:string[] = [];
-    ks = ks.concat(D.CURRENCIES).concat(['v_cvdd', 'v_pru']);
-    const sma = series.find((s:D.ISerie) => s.id === 'sma');
-    for (const name of ks) {
-      const serie = series.find((s) => s.name === name);
-      if (serie) {
-        const res = convert(dataA);
-        const data:[number, number][] = (res as any)[name];
-        serie.data = dataMayCut(data, startDate);
-        sma && assignSmaDataToSerie(series[0], sma);
-      }
+  const handleData = (startDate:IDate|null) => {
+    // 目的是为了构造出 类似这样的数据 res = { v: [[1, 345], [2, 234]], m: [[1, 456], [2, 555]]}
+    const rows = dataA as IRow[];
+    if (rows.length === 0) {
+      return;
     }
-  };
+    const res:{[k:string]:[number, number]} = {};
+    const firstRow = rows[0];
 
-  const handleNormalIndices = (startDate:IDate|null) => {
-    const data = convert(dataA).v;
-    series[0].data = dataMayCut(data, startDate);
-    const sma = series.find((s:D.ISerie) => s.id === 'sma');
-    sma && assignSmaDataToSerie(series[0], sma);
-  };
+    // check
+    const oKeys = Object.keys(firstRow.r.o);
 
-  const handleOData = (keysOfO:string[], startDate:IDate|null) => {
-    const o = {} as any;
-    keysOfO.forEach((k) => {
-      o[k] = [];
+    oKeys.forEach((k) => {
+      (res as any)[k] = [];
     });
-    const data = dataA as IRow[];
-    data.forEach((item) => {
+    rows.forEach((row:IRow) => {
       // JS的时间戳和unix的 相差* 1000
-      const x = item.t * 1000;
-      for (const key of Object.keys(o)) {
-        if (!(item as any)['o']) {
-          continue;
+      const r = row.r;
+      const x = parseInt(r.t) * 1000;
+      const oValues = r.o as any;
+      for (const key of oKeys) {
+        const value = oValues[key];
+        if (value !== undefined && value !== null && value !== '') {
+          (res as any)[key].push([x, parseFloat(value)]);
         }
-        const value = ((item as any)['o'] as any)[key];
-        if (value !== undefined) {
-          (o as any)[key].push([x, value]);
+        if (typeof value === 'number') {
+          (res as any)[key].push([x, value]);
         }
       }
     });
-
-    for (const name of Object.keys(o)) {
-      const serie = series.find((s) => s.name === name);
-      const sma = series.find((s) => s.id === 'sma');
-      if (serie) {
-        const data:[number, number][] = (o as any)[name];
-        serie.data = dataMayCut(data, startDate);
-        sma && assignSmaDataToSerie(serie, sma);
+    const sma = series.find((s) => s.id === 'sma');
+    // 对于单指标, v
+    if (oKeys.includes('v')) {
+      const serie = series[0];
+      const data:[number, number][] = (res as any)['v'];
+      serie.data = dataMayCut(data, startDate);
+      sma && assignSmaDataToSerie(serie, sma);
+      return;
+    }
+    for (const name of oKeys) {
+      // TODO: 后端接口发过来x开头的指标名, 因为数据库表名不给数字开头
+      let serie = series.find((s) => s.id === name || `x${s.id}` === name);
+      if (!serie) {
+        continue;
       }
+      const data:[number, number][] = (res as any)[name];
+      serie.data = dataMayCut(data, startDate);
+      sma && assignSmaDataToSerie(serie, sma);
     }
   };
 
-  // '稳定币累计流通量' 特殊情况处理 TODO分离出特定逻辑, 由外部注入
-  if (currentMenu.key === '稳定币累计流通量' || currentMenu.key === 'CVDD底部指标') {
-    handleMultiIndices(startDate);
-  } else if (currentMenu.key === '持有年龄分布') {
-    const o = [
-      '24h',
-      '1d_1w',
-      '1w_1m',
-      '1m_3m',
-      '3m_6m',
-      '6m_12m',
-      '1y_2y',
-      '2y_3y',
-      '3y_5y',
-      '5y_7y',
-      '7y_10y',
-      'more_10y',
-    ];
-    handleOData(o, startDate);
-  } else if (currentMenu.key === '出售时的年龄分布占比') {
-    const o = [
-      '1h',
-      '1h_24h',
-      '1d_1w',
-      '1w_1m',
-      '1m_3m',
-      '3m_6m',
-      '6m_12m',
-      '1y_2y',
-      '2y_3y',
-      '3y_5y',
-      '5y_7y',
-      '7y_10y',
-      'more_10y',
-    ];
-    handleOData(o, startDate);
-  } else if (currentMenu.key === '哈希带') {
-    const o = [
-      'buy',
-      'capitulation',
-      'crossed',
-      'ma30',
-      'ma60',
-    ];
-    handleOData(o, startDate);
-  } else if(currentMenu.key === '难度彩虹带') {
-    const o = [
-      'ma200',
-      'ma128',
-      'ma90',
-      'ma60',
-      'ma40',
-      'ma25',
-      'ma14',
-      'ma9',
-    ];
-    handleOData(o, startDate);
-  } else if(currentMenu.key === 'Stock-to-Flow 模型') {
-    const o = [
-      'daysTillHalving',
-      'ratio',
-    ];
-    handleOData(o, startDate);
-  } else {
-    handleNormalIndices(startDate);
-  }
+  handleData(startDate);
 
   /**
    * 通过回调拿到chart实例.
@@ -212,9 +163,9 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
   };
 
   const recreate = useAppSelector((state) => state.ui.chartRecreated);
+  // doc: https://www.highcharts.com.cn/docs/highcharts-react/
+  // eg: https://stackblitz.com/edit/react-nwseym?file=index.js
   return (
-    // doc: https://www.highcharts.com.cn/docs/highcharts-react/
-    // eg: https://stackblitz.com/edit/react-nwseym?file=index.js
     <HighchartsReact
       highcharts={ getHighCharts() }
       constructorType={ constructorType.stockChart }

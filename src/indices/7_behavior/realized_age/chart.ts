@@ -98,7 +98,7 @@ export const chartBtc = {
       data: [],
       color: '#ffc038',
       yAxis: 0,
-      id: '1w_1m',
+      id: '1d_1w',
       visible: true,
       showInLegend: true,
       fillOpacity: 0.7,

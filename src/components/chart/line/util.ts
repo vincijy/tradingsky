@@ -4,8 +4,6 @@ import { IDate } from '@/indices/def';
 import { TypeDataRow } from '../def';
 import * as D from './def';
 
-type TypeKey = keyof D.IConvertValues;
-
 /**
  * Convert data recept from backend to a format easily handled by the frontend
  * @param data
@@ -14,40 +12,22 @@ type TypeKey = keyof D.IConvertValues;
 export const convert = (data:TypeDataRow):D.IConvertValues => {
   const res:D.IConvertValues = {
     v: [],
-    busd: [],
-    dai: [],
-    eurs: [],
-    gusd: [],
-    husd: [],
-    pax: [],
-    sai: [],
-    susd: [],
-    usdc: [],
-    usdt: [],
-
-    // for cvvd
-    v_cvdd: [],
-    v_pru: [],
-
   };
-
   data.forEach((item) => {
-
-    // 类型兼容字符串,后端处理数据的时候可能会把一些值当字符串传过来, eg '12344' => 12344
-    for (const key of Object.keys(item) as TypeKey[]) {
-      const value = item[key];
-      if (typeof value === 'string') {
-        item[key] = parseFloat(value);
-      }
-    }
+    const r = item.r;
+    const o = r.o as any;
 
     // JS的时间戳和unix的 相差* 1000
-    const x = item.t * 1000;
+    const x = parseInt(item.r.t) * 1000;
 
-    for (const key of Object.keys(item) as TypeKey[]) {
-      const value = item[key];
-      if (value !== undefined && res[key] !== undefined) {
-        res[key].push([x, value]);
+    // 类型兼容字符串,后端处理数据的时候可能会把一些值当字符串传过来, eg '12344' => 12344
+    for (const key of Object.keys(o)) {
+      const value = o[key];
+      if (value !== '' && typeof value === 'string') {
+        (res as any)[key].push([x, parseFloat(value)]);
+      }
+      if (typeof value === 'number') {
+        (res as any)[key].push([x, value]);
       }
     }
   });
@@ -137,6 +117,12 @@ const getSmaValues = (
   };
 };
 
+/**
+ * 将计算的sma的值赋给serie
+ * @param serie 某一条数据
+ * @param sma 均线配置(只是从chart option 读取不含数据, 但是含有默认period配置)
+ * @returns
+ */
 export const assignSmaDataToSerie = (serie:D.ISerie, sma:D.ISerie) => {
   serie.visible = true;
   serie.showInLegend = true;
@@ -147,7 +133,7 @@ export const assignSmaDataToSerie = (serie:D.ISerie, sma:D.ISerie) => {
     if (sma.params.period === 0) {
       return;
     }
-
+    // 根据原数据计算sma的值
     const smaValues = getSmaValues(serie.data, sma.params);
     if (!smaValues) {
       return;

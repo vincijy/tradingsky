@@ -14,26 +14,32 @@ export enum constructorType {
 }
 
 export interface IDataUnit {
-  t:number;
-  v:number;
-  index:number;
+  r:{
+    t:string;
+    o:{
+      v:string;
+    };
+  };
+  // t:number;
+  // v:number;
+  // index:number;
 
-  busd?:number;
-  dai?:number;
-  eurs?:number;
-  gusd?:number;
-  husd?:number;
-  pax?:number;
-  sai?:number;
-  susd?:number;
-  usdc?:number;
-  usdt?:number;
+  // busd?:number;
+  // dai?:number;
+  // eurs?:number;
+  // gusd?:number;
+  // husd?:number;
+  // pax?:number;
+  // sai?:number;
+  // susd?:number;
+  // usdc?:number;
+  // usdt?:number;
 
-  // for cvvd
-  v_cvdd:number;
-  v_pru:number;
+  // // for cvvd
+  // v_cvdd:number;
+  // v_pru:number;
 
-  o:any;
+  // o:any;
 };
 
 export type TypeDataRow = IDataUnit[]

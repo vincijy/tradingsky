@@ -21,7 +21,14 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
 store.subscribe(() => {
-  localStorage.setItem('reduxState', JSON.stringify(store.getState()));
+  const state = store.getState();
+  // TODO
+  // https://stackoverflow.com/questions/5814073/exceeding-localstorage-quota-localstorage-size-file-download-size-how-to/5815167
+  try {
+    localStorage.setItem('reduxState', JSON.stringify(state));
+  } catch (error) {
+    //
+  }
 });
 
 if (!isProdEnv) {
