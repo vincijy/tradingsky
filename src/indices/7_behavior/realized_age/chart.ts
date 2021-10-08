@@ -1,4 +1,4 @@
-import { LineColor } from '../../def';
+import { positioner } from '@/indices/chart_common/tooltip_positioner';
 
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
@@ -20,6 +20,7 @@ export const chartBtc = {
 
       }, `<b>${ new Date(that.x).toLocaleDateString('zh-CN')}</b>`);
     },
+    positioner: positioner,
   },
   chart: {
     type: 'area',
