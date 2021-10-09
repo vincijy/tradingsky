@@ -22,7 +22,7 @@ export const arh999x:D.SubMenuItem = {
       enabled: true, // 无标注
     },
     sma: {
-      enabled: true,
+      enabled: false,
     },
   },
   chart: { btc: chart, eth: chart },
