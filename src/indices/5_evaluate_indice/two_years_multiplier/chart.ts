@@ -3,52 +3,112 @@ import { LineColor, BandColor } from '../../def';
 
 const plotBands = [
   {
-    color: BandColor.lightGreen,
+    color: BandColor.lightRed,
     from: getTimeStamp({
-      year: 2013,
-      month: 4,
+      year: 2011,
+      month: 1,
+      day: 31,
+    }),
+    to: getTimeStamp({
+      year: 2011,
+      month: 3,
       day: 5,
     }),
-    to: getTimeStamp({
-      year: 2013,
+  }, {
+    color: BandColor.lightRed,
+    from: getTimeStamp({
+      year: 2011,
       month: 4,
-      day: 8,
-    }),
-  }, {
-    color: BandColor.lightGreen,
-    from: getTimeStamp({
-      year: 2013,
-      month: 12,
-      day: 3,
+      day: 22,
     }),
     to: getTimeStamp({
-      year: 2013,
-      month: 12,
-      day: 6,
-    }),
-  }, {
-    color: BandColor.lightGreen,
-    from: getTimeStamp({
-      year: 2017,
-      month: 12,
-      day: 17,
-    }),
-    to: getTimeStamp({
-      year: 2017,
-      month: 12,
+      year: 2011,
+      month: 7,
       day: 20,
     }),
   }, {
     color: BandColor.lightGreen,
     from: getTimeStamp({
-      year: 2021,
+      year: 2011,
+      month: 10,
+      day: 15,
+    }),
+    to: getTimeStamp({
+      year: 2011,
+      month: 12,
+      day: 20,
+    }),
+  }, {
+    color: BandColor.lightRed,
+    from: getTimeStamp({
+      year: 2013,
       month: 3,
       day: 19,
     }),
     to: getTimeStamp({
-      year: 2021,
+      year: 2013,
+      month: 4,
+      day: 14,
+    }),
+  }, {
+    color: BandColor.lightRed,
+    from: getTimeStamp({
+      year: 2013,
+      month: 11,
+      day: 8,
+    }),
+    to: getTimeStamp({
+      year: 2014,
+      month: 1,
+      day: 11,
+    }),
+  }, {
+    color: BandColor.lightGreen,
+    from: getTimeStamp({
+      year: 2014,
+      month: 11,
+      day: 11,
+    }),
+    to: getTimeStamp({
+      year: 2015,
+      month: 10,
+      day: 28,
+    }),
+  }, {
+    color: BandColor.lightRed,
+    from: getTimeStamp({
+      year: 2017,
+      month: 12,
+      day: 4,
+    }),
+    to: getTimeStamp({
+      year: 2017,
+      month: 12,
+      day: 23,
+    }),
+  }, {
+    color: BandColor.lightGreen,
+    from: getTimeStamp({
+      year: 2018,
+      month: 11,
+      day: 13,
+    }),
+    to: getTimeStamp({
+      year: 2019,
+      month: 4,
+      day: 10,
+    }),
+  }, {
+    color: BandColor.lightGreen,
+    from: getTimeStamp({
+      year: 2020,
       month: 3,
-      day: 22,
+      day: 12,
+    }),
+    to: getTimeStamp({
+      year: 2020,
+      month: 4,
+      day: 14,
     }),
   },
 ];
@@ -91,7 +151,7 @@ export const chart = {
       // 橙色
       color: '#0485d1',
       yAxis: 0,
-      id: 'ma_2y',
+      id: 'maa',
       visible: true,
       showInLegend: true,
     },
@@ -101,7 +161,7 @@ export const chart = {
       // 橙色
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
-      id: 'ma_2y_5',
+      id: 'mab',
       visible: true,
       showInLegend: true,
     },

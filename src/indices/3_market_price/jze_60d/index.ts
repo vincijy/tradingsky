@@ -9,6 +9,7 @@ export const jze60d:D.SubMenuItem = {
   loginRequired: true, // 付费指标
   vipRequired: false,
   visible: true,
+  isNew: true,
   args: {
     index: 'market/jze60d',
   },

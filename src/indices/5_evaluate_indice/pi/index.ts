@@ -9,6 +9,8 @@ export const Pi:D.SubMenuItem = {
   loginRequired: true,
   vipRequired: false,
   visible: true,
+  isNew: true,
+
   args: {
     index: 'value/pi',
   },

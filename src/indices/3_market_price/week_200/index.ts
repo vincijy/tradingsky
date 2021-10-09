@@ -8,6 +8,7 @@ export const week200:D.SubMenuItem = {
   loginRequired: true, // 付费指标
   vipRequired: false,
   visible: true,
+  isNew: true,
   args: {
     index: 'market/200weeks',
   },
