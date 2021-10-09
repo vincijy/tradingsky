@@ -10,5 +10,5 @@ export const introduce = {
   
   ### 创作者
   该指标由 [Philip Swift](https://twitter.com/PositiveCrypto) 创建`,
-  height: 1470,
+  height: 1450,
 };

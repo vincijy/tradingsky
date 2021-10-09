@@ -1,16 +1,13 @@
 export const introduce = {
   text: `### 使用方法
-  + • 绿色区域：当价格落入realized price与CVDD之间时，往往是周期的底部。
+  + • 绿色线（8以上）：Arh999x指标进入抄底区间，往往是市场的周期底部。
+  + • 红色线（0.45以下）：Arh999x指标进入顶部区间，往往是市场的周期顶部。
+  + 注意「绿色线的指标顶部」对应着市场底部，「红色线的指标底部」对应着市场顶部。
   
   ### 指标原理
-  + 根据历史回测发现，CVDD精确的确定了价格的底部区域，与realized price构成了底部价格的运行区间。
-  + CDD：coin数量 · 持有时间
-  + CVDD：将CDD与价格结合
-  + realized cap：UTXO最后一次移动时的价格 · 流通量
-  + realized price：realized cap/流通量
-  如果想对realized cap有更深入的了解，可以参考 [这篇文章](https://coinmetrics.io/realized-capitalization/)
+  + 该指标是基于Arh999的优化，确定价格高于历史平均估值和低于历史平均估值的区域。
   
   ### 创作者
-  [Willy Woo 与 David Puell](https://woobull.com/experiments-on-cumulative-destruction/) 联合推出`,
-  height: 1470,
+  该指标由 arh999 创作，致敬该作者`,
+  height: 1415,
 };

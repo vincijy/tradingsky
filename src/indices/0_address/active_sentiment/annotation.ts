@@ -175,6 +175,30 @@ export const annotation:D.IAnnotation = {
       {
         color: 'red',
         date: {
+          year: 2019,
+          month: 7,
+          day: 11,
+        },
+      },
+      {
+        color: 'red',
+        date: {
+          year: 2021,
+          month: 1,
+          day: 15,
+        },
+      },
+      {
+        color: 'red',
+        date: {
+          year: 2021,
+          month: 3,
+          day: 2,
+        },
+      },
+      {
+        color: 'red',
+        date: {
           year: 2021,
           month: 8,
           day: 22,

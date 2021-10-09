@@ -4,8 +4,8 @@ import { chart } from './chart';
 import { annotation } from './annotation';
 
 export const Pi:D.SubMenuItem = {
-  name: 'pi周期指标',
-  key: 'pi周期指标',
+  name: 'pi顶部周期指标',
+  key: 'pi顶部周期指标',
   loginRequired: true,
   vipRequired: false,
   visible: true,

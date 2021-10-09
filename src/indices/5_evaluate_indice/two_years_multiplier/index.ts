@@ -3,8 +3,8 @@ import { introduce } from './introduce';
 import { chart } from './chart';
 
 export const twoyearMultiplier:D.SubMenuItem = {
-  name: '2年MA乘数',
-  key: '2年MA乘数',
+  name: '2-Year乘数通道',
+  key: '2-Year乘数通道',
   loginRequired: true,
   vipRequired: false,
   visible: true,

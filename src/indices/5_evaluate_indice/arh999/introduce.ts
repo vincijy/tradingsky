@@ -1,16 +1,13 @@
 export const introduce = {
   text: `### 使用方法
-  + • 绿色区域：当价格落入realized price与CVDD之间时，往往是周期的底部。
+  + • 黄色线（0.45-1.2）：Arh999指数进入定投区间。
+  + • 绿色线（0.45以下）：Arh999指数进入抄底区间。
   
   ### 指标原理
-  + 根据历史回测发现，CVDD精确的确定了价格的底部区域，与realized price构成了底部价格的运行区间。
-  + CDD：coin数量 · 持有时间
-  + CVDD：将CDD与价格结合
-  + realized cap：UTXO最后一次移动时的价格 · 流通量
-  + realized price：realized cap/流通量
-  如果想对realized cap有更深入的了解，可以参考 [这篇文章](https://coinmetrics.io/realized-capitalization/)
+  + ahr999指数 = （比特币价格/200日定投成本） * （比特币价格/指数增长估值）。
+  + 该指标模拟长期历史成本，当「价格严重低于历史成本」时就是抄底区间，当「价格低于定投平均成本」时就是很好的定投区间。
   
   ### 创作者
-  [Willy Woo 与 David Puell](https://woobull.com/experiments-on-cumulative-destruction/) 联合推出`,
-  height: 1470,
+  该指标由 arh999 创作`,
+  height: 1410,
 };

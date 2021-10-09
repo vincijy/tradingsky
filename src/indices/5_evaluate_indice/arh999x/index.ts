@@ -14,7 +14,7 @@ export const arh999x:D.SubMenuItem = {
   },
   introduce: introduce,
   assetList: ['btc'],
-  catalogText: '量化比特币底部区域的精准指标',
+  catalogText: '根据Arh999优化后得到',
   toolbox: {
     annotation: {
       enabled: true, // 无标注

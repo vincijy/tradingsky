@@ -14,7 +14,7 @@ export const activeSentiment:D.SubMenuItem = {
   },
   introduce: introduce,
   assetList: ['btc'],
-  catalogText: '量化比特币底部区域的精准指标',
+  catalogText: '根据价格与活跃地址得出的短期情绪指标',
   toolbox: {
     annotation: {
       enabled: true, // 无标注

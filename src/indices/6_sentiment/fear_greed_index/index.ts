@@ -14,7 +14,7 @@ export const fearGreedIndex:D.SubMenuItem = {
   },
   introduce: introduce,
   assetList: ['btc'],
-  catalogText: '量化比特币底部区域的精准指标',
+  catalogText: '比特币的恐慌和贪婪指数',
   toolbox: {
     annotation: {
       enabled: true, // 无标注

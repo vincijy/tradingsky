@@ -15,6 +15,10 @@ const zones = [
     color: LineColor.yellow,
   },
   {
+    value: 8,
+    color: 'rgb(247, 147, 26)',
+  },
+  {
     color: LineColor.green,
   },
 ];

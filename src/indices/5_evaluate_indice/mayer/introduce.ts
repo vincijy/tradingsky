@@ -14,5 +14,5 @@ export const introduce = {
   
   ### 创作者
   该指标由 [Trace Mayer](https://twitter.com/TraceMayer) 创建`,
-  height: 1560,
+  height: 1540,
 };
