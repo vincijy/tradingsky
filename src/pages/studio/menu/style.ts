@@ -68,4 +68,12 @@ export const MenuWrapper = styled.div `
             margin-bottom: 2px;
         }
     }
+    .tag-new {
+        color: orange;
+        /* background: black; */
+        margin-left: 2px;
+        font-size: 10.6px;
+        padding: 2px 4px;
+        border-radius: 10%;
+    }
 `;

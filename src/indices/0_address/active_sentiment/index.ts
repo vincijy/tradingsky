@@ -8,6 +8,8 @@ export const activeSentiment:D.SubMenuItem = {
   key: '活跃地址情绪量',
   loginRequired: true,
   vipRequired: true, // free
+  isNew: true,
+
   visible: true,
   args: {
     index: 'address/active_sentiment',

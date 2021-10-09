@@ -124,6 +124,10 @@ export default memo(function LSChartMenu() {
                       subMenuItem.vipRequired ? <span className='vip-icon'>L2</span> : <span className='free-icon'>L1</span>
                     }
                     {subMenuItem.name}
+                    {
+                      subMenuItem.isNew &&
+                      <span className='tag-new'>new</span>
+                    }
                   </Menu.Item>
                 ))
               }

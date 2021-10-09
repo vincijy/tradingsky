@@ -30,6 +30,14 @@ export interface SubMenuItem {
     vipRequired:boolean;
 
     /**
+     * 是否是新的指标
+     * 取值true: 为新上指标
+     * 取值false: 不为新上指标
+     * 缺省undefined: 不为新上指标
+     */
+    isNew?:boolean;
+
+    /**
      * 传入参数
      */
      args:{
