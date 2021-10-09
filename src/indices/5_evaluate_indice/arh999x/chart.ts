@@ -8,11 +8,11 @@ const zones = [
   },
   {
     value: 1.2,
-    color: LineColor.yellow,
+    color: LineColor.lightOrange,
   },
   {
     value: 8,
-    color: 'rgb(247, 147, 26)',
+    color: LineColor.yellow,
   },
   {
     color: LineColor.green,
