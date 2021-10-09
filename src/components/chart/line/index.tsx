@@ -114,8 +114,9 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
       const oValues = r.o as any;
       for (const key of oKeys) {
         const value = oValues[key];
-        if (value !== undefined && value !== null && value !== '') {
+        if (value !== '' && typeof value === 'string') {
           (res as any)[key].push([x, parseFloat(value)]);
+          continue;
         }
         if (typeof value === 'number') {
           (res as any)[key].push([x, value]);

@@ -3,21 +3,21 @@ import { annotation } from './annotation';
 import { introduce } from './introduce';
 import { chart } from './chart';
 
-export const fairDeflection:D.SubMenuItem = {
-  name: '公允价值偏差量',
-  key: '公允价值偏差量',
+export const arh999x:D.SubMenuItem = {
+  name: 'Arh999x指数',
+  key: 'Arh999x指数',
   loginRequired: true,
-  vipRequired: true,
+  vipRequired: true, // pay
   visible: true,
   args: {
-    index: 'value/fairvalue_deflection',
+    index: 'value/arh999x',
   },
   introduce: introduce,
   assetList: ['btc'],
-  catalogText: '相对于已实现市值评估市值是否被高估/低估',
+  catalogText: '量化比特币底部区域的精准指标',
   toolbox: {
     annotation: {
-      enabled: true, // 有标注
+      enabled: true, // 无标注
     },
     sma: {
       enabled: true,
@@ -27,15 +27,14 @@ export const fairDeflection:D.SubMenuItem = {
   annotation: { btc: annotation, eth: annotation },
   xStart: {
     btc: {
-      year: 2010,
-      month: 7,
-      day: 22,
+      year: 2011,
+      month: 2,
+      day: 2,
     },
     eth: {
-      year: 2010,
-      month: 7,
-      day: 22,
+      year: 2011,
+      month: 2,
+      day: 2,
     },
   },
 };
-

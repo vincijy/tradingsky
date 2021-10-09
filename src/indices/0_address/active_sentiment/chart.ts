@@ -1,41 +1,5 @@
+import { getTimeStamp } from '@/utils/date';
 import { LineColor, BandColor } from '../../def';
-
-const plotBands = [
-  {
-    from: 70,
-    to: 100,
-    color: BandColor.lightRed,
-    label: {
-      text: '',
-    },
-  },
-  {
-    from: 0,
-    to: 30,
-    color: BandColor.lightGreen,
-    label: {
-      text: '',
-    },
-  },
-];
-
-
-const plotLines = [{
-  value: 30,
-  color: '#5a5a5a',
-  dashStyle: 'Dot',
-  width: 1,
-}, {
-  value: 50,
-  color: LineColor.red,
-  dashStyle: 'Dash',
-  width: 2,
-}, {
-  value: 70,
-  color: '#5a5a5a',
-  dashStyle: 'Dot',
-  width: 1,
-}];
 
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
@@ -44,21 +8,24 @@ export const chart = {
   yAxis: [
     {
       zoomEnabled: true, // 允许缩放
+      // TickInterval: 0.1, // 刻度间隔
+      // minTickInterval: 0.1,
+      // Tickmember: 13, // 允许存在的最多刻度
       alignTicks: false, // 左右y轴不对齐
-      Tickmember: 11, // 允许存在的最多刻度
+      tickPosition: 'outside',
+      tickmarkPlacement: 'on',
       // 左侧轴
       title: {
         text: '',
       },
-      align: 'right',
+      align: 'left',
       opposite: false,
       className: 'highcharts-navigator-yaxis',
       labels: {
         // 橙色
-        style: { color: '#3c414c' }, // 刻度（黑色）
+        style: { color: '#c57514' }, // 刻度（橙色）
       },
-      plotLines: plotLines, // 分隔线
-      plotBands: plotBands, // 颜色带
+      // type: 'logarithmic', // 对数刻度
       gridLineColor: 'rgba(240,240,240,.67)',
     },
     {
@@ -74,14 +41,36 @@ export const chart = {
   ],
   series: [
     {
-      name: 'RSI',
+      name: '活跃地址情绪量',
       data: [],
-      // 图例（红色）
-      color: LineColor.lightOrange,
+      // 橙色
+      color: 'rgb(247, 147, 26)',
       yAxis: 0,
-      id: 'rsi',
+      id: 'price28d',
       visible: true,
       showInLegend: true,
+    },
+    {
+      name: '上边界',
+      data: [],
+      // 橙色
+      color: LineColor.red,
+      yAxis: 0,
+      id: 'upperbollingerband',
+      visible: true,
+      showInLegend: true,
+      dashStyle: 'ShortDash',
+    },
+    {
+      name: '下边界',
+      data: [],
+      // 橙色
+      color: LineColor.green,
+      yAxis: 0,
+      id: 'lowerbollingerband',
+      visible: true,
+      showInLegend: true,
+      dashStyle: 'ShortDash',
     },
     {
       name: '价格',
@@ -91,12 +80,12 @@ export const chart = {
     },
     {
       id: 'sma',
-      linkedTo: 'rsi',
-      name: '比特币RSI',
+      linkedTo: 'series0',
+      name: '活跃地址情绪量',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {
-        period: 50,
+        period: 14,
       },
       visible: true,
       showInLegend: true,

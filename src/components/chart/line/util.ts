@@ -25,6 +25,7 @@ export const convert = (data:TypeDataRow):D.IConvertValues => {
       const value = o[key];
       if (value !== '' && typeof value === 'string') {
         (res as any)[key].push([x, parseFloat(value)]);
+        continue;
       }
       if (typeof value === 'number') {
         (res as any)[key].push([x, value]);

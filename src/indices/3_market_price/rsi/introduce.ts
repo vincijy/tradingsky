@@ -1,5 +1,6 @@
 export const introduce = {
   text: `### 使用方法
+  + 我们默认选择SMA50日均线（您可在工具栏中自定义均线）。
   + • 红色带（70%  < 指标）：市场超买
   + • 绿色带（指标 < 30%）：市场超卖
   
@@ -9,5 +10,5 @@ export const introduce = {
   
   ### 创作者
   + 该指标最初由 J. Welles Wilder Jr. 在1978年创建`,
-  height: 1330,
+  height: 1430,
 };

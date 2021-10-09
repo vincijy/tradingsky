@@ -4,5 +4,5 @@ export const introduce = {
   
   ### 指标原理
   + 该指标通过计算比特币价格的200周均线得出。`,
-  height: 1330,
+  height: 1290,
 };

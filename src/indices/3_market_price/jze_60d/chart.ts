@@ -44,7 +44,7 @@ export const chart = {
   ],
   series: [
     {
-      name: 'jze_60d',
+      name: '江卓尔60日累计涨幅',
       data: [],
       // 图例（红色）
       color: LineColor.lightOrange,

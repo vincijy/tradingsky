@@ -86,7 +86,7 @@ export const chart = {
   ],
   series: [
     {
-      name: 'ma_2y',
+      name: '2年MA',
       data: [],
       // 橙色
       color: '#0485d1',
@@ -96,7 +96,7 @@ export const chart = {
       showInLegend: true,
     },
     {
-      name: 'ma_2y_5',
+      name: '2年MA * 5',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',

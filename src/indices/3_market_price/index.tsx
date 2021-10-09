@@ -16,10 +16,10 @@ export const marketPrice:D.MenuItem = {
   visible: true,
   assetList: ['btc', 'eth'],
   subMenus: [
-    priceDrawdown,
+    rsi,
     jze60d,
     week200,
-    rsi,
+    priceDrawdown,
     realizedPL,
     profitPercent,
   ],

@@ -1,6 +1,6 @@
 export const introduce = {
   text: `### 使用方法
-  + • Pi 周期指标可以用于判断市场顶部的出现，当短期移动平均线，即111天移动平均线，达到350天移动平均线的两倍时，周期顶部往往会在三天内出现。
+  + • 绿色区域（111MA上穿365MA）：出现此信号后，市场顶部往往在三天内出现。
 
   
   ### 指标原理
@@ -11,5 +11,5 @@ export const introduce = {
   
   ### 创作者
   该指标由 [Philip Swift](https://twitter.com/PositiveCrypto) 创建`,
-  height: 1470,
+  height: 1440,
 };

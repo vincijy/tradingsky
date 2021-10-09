@@ -86,7 +86,7 @@ export const chart = {
   ],
   series: [
     {
-      name: 'ma_365_2',
+      name: '365MA * 2',
       data: [],
       // 橙色
       color: '#0485d1',
@@ -96,7 +96,7 @@ export const chart = {
       showInLegend: true,
     },
     {
-      name: 'ma_111',
+      name: '111MA',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',

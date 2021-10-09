@@ -1,50 +1,32 @@
+import { getTimeStamp } from '@/utils/date';
 import { LineColor, BandColor } from '../../def';
 
 const zones = [
   {
-    value: 0.55,
-    color: LineColor.red,
-  },
-  {
-    value: 1.1,
-    color: LineColor.orange,
-  },
-  {
-    value: 1.7,
-    color: LineColor.yellow,
-  },
-  {
-    value: 2.5,
+    value: .45,
     color: LineColor.green,
   },
   {
-    value: 19,
-    color: LineColor.blue,
+    value: 1.2,
+    color: LineColor.yellow,
+  },
+  {
+    color: 'rgb(247, 147, 26)',
   },
 ];
+
 const plotLines = [{
-  value: 0.55,
-  color: '#5a5a5a',
+  value: .45,
+  color: '#3c414c',
   dashStyle: 'Dot',
-  width: 1,
+  width: 1.2,
 
 }, {
-  value: 1.1,
-  color: '#5a5a5a',
+  value: 1.2,
+  color: '#3c414c',
   dashStyle: 'Dot',
-  width: 1,
-}, {
-  value: 1.7,
-  color: '#5a5a5a',
-  dashStyle: 'Dot',
-  width: 1,
-}, {
-  value: 2.5,
-  color: '#5a5a5a',
-  dashStyle: 'Dot',
-  width: 1,
+  width: 1.2,
 }];
-
 
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
@@ -53,18 +35,24 @@ export const chart = {
   yAxis: [
     {
       zoomEnabled: true, // 允许缩放
+      // TickInterval: 0.1, // 刻度间隔
+      // minTickInterval: 0.1,
+      // Tickmember: 13, // 允许存在的最多刻度
       alignTicks: false, // 左右y轴不对齐
+      tickPosition: 'outside',
+      tickmarkPlacement: 'on',
       // 左侧轴
       title: {
         text: '',
       },
-      align: 'right',
+      align: 'left',
       opposite: false,
-      type: 'logarithmic', // 对数刻度
       className: 'highcharts-navigator-yaxis',
       labels: {
+        // 橙色
         style: { color: '#c57514' }, // 刻度（橙色）
       },
+      type: 'logarithmic', // 对数刻度
       gridLineColor: 'rgba(240,240,240,.67)',
       plotLines: plotLines,
     },
@@ -81,12 +69,12 @@ export const chart = {
   ],
   series: [
     {
-      name: '梅耶倍数',
+      name: 'arh999',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
-      id: 'mayer',
+      id: 'arh999',
       visible: true,
       showInLegend: true,
       zones: zones,
@@ -97,6 +85,21 @@ export const chart = {
       color: 'rgba(0,0,0,0.5)',
       yAxis: 1,
     },
-
+    {
+      id: 'sma',
+      linkedTo: 'series0',
+      name: 'arh999',
+      color: 'rgb(247, 147, 26)',
+      yAxis: 0,
+      params: {
+        period: 0,
+      },
+      visible: true,
+      showInLegend: true,
+      marker: {
+        enabled: false, // https://stackoverflow.com/questions/14642779/highcharts-how-can-i-turn-off-the-points
+      },
+      zones: zones,
+    },
   ],
 };

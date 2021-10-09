@@ -2,8 +2,9 @@
 import { AlertOutlined } from '@ant-design/icons';
 import React from 'react';
 import * as D from '../def';
-import { marketGreed } from './market_greed';
+import { fearGreedIndex } from './fear_greed_index';
 import { sopr } from './sopr';
+import { marketGreed } from './market_greed';
 export const sentiment:D.MenuItem = {
   name: '市场情绪',
   icon: <AlertOutlined />,
@@ -11,6 +12,7 @@ export const sentiment:D.MenuItem = {
   visible: true,
   assetList: ['btc', 'eth'],
   subMenus: [
+    fearGreedIndex,
     sopr,
     marketGreed,
   ],

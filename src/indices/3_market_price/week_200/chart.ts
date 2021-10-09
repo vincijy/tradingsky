@@ -96,7 +96,7 @@ export const chart = {
   ],
   series: [
     {
-      name: 'x200_week',
+      name: '200周均线',
       data: [],
       // 图例（红色）
       color: LineColor.orange,
