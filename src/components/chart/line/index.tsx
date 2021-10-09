@@ -78,7 +78,7 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
     console.error('Not price line', currentMenu.name);
   }
 
-  if (price) {
+  if (price && dataB && dataB.length > 0) {
     const d = convert(dataB).v;
     if (!d) {
       console.error('Cannot convert data');

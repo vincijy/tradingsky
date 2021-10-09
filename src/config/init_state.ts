@@ -17,17 +17,13 @@ export function getAppInitState() {
   if (subMenu) {
     chartOptions = subMenu.chart.btc;
   }
-  const reduxStateStr = localStorage.getItem('reduxState');
-  let reduxState;
-  if (reduxStateStr) {
-    reduxState = JSON.parse(reduxStateStr);
-  }
+  const dataAssetStr = localStorage.getItem('dataAsset') as 'btc'|'eth'| undefined;
 
   const appInitState = {
     chartOptions: mergeOption(commonOptions, chartOptions || initialPrivateOption),
     menu: menu || menus[7],
     subMenu: subMenu || menus[7].subMenus[0],
-    dataAsset: reduxState ? reduxState.chart.dataAsset : 'btc',
+    dataAsset: dataAssetStr ? dataAssetStr : 'btc',
   };
 
   return appInitState;
