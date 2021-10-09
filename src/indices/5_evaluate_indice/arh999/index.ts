@@ -6,7 +6,7 @@ import { chart } from './chart';
 export const arh999:D.SubMenuItem = {
   name: 'Arh999囤币指数',
   key: 'Arh999囤币指数',
-  loginRequired: true,
+  loginRequired: false,
   vipRequired: false, // free
   visible: true,
   isNew: true,
