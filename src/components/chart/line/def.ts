@@ -1,5 +1,6 @@
 
 
+import { LineColor, BandColor } from '@/indices/def';
 import { TypeDataRow } from '../def';
 
 export interface IProps {
@@ -36,3 +37,21 @@ export interface ISerie {
   };
   id:string;
 }
+
+export interface IXAxis {
+  plotBands:{
+    color:BandColor;
+    from:number;
+    to:number;
+    id:string;
+  }[];
+};
+
+export interface IRow{
+  r:{
+    o:{
+      v:string;
+    };
+    t:string;
+  };
+};

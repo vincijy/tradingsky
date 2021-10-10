@@ -87,7 +87,7 @@ export default memo(function PricePage() {
         onOk={handleOk}
         onCancel={handleCancel}>
         <div style={{ textAlign: 'center' }}>
-          <p>为了提供更好的售后支持, 请加客服微信开通~</p>
+          <p>为了提供更好的售后支持, 请加微信开通~</p>
         </div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <img

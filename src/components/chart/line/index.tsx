@@ -1,6 +1,7 @@
 /* eslint-disable prefer-const */
 // 第三方
 import { memo } from 'react';
+import { BandColor } from '@/indices/def';
 
 // 图标React 封装
 import HighchartsReact from 'highcharts-react-official';
@@ -9,19 +10,14 @@ import { mergeOption } from '@/utils/merge_option';
 import { commonOptions } from '@/indices/chart_common';
 import { IDate } from '@/indices/def';
 import { cloneDeep } from 'lodash';
+import { getTimeStamp } from '@/utils/date';
+import { isMobile } from '@/utils/is';
 import { getHighCharts, setChart } from '../index';
 
 import { constructorType } from '../def';
 import * as D from './def';
-import { convert, cutDataByDate, assignSmaDataToSerie } from './util';
-interface IRow{
-  r:{
-    o:{
-      v:string;
-    };
-    t:string;
-  };
-};
+import { convert, cutDataByDate, assignSmaDataToSerie, cutDataByDateWithRight, getOneYearAgo, getToday } from './util';
+
 
 export default memo(function LSChartDoubleLine(props:D.IProps) {
   const { seriesA, seriesB } = props;
@@ -33,6 +29,10 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
   const asset = useAppSelector((state) => state.chart.dataAsset);
   const currentMenu = useAppSelector((state) => state.ui.currentMenu.subMenu);
   const series = options.series as D.ISerie[];
+  const xAxis = options.xAxis as D.IXAxis;
+  const role = useAppSelector((state) => state.user.userInfo.role);
+  // 没有角色, 或者角色不为l2, 但是指标要求付费
+  const shouldCoverIfNotPaid = currentMenu.vipRequired && (!role || role.code !== 'level2');
 
   // 确定对应币种的起始切割时间
   let startDate = null;
@@ -94,7 +94,7 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
 
   const handleData = (startDate:IDate|null) => {
     // 目的是为了构造出 类似这样的数据 res = { v: [[1, 345], [2, 234]], m: [[1, 456], [2, 555]]}
-    const rows = dataA as IRow[];
+    const rows = dataA as D.IRow[];
     if (rows.length === 0) {
       return;
     }
@@ -107,7 +107,7 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
     oKeys.forEach((k) => {
       (res as any)[k] = [];
     });
-    rows.forEach((row:IRow) => {
+    rows.forEach((row:D.IRow) => {
       // JS的时间戳和unix的 相差* 1000
       const r = row.r;
       const x = parseInt(r.t) * 1000;
@@ -129,6 +129,9 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
       const serie = series[0];
       const data:[number, number][] = (res as any)['v'];
       serie.data = dataMayCut(data, startDate);
+      if (shouldCoverIfNotPaid) {
+        serie.data = cutDataByDateWithRight(serie.data, getOneYearAgo());
+      }
       sma && assignSmaDataToSerie(serie, sma);
       return;
     }
@@ -140,11 +143,41 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
       }
       const data:[number, number][] = (res as any)[name];
       serie.data = dataMayCut(data, startDate);
+      if (shouldCoverIfNotPaid) {
+        serie.data = cutDataByDateWithRight(serie.data, getOneYearAgo());
+      }
       sma && assignSmaDataToSerie(serie, sma);
     }
   };
 
   handleData(startDate);
+
+  if (shouldCoverIfNotPaid) {
+    const band = {
+      id: 'vip_cover',
+      color: BandColor.lightPurple,
+      from: getTimeStamp(getOneYearAgo()),
+      to: getTimeStamp(getToday()),
+      label: {
+        text: isMobile() ? '近期L2数据需解锁' : 'L2数据需解锁',
+        // align: 'left',
+        verticalAlign: 'middle',
+        rotation: isMobile() ? 90 : 0,
+        style: {
+          color: 'black',
+        },
+      },
+    };
+    if (!xAxis.plotBands || xAxis.plotBands.length === 0) {
+      xAxis.plotBands = [band];
+    } else {
+      xAxis.plotBands.push(band);
+    }
+  } else {
+    if (xAxis.plotBands) {
+      xAxis.plotBands = xAxis.plotBands.filter((band) => band.id !== 'vip_cover');
+    }
+  }
 
   /**
    * 通过回调拿到chart实例.

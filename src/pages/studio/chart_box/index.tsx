@@ -44,7 +44,7 @@ export default memo(function LSChartBox() {
   const role = useMemo(() => userInfo.role || { code: 'level1', description: '' }, [userInfo]);
 
   // 初始化状态
-  const [vipRequiredvisible, setvipRequiredVisible] = useState(false);
+  // const [vipRequiredvisible, setvipRequiredVisible] = useState(false);
   const [loginRegisterRequiredVisible, setLoginRegisterRequiredVisible] = useState(false);
   const [noDataVisible, setNoDataVisible] = useState(false);
   const [coverImgVisible, setCoverImgVisible] = useState(false);
@@ -54,27 +54,15 @@ export default memo(function LSChartBox() {
     // 如果需要登录, 但是没有登录, 要求登录(背景图 + 登录按钮)
     if (loginRequired && !isLogin) {
       setLoadingVisible(false);
-      setvipRequiredVisible(false);
       setCoverImgVisible(true);
       setNoDataVisible(false);
       setLoginRegisterRequiredVisible(true);
       return;
     }
 
-    // 如果非VIP, 要求VIP(背景图 + VIP入口)
-    if (loginRequired && vipRequired && role.code !== 'level2') {
-      setLoadingVisible(false);
-      setvipRequiredVisible(true);
-      setCoverImgVisible(true);
-      setNoDataVisible(false);
-      setLoginRegisterRequiredVisible(false);
-      return;
-    }
-
     // 如果当前指标币种无, 展示没数据
     if (!assetList.includes(asset)) {
       setLoadingVisible(false);
-      setvipRequiredVisible(false);
       setCoverImgVisible(false);
       setNoDataVisible(true);
       setLoginRegisterRequiredVisible(false);
@@ -83,7 +71,6 @@ export default memo(function LSChartBox() {
 
     // 全部重置为false, 必要的时候开启
     setLoadingVisible(false);
-    setvipRequiredVisible(false);
     setCoverImgVisible(false);
     setNoDataVisible(false);
     setLoginRegisterRequiredVisible(false);
@@ -183,10 +170,10 @@ export default memo(function LSChartBox() {
     if (loginRequired && !isLogin) {
       return;
     }
-    // TODO: 定义个enum值
-    if (vipRequired && role.code !== 'level2') {
-      return;
-    }
+    // // TODO: 定义个enum值
+    // if (vipRequired && role.code !== 'level2') {
+    //   return;
+    // }
 
     // 当前币种无该指标
     if (!assetList.includes(asset)) {
@@ -197,7 +184,7 @@ export default memo(function LSChartBox() {
     requestData();
 
     // 在指标和币种切换的时候,重新请求数据
-  }, [asset, index, isLogin, role, vipRequired, loginRequired]);
+  }, [asset, index, isLogin, loginRequired]);
 
 
   const [loadingVisible, setLoadingVisible] = useState(false);
@@ -208,7 +195,7 @@ export default memo(function LSChartBox() {
     setLoadingVisible(false);
   };
   const menuVisible = useAppSelector((state) => state.ui.menuVisible);
-  const oneVisible = loginRegisterRequiredVisible || vipRequiredvisible || loadingVisible || coverImgVisible || noDataVisible;
+  const oneVisible = loginRegisterRequiredVisible || loadingVisible || coverImgVisible || noDataVisible;
   return (
     <BoxWrapper>
       <div id='container' >
@@ -221,7 +208,7 @@ export default memo(function LSChartBox() {
           oneVisible &&
           <LSChartCover
             loginRegisterRequiredVisible={loginRegisterRequiredVisible}
-            vipRequiredVisible={vipRequiredvisible}
+            vipRequiredVisible={false}
             loadingVisible={loadingVisible}
             coverImgVisible={coverImgVisible}
             noDataVisible={noDataVisible}

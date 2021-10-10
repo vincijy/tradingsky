@@ -10,7 +10,7 @@ export const BarWrapper = styled.div `
     }
     Button {
         padding: 0px 15px;
-        margin-right: 20px;
+        margin-right: 10px;
         height: ${Layout.GAP_BAR_BTN_HEIGHT}px;
     }
 `;

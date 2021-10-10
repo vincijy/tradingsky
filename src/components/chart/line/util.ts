@@ -53,6 +53,61 @@ export const cutDataByDate = (data:[number, number][], date:IDate) => {
   return data.splice(index);
 };
 
+/**
+ * cut data by date and return the right part
+ * @param data
+ * @param date
+ * @returns
+ */
+export const cutDataByDateWithRight = (data:[number, number][], date:IDate) => {
+  const t = getTimeStamp(date);
+  if (data.length === 0) {
+    return [];
+  }
+  const newData = data.map((item) => item[0]);
+  const interval = newData[1] - newData[0];
+  const index = findFirstGreater(newData, t, interval) - 1;
+  data.splice(index);
+  return data;
+};
+
+/**
+ * cut data by date and return the right part
+ * @param data
+ * @param date
+ * @returns
+ */
+export const getOneYearAgo = ():IDate => {
+  const date = new Date(new Date().setFullYear(new Date().getFullYear() - 1));
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  const day = date.getDay();
+  return {
+    year,
+    month,
+    day,
+  };
+};
+
+/**
+ * today
+ * @param data
+ * @param date
+ * @returns
+ */
+export const getToday = ():IDate => {
+  const date = new Date();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  const day = date.getDay();
+  return {
+    year,
+    month,
+    day,
+  };
+};
+
+(window as any).getOneYearAgo = getOneYearAgo;
 
 const getSmaValues = (
   serieData:[number, number][],
