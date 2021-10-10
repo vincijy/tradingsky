@@ -5,7 +5,7 @@ import { chartEth } from './chart_eth';
 export const sopr = {
   name: 'spent outputs 利润率（SOPR）',
   key: 'spent outputs 利润率（SOPR）',
-  loginRequired: false, // 免费指标
+  loginRequired: true,
   vipRequired: false,
   visible: true,
   args: {
