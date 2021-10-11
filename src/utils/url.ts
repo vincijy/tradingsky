@@ -1,7 +1,12 @@
+import { keys } from 'lodash';
+
 export function getUrlParams() {
   const urlSearchParams = new URLSearchParams(window.location.search);
-  const params = Object.fromEntries(urlSearchParams.entries());
-  return params;
+  const params = {};
+  keys(urlSearchParams).forEach((k) => {
+    (params as any)[k] = urlSearchParams.get(k);
+  });
+  return params as any;
 }
 
 export const findMenuByIndex = (menus:any, index:string) => {
