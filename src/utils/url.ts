@@ -1,11 +1,9 @@
-import { keys } from 'lodash';
-
 export function getUrlParams() {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = {};
-  keys(urlSearchParams).forEach((k) => {
-    (params as any)[k] = urlSearchParams.get(k);
-  });
+  for (const [key, value] of urlSearchParams.entries() as any) {
+    (params as any)[key] = value;
+  }
   return params as any;
 }
 
