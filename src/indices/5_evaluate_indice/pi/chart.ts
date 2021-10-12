@@ -3,7 +3,7 @@ import { LineColor, BandColor } from '../../def';
 
 const plotBands = [
   {
-    color: BandColor.lightGreen,
+    color: '#F8B0A3',
     from: getTimeStamp({
       year: 2013,
       month: 4,
@@ -15,7 +15,7 @@ const plotBands = [
       day: 8,
     }),
   }, {
-    color: BandColor.lightGreen,
+    color: '#F8B0A3',
     from: getTimeStamp({
       year: 2013,
       month: 12,
@@ -27,7 +27,7 @@ const plotBands = [
       day: 6,
     }),
   }, {
-    color: BandColor.lightGreen,
+    color: '#F8B0A3',
     from: getTimeStamp({
       year: 2017,
       month: 12,
@@ -39,7 +39,7 @@ const plotBands = [
       day: 20,
     }),
   }, {
-    color: BandColor.lightGreen,
+    color: '#F8B0A3',
     from: getTimeStamp({
       year: 2021,
       month: 3,

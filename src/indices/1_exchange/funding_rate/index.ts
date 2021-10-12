@@ -33,7 +33,7 @@ export const fundingRate:D.SubMenuItem = {
     eth: {
       year: 2021,
       month: 8,
-      day: 20,
+      day: 22,
     },
   },
 };
