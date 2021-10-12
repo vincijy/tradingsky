@@ -14,16 +14,20 @@ import { HomePageWrapper } from './style';
 
 let HomeMain:React.NamedExoticComponent;
 let LSHomeCatalog:any;
+let HomeDeclare:any;
 
 if (isMobile()) {
   HomeMain = LSHomeMainMobile;
   LSHomeCatalog = React.lazy(() => import('./catalog/mobile'));
+  HomeDeclare = React.lazy(() => import('./declare/mobile'));
 } else if(isPad()) {
   HomeMain = LSHomeMainPad;
   LSHomeCatalog = React.lazy(() => import('./catalog/mobile'));
+  HomeDeclare = React.lazy(() => import('./declare/mobile'));
 } else {
   HomeMain = LSHomeMainPC;
   LSHomeCatalog = React.lazy(() => import('./catalog/pc'));
+  HomeDeclare = React.lazy(() => import('./declare/pc'));
 }
 
 export default memo(function LSHomePage() {
@@ -32,6 +36,9 @@ export default memo(function LSHomePage() {
       <HomeMain/>
       <Suspense fallback='<span></span>'>
         <LSHomeCatalog/>
+      </Suspense>
+      <Suspense fallback='<span></span>'>
+        <HomeDeclare/>
       </Suspense>
       <LSAppFooter/>
     </HomePageWrapper>
