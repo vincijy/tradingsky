@@ -174,7 +174,7 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
       xAxis.plotBands.push(band);
     }
   } else {
-    if (xAxis.plotBands) {
+    if (xAxis && xAxis.plotBands) {
       xAxis.plotBands = xAxis.plotBands.filter((band) => band.id !== 'vip_cover');
     }
   }
