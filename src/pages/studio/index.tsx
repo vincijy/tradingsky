@@ -40,13 +40,25 @@ export default memo(function LSChartPage() {
     localStorage.removeItem('userInfo');
   };
   const tokenExpiredAt = useAppSelector((state) => state.user.userInfo.tokenExpiredAt);
+  const token = useAppSelector((state) => state.user.userInfo.token);
+
   useEffect(() => {
-    if (!tokenExpiredAt) {
+    if (!tokenExpiredAt || !token) {
       return;
     }
     if (new Date(tokenExpiredAt) < new Date()) {
       logout();
+      return;
     }
+    getAuthingClient().checkLoginStatus(token).then((res) => {
+      const { status } = res;
+      if ((status !== true)) {
+        logout();
+        return;
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
   });
 
   // 选中的菜单
