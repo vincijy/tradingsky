@@ -9,12 +9,13 @@ import { Layout } from 'antd';
 import { useAppSelector, useAppDispatch } from '@/hooks';
 import { toggleMenuVisible } from '@/store/ui/action';
 import { isMobile, isPad } from '@/utils/is';
+import { getAuthingClient } from '@/authing';
+import { toggleLogin } from '@/store/user/action';
 import { ChartWrapper, ChartLeft, AppFooter, SiteModal } from './style';
 import LSChartMenu from './menu'; // 菜单
 import LSChartBar from './chart_bar'; // 功能栏
 import LSChartBox from './chart_box'; // 图表框
 import LSChartDescribe from './chart_describe';
-
 export default memo(function LSChartPage() {
 
   // 移动端适配, 在移动端, 初始化的时候不显示左侧菜单
@@ -30,6 +31,23 @@ export default memo(function LSChartPage() {
       menuVisible: !menuVisible,
     }))
   );
+
+  const logout = () => { // 退出登录
+    getAuthingClient().logout();
+    dispatch(toggleLogin({
+      isLogin: false,
+    }));
+    localStorage.removeItem('userInfo');
+  };
+  const tokenExpiredAt = useAppSelector((state) => state.user.userInfo.tokenExpiredAt);
+  useEffect(() => {
+    if (!tokenExpiredAt) {
+      return;
+    }
+    if (new Date(tokenExpiredAt) < new Date()) {
+      logout();
+    }
+  });
 
   // 选中的菜单
   const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
