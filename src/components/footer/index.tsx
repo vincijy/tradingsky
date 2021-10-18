@@ -71,7 +71,7 @@ export default memo(function LSAppFooter() {
             <Button
               type='link'
               icon={<WechatOutlined/>}
-              href='https://weibo.com/u/7657665166?is_all=1'
+              href='https://mp.weixin.qq.com/s/qF_Hvqdgv3TENFjLLwgU2g'
               style={{
                 color: 'white',
               }}

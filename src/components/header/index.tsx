@@ -129,8 +129,7 @@ export default memo(function LSAppHeader() {
               <WeiboOutlined />
             </a>
             <a
-              // href='https://mp.weixin.qq.com/s/5ps_OcxPWA96fKUn4ozsZg'
-              href='https://weibo.com/u/7657665166?is_all=1'
+              href='https://mp.weixin.qq.com/s/qF_Hvqdgv3TENFjLLwgU2g'
               target='_blank'
               rel='noreferrer'>
               <WechatOutlined className='most-right' />

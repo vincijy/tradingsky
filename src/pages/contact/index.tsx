@@ -52,7 +52,7 @@ export default memo(function ContactPage() {
             <a href='https://weibo.com/u/7657665166?is_all=1' target='_blank' rel='noreferrer'>点击跳转微博</a>
           </Card>
           <Card title='Twitter' style={{ width: 300, margin: '15px' }}>
-            <a href='https://discord.gg/jmKw6PRQ7W' target='_blank' rel='noreferrer'>点击进入Twitter，关注日常信息</a>
+            <a href='https://twitter.com/Lianshucha' target='_blank' rel='noreferrer'>点击进入Twitter，关注日常信息</a>
           </Card>
         </div>
       </ContactWrapper>
