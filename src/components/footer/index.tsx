@@ -13,6 +13,11 @@ export default memo(function LSAppFooter() {
   const goPirate = () => {
     h.push('/pirate');
   };
+
+  const goContact = () => {
+    h.push('/contact');
+  };
+
   const content = (
     <div className='content'>
       <FooterLeft>
@@ -23,7 +28,13 @@ export default memo(function LSAppFooter() {
       <FooterRight>
         <ul>
           <li>反馈</li>
-          <li>联系我们</li>
+          <li>
+            <div
+              style={{ color: 'white' }}
+              onClick={ goContact }
+            >联系我们
+            </div>
+          </li>
           <li>
             <div
               style={{ color: 'white' }}
@@ -43,6 +54,14 @@ export default memo(function LSAppFooter() {
             </Button>
             <Button
               type='link'
+              icon={<TwitterOutlined/>}
+              href='https://twitter.com/Lianshucha'
+              style={{
+                color: 'white',
+              }}
+              target='_blank' />
+            <Button
+              type='link'
               icon={<WeiboOutlined/>}
               href='https://weibo.com/u/7657665166?is_all=1'
               style={{
@@ -53,14 +72,6 @@ export default memo(function LSAppFooter() {
               type='link'
               icon={<WechatOutlined/>}
               href='https://weibo.com/u/7657665166?is_all=1'
-              style={{
-                color: 'white',
-              }}
-              target='_blank' />
-            <Button
-              type='link'
-              icon={<TwitterOutlined/>}
-              href='https://twitter.com/Lianshucha'
               style={{
                 color: 'white',
               }}

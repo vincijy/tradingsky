@@ -117,6 +117,12 @@ export default memo(function LSAppHeader() {
               <img style={{ height: '17.5px', marginBottom: '3.5px' }} src={discordLogo} />
             </a>
             <a
+              href='https://twitter.com/Lianshucha'
+              target='_blank'
+              rel='noreferrer'>
+              <TwitterOutlined/>
+            </a>
+            <a
               href='https://weibo.com/u/7657665166?is_all=1'
               target='_blank'
               rel='noreferrer'>
@@ -127,13 +133,7 @@ export default memo(function LSAppHeader() {
               href='https://weibo.com/u/7657665166?is_all=1'
               target='_blank'
               rel='noreferrer'>
-              <WechatOutlined />
-            </a>
-            <a
-              href='https://twitter.com/Lianshucha'
-              target='_blank'
-              rel='noreferrer'>
-              <TwitterOutlined className='most-right' />
+              <WechatOutlined className='most-right' />
             </a>
           </div>
           <div className='personal-bar'>
