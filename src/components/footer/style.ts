@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterWrapper = styled.div `
-    background: #000;
+    background: #30363d;
 
     .content {
         display: flex;    

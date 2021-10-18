@@ -4,7 +4,7 @@ export const DeclareWrapper = styled.div `
     .declare-container {
         width: 100%;
         padding: 10px 10px;
-        background: #404040;
+        background: #30363d;
         color: white;
         font-size: 12px;
         h2{

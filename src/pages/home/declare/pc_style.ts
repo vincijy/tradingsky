@@ -6,7 +6,7 @@ export const DeclareWrapper = styled.div `
         padding: 20px 50px;
         margin-top: 40px;
         text-align: center;
-        background: #404040;
+        background: #30363d;
         color: white;
         font-size: 14px;
         h2{
