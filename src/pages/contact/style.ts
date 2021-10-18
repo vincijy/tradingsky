@@ -10,8 +10,18 @@ export const ContactWrapper = styled.div `
         height: 775px; // 宽屏适配
     }
 
+    .card-bottom{
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配
+            display: none;
+        }
+    }
+
     .card-top{
         display: flex;
+
+        @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配
+            display: block;
+        }
     }
 `;
 
