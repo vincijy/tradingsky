@@ -27,6 +27,8 @@ export default memo(function ShareButton() {
     <Button
       size='small'
       onClick={ share }
+      shape='round'
+      type='link'
     >
       <LinkOutlined />
       分享

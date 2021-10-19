@@ -1,4 +1,4 @@
-import { MergeCellsOutlined } from '@ant-design/icons';
+import { FaFingerprint } from 'react-icons/fa';
 import React from 'react';
 import * as D from '../def';
 import { active } from './active';
@@ -12,7 +12,7 @@ import { activeSentiment } from './active_sentiment';
 
 export const address:D.MenuItem = {
   name: '地址',
-  icon: <MergeCellsOutlined />,
+  icon: <FaFingerprint />,
   key: 'sub1',
   visible: true,
   assetList: ['btc', 'eth'],

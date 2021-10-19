@@ -1,5 +1,5 @@
 
-import { LineChartOutlined } from '@ant-design/icons';
+import { FaChartBar } from 'react-icons/fa';
 import React from 'react';
 import * as D from '../def';
 import { stockFlow } from './stock_to_flow';
@@ -15,7 +15,7 @@ import { mayer } from './mayer';
 
 export const evaluateIndice:D.MenuItem = {
   name: '估值指标',
-  icon: <LineChartOutlined />,
+  icon: <FaChartBar />,
   key: 'sub6',
   visible: true,
   assetList: ['btc'],

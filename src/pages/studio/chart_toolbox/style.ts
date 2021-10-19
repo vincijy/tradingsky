@@ -1,11 +1,27 @@
 import styled from 'styled-components';
 import * as Layout from '../../../config/layout';
 
-export const ToolBoxWrapper = styled.div `
+export const BorderLineTop = styled.div `
     // 布局
     position: absolute;
     top: ${Layout.CHART_TOOLBOX_TOP}px;
     z-index: 1;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
+`;
+
+export const BorderLineBottom = styled.div `
+    // 布局
+    position: absolute;
+    top: ${Layout.CHART_TOOLBOX_TOP + Layout.TOOLBOX_HEIGHT - 2 }px;
+    z-index: 1;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
+`;
+
+export const ToolBoxWrapper = styled.div `
+    // 布局
+    position: absolute;
+    top: ${Layout.CHART_TOOLBOX_TOP}px;
+    z-index: 2;
     background: white;
     height: ${Layout.TOOLBOX_HEIGHT}px;
     .toolbox-content{

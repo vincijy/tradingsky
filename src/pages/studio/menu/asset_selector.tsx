@@ -10,6 +10,7 @@ import { changeAsset, toggleAnnotation } from '@/store/chart/action';
 import { updateChartOption } from '@/store/chart/action';
 import btcLogo from '@/assets/img/btc_logo.png';
 import ethLogo from '@/assets/img/eth_logo.svg';
+import { isMobile } from '@/utils/is';
 
 export default memo(function AssetSelector() {
   const dispatch = useAppDispatch();
@@ -51,7 +52,8 @@ export default memo(function AssetSelector() {
       <Select
         onSelect={ changeDataAsset }
         defaultValue={asset}
-        style={{ width: 260 }} >
+        style={{ width: isMobile() ? 260 : 120 }}
+        bordered={false} >
         <Select.Option value='btc'><img
           src={btcLogo}
           height='16px'

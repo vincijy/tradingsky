@@ -19,6 +19,7 @@ export const commonOptions = {
 		  enabled: false,
   },
   chart: {
+    animation: false,
     plotBackgroundImage,
     height: Layout.CHART_HEIGHT, // 图表高度, 图表的高度 = 纯图表高 + naviagator高度 +  日历高度
     zoomType: 'x',

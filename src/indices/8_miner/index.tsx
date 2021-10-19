@@ -1,5 +1,5 @@
 
-import { PieChartOutlined } from '@ant-design/icons';
+import { GiMiner } from 'react-icons/gi';
 import React from 'react';
 import * as D from '../def';
 import { hashRibbon } from './hash_ribbon';
@@ -8,7 +8,7 @@ import { puell } from './puell';
 import { transactionFee } from './transaction_fee';
 export const miner:D.MenuItem = {
   name: '矿工',
-  icon: <PieChartOutlined />,
+  icon: <GiMiner />,
   key: 'sub9',
   visible: true,
   assetList: ['btc'],

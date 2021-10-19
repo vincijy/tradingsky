@@ -1,3 +1,4 @@
+import { HeartOutlined } from '@ant-design/icons';
 import * as D from './def';
 import { address } from './0_address';
 import { exchange } from './1_exchange';
@@ -8,17 +9,18 @@ import { evaluateIndice } from './5_evaluate_indice';
 import { sentiment } from './6_sentiment';
 import { investorBehavior } from './7_behavior';
 import { miner } from './8_miner';
+
 export const menus:D.MenuItem[] = [
   /**
    * 我的收藏
    */
   {
-    name: '我的收藏',
+    name: '收藏',
     key: '我的收藏',
     subMenus: [],
-    icon: '',
     visible: true,
     assetList: ['btc', 'eth'],
+    icon: <HeartOutlined />,
   },
   /**
    * 地址

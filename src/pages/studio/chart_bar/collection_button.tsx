@@ -88,6 +88,8 @@ export default memo(function CollectionButton() {
   return (
     <Button
       size='small'
+      shape='round'
+      type='link'
       onClick={ hasCollected ? cancelCollect : collect }
     >
       {

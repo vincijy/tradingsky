@@ -1,4 +1,4 @@
-import { PullRequestOutlined } from '@ant-design/icons';
+import { FaBalanceScaleLeft } from 'react-icons/fa';
 import React from 'react';
 import * as D from '../def';
 import { balancePercent } from './balance_percent';
@@ -8,7 +8,7 @@ import { fundingRate } from './funding_rate';
 
 export const exchange:D.MenuItem = {
   name: '交易所',
-  icon: <PullRequestOutlined />,
+  icon: <FaBalanceScaleLeft />,
   key: 'sub2',
   visible: true,
   assetList: ['btc', 'eth'],

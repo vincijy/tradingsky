@@ -7,7 +7,6 @@ export const ChartTitleArea = styled.div `
     height: ${Layout.CHART_HEADER_HEIGHT}px;
     z-index: 1;
     text-align: left;
-    /* border: 1px solid green; */
     .lsc-head-wrapper {
         /* border: 1px solid black; */
         height: 100%;
@@ -15,7 +14,7 @@ export const ChartTitleArea = styled.div `
         /* width: 80vw; */
         /* z-index: 0; */
     }
-    img {
+    .chart-head-img {
         width: 16px;
         height: 16px;
         display: inline-block;

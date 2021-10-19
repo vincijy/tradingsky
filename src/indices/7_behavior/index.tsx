@@ -1,4 +1,4 @@
-import { ThunderboltOutlined } from '@ant-design/icons';
+import { FaUsers } from 'react-icons/fa';
 import React from 'react';
 import * as D from '../def';
 import { longBehavior } from './long_behavior';
@@ -8,7 +8,7 @@ import { realizedAge } from './realized_age';
 import { hodlAge } from './hodl_age';
 export const investorBehavior:D.MenuItem = {
   name: '投资者行为',
-  icon: <ThunderboltOutlined />,
+  icon: <FaUsers />,
   key: 'sub8',
   visible: true,
   assetList: ['btc', 'eth'],

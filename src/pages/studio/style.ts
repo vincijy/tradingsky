@@ -33,7 +33,8 @@ export const ChartWrapper = styled.div `
 
 export const ChartLeft = styled.div<Props> `
     .side{
-        overflow: auto;  // 上下滚轮
+        /* overflow: auto;  // 上下滚轮 */
+        overflow-y: hidden;
         height: ${ (props) => `${props.height}px` };
         background-color: white;
         border-right: 1px solid rgba(0, 0, 0, 0.1); // 菜单栏右边框

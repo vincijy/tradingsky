@@ -9,11 +9,11 @@ import axios from 'axios';
 import { CancelTokenSource } from 'axios';
 import { isMobile } from '@/utils/is';
 import { getAnnotationManager } from '@/utils/annotation';
+import { Button } from 'antd';
 import LSChartToolbox from '../chart_toolbox';
 import LSChartHead from '../char_head';
 import LSChartCover from '../chart_cover';
 import { BoxWrapper } from './style';
-
 let source:CancelTokenSource | undefined;
 
 export default memo(function LSChartBox() {
@@ -199,7 +199,9 @@ export default memo(function LSChartBox() {
   return (
     <BoxWrapper>
       <div id='container' >
-        <LSChartHead/>
+        {
+          <LSChartHead/>
+        }
         {
           !(isMobile() && menuVisible) &&
            <LSChartToolbox />

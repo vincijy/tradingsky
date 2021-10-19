@@ -16,6 +16,8 @@ import LSChartMenu from './menu'; // 菜单
 import LSChartBar from './chart_bar'; // 功能栏
 import LSChartBox from './chart_box'; // 图表框
 import LSChartDescribe from './chart_describe';
+
+let isLoginedChecked = false;
 export default memo(function LSChartPage() {
 
   // 移动端适配, 在移动端, 初始化的时候不显示左侧菜单
@@ -50,7 +52,11 @@ export default memo(function LSChartPage() {
       logout();
       return;
     }
+    if (isLoginedChecked) {
+      return;
+    }
     getAuthingClient().checkLoginStatus(token).then((res) => {
+      isLoginedChecked = true;
       const { status } = res;
       if ((status !== true)) {
         logout();
@@ -65,17 +71,33 @@ export default memo(function LSChartPage() {
   const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
   const { introduce } = selectedSubMenu;
 
+  const onCollapse = () => {
+    console.log('onCollapse');
+  };
+
   return (
     <ChartWrapper>
       <Layout>
 
         <ChartLeft height={introduce.height}>
-          <Sider
-            className='side'
-            width={280}
-            style={{ display: menuVisible ? 'block' : 'none' }}>
-            <LSChartMenu />
-          </Sider>
+          {
+            isMobile() &&
+            <Sider
+              className='side'
+              width={280}
+              style={{ display: menuVisible ? 'block' : 'none' }}>
+              <LSChartMenu />
+            </Sider>
+          }
+          {
+            !isMobile() &&
+            <Sider
+              className='side'
+              width={ menuVisible ? 274 : 70 }
+              style={{ display: menuVisible ? 'block' : 'block' }}>
+              <LSChartMenu />
+            </Sider>
+          }
         </ChartLeft>
         {
           !((isMobile() || isPad()) && menuVisible) &&

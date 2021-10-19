@@ -5,10 +5,12 @@ import { MenuFoldOutlined, UnlockFilled } from '@ant-design/icons';
 import { useAppSelector, useAppDispatch } from '@/hooks';
 import { getHighCharts } from '@/components/chart';
 import { ossImgs } from '@/oss';
-
+import btcLogo from '@/assets/img/btc_logo.png';
+import ethLogo from '@/assets/img/eth_logo.svg';
 import { toggleMenuVisible } from '@/store/ui/action';
 import { updateLayout } from '@/store/ui/action';
 import { isMobile } from '@/utils/is';
+import AssetSelector from '../menu/asset_selector';
 import CollectionButton from './collection_button';
 import ShareButton from './share_button';
 import { BarWrapper } from './style';
@@ -64,16 +66,75 @@ export default memo(function LSChartBar() {
     setIsModalVisible(false);
   };
 
+  const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
+  const asset = useAppSelector((state) => state.chart.dataAsset);
+  const { name } = selectedSubMenu;
+
+  const logo = asset === 'btc' ? btcLogo : ethLogo;
+
+  let assetName = asset === 'btc' ? '比特币' : '以太坊';
+
+  if (isMobile()) {
+    assetName = asset === 'btc' ? 'BTC' : 'ETH';
+  }
+  const chartBoxWidth = useAppSelector((state) => state.ui.layout.chartBoxWidth);
+
+  const pcStyle = {
+    marginLeft: '-30px',
+    paddingLeft: '30px',
+    marginRight: '-30px',
+    paddingRight: '30px',
+    zIndex: 1,
+  };
   return (
     <BarWrapper>
-      <div className='bar'>
-        <Button
-          size='small'
-          onClick={ () => toggleMenu() }>
-          <MenuFoldOutlined />
-        </Button>
-        <CollectionButton />
-        <ShareButton />
+      <div
+        className='bar'
+        style={ isMobile() ? {} : pcStyle }>
+        {
+          // 移动端隐藏菜单按钮
+          isMobile() &&
+          <Button
+            size='small'
+            onClick={ () => toggleMenu() }>
+            <MenuFoldOutlined />
+          </Button>
+        }
+        {
+        // 币种切换
+          !isMobile() &&
+          <div
+            className='asset-selector'
+            style={{ right: `${chartBoxWidth + 30 }px` }}>
+            <AssetSelector />
+          </div>
+        }
+        {
+          // 标题
+          !isMobile() &&
+          <div
+            className='lsc-head-wrapper'
+          >
+            <img
+              src={logo}
+              alt={assetName}
+              className='chart-head-img'
+              style={{ marginBottom: '3px' }}
+            />
+            <span
+              className='chart-title'
+              style={ { fontWeight: 'bold' }}>
+              {assetName}:
+              { name }
+            </span>
+          </div>
+        }
+
+        <div className='btn-area'>
+          <CollectionButton />
+          <ShareButton />
+        </div>
+
         {
           shouldCoverIfNotPaid &&
           <div>

@@ -11,6 +11,7 @@ const initState:IUiState = {
     subMenu: getAppInitState().subMenu,
   },
   menuVisible: !isMobile() && !isPad(),
+  // menuVisible: false,
   loginPanelVisible: false,
   authingPanel: {
     visible: false,
