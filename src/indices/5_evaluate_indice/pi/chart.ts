@@ -86,12 +86,12 @@ export const chart = {
   ],
   series: [
     {
-      name: '365MA * 2',
+      name: '350MA * 2',
       data: [],
       // 橙色
       color: '#0485d1',
       yAxis: 0,
-      id: 'ma_365_2',
+      id: 'ma_350_2',
       visible: true,
       showInLegend: true,
     },
