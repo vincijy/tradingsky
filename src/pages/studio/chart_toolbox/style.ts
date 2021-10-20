@@ -5,7 +5,7 @@ import * as Layout from '../../../config/layout';
 export const BorderLineTop = styled.div `
     // 布局
     position: absolute;
-    top: ${Layout.CHART_TOOLBOX_TOP}px;
+    top: ${Layout.CHART_TOOLBOX_TOP - 1}px;
     z-index: 1;
     border-top: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
 `;
@@ -59,6 +59,10 @@ export const ToolBoxCellWrapper = styled.div `
         cursor: pointer;
         height: ${Layout.TOOLBOX_HEIGHT}px;
 
+        // 居中
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         // 文本不可选中
         -moz-user-select: none;
@@ -72,6 +76,11 @@ export const ToolBoxCellWrapper = styled.div `
         border-right: 1px solid rgb(226, 226, 226);
         padding: 0.15rem 1rem;
         cursor: pointer;
+
+        // 居中
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         // 文本不可选中
         -moz-user-select: none;
