@@ -21,7 +21,7 @@ export const ChartTitleArea = styled.div `
         vertical-align: text-bottom;
         /* border: 1px solid red; */
         position: absolute;
-        top:50%;
+        top: calc(50% + 1px); // 1px 的原因? TODO
         transform: translateY(-50%);
         left:2px;
     }
@@ -32,7 +32,7 @@ export const ChartTitleArea = styled.div `
         vertical-align: baseline;
         /* border: 1px solid red; */
         position: absolute;
-        top:50%;
+        top: calc(50% + 1px); // 1px 的原因? TODO
         left: 20px;
         transform: translateY(-50%);
         white-space: nowrap;
