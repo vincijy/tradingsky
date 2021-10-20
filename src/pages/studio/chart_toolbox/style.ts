@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { isMobile } from '@/utils/is';
 import * as Layout from '../../../config/layout';
 
 export const BorderLineTop = styled.div `
@@ -6,15 +7,15 @@ export const BorderLineTop = styled.div `
     position: absolute;
     top: ${Layout.CHART_TOOLBOX_TOP}px;
     z-index: 1;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
+    border-top: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
 `;
 
 export const BorderLineBottom = styled.div `
     // 布局
     position: absolute;
-    top: ${Layout.CHART_TOOLBOX_TOP + Layout.TOOLBOX_HEIGHT - 3 }px;
+    top: ${ Layout.CHART_TOOLBOX_TOP + Layout.TOOLBOX_HEIGHT }px;
     z-index: 1;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
+    border-top: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
 `;
 
 export const ToolBoxWrapper = styled.div `
@@ -25,18 +26,21 @@ export const ToolBoxWrapper = styled.div `
     background: white;
     height: ${Layout.TOOLBOX_HEIGHT}px;
     .toolbox-content{
+        height: ${Layout.TOOLBOX_HEIGHT}px;
         text-align: left;
         font-size: large;
-        border-top: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
+        /* border-top: 1px solid rgba(0, 0, 0, 0.1); // 边框效果 */
+        /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); // 边框效果 */
         width: 100%;
     }
     li {
+        height: 100%;
         // border-top: 1px solid rgb(226, 226, 226);
         // border-bottom: 1px solid rgb(226, 226, 226);
     }
     ul {
         display: flex;
+        height: 100%;
         // border-left: 1px solid rgb(226, 226, 226);
     }
 
@@ -53,6 +57,8 @@ export const ToolBoxCellWrapper = styled.div `
         border-right: 1px solid rgb(226, 226, 226);
         padding: 0.15rem 1rem;
         cursor: pointer;
+        height: ${Layout.TOOLBOX_HEIGHT}px;
+
 
         // 文本不可选中
         -moz-user-select: none;
@@ -62,6 +68,7 @@ export const ToolBoxCellWrapper = styled.div `
         text-align: center;
     }
     .toolbox-cell-dropdown {
+        height: ${Layout.TOOLBOX_HEIGHT}px;
         border-right: 1px solid rgb(226, 226, 226);
         padding: 0.15rem 1rem;
         cursor: pointer;
