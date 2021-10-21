@@ -91,7 +91,7 @@ export const chart = {
       // 橙色
       color: '#0485d1',
       yAxis: 0,
-      id: 'ma_350_2',
+      id: 'ma_365_2', // TODO: 名字需要协同后端接口一起修复
       visible: true,
       showInLegend: true,
     },
