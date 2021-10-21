@@ -131,21 +131,22 @@ export default memo(function LSChartBar() {
         }
 
         <div className='btn-area'>
-          <CollectionButton />
-          <ShareButton />
-        </div>
-
-        {
-          shouldCoverIfNotPaid &&
-          <div>
+          {
+            shouldCoverIfNotPaid &&
             <Button
-              // style={{ textAlign: 'left', color: '#aaaaa', background: 'rgb(254, 234, 194)', height: '26px', lineHeight: '26px', padding: '0px 2px' }}
+            // style={{ textAlign: 'left', color: '#aaaaa', background: 'rgb(254, 234, 194)', height: '26px', lineHeight: '26px', padding: '0px 2px' }}
               onClick={ () => showModal() }>
               <UnlockFilled style={{ color: 'rgb(247, 147, 26)' }} />
               {
                 isMobile() ? '解锁L2' : '解锁近期L2数据'
               }
             </Button>
+          }
+          <CollectionButton />
+          <ShareButton />
+          {
+            shouldCoverIfNotPaid &&
+          <div>
             <Modal
               visible={isModalVisible}
               onOk={handleOk}
@@ -170,7 +171,9 @@ export default memo(function LSChartBar() {
               </div>
             </Modal>
           </div>
-        }
+          }
+        </div>
+
       </div>
     </BarWrapper>
   );

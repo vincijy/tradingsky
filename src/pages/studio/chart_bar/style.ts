@@ -6,6 +6,7 @@ export const BarWrapper = styled.div `
         display: flex;
         justify-content: space-between;
         background: white;
+        position: relative;
     }
     .btn-area {
         line-height: 32px;
@@ -16,6 +17,9 @@ export const BarWrapper = styled.div `
         height: ${Layout.GAP_BAR_BTN_HEIGHT}px;
     }
     .lsc-head-wrapper {
+        position: absolute;
+        left: calc(50% - ${Layout.GAP_BAR_PADDING}px);
+        transform: translateX(-50%);
     }
     .chart-head-img {
         width: 16px;
