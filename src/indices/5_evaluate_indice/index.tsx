@@ -3,8 +3,8 @@ import { FaChartBar } from 'react-icons/fa';
 import React from 'react';
 import * as D from '../def';
 import { stockFlow } from './stock_to_flow';
-import { arh999 } from './arh999';
-import { arh999x } from './arh999x';
+import { ahr999 } from './ahr999';
+import { ahr999x } from './ahr999x';
 import { sfDeflection } from './sf_deflection';
 import { cvdd } from './cvdd';
 import { marketHealth } from './market_health';
@@ -20,13 +20,13 @@ export const evaluateIndice:D.MenuItem = {
   visible: true,
   assetList: ['btc'],
   subMenus: [
-    arh999,
+    ahr999,
     Pi,
     twoyearMultiplier,
     stockFlow,
     sfDeflection,
     mayer,
-    arh999x,
+    ahr999x,
     marketHealth,
     fairDeflection,
     cvdd,

@@ -29,7 +29,7 @@ export const chart = {
         style: { color: '#3c414c' }, // 刻度（黑色）
       },
       plotLines: plotLines, // 分隔线
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineColor: 'rgba(0,0,0,0.05)',
     },
     {
       // 右侧轴线

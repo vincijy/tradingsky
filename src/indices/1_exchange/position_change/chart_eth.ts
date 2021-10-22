@@ -26,9 +26,9 @@ export const chartEth = {
       className: 'highcharts-navigator-yaxis',
       labels: {
         style: { color: '#3c414c' },
-        gridLineColor: 'rgba(240,240,240,.67)',
       },
       plotLines: plotLines,
+      gridLineColor: 'rgba(0,0,0,0.05)',
     },
     {
       // 右侧轴线

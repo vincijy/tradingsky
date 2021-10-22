@@ -28,7 +28,7 @@ export const chart = {
         // 橙色
         style: { color: '#3c414c' }, // 刻度（黑色）
       },
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineColor: 'rgba(0,0,0,0.05)',
       plotLines: plotLines,
     },
     {

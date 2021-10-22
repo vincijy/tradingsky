@@ -53,7 +53,7 @@ export const chart = {
         style: { color: '#c57514' }, // 刻度（橙色）
       },
       type: 'logarithmic', // 对数刻度
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineColor: 'rgba(0,0,0,0.05)',
       plotLines: plotLines,
     },
     {
@@ -69,7 +69,7 @@ export const chart = {
   ],
   series: [
     {
-      name: 'arh999',
+      name: 'ahr999',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',

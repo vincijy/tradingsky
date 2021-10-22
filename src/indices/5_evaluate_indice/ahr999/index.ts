@@ -3,7 +3,7 @@ import { annotation } from './annotation';
 import { introduce } from './introduce';
 import { chart } from './chart';
 
-export const arh999:D.SubMenuItem = {
+export const ahr999:D.SubMenuItem = {
   name: 'Ahr999囤币指数', // 名字
   key: 'Arh999囤币指数', // 名字, 原先笔误, 这里作为key即使笔误了, 也不能修改
   loginRequired: false,

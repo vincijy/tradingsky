@@ -23,7 +23,7 @@ export const chart = {
         // 橙色
         style: { color: '#c57514' },
       },
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineColor: 'rgba(0,0,0,0.05)',
     },
     {
       // 右侧轴线

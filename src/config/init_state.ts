@@ -1,7 +1,7 @@
 import { menus } from '@/indices';
 import { getUrlParams, findMenuByIndex } from '@/utils/url';
 import { mergeOption } from '@/utils/merge_option';
-import { chart as initialPrivateOption } from '@/indices/5_evaluate_indice/arh999/chart';
+import { chart as initialPrivateOption } from '@/indices/5_evaluate_indice/ahr999/chart';
 import { commonOptions } from '@/indices/chart_common';
 
 /**

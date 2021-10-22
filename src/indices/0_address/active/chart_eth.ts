@@ -31,7 +31,7 @@ export const chartEth = {
       opposite: true,
       align: 'left',
       type: 'logarithmic', // 对数刻度
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineColor: 'rgba(0,0,0,0.05)',
     },
   ],
   series: [

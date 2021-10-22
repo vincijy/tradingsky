@@ -37,7 +37,7 @@ export const chartEth = {
         // 橙色
         style: { color: '#4e64bb' }, // 蓝色
       },
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineColor: 'rgba(0,0,0,0.05)',
       plotLines: plotLines,
     },
     {

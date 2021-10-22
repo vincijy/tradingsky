@@ -32,7 +32,7 @@ export const chartEth = {
           return percent;
         },
       },
-      gridLineColor: 'rgba(240,240,240,.67)',
+      gridLineColor: 'rgba(0,0,0,0.05)',
       plotLines: plotLines,
     },
     {
