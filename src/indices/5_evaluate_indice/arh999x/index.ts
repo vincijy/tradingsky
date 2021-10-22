@@ -4,8 +4,8 @@ import { introduce } from './introduce';
 import { chart } from './chart';
 
 export const arh999x:D.SubMenuItem = {
-  name: 'Arh999x指数',
-  key: 'Arh999x指数',
+  name: 'Ahr999x指数',
+  key: 'Arh999x指数', // 名字, 原先笔误, 这里作为key即使笔误了, 也不能修改
   loginRequired: true,
   vipRequired: true, // pay
   visible: true,
