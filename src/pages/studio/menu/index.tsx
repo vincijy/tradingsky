@@ -232,6 +232,7 @@ export default memo(function LSChartMenu() {
           type='card'
           tabPosition={'left'}
           onTabClick={ (activeKey:string) => showMenus(activeKey) }
+          defaultActiveKey='sub6'
         >
           {
             menusPc.filter((Item) => Item.assetList.indexOf(`${asset}`) > -1).map((menuItem) => (
@@ -271,10 +272,10 @@ export default memo(function LSChartMenu() {
                               <span className='free-icon'>L1</span>
                           }
                           <span style={ selctedKey === subMenuItem.key ? { color: 'white' } : {} }>{subMenuItem.name}</span>
-                          {/* {
+                          {
                             subMenuItem.isNew &&
                               <span className='tag-new'>new</span>
-                          } */}
+                          }
                         </div>
                       </div>
                     ))
