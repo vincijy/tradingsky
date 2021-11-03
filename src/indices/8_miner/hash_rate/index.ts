@@ -1,21 +1,19 @@
-import * as D from '../../def';
 import { introduce } from './introduce';
 import { chart } from './chart';
 
-export const rsi:D.SubMenuItem = {
-  name: '比特币RSI',
-  key: '比特币RSI',
+export const hashRate = {
+  name: '哈希率',
+  key: '哈希率',
   loginRequired: true, // 付费指标
-  vipRequired: false,
+  vipRequired: true,
   visible: true,
-  isNew: false,
+  isNew: true,
 
   args: {
-    index: 'market/rsi',
+    index: 'miner/hash_rate',
   },
-  introduce: introduce,
   assetList: ['btc'],
-  catalogText: 'RSI是基于动量的比特币市场可视化',
+  catalogText: '每秒可以执行的哈希运算次数',
   toolbox: {
     annotation: {
       enabled: false, // 无标注
@@ -24,5 +22,7 @@ export const rsi:D.SubMenuItem = {
       enabled: true,
     },
   },
+  introduce: introduce,
   chart: { btc: chart, eth: chart },
+
 };

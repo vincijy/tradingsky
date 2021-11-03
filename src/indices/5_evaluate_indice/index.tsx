@@ -12,6 +12,7 @@ import { fairDeflection } from './fairvalue_deflection';
 import { Pi } from './pi';
 import { twoyearMultiplier } from './two_years_multiplier';
 import { mayer } from './mayer';
+import { deltaTop } from './deltaTop';
 
 export const evaluateIndice:D.MenuItem = {
   name: '估值指标',
@@ -22,6 +23,7 @@ export const evaluateIndice:D.MenuItem = {
   subMenus: [
     ahr999,
     Pi,
+    deltaTop,
     twoyearMultiplier,
     stockFlow,
     sfDeflection,

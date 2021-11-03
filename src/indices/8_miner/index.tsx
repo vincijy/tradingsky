@@ -6,6 +6,8 @@ import { hashRibbon } from './hash_ribbon';
 import { difficultyRibbon } from './difficulty_ribbon';
 import { puell } from './puell';
 import { transactionFee } from './transaction_fee';
+import { hashRate } from './hash_rate';
+
 export const miner:D.MenuItem = {
   name: '矿工',
   icon: <GiMiner />,
@@ -16,6 +18,7 @@ export const miner:D.MenuItem = {
     hashRibbon,
     difficultyRibbon,
     puell,
+    hashRate,
     transactionFee,
   ],
 };

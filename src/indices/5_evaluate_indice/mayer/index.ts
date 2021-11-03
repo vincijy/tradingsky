@@ -9,7 +9,7 @@ export const mayer:D.SubMenuItem = {
   loginRequired: true,
   vipRequired: true,
   visible: true,
-  isNew: true,
+  isNew: false,
   args: {
     index: 'value/mayer',
   },

@@ -9,7 +9,7 @@ export const ahr999:D.SubMenuItem = {
   loginRequired: false,
   vipRequired: false, // free
   visible: true,
-  isNew: true,
+  isNew: false,
 
   args: {
     index: 'value/arh999',

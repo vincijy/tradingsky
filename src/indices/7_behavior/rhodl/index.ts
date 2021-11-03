@@ -1,42 +1,41 @@
-import * as D from '../../def';
 import { introduce } from './introduce';
 import { chart } from './chart';
 import { annotation } from './annotation';
 
-export const Pi:D.SubMenuItem = {
-  name: 'pi顶部周期指标',
-  key: 'pi顶部周期指标',
+export const rhodl = {
+  name: 'RHODL指标',
+  key: 'RHODL指标',
   loginRequired: true,
-  vipRequired: false,
+  vipRequired: true,
+  isNew: true,
   visible: true,
-  isNew: false,
-
   args: {
-    index: 'value/pi',
+    index: 'behavior/rhodl',
   },
-  introduce: introduce,
   assetList: ['btc'],
-  catalogText: '周期顶部指标，可在3天内确定市场峰值',
+  catalogText: '通过市场天数比率衡量市场周期',
   toolbox: {
     annotation: {
       enabled: true, // 无标注
     },
     sma: {
-      enabled: false,
+      enabled: true,
     },
   },
+  introduce: introduce,
   chart: { btc: chart, eth: chart },
   annotation: { btc: annotation, eth: annotation },
+
   xStart: {
     btc: {
-      year: 2011,
-      month: 7,
+      year: 2010,
+      month: 12,
       day: 18,
     },
     eth: {
-      year: 2011,
-      month: 7,
-      day: 17,
+      year: 2010,
+      month: 12,
+      day: 18,
     },
   },
 };

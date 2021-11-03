@@ -9,7 +9,7 @@ export const fearGreedIndex:D.SubMenuItem = {
   loginRequired: true,
   vipRequired: false, // free
   visible: true,
-  isNew: true,
+  isNew: false,
 
   args: {
     index: 'sentiment/fear_greed_index',

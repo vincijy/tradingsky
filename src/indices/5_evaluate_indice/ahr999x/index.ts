@@ -9,7 +9,7 @@ export const ahr999x:D.SubMenuItem = {
   loginRequired: true,
   vipRequired: true, // pay
   visible: true,
-  isNew: true,
+  isNew: false,
 
   args: {
     index: 'value/arh999x',

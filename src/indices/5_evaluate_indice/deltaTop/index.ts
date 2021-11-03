@@ -2,26 +2,26 @@ import * as D from '../../def';
 import { introduce } from './introduce';
 import { chart } from './chart';
 
-export const rsi:D.SubMenuItem = {
-  name: '比特币RSI',
-  key: '比特币RSI',
-  loginRequired: true, // 付费指标
+export const deltaTop:D.SubMenuItem = {
+  name: 'Delta顶部指标',
+  key: 'Delta顶部指标',
+  loginRequired: true,
   vipRequired: false,
   visible: true,
-  isNew: false,
+  isNew: true,
 
   args: {
-    index: 'market/rsi',
+    index: 'value/delta_top',
   },
   introduce: introduce,
   assetList: ['btc'],
-  catalogText: 'RSI是基于动量的比特币市场可视化',
+  catalogText: '由以实现价格计算出来的顶部指标',
   toolbox: {
     annotation: {
       enabled: false, // 无标注
     },
     sma: {
-      enabled: true,
+      enabled: false,
     },
   },
   chart: { btc: chart, eth: chart },

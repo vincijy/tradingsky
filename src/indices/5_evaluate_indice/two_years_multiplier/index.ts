@@ -8,7 +8,7 @@ export const twoyearMultiplier:D.SubMenuItem = {
   loginRequired: true,
   vipRequired: false,
   visible: true,
-  isNew: true,
+  isNew: false,
 
   args: {
     index: 'value/two_years_multiplier',
