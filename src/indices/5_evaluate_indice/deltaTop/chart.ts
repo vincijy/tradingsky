@@ -53,6 +53,18 @@ const plotBands = [
   }, {
     color: BandColor.lightRed,
     from: getTimeStamp({
+      year: 2017,
+      month: 12,
+      day: 2,
+    }),
+    to: getTimeStamp({
+      year: 2017,
+      month: 12,
+      day: 23,
+    }),
+  }, {
+    color: BandColor.lightRed,
+    from: getTimeStamp({
       year: 2021,
       month: 1,
       day: 8,
