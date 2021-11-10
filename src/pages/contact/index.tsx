@@ -7,7 +7,7 @@ import blueContact from '@/assets/img/blueContact.jpg';
 import earthAvatar from '@/assets/img/earthAvatar.jpg';
 import spaceAvatar from '@/assets/img/spaceAvatar.jpg';
 
-import { ContactWrapper, ContactPageWrapper } from './style';
+import { ContactWrapper, ContactPageWrapper, ContactPageFooter } from './style';
 
 export default memo(function ContactPage() {
 
@@ -56,7 +56,9 @@ export default memo(function ContactPage() {
           </Card>
         </div>
       </ContactWrapper>
-      <LSAppFooter/>
+      <ContactPageFooter>
+        <LSAppFooter/>
+      </ContactPageFooter>
     </ContactPageWrapper>
   );
 });

@@ -33,9 +33,9 @@ export const lthSupply:D.SubMenuItem = {
       day: 30,
     },
     eth: {
-      year: 2015,
-      month: 9,
-      day: 30,
+      year: 2016,
+      month: 2,
+      day: 1,
     },
   },
 };

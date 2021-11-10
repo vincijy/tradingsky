@@ -6,10 +6,6 @@ export const ContactWrapper = styled.div `
     
     margin: 115px;
 
-    @media screen and (min-width: 1550px) {
-        height: 775px; // 宽屏适配
-    }
-
     .card-bottom{
         @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配
             display: none;
@@ -26,4 +22,11 @@ export const ContactWrapper = styled.div `
 `;
 
 export const ContactPageWrapper = styled.div `
+`;
+
+export const ContactPageFooter = styled.div `
+
+    @media screen and (min-width: 1550px) {
+        margin-top: 260px; // 宽屏适配
+    }
 `;
