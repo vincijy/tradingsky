@@ -30,7 +30,7 @@ export const sthChange:D.SubMenuItem = {
     btc: {
       year: 2010,
       month: 7,
-      day: 30,
+      day: 31,
     },
     eth: {
       year: 2016,
