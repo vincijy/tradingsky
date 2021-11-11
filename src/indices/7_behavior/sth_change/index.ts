@@ -29,8 +29,8 @@ export const sthChange:D.SubMenuItem = {
   xStart: {
     btc: {
       year: 2010,
-      month: 7,
-      day: 31,
+      month: 8,
+      day: 1,
     },
     eth: {
       year: 2016,
