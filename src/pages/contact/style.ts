@@ -24,6 +24,10 @@ export const ContactWrapper = styled.div `
 export const ContactPageWrapper = styled.div `
 `;
 
+export const CatalogBottom = styled.div `
+    margin-top: 48px;
+`;
+
 export const ContactPageFooter = styled.div `
 
     @media screen and (min-width: 1550px) {
