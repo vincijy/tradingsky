@@ -35,7 +35,7 @@ export const ChartLeft = styled.div<Props> `
     .side{
         /* overflow: auto;  // 上下滚轮 */
         overflow-y: hidden;
-        height: ${ (props) => `${props.height}px` };
+        height: ${ (props) => `${props.height + 50}px` };
         background-color: white;
         border-right: 1px solid rgba(0, 0, 0, 0.1); // 菜单栏右边框
 
