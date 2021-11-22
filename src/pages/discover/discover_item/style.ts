@@ -4,7 +4,7 @@ export const DiscoverItem = styled.div `
 
     .card-all {
         justify-content: space-between;
-        padding: 30px;
+        padding: 30px 0px;
         display: flex;
         flex-wrap: wrap;
     }

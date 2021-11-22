@@ -5,10 +5,6 @@ import Head from './discover_head';
 import List from './discover_list';
 import { DiscoverWrapper, DiscoverPageWrapper } from './style';
 
-
-
-
-
 export default memo(function PricePage() {
   const { Meta } = Card;
 
@@ -26,7 +22,7 @@ export default memo(function PricePage() {
     setIsModalVisible(false);
   };
   return (
-    <DiscoverPageWrapper style={{ height: '100%' }}>
+    <DiscoverPageWrapper>
       <Head/>
       <DiscoverWrapper>
         <List/>

@@ -4,4 +4,5 @@ export const DiscoverList = styled.div `
     margin-top: auto;
     justify-content: center;
     max-width:1280px;
-    width:80%;`;
+    width:80%;
+`;
