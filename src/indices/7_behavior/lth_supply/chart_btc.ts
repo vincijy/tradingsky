@@ -44,7 +44,6 @@ export const chart = {
       id: 'behavior_lth_supply',
       visible: true,
       showInLegend: true,
-      type: 'column', // 柱状图
 
     },
     {

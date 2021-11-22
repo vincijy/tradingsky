@@ -44,7 +44,6 @@ export const chartEth = {
       id: 'behavior_lth_supply',
       visible: false,
       showInLegend: false,
-      type: 'column', // 柱状图
 
     },
     {
