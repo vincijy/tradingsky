@@ -44,7 +44,6 @@ export const chart = {
       id: 'behavior_lth_supply',
       visible: true,
       showInLegend: true,
-
     },
     {
       name: '价格',
