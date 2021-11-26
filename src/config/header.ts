@@ -8,10 +8,6 @@ export const headerLinks = [
     link: '/chart',
   },
   {
-    title: '探索',
-    link: '/discover',
-  },
-  {
     title: '指标目录',
     link: '/catalog',
   },
