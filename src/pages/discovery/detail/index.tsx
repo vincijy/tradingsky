@@ -1,14 +1,15 @@
 
 import React, { memo, useEffect } from 'react';
-import { Card, Input, Select, Row, Col } from 'antd';
+import { Card, Input, Select, Row, Col, Tabs } from 'antd';
 import { MdTravelExplore } from 'react-icons/md';
 import { FiTwitter } from 'react-icons/fi';
 import { BarChartOutlined } from '@ant-design/icons';
 import { RightCircleOutlined } from '@ant-design/icons';
 import LSAppFooter from '@/components/footer'; // footer
+import LSChartDoubleLine from '@/components/chart/line/index';
 import { getCoin, getCoinList, getWhaleAddress, getWhaleTop, getRealTime, getAllPrice } from '@/api/discovery';
 const log = console.log.bind(console);
-
+const { TabPane } = Tabs;
 import { DiscoverDetailPage } from './style';
 
 export default memo(function Item() {
@@ -79,6 +80,72 @@ export default memo(function Item() {
             </div>
           </Col>
         </Row>
+      </Card>
+
+      <Card style={{ marginTop: '20px' }}>
+        <Tabs
+          defaultActiveKey='1'
+          centered>
+          <TabPane
+            tab='总览'
+            key='0'>
+
+
+            <Row style={{ marginBottom: '20px' }}>
+              <Col
+                className={'debug'}
+                xs={{ span: 24 }}
+                lg={{ span: 14 }}
+              >
+                <LSChartDoubleLine
+                  seriesA={ { data: [], name: 'name' } }
+                  seriesB={ { data: [], name: '价格' } }
+                />
+              </Col>
+              <Col
+                className={'glanceDataWrapper'}
+                xs={{ span: 24 }}
+                lg={{ span: 10 }}
+              >
+                <Card>
+                  <div>MarketCap</div>
+                  <div>1080</div>
+                  <div>30%</div>
+                </Card>
+                <Card>
+                  <div>MarketCap</div>
+                  <div>1080</div>
+                  <div>30%</div>
+                </Card>
+                <Card>
+                  <div>MarketCap</div>
+                  <div>1080</div>
+                  <div>30%</div>
+                </Card>
+                <Card>
+                  <div>MarketCap</div>
+                  <div>1080</div>
+                  <div>30%</div>
+                </Card>
+              </Col>
+            </Row>
+          </TabPane>
+          <TabPane
+            tab='产品'
+            key='1'>
+      Content of Tab Pane 2
+          </TabPane>
+          <TabPane
+            tab='巨鲸地址'
+            key='2'>
+      Content of Tab Pane 3
+          </TabPane>
+          <TabPane
+            tab='合约地址'
+            key='3'>
+      Content of Tab Pane 3
+          </TabPane>
+        </Tabs>
       </Card>
       <LSAppFooter/>
     </DiscoverDetailPage>
