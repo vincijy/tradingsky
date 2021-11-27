@@ -4,7 +4,7 @@ import LSAppFooter from '@/components/footer';
 import { TermWrapper } from './style';
 // import ReactMarkdown from 'react-markdown';
 
-export default memo(function term() {
+export default memo(function Term() {
   return (
     <TermWrapper>
       <div className='term-container'>

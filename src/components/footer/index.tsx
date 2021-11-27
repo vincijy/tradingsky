@@ -27,7 +27,7 @@ export default memo(function LSAppFooter() {
       </FooterLeft>
       <FooterRight>
         <ul>
-          <li>反馈</li>
+          <li><a href='https://discord.gg/zgkHnJyuJs' target='_blank' rel='noreferrer' style={{ color: 'white' }}>反馈</a></li>
           <li>
             <div
               style={{ color: 'white' }}

@@ -46,6 +46,11 @@ const routes = [
     exact: true,
     component: lazy(() => import( '@/pages/privacy')),
   },
+  {
+    path: '/discovery',
+    exact: true,
+    component: lazy(() => import( '@/pages/discovery')),
+  },
 ];
 
 export default routes;
