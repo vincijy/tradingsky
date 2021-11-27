@@ -11,7 +11,7 @@ import { getCoin, getCoinList, getWhaleAddress, getWhaleTop, getRealTime, getAll
 const log = console.log.bind(console);
 const { TabPane } = Tabs;
 import { DiscoverDetailPage } from './style';
-
+import ChartPie from './chart_pie';
 export default memo(function Item() {
   return (
     <DiscoverDetailPage>
@@ -138,7 +138,7 @@ export default memo(function Item() {
           <TabPane
             tab='巨鲸地址'
             key='2'>
-      Content of Tab Pane 3
+            <ChartPie/>
           </TabPane>
           <TabPane
             tab='合约地址'
