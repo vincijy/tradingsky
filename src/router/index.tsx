@@ -51,6 +51,11 @@ const routes = [
     exact: true,
     component: lazy(() => import( '@/pages/discovery')),
   },
+  {
+    path: '/discovery/detail',
+    exact: true,
+    component: lazy(() => import( '@/pages/discovery/detail/index')),
+  },
 ];
 
 export default routes;

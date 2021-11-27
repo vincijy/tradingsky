@@ -3,7 +3,7 @@ import { Card, Tag } from 'antd';
 import { RightCircleOutlined, BarChartOutlined, TagsOutlined, ShopOutlined, PieChartOutlined } from '@ant-design/icons';
 import { FiTwitter } from 'react-icons/fi';
 import { MdTravelExplore } from 'react-icons/md';
-
+import { useHistory } from 'react-router';
 import { DiscoverItem } from './style';
 
 interface IProps{
@@ -13,10 +13,15 @@ interface IProps{
 export default memo(function DiscoveryCard(props:IProps) {
 
   const { item } = props;
-
+  const h = useHistory();
+  const navigateToDetail = (item:any) => {
+    const { id, key } = item;
+    h.push(`discovery/detail?id=${id}&key=${key}`);
+  };
   return (
     <DiscoverItem>
       <Card
+        onClick={() => navigateToDetail(item)}
         hoverable
         bordered>
         <div className='card-info-area'>

@@ -5,10 +5,10 @@ import bitcoinLogo from '@/assets/img/btc_logo.png';
 import ethLogo from '@/assets/img/eth_logo.svg';
 import LSAppFooter from '@/components/footer'; // footer
 
-import DiscoveryCard from '@/components/discovery_card';
-import { getCoin, getCoinList } from '@/api/explore';
+import DiscoveryCard from '@/pages/discovery/card';
+import { getCoin, getCoinList } from '@/api/discovery';
 import { DiscoverPage } from './style';
-
+const log = console.log.bind(console);
 const assetList = [
   {
     title: '比特币 (BTC)',
@@ -97,7 +97,8 @@ export default memo(function Item() {
 
   useEffect(() => {
     getCoinList({ pageId: 1, pageSize: 10 }).then((res) => {
-      console.log(res);
+      const { list: coinList } = res.data;
+      log(coinList);
     }).catch((err) => {
       console.error(err);
     });

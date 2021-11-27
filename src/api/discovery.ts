@@ -41,7 +41,10 @@ export function getAllPrice(asset:string):AxiosPromise<any> {
  * @param params
  * @returns
  */
-export function getCoinList(params:{pageId:number, pageSize:number}):AxiosPromise<ICoin> {
+export function getCoinList(params:{pageId:number, pageSize:number}):AxiosPromise<{
+  list:ICoin[];
+  total:number;
+}> {
   return request({
     url: '/bpi/v0/coin',
     params: params,

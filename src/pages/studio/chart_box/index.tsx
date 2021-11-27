@@ -3,7 +3,7 @@ import { useAppSelector, useAppDispatch } from '@/hooks';
 import LSChartDoubleLine from '@/components/chart/line';
 import { getHighCharts } from '@/components/chart';
 import { getChartData, getAssetPrice } from '@/api/chart';
-import { getWhaleAddress, getWhaleTop, getRealTime, getAllPrice } from '@/api/explore';
+import { getWhaleAddress, getWhaleTop, getRealTime, getAllPrice } from '@/api/discovery';
 import { setPriceData, toggleAnnotation } from '@/store/chart/action';
 import { TypeDataRow } from '@/components/chart/def';
 import axios from 'axios';
@@ -117,46 +117,6 @@ export default memo(function LSChartBox() {
       getAssetPrice(asset)
         .then((res) => {
           resolve(res.data.rows || []);
-        })
-        .catch((err) => {
-          console.error(err);
-          reject();
-        });
-
-      // whale address
-      getWhaleAddress('btc')
-        .then((res) => {
-          console.log(res.data || []);
-        })
-        .catch((err) => {
-          console.error(err);
-          reject();
-        });
-
-      // whale top
-      getWhaleTop('btc')
-        .then((res) => {
-          console.log(res.data || []);
-        })
-        .catch((err) => {
-          console.error(err);
-          reject();
-        });
-
-      // real time
-      getRealTime('btc')
-        .then((res) => {
-          console.log(res.data || []);
-        })
-        .catch((err) => {
-          console.error(err);
-          reject();
-        });
-
-      // historical price
-      getAllPrice('btc')
-        .then((res) => {
-          console.log(res.data || []);
         })
         .catch((err) => {
           console.error(err);
