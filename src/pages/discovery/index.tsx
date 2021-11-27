@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { Card, Input, Select } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import bitcoinLogo from '@/assets/img/btc_logo.png';
@@ -6,7 +6,7 @@ import ethLogo from '@/assets/img/eth_logo.svg';
 import LSAppFooter from '@/components/footer'; // footer
 
 import DiscoveryCard from '@/components/discovery_card';
-
+import { getCoin, getCoinList } from '@/api/explore';
 import { DiscoverPage } from './style';
 
 const assetList = [
@@ -95,6 +95,14 @@ export default memo(function Item() {
   const { Meta } = Card;
   const { Option } = Select;
 
+  useEffect(() => {
+    getCoinList({ pageId: 1, pageSize: 10 }).then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      console.error(err);
+    });
+  }, []);
+
   return (
     <div>
       <DiscoverPage>
@@ -102,11 +110,21 @@ export default memo(function Item() {
         <h2 style={{ fontSize: '24px', display: 'flex', justifyContent: 'center', marginTop: '15px' }}>了解区块链产品，发现最新投资机会</h2>
         <div className='card-tool-bar'>
           <div className='too-bar-left'>
-            <Input placeholder='搜索' bordered={false} suffix={<SearchOutlined/>} style={{ backgroundColor: 'white', borderRadius: '6px', width: '250px', border: '1px solid #e0e0e0' }}/>
+            <Input
+              placeholder='搜索'
+              bordered={false}
+              suffix={<SearchOutlined/>}
+              style={{ backgroundColor: 'white', borderRadius: '6px', width: '250px', border: '1px solid #e0e0e0' }}/>
           </div>
           <div className='too-bar-right'>
-            <Select placeholder='分类' style={{ width: 120, backgroundColor: 'white' }} allowClear={true} bordered={false} className='card-tool-select'
-              dropdownStyle={{ borderRadius: '8px' }} dropdownClassName='card-select-drop'>
+            <Select
+              placeholder='分类'
+              style={{ width: 120, backgroundColor: 'white' }}
+              allowClear
+              bordered={false}
+              className='card-tool-select'
+              dropdownStyle={{ borderRadius: '8px' }}
+              dropdownClassName='card-select-drop'>
               <Option value='全部'>全部</Option>
               <Option value='主流币'>主流币</Option>
               <Option value='稳定币'>稳定币</Option>
@@ -115,15 +133,27 @@ export default memo(function Item() {
               <Option value='交易所'>交易所</Option>
               <Option value='DAO'>DAO</Option>
             </Select>
-            <Select placeholder='区块链' style={{ width: 120, backgroundColor: 'white' }} allowClear={true} bordered={false} className='card-tool-select'
-              dropdownStyle={{ borderRadius: '8px' }} dropdownClassName='card-select-drop'>
+            <Select
+              placeholder='区块链'
+              style={{ width: 120, backgroundColor: 'white' }}
+              allowClear
+              bordered={false}
+              className='card-tool-select'
+              dropdownStyle={{ borderRadius: '8px' }}
+              dropdownClassName='card-select-drop'>
               <Option value='全部'>全部</Option>
               <Option value='自生为链'>自带链</Option>
               <Option value='以太坊'>以太坊</Option>
               <Option value='BSC'>BSC</Option>
             </Select>
-            <Select placeholder='排序' style={{ width: 150, backgroundColor: 'white' }} allowClear={true} bordered={false} className='card-tool-select'
-              dropdownStyle={{ borderRadius: '8px' }} dropdownClassName='card-select-drop'>
+            <Select
+              placeholder='排序'
+              style={{ width: 150, backgroundColor: 'white' }}
+              allowClear
+              bordered={false}
+              className='card-tool-select'
+              dropdownStyle={{ borderRadius: '8px' }}
+              dropdownClassName='card-select-drop'>
               <Option value='市值从大到小'>市值从大到小</Option>
               <Option value='市值从小到大'>市值从小到大</Option>
               <Option value='发布时间从近到晚'>发布时间从近到晚</Option>
@@ -134,7 +164,9 @@ export default memo(function Item() {
         <div className='card-all'>
           {
             assetList.map((item) => (
-              <div className='card-item' key={item.title}>
+              <div
+                className='card-item'
+                key={item.title}>
                 <DiscoveryCard item={item} />
               </div>
             ))
