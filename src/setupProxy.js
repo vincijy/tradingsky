@@ -7,6 +7,11 @@ module.exports = function(app) {
     changeOrigin: true,
   }));
 
+  app.use('/bpi', createProxyMiddleware({
+    target: 'http://lianshucha.com/',
+    changeOrigin: true,
+  }));
+
   app.use('/cross', createProxyMiddleware({
     target: 'http://121.43.176.46:8081',
     changeOrigin: true,
