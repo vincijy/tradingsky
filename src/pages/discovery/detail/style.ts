@@ -19,11 +19,7 @@ export const DiscoverDetailPage = styled.div `
     }
 
   }
-  .share_and_collect {
-    border: 1px solid red;
-    display: flex;
-    justify-content: flex-end;
-  }
+
   .debug {
     border: 1px solid red;
   }
@@ -33,19 +29,6 @@ export const DiscoverDetailPage = styled.div `
     border: 1px solid red;
     flex-direction: row;
     align-items: center;
-  }
-  .links {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid red;
-  }
-  .card-foot-button {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 42px;
   }
 
   .card-all {
@@ -65,8 +48,4 @@ export const DiscoverDetailPage = styled.div `
       border-radius: 20px;
     }
   }
-`;
-
-export const GlanceWrapper = styled.div `
-  border: 1px solid green;
 `;

@@ -3,17 +3,23 @@ import { Card, Row, Col } from 'antd';
 
 import LSChartDoubleLine from '@/components/chart/line/index';
 import { getCoin, getCoinList, getWhaleAddress, getWhaleTop, getRealTime, getAllPrice } from '@/api/discovery';
+import { ICoin } from '@/api/def';
 import { GlanceWrapper } from './style';
-export default memo(function Glance() {
+
+interface Iprops {
+  coin:ICoin;
+}
+export default memo(function Glance(props:Iprops) {
+  const { coin } = props;
   const [dataRows, setDataRows] = useState([]);
   useEffect(() => {
-    getAllPrice('btc').then((res) => {
-      console.log(res);
-      const { data: { rows: dataRows } } = res;
-      setDataRows(dataRows);
-    }).catch((err) => {
-      console.log(err);
-    });
+    // getAllPrice(coin.key).then((res) => {
+    //   console.log(res);
+    //   const { data: { rows: dataRows } } = res;
+    //   setDataRows(dataRows);
+    // }).catch((err) => {
+    //   console.log(err);
+    // });
   }, []);
 
   const resData = [] as any;

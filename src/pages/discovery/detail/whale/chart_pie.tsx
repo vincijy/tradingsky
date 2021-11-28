@@ -2,10 +2,7 @@ import React, { memo, useEffect } from 'react';
 import { Card, Input, Select, Row, Col, Tabs } from 'antd';
 
 import { getCoin, getCoinList, getWhaleAddress, getWhaleTop, getRealTime, getAllPrice } from '@/api/discovery';
-const log = console.log.bind(console);
-const { TabPane } = Tabs;
 import HighchartsReact from 'highcharts-react-official';
-import { DiscoverDetailPage } from './style';
 export default memo(function ChartPie() {
   const options = {
     chart: {
@@ -13,6 +10,7 @@ export default memo(function ChartPie() {
       plotBorderWidth: null,
       plotShadow: false,
       type: 'pie',
+      height: 200,
     },
     title: {
       text: '2018年1月浏览器市场份额',
