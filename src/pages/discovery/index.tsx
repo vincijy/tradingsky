@@ -44,12 +44,12 @@ export default memo(function Item() {
               placeholder='搜索'
               bordered={false}
               suffix={<SearchOutlined/>}
-              style={{ backgroundColor: 'white', borderRadius: '6px', width: '250px', border: '1px solid #e0e0e0' }}/>
+              style={{ backgroundColor: 'white', borderRadius: '6px', width: '250px', border: '1px solid #4040FF' }}/>
           </div>
           <div className='too-bar-right'>
             <Select
               placeholder='分类'
-              style={{ width: 120, backgroundColor: 'white' }}
+              style={{ width: 120, backgroundColor: 'white', border: '1px solid #4040FF' }}
               allowClear
               bordered={false}
               className='card-tool-select'
@@ -65,7 +65,7 @@ export default memo(function Item() {
             </Select>
             <Select
               placeholder='区块链'
-              style={{ width: 120, backgroundColor: 'white' }}
+              style={{ width: 120, backgroundColor: 'white', border: '1px solid #4040FF' }}
               allowClear
               bordered={false}
               className='card-tool-select'
@@ -78,7 +78,7 @@ export default memo(function Item() {
             </Select>
             <Select
               placeholder='排序'
-              style={{ width: 150, backgroundColor: 'white' }}
+              style={{ width: 150, backgroundColor: 'white', border: '1px solid #4040FF' }}
               allowClear
               bordered={false}
               className='card-tool-select'

@@ -12,7 +12,11 @@ export const DiscoverItem = styled.div `
     height:310px;
     border-radius:22px;
     border: 1px solid rgb(222, 224, 224);
-    margin:10px 20px 10px;
+    margin:10px 10px;
+
+    @media screen and (min-width: 1550px) {
+      margin:10px 20px; // Widescreen adaptation
+    }
 
     .card-info-area{
       display:flex;
