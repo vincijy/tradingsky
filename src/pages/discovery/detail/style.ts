@@ -66,3 +66,7 @@ export const DiscoverDetailPage = styled.div `
     }
   }
 `;
+
+export const GlanceWrapper = styled.div `
+  border: 1px solid green;
+`;

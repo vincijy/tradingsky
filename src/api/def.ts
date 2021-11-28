@@ -32,16 +32,25 @@ export interface ICoin {
     fullName:string;
     githubUrl:string;
     id:number;
-    imgSrc:null;
+    imgSrc:string;
     key:string;
     makeplaceRank:string;
     markplacePercent:string;
     officalUrl:string;
     other:string;
-    price:string;
+    // price:string;
     statusCode:string;
     tag:string;
     telegramUrl:string;
     twitterUrl:string;
     whiteBookUrl:string;
+
+    circulating_percent:string;
+    circulating_supply:string;
+    cmc_rank:string;
+    market_cap:string;
+    market_cap_dominance:string;
+    max_supply:string;
+    percent_change_24h:string;
+    price:string;
   }

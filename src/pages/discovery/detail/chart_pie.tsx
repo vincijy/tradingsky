@@ -1,11 +1,6 @@
 import React, { memo, useEffect } from 'react';
 import { Card, Input, Select, Row, Col, Tabs } from 'antd';
-import { MdTravelExplore } from 'react-icons/md';
-import { FiTwitter } from 'react-icons/fi';
-import { BarChartOutlined } from '@ant-design/icons';
-import { RightCircleOutlined } from '@ant-design/icons';
-import LSAppFooter from '@/components/footer'; // footer
-import LSChartDoubleLine from '@/components/chart/line/index';
+
 import { getCoin, getCoinList, getWhaleAddress, getWhaleTop, getRealTime, getAllPrice } from '@/api/discovery';
 const log = console.log.bind(console);
 const { TabPane } = Tabs;

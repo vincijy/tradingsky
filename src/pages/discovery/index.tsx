@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Card, Input, Select } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import bitcoinLogo from '@/assets/img/btc_logo.png';
@@ -6,99 +6,28 @@ import ethLogo from '@/assets/img/eth_logo.svg';
 import LSAppFooter from '@/components/footer'; // footer
 
 import DiscoveryCard from '@/pages/discovery/card';
-import { getCoin, getCoinList } from '@/api/discovery';
+import { getCoin, getCoinList, getDynamicCoin } from '@/api/discovery';
+import { ICoin } from '@/api/def';
 import { DiscoverPage } from './style';
 const log = console.log.bind(console);
-const assetList = [
-  {
-    title: '比特币 (BTC)',
-    logo: bitcoinLogo,
-    lable: '主流币',
-    introduce: '比特币最早的去中心化加密货币',
-  },
-  {
-    title: '以太坊 (ETH)',
-    logo: ethLogo,
-    lable: '主流币',
-    introduce: '世界计算机',
-  },
-  {
-    title: 'Tether (USDT)',
-    logo: 'https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/usdt.svg',
-    lable: '稳定币',
-    introduce: '一种将加密货币与美元挂钩的稳定币',
-  },
-  {
-    title: 'Binance USD (BUSD)',
-    logo: 'https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/BUSD.png',
-    lable: '稳定币',
-    introduce: '由币安发行的美元稳定币',
-  },
-  {
-    title: 'USD Coin (USDC)',
-    logo: 'https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/usdc.svg',
-    lable: '稳定币',
-    introduce: 'Circle和Coinbase背书的稳定币',
-  },
-  {
-    title: 'Uniswap (UNI)',
-    logo: 'https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/UNISWAP.svg',
-    lable: 'Defi',
-    introduce: '主流的去中心化交易协议',
-  },
-  {
-    title: 'SushiSwap (SUSHI)',
-    logo: 'https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/SUSHI.jpg',
-    lable: 'Defi',
-    introduce: '主流的去中心化交易协议之一',
-  },
-  {
-    title: 'Avalanche (AVAX)',
-    logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/5805.png',
-    lable: 'Defi',
-    introduce: '新一代智能合约平台，以太坊的竞争对手之一',
-  },
-  {
-    title: 'Decentraland (MANA)',
-    logo: 'https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/mana.svg',
-    lable: 'Metaverse',
-    introduce: '基于以太坊的虚拟土地购买和开发的应用',
-  },
-  {
-    title: 'Ethereum Name Service (ENS)',
-    logo: 'https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/ENS.jpg',
-    lable: 'Web3',
-    introduce: '以太坊的域名和身份基础设施',
-  },
-  {
-    title: 'FTX Token (FTT)',
-    logo: 'https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/ftt.jpg',
-    lable: '交易所',
-    introduce: '加密衍生品交易平台 FTX',
-  },
-  {
-    title: 'OKB',
-    logo: 'https://s3.us-east-2.amazonaws.com/nomics-api/static/images/currencies/OKB.png',
-    lable: '交易所',
-    introduce: '加密货币综合交易平台OKEx',
-  },
-  {
-    title: 'ConstitutionDAO (PEOPLE)',
-    logo: 'https://s2.coinmarketcap.com/static/img/coins/64x64/14806.png',
-    lable: 'DAO',
-    introduce: '为了拍下美国宪法副本而组织起来的DAO',
-  },
-];
 
 export default memo(function Item() {
-
-  const { Meta } = Card;
   const { Option } = Select;
-
+  const [coinList, setCoinList] = useState([] as ICoin[]);
   useEffect(() => {
-    getCoinList({ pageId: 1, pageSize: 10 }).then((res) => {
-      const { list: coinList } = res.data;
-      log(coinList);
+    getCoinList({ pageId: 1, pageSize: 20 }).then((res) => {
+      const { list } = res.data;
+      // setCoinList(list);
+      let count = 0;
+      list.forEach(async(coin) => {
+        const res = await getDynamicCoin(coin.key);
+        Object.assign(coin, res.data.rows[0].r);
+        count += 1;
+        if (count === list.length) {
+          const newList = ([] as any).concat(list);
+          setCoinList(newList);
+        }
+      });
     }).catch((err) => {
       console.error(err);
     });
@@ -164,11 +93,11 @@ export default memo(function Item() {
         </div>
         <div className='card-all'>
           {
-            assetList.map((item) => (
+            coinList.map((coin) => (
               <div
                 className='card-item'
-                key={item.title}>
-                <DiscoveryCard item={item} />
+                key={coin.key}>
+                <DiscoveryCard coin={coin} />
               </div>
             ))
           }

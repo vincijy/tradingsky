@@ -36,6 +36,13 @@ export function getAllPrice(asset:string):AxiosPromise<any> {
   });
 };
 
+export function getDynamicCoin(asset:string):AxiosPromise<any> {
+  return request({
+    url: `/api/v1/explore/${asset}`,
+    params: {},
+  });
+};
+
 /**
  * 第二台服务器的接口
  * @param params

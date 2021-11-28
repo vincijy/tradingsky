@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 export const DiscoverItem = styled.div `
-
+  .debug {
+    border: 1px solid red;
+  }
   .ant-card {
     display:flex;
     flex-direction: column;
@@ -15,6 +17,7 @@ export const DiscoverItem = styled.div `
     .card-info-area{
       display:flex;
       height: 60px;
+      cursor: pointer;
 
       .card-logo{
         width:40px;
@@ -28,6 +31,7 @@ export const DiscoverItem = styled.div `
           font-size:14px;  // token name
           font-weight: bold;
           margin-top: -8px;
+          word-break: break-word;
         }
 
         .ant-tag{
@@ -44,6 +48,7 @@ export const DiscoverItem = styled.div `
       height: 35px;
       font-size: 13px; 
       color:#808080;
+      cursor: pointer;
     }
 
     .card-separate{
@@ -54,6 +59,7 @@ export const DiscoverItem = styled.div `
     .card-data-area {
       margin-top:10px;
       width: 100%;
+      cursor: pointer;
         
       .card-data-item{
         width:100%;
@@ -88,6 +94,7 @@ export const DiscoverItem = styled.div `
         display:flex;
         flex-direction:column;
         font-size: 13px;
+        cursor: pointer;
       }
     }
   }

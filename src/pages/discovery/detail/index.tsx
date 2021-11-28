@@ -1,5 +1,5 @@
 
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Card, Input, Select, Row, Col, Tabs } from 'antd';
 import { MdTravelExplore } from 'react-icons/md';
 import { FiTwitter } from 'react-icons/fi';
@@ -7,12 +7,36 @@ import { BarChartOutlined } from '@ant-design/icons';
 import { RightCircleOutlined } from '@ant-design/icons';
 import LSAppFooter from '@/components/footer'; // footer
 import LSChartDoubleLine from '@/components/chart/line/index';
-import { getCoin, getCoinList, getWhaleAddress, getWhaleTop, getRealTime, getAllPrice } from '@/api/discovery';
-const log = console.log.bind(console);
+import { getCoin, getCoinList, getDynamicCoin, getWhaleAddress, getWhaleTop, getRealTime, getAllPrice } from '@/api/discovery';
+import { getUrlParams } from '@/utils/url';
+import { ICoin } from '@/api/def';
+import { strToFixNum } from '@/utils/cal';
+import ChartPie from './chart_pie';
+import Glance from './glance';
 const { TabPane } = Tabs;
 import { DiscoverDetailPage } from './style';
-import ChartPie from './chart_pie';
-export default memo(function Item() {
+
+const log = console.log.bind(console);
+export default memo(function Item(props:any) {
+  const { key, id } = getUrlParams();
+  const [ coin, setCoin ] = useState({} as ICoin);
+  const reqeustData = () => {
+    getCoin(id).then(async(res) => {
+      const coinStaticData = res.data;
+      const res2 = await getDynamicCoin(key);
+      const coinDynamicData = res2.data.rows[0].r;
+      setCoin({
+        ...coinStaticData,
+        ...coinDynamicData,
+      });
+    }).catch((err) => {
+      console.error(err);
+    });
+  };
+  useEffect(() => {
+    reqeustData();
+  }, []);
+  console.log(coin, 'coin');
   return (
     <DiscoverDetailPage>
       <Card>
@@ -22,8 +46,8 @@ export default memo(function Item() {
             xs={{ span: 16 }}
             lg={{ span: 16 }}
           >
-          BTC(BitCoin)
-          标签
+            {coin.briefName}({coin.fullName})
+            {coin.tag }
           </Col>
           <Col
             className={'share_and_collect'}
@@ -40,16 +64,14 @@ export default memo(function Item() {
             xs={{ span: 24 }}
             lg={{ span: 13 }}
           >
-            比特币是一种去中心化的加密货币。在2008年发布的白皮书中，由某个人或某个群体化名为中本聪（Satoshi Nakamoto） ，首度探讨了比特币的机制。2009年1月，比特币正式问世。
-            比特币是一种基于点对点网络的货币，所有交易都是在平等独立的网络参与者之间直接进行，而无需任何中间方的许可或促成。用中本聪自己的话来说，创造比特币就是为了让“一方无需通过金融机构就能直接对另一方在线付款”。
-            在比特币出现之前，出现过一些类似的去中心化电子货币概念，但比特币的独特之处在于，它是有史以来首个被应用于现实生活中的加密货币。
+            { coin.detail }
           </Col>
           <Col
             className={'priceWrapper'}
             xs={{ span: 24 }}
             lg={{ span: 11 }}
           >
-          价格$66666
+          价格{ strToFixNum(coin.price, 3) }$
           </Col>
         </Row>
         <Row style={{ marginBottom: '20px' }}>
@@ -84,51 +106,12 @@ export default memo(function Item() {
 
       <Card style={{ marginTop: '20px' }}>
         <Tabs
-          defaultActiveKey='1'
+          defaultActiveKey='0'
           centered>
           <TabPane
             tab='总览'
             key='0'>
-
-
-            <Row style={{ marginBottom: '20px' }}>
-              <Col
-                className={'debug'}
-                xs={{ span: 24 }}
-                lg={{ span: 14 }}
-              >
-                <LSChartDoubleLine
-                  seriesA={ { data: [], name: 'name' } }
-                  seriesB={ { data: [], name: '价格' } }
-                />
-              </Col>
-              <Col
-                className={'glanceDataWrapper'}
-                xs={{ span: 24 }}
-                lg={{ span: 10 }}
-              >
-                <Card>
-                  <div>MarketCap</div>
-                  <div>1080</div>
-                  <div>30%</div>
-                </Card>
-                <Card>
-                  <div>MarketCap</div>
-                  <div>1080</div>
-                  <div>30%</div>
-                </Card>
-                <Card>
-                  <div>MarketCap</div>
-                  <div>1080</div>
-                  <div>30%</div>
-                </Card>
-                <Card>
-                  <div>MarketCap</div>
-                  <div>1080</div>
-                  <div>30%</div>
-                </Card>
-              </Col>
-            </Row>
+            <Glance />
           </TabPane>
           <TabPane
             tab='产品'
