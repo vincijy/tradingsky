@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 export const DiscoverDetailPage = styled.div `
 
-  padding: 20px 60px;
-  padding-bottom: 150px;
+  padding: 40px 120px;
+  padding-bottom: 100px;
   background: #f4f6f6;
   @media screen and (min-width: 0px) and (max-width: 700px) { // 移动端适配 iPhone：footer宽度
     padding: 20px 10px;
@@ -26,7 +26,6 @@ export const DiscoverDetailPage = styled.div `
   .priceWrapper {
     display: flex;
     justify-content: center;
-    border: 1px solid red;
     flex-direction: row;
     align-items: center;
   }

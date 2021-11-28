@@ -4,7 +4,7 @@ export const strToFixNum = (numStr:string, n:number, isPercent = false) => {
   if (isPercent) {
     result = (v * 100).toFixed(3);
   } else {
-    result = v.toFixed(3);
+    result = v.toFixed(n);
   }
   return isNaN(v) ? '-' : result;
 };

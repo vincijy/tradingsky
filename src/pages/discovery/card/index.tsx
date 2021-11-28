@@ -35,7 +35,7 @@ export default memo(function DiscoveryCard(props:IProps) {
             src={item.imgSrc}
             className='card-logo'/>
           <div className='card-info'>
-            <div className='card-name'> { `${item.fullName}(${item.briefName})` } </div>
+            <div className='card-name'> { `${item.fullName} (${item.briefName})` } </div>
             <Tag color='magenta'> { item.tag } </Tag>
           </div>
         </div>

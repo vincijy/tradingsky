@@ -1,8 +1,12 @@
 import React, { memo, useEffect, useState } from 'react';
-import { Card, Input, Select, Row, Col, Tabs } from 'antd';
-import { MdTravelExplore } from 'react-icons/md';
+import { Card, Input, Select, Row, Col, Tabs, Tag, Button } from 'antd';
+import { MdTravelExplore, MdOutlineForum } from 'react-icons/md';
 import { FiTwitter } from 'react-icons/fi';
-import { BarChartOutlined } from '@ant-design/icons';
+import { BiBookBookmark } from 'react-icons/bi';
+import { SiDiscord, SiTelegram, SiGithub } from 'react-icons/si';
+import { GiMirrorMirror } from 'react-icons/gi';
+
+import { BarChartOutlined, LinkOutlined, HeartOutlined, PieChartOutlined } from '@ant-design/icons';
 import { RightCircleOutlined } from '@ant-design/icons';
 import LSAppFooter from '@/components/footer'; // footer
 import LSChartDoubleLine from '@/components/chart/line/index';
@@ -22,65 +26,135 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
   return (
     <DetailIntroCard>
       <Card>
-        <Row style={{ marginBottom: '20px' }}>
+        <Row style={{ marginBottom: '40px' }}>
           <Col
-            className={'debug'}
+            // className={'debug'}
             xs={{ span: 16 }}
             lg={{ span: 16 }}
           >
-            {coin.briefName}({coin.fullName})
-            { coin.tag }
+            <div className='intro-top'>
+              <img src={coin.imgSrc} style={{ height: '104px', width: '104px' }} />
+              <div className='intro-top-name'>
+                <span style={{ fontSize: '24px', fontWeight: 'bold', lineHeight: '34px', marginBottom: '9px' }} >
+                  { `${coin.fullName} (${coin.briefName})` }
+                </span>
+                <div >
+                  <Tag color='magenta' style={{ textAlign: 'center', border: 'none', lineHeight: '24px' }} className='intro-top-tag'>
+                    { coin.tag }
+                  </Tag>
+                </div>
+              </div>
+            </div>
           </Col>
           <Col
             className={'share_and_collect'}
             xs={{ span: 8 }}
             lg={{ span: 8 }}
           >
-            <div>收藏</div>
-            <div>分享</div>
+            <Button
+              size='small'
+              shape='round'
+              type='link'
+            >
+              <HeartOutlined />
+              <span style={{ fontSize: '15px' }}>收藏</span>
+            </Button>
+            <Button
+              size='small'
+              shape='round'
+              type='link'
+            >
+              <LinkOutlined />
+              <span style={{ fontSize: '15px' }}>分享</span>
+            </Button>
           </Col>
         </Row>
-        <Row style={{ marginBottom: '20px' }}>
+        <Row style={{ marginBottom: '50px' }}>
           <Col
-            className={'debug'}
+            // className={'debug'}
             xs={{ span: 24 }}
             lg={{ span: 13 }}
           >
-            { coin.detail }
+            <span style={{ fontSize: '16px' }}>{ coin.detail }</span>
           </Col>
           <Col
             className={'priceWrapper'}
             xs={{ span: 24 }}
             lg={{ span: 11 }}
           >
-      价格{ strToFixNum(coin.price, 3) }$
+            <span style={{ fontSize: '30px' }}>
+              <p style={{ fontSize: '14px', marginTop: '-14px', color: '#828282' }}> {coin.briefName} 价格</p>
+              $ { Number(coin.price) > 1 ? strToFixNum(coin.price, 2) : strToFixNum(coin.price, 4) }
+            </span>
+            <span className='intro-icon-percent'
+              style={{
+                backgroundColor: Number(coin.percent_change_24h) < 0 ? '#ea3943' : '#16c784',
+                marginLeft: '20px',
+                fontSize: '20px',
+              }} >
+              { Number(coin.percent_change_24h) < 0 ? '- ' + strToFixNum(coin.percent_change_24h, 2) : '+ ' + strToFixNum(coin.percent_change_24h, 2) }%
+            </span>
           </Col>
         </Row>
-        <Row style={{ marginBottom: '20px' }}>
+        <Row >
           <Col
             xs={{ span: 24 }}
             lg={{ span: 12 }}
             className={'links'}
           >
-            <div className='card-foot-button'>
-              <MdTravelExplore/>
-              <div>官网</div>
+            <div className='intro-foot-button'>
+              <a href={coin.officalUrl} target='_blank' rel='noreferrer'>
+                <MdTravelExplore style={{ marginLeft: '0.5px', fontSize: '24px' }}/>
+                <div>官网</div>
+              </a>
             </div>
-            <div className='card-foot-button'>
-              <FiTwitter />
-              <div>推特</div>
+            <div className='intro-foot-button'>
+              <a href={coin.whiteBookUrl} target='_blank' rel='noreferrer'>
+                <BiBookBookmark style={{ marginLeft: '10px', fontSize: '24px' }}/>
+                <div>白皮书</div>
+              </a>
             </div>
-            <div className='card-foot-button'>
-              <BarChartOutlined/>
-              <div>数据</div>
+            <div className='intro-foot-button'>
+              <a href={coin.twitterUrl} target='_blank' rel='noreferrer'>
+                <FiTwitter style={{ marginLeft: '10px', fontSize: '24px' }}/>
+                <div>Twitter</div>
+              </a>
             </div>
-            <div className='card-foot-button'>
-              <FiTwitter />
-              <div>推特</div>
+            <div className='intro-foot-button'>
+              <a href={coin.discordUrl} target='_blank' rel='noreferrer'>
+                <SiDiscord style={{ marginLeft: '12px', fontSize: '24px' }}/>
+                <div>Discord</div>
+              </a>
             </div>
-            <div className='card-foot-button'>
-              <BarChartOutlined/>
-              <div>数据</div>
+            <div className='intro-foot-button'>
+              <a href={coin.telegramUrl} target='_blank' rel='noreferrer'>
+                <SiTelegram style={{ marginLeft: '18px', fontSize: '24px' }}/>
+                <div>Telegram</div>
+              </a>
+            </div>
+            <div className='intro-foot-button'>
+              <a href={coin.percent_change_24h} target='_blank' rel='noreferrer'>
+                <GiMirrorMirror style={{ marginLeft: '6.1px', fontSize: '24px' }}/>
+                <div>mirror</div>
+              </a>
+            </div>
+            <div className='intro-foot-button'>
+              <a href={coin.percent_change_24h} target='_blank' rel='noreferrer'>
+                <MdOutlineForum style={{ marginLeft: '2.5px', fontSize: '24px' }}/>
+                <div>论坛</div>
+              </a>
+            </div>
+            <div className='intro-foot-button'>
+              <a href={coin.githubUrl} target='_blank' rel='noreferrer'>
+                <SiGithub style={{ marginLeft: '10px', fontSize: '24px' }}/>
+                <div>GitHub</div>
+              </a>
+            </div>
+            <div className='intro-foot-button'>
+              <a href={coin.githubUrl} target='_blank' rel='noreferrer'>
+                <BarChartOutlined style={{ fontSize: '24px' }}/>
+                <div>数据</div>
+              </a>
             </div>
           </Col>
         </Row>
