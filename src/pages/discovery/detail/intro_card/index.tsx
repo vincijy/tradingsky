@@ -92,7 +92,8 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
                 marginLeft: '20px',
                 fontSize: '20px',
               }} >
-              { Number(coin.percent_change_24h) < 0 ? '- ' + strToFixNum(coin.percent_change_24h, 2) : '+ ' + strToFixNum(coin.percent_change_24h, 2) }%
+              {/* fix the bug of negative price */}
+              { Number(coin.percent_change_24h) < 0 ? '- ' + strToFixNum( (Number(coin.percent_change_24h) * -1).toString(), 2) : '+ ' + strToFixNum(coin.percent_change_24h, 2) }%
             </span>
           </Col>
         </Row>
