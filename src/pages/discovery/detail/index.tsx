@@ -46,7 +46,7 @@ export default memo(function Item(props:any) {
             tab='总览'
             key='0'>
             {
-              coin &&
+              coin.key &&
                 <Glance coin={coin}/>
             }
           </TabPane>
