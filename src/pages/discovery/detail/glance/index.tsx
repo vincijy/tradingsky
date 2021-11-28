@@ -30,7 +30,7 @@ export default memo(function Glance(props:Iprops) {
     const r = (row as any).r;
     const v = parseFloat((r as any).v);
     const t = parseFloat((r as any).t);
-    resData.push([t, v]);
+    resData.push([t * 1000, v]);
   });
   (options as any).series[0].data = resData;
   (options as any).title.text = `${coin.fullName} 价格走势`;
