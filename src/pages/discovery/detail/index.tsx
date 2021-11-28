@@ -33,44 +33,46 @@ export default memo(function Item(props:any) {
   }, []);
   console.log(coin, 'coin');
   return (
-    <DiscoverDetailPage>
-      {
-        coin &&
-        <DetailIntroCard coin={coin} />
-      }
-      <Card style={{ marginTop: '20px' }}>
-        <Tabs
-          defaultActiveKey='0'
-          centered>
-          <TabPane
-            tab='总览'
-            key='0'>
-            {
-              coin.key &&
-                <Glance coin={coin}/>
-            }
-          </TabPane>
-          <TabPane
-            tab='产品'
-            key='1'>
-      Content of Tab Pane 2
-          </TabPane>
-          <TabPane
-            tab='巨鲸地址'
-            key='2'>
-            {
-              coin &&
-              <WhaleComponent coin={coin}/>
-            }
-          </TabPane>
-          <TabPane
-            tab='合约地址'
-            key='3'>
-      Content of Tab Pane 3
-          </TabPane>
-        </Tabs>
-      </Card>
+    <div>
+      <DiscoverDetailPage>
+        {
+          coin &&
+          <DetailIntroCard coin={coin} />
+        }
+        <Card style={{ marginTop: '20px' }}>
+          <Tabs
+            defaultActiveKey='0'
+            centered>
+            <TabPane
+              tab='总览'
+              key='0'>
+              {
+                coin.key &&
+                  <Glance coin={coin}/>
+              }
+            </TabPane>
+            <TabPane
+              tab='产品'
+              key='1'>
+        Content of Tab Pane 2
+            </TabPane>
+            <TabPane
+              tab='巨鲸地址'
+              key='2'>
+              {
+                coin &&
+                <WhaleComponent coin={coin}/>
+              }
+            </TabPane>
+            <TabPane
+              tab='合约地址'
+              key='3'>
+        Content of Tab Pane 3
+            </TabPane>
+          </Tabs>
+        </Card>
+      </DiscoverDetailPage>
       <LSAppFooter/>
-    </DiscoverDetailPage>
+    </div>
   );
 });
