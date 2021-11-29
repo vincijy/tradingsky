@@ -25,8 +25,18 @@ export const options = {
   },
   series: [{
     name: '价格',
-    // color: '#c464fc',
     data: [],
+    type: 'area',
+    fillOpacity: 1,
+    fillColor: {
+      linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+      stops: [
+        [0, 'rgb(142, 217, 255, 1)'],
+        [1, 'rgba(255, 255, 255, 0)'],
+      ],
+    },
+    threshold: null,
+
   }],
   chart: {
     height: 500,
