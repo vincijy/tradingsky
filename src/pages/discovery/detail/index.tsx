@@ -15,6 +15,9 @@ import WhaleComponent from './whale';
 export default memo(function Item(props:any) {
   const { key, id } = getUrlParams();
   const [ coin, setCoin ] = useState({} as ICoin);
+  const changeSwitch = () => {
+    console.log('aa');
+  };
   const reqeustData = () => {
     getCoin(id).then(async(res) => {
       const coinStaticData = res.data;
@@ -42,7 +45,7 @@ export default memo(function Item(props:any) {
         <Card style={{ marginTop: '20px' }}>
           <Tabs
             defaultActiveKey='0'
-            centered>
+            tabBarGutter={70}>
             <TabPane
               tab='总览'
               key='0'>

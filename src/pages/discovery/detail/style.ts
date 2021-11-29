@@ -36,4 +36,41 @@ export const DiscoverDetailPage = styled.div `
     display: flex;
     flex-wrap: wrap;
   }
+
+  .ant-tabs{
+    // tab list
+    .ant-tabs-tab{
+      margin: 0px 10px;
+      margin-bottom: 8px;
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+
+    // single button
+    .ant-tabs-tab-btn{
+      font-size: 18px;
+    }
+
+    // active button
+    .ant-tabs-tab-active{
+      background-color: #4040FF;
+      margin-bottom: 10px;
+
+      .ant-tabs-tab-btn{
+        color: white;
+      }
+    }
+
+    // the bottom part of card
+    .ant-tabs-content-holder{
+      margin-top: 20px;
+    }
+
+    // the bottom line of tab
+    .ant-tabs-ink-bar-animated{
+      display: none;
+    }
+
+  }
+
 `;
