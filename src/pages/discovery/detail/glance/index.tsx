@@ -33,7 +33,7 @@ export default memo(function Glance(props:Iprops) {
     resData.push([t * 1000, v]);
   });
   (options as any).series[0].data = resData;
-  (options as any).title.text = `${coin.fullName} 价格走势`;
+  (options as any).title.text = `${coin.briefName} 价格走势`;
   const op = { ...options };
   return (
     <GlanceWrapper>

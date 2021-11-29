@@ -114,14 +114,15 @@ export const HeaderRight = styled.div `
 
         .btn{
             margin-right: 5px;
+            display: flex;
             
             Button:nth-child(1){
                 background: #fff;
                 font-weight: 500;
                 border: 1px solid #dcdcdc;
-                border-radius: 2px;
-                width: 73px;
-                height: 32px;
+                border-radius: 6px;
+                width: 63px;
+                height: 30px;
 
                 margin-right: 15px;
 
@@ -133,10 +134,11 @@ export const HeaderRight = styled.div `
             }
 
             Button:nth-child(2){
-                height: 32px;
-                width: 73px;
+                height: 30px;
+                width: 63px;
                 border: 0;
-                border-radius: 2px;
+                border-radius: 6px;
+                background-color: #4040FF;
                 
                 @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：缩小按钮
                     width: 55px;
