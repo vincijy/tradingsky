@@ -3,7 +3,7 @@ import React, { memo, useEffect, useState } from 'react';
 import { Card, Tabs } from 'antd';
 
 import LSAppFooter from '@/components/footer'; // footer
-import { getCoin, getCoinList, getDynamicCoin, getWhaleAddress, getWhaleTop, getRealTime, getAllPrice } from '@/api/discovery';
+import { getCoin, getDynamicCoin } from '@/api/discovery';
 import { getUrlParams } from '@/utils/url';
 import { ICoin } from '@/api/def';
 import DetailIntroCard from './intro_card';

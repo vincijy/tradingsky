@@ -1,5 +1,5 @@
-import React, { memo, useEffect, useState } from 'react';
-import { Card, Input, Select, Row, Col, Tabs, Tag, Button } from 'antd';
+import React, { memo } from 'react';
+import { Card, Row, Col, Tag, Button } from 'antd';
 import { MdTravelExplore, MdOutlineForum } from 'react-icons/md';
 import { FiTwitter } from 'react-icons/fi';
 import { BiBookBookmark } from 'react-icons/bi';
@@ -7,26 +7,19 @@ import { SiDiscord, SiTelegram, SiGithub } from 'react-icons/si';
 import { GiMirrorMirror } from 'react-icons/gi';
 
 import { BarChartOutlined, LinkOutlined, HeartOutlined, PieChartOutlined } from '@ant-design/icons';
-import { RightCircleOutlined } from '@ant-design/icons';
-import LSAppFooter from '@/components/footer'; // footer
-import LSChartDoubleLine from '@/components/chart/line/index';
-import { getCoin, getCoinList, getDynamicCoin, getWhaleAddress, getWhaleTop, getRealTime, getAllPrice } from '@/api/discovery';
 import { ICoin } from '@/api/def';
 import { strToFixNum } from '@/utils/cal';
 import { DetailIntroCard } from './style';
-const log = console.log.bind(console);
-
 interface Iprops {
   coin:ICoin;
 };
 
 export default memo(function DetailIntroCardComponent(props:Iprops) {
   const { coin } = props;
-  console.log('coin', coin);
   return (
     <DetailIntroCard>
       <Card>
-        <Row style={{ marginBottom: '40px' }}>
+        <Row style={{ marginBottom: '10px' }}>
           <Col
             // className={'debug'}
             xs={{ span: 16 }}
@@ -74,11 +67,13 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
             // className={'debug'}
             xs={{ span: 24 }}
             lg={{ span: 13 }}
+            style={{ marginTop: '20px' }}
           >
             <span style={{ fontSize: '16px' }}>{ coin.detail }</span>
           </Col>
           <Col
             className={'priceWrapper'}
+            style={{ marginTop: '20px' }}
             xs={{ span: 24 }}
             lg={{ span: 11 }}
           >
