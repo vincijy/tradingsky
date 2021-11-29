@@ -1,12 +1,10 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Card, Row, Col } from 'antd';
-
-import LSChartDoubleLine from '@/components/chart/line/index';
-import { getCoin, getCoinList, getWhaleAddress, getWhaleTop, getRealTime, getAllPrice } from '@/api/discovery';
+import { getAllPrice } from '@/api/discovery';
 import { ICoin } from '@/api/def';
 import HighchartsReact from 'highcharts-react-official';
-import Highcharts from 'highcharts';
 import { getHighCharts } from '@/components/chart';
+import { strToFixNum } from '@/utils/cal';
 import { GlanceWrapper } from './style';
 import { options } from './options';
 interface Iprops {
@@ -35,11 +33,11 @@ export default memo(function Glance(props:Iprops) {
   (options as any).series[0].data = resData;
   (options as any).title.text = `${coin.briefName} 价格走势`;
   const op = { ...options };
+  console.log(coin, 'coin');
   return (
     <GlanceWrapper>
       <Row style={{ marginBottom: '20px' }}>
         <Col
-          className={'debug'}
           xs={{ span: 24 }}
           lg={{ span: 14 }}
         >
@@ -56,24 +54,25 @@ export default memo(function Glance(props:Iprops) {
         >
           <Card>
             <div>MarketCap</div>
+            <div> { coin.market_cap }</div>
+            <div>{ strToFixNum(coin.market_cap_dominance, 3, true) }</div>
+          </Card>
+          <Card>
+            <div>Fully Distibuted Market Cap</div>
             <div>1080</div>
             <div>30%</div>
           </Card>
           <Card>
-            <div>MarketCap</div>
+            <div>Volumn</div>
             <div>1080</div>
             <div>30%</div>
           </Card>
           <Card>
-            <div>MarketCap</div>
+            <div>Circulating Supply</div>
             <div>1080</div>
             <div>30%</div>
           </Card>
-          <Card>
-            <div>MarketCap</div>
-            <div>1080</div>
-            <div>30%</div>
-          </Card>
+
         </Col>
       </Row>
     </GlanceWrapper>

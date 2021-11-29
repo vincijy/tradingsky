@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from 'react';
-import { Card, Input, Select } from 'antd';
+import { Card, Input, Select, Spin } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import bitcoinLogo from '@/assets/img/btc_logo.png';
 import ethLogo from '@/assets/img/eth_logo.svg';
@@ -13,6 +13,7 @@ const log = console.log.bind(console);
 
 export default memo(function Item() {
   const { Option } = Select;
+  const [ isLoading, setIsLoading] = useState(true);
   const [coinList, setCoinList] = useState([] as ICoin[]);
   useEffect(() => {
     getCoinList({ pageId: 1, pageSize: 20 }).then((res) => {
@@ -26,6 +27,7 @@ export default memo(function Item() {
         if (count === list.length) {
           const newList = ([] as any).concat(list);
           setCoinList(newList);
+          setIsLoading(false);
         }
       });
     }).catch((err) => {
@@ -38,7 +40,7 @@ export default memo(function Item() {
       <DiscoverPage>
         <h2 style={{ fontSize: '32px', display: 'flex', justifyContent: 'center', marginTop: '5px' }}>探索</h2>
         <h2 style={{ fontSize: '24px', display: 'flex', justifyContent: 'center', marginTop: '15px' }}>了解区块链产品，发现最新投资机会</h2>
-        <div className='card-tool-bar'>
+        {/* <div className='card-tool-bar'>
           <div className='too-bar-left'>
             <Input
               placeholder='搜索'
@@ -90,8 +92,14 @@ export default memo(function Item() {
               <Option value='发布时间从完到近'>发布时间从完到近</Option>
             </Select>
           </div>
-        </div>
+        </div> */}
         <div className='card-all'>
+          {
+            isLoading && <Spin
+              size='large'
+              className='abs-center'
+            />
+          }
           {
             coinList.map((coin) => (
               <div

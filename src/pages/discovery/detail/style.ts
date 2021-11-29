@@ -36,15 +36,4 @@ export const DiscoverDetailPage = styled.div `
     display: flex;
     flex-wrap: wrap;
   }
-  .glanceDataWrapper {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    border: 1px solid green;
-    .ant-card {
-      margin: 30px;
-      border: 1px solid blue;
-      border-radius: 20px;
-    }
-  }
 `;

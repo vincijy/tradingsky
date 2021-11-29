@@ -4,6 +4,7 @@ export const DiscoverPage = styled.div `
   padding: 20px 60px;
   padding-bottom: 150px;
   background: #f4f6f6;
+  min-height: 800px;
 
   .card-tool-bar{
     display: flex;
@@ -19,9 +20,15 @@ export const DiscoverPage = styled.div `
   }
 
   .card-all {
-    justify-content: space-between;
-    padding: 0px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid; /* 1 */
+    grid-template-columns: repeat(auto-fill, 220px); /* 2 */
+    grid-gap: 1rem; /* 3 */
+    justify-content: space-between; /* 4 */
+  }
+  .abs-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
