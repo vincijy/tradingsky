@@ -37,6 +37,17 @@ export const DiscoverDetailPage = styled.div `
     flex-wrap: wrap;
   }
 
+  // whole card
+  .ant-card-body{
+    box-shadow: 0 4px 8px rgb(224 224 224 / 40%);
+    border-radius: 14px !important;
+  }
+
+  // don't delete this, it's fix the bug of border show
+  .ant-card{
+    border-radius: 14px !important;
+  }
+
   .ant-tabs{
     // tab list
     .ant-tabs-tab{
@@ -70,7 +81,6 @@ export const DiscoverDetailPage = styled.div `
     .ant-tabs-ink-bar-animated{
       display: none;
     }
-
   }
 
 `;

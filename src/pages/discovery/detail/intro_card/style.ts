@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 export const DetailIntroCard = styled.div `
+
+  // don't delete this, it's fix the bug of border show
+  .ant-card-body{
+    border-radius: 14px !important;
+  }
   
   .ant-card{
     border-radius: 14px !important;  // whole card
