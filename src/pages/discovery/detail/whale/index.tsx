@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Card, Input, Select, Row, Col, Tabs, Table, Space } from 'antd';
-import { DotChartOutlined } from '@ant-design/icons';
+import { GoLinkExternal } from 'react-icons/go';
 import { getWhaleAddress, getWhaleTop } from '@/api/discovery';
 import { ICoin } from '@/api/def';
 import { strToFixNum } from '@/utils/cal';
@@ -16,6 +16,7 @@ export default memo(function WhaleComponent(props:Iprops) {
   const { coin } = props;
   console.log('coin', coin);
   const { key } = coin;
+  const [topData, setTopData] = useState([] as any);
   const [pieData, setPieData] = useState([] as any);
   const [OtherData, setOtherData] = useState(0);
   const requestData = async() => {
@@ -48,16 +49,39 @@ export default memo(function WhaleComponent(props:Iprops) {
     setPieData(result.slice(0, 20));
 
     const whaleTopData = await getWhaleTop(key);
-
     log('whaleTopData', whaleTopData);
+    const tops = whaleTopData.data.rows;
+    const topsResults = [] as any;
+    tops.forEach((top:any) => {
+      const r = top.r;
+      const e = {
+        top10: r.top10,
+        top20: r.top20,
+        top50: r.top50,
+        top100: r.top100,
+      };
+      topsResults.push(e);
+    });
+
+    setTopData(topsResults);
   };
 
   useEffect(() => {
     requestData();
   }, []);
-  const{ name } = pieData;
 
-  const columns = [
+  const whaleList = pieData.map((list:any, index:any) => ({
+    index: index + 1,
+    ...list,
+  }));
+
+
+  const addColumns = [
+    {
+      title: '#',
+      dataIndex: 'index',
+
+    },
     {
       title: '地址',
       dataIndex: 'name',
@@ -76,11 +100,31 @@ export default memo(function WhaleComponent(props:Iprops) {
       render: (pieData:any) => (
         <Space>
           <a href={`https://etherscan.io/address/${pieData.name}`} target='_blank' rel='noreferrer'>
-            <DotChartOutlined style={{ marginLeft: '10px', fontSize: '20px' }}/>
+            <GoLinkExternal style={{ marginLeft: '10px', fontSize: '20px' }}/>
           </a>
         </Space>
       ),
     },
+  ];
+  const topColumns = [
+
+    {
+      title: 'Top 10 占比',
+      dataIndex: 'top10',
+    },
+    {
+      title: 'Top 20 占比',
+      dataIndex: 'top20',
+    },
+    {
+      title: 'Top 50 占比',
+      dataIndex: 'top50',
+    },
+    {
+      title: 'Top 100 占比',
+      dataIndex: 'top100',
+    },
+
   ];
   return (
     <WhaleWrapper>
@@ -92,8 +136,12 @@ export default memo(function WhaleComponent(props:Iprops) {
         </Row>
       </Card>
       <div className='whale-table'>
-        <Table columns={columns} dataSource={pieData} pagination={{ pageSize: 1300, hideOnSinglePage: true }} />
+        <Table columns={topColumns} dataSource={topData} pagination={{ hideOnSinglePage: true }} title={() => '持有分布'} />
       </div>
+      <div className='whale-table'>
+        <Table columns={addColumns} dataSource={whaleList} pagination={{ pageSize: 1300, hideOnSinglePage: true }} />
+      </div>
+
     </WhaleWrapper>
   );
 });

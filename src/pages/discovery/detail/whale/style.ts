@@ -4,7 +4,6 @@ export const WhaleWrapper = styled.div `
   // height: 2000px;
   display: flex;
   flex-direction: column;
-  justify-align: center;
 
 
   .whale-table{
@@ -14,6 +13,10 @@ export const WhaleWrapper = styled.div `
     margin-top: 40px;
     text-align: center;
     border-radius: 25px;
+    .ant-table-title{
+      font-size:20px;
+    };
+
   }
 
 `;
