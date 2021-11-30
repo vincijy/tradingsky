@@ -52,8 +52,8 @@ export const DetailIntroCard = styled.div `
       display: flex; /* 1 */
       grid-template-columns: repeat(auto-fill, 45px); /* 2 */
       grid-gap: 1rem; /* 3 */
-      justify-content: flex-start; /* 4 */
-      /* border: 1px solid red; */
+      justify-content: space-between; /* 4 */
+      flex-wrap: wrap;
     }
     .intro-foot-button {
       display: flex;
@@ -66,6 +66,9 @@ export const DetailIntroCard = styled.div `
         display: flex;
         flex-direction: column;
         margin-right: 15px;
+        div {
+          white-space: nowrap;
+        }
       }
     }
 

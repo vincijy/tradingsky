@@ -95,101 +95,93 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
         <Row >
           <Col
             xs={{ span: 24 }}
-            lg={{ span: 24 }}
+            sm={{ span: 24 }}
+            lg={{ span: 13 }}
             className={'links'}
           >
             {
-              coin.officalUrl ?
+              coin.officalUrl &&
                 <div className='intro-foot-button'>
                   <a href={coin.officalUrl} target='_blank' rel='noreferrer'>
                     <MdTravelExplore style={{ marginLeft: '0.5px', fontSize: '24px' }}/>
                     <div>官网</div>
                   </a>
-                </div> :
-                <div style={{ display: 'none' }}></div>
+                </div>
             }
             {
-              coin.whiteBookUrl ?
+              coin.whiteBookUrl &&
                 <div className='intro-foot-button'>
                   <a href={coin.whiteBookUrl} target='_blank' rel='noreferrer'>
                     <BiBookBookmark style={{ marginLeft: '10px', fontSize: '24px' }}/>
                     <div>白皮书</div>
                   </a>
-                </div> :
-                <div style={{ display: 'none' }}></div>
+                </div>
             }
             {
-              coin.twitterUrl ?
+              coin.twitterUrl &&
                 <div className='intro-foot-button'>
                   <a href={coin.twitterUrl} target='_blank' rel='noreferrer'>
                     <FiTwitter style={{ marginLeft: '10px', fontSize: '24px' }}/>
                     <div>Twitter</div>
                   </a>
-                </div> :
-                <div style={{ display: 'none' }}></div>
+                </div>
             }
             {
-              coin.discordUrl ?
+              coin.discordUrl &&
                 <div className='intro-foot-button'>
                   <a href={coin.discordUrl} target='_blank' rel='noreferrer'>
                     <SiDiscord style={{ marginLeft: '12px', fontSize: '24px' }}/>
                     <div>Discord</div>
                   </a>
-                </div> :
-                <div style={{ display: 'none' }}></div>
+                </div>
 
             }
             {
-              coin.telegramUrl ?
+              coin.telegramUrl &&
                 <div className='intro-foot-button'>
                   <a href={coin.telegramUrl} target='_blank' rel='noreferrer'>
                     <SiTelegram style={{ marginLeft: '18px', fontSize: '24px' }}/>
                     <div>Telegram</div>
                   </a>
-                </div> :
-                <div style={{ display: 'none' }}></div>
+                </div>
 
             }
             {
-              coin.githubUrl ?
+              coin.githubUrl &&
                 <div className='intro-foot-button'>
                   <a href={coin.percent_change_24h} target='_blank' rel='noreferrer'>
                     <GiMirrorMirror style={{ marginLeft: '6.1px', fontSize: '24px' }}/>
                     <div>mirror</div>
                   </a>
-                </div> :
-                <div style={{ display: 'none' }}></div>
+                </div>
 
             }
             {
-              coin.githubUrl ?
+              coin.githubUrl &&
                 <div className='intro-foot-button'>
                   <a href={coin.percent_change_24h} target='_blank' rel='noreferrer'>
                     <MdOutlineForum style={{ marginLeft: '2.5px', fontSize: '24px' }}/>
                     <div>论坛</div>
                   </a>
-                </div> :
-                <div style={{ display: 'none' }}></div>
+                </div>
             }
             {
-              coin.githubUrl ?
+              coin.githubUrl &&
                 <div className='intro-foot-button'>
                   <a href={coin.githubUrl} target='_blank' rel='noreferrer'>
                     <SiGithub style={{ marginLeft: '10px', fontSize: '24px' }}/>
                     <div>GitHub</div>
                   </a>
-                </div> :
-                <div style={{ display: 'none' }}></div>
+                </div>
             }
             {
-              coin.githubUrl ?
+              coin.githubUrl &&
                 <div className='intro-foot-button'>
                   <a href={coin.githubUrl} target='_blank' rel='noreferrer'>
                     <BarChartOutlined style={{ fontSize: '24px' }}/>
                     <div>数据</div>
                   </a>
-                </div> :
-                <div style={{ display: 'none' }}></div>
+                </div>
             }
           </Col>
         </Row>

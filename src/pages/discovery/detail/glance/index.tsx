@@ -55,9 +55,7 @@ export default memo(function Glance(props:Iprops) {
       <Row style={{ marginBottom: '20px' }}>
         <Col
           xs={{ span: 24 }}
-          lg={{ span: 15 }}
-          xxl={{ span: 18 }}
-
+          lg={{ span: 14 }}
         >
           <HighchartsReact
             highcharts={getHighCharts()}
@@ -88,7 +86,7 @@ export default memo(function Glance(props:Iprops) {
               <span> { !coin.market_cap_dominance ? '无数据' : strToFixNum(coin.market_cap_dominance, 2) + '%' } </span>
             </div>
             <div className='glance-row'>
-              <Progress percent={ Number(coin.market_cap_dominance) } size='small' status='active' style={{ width: 420 }} showInfo={false} strokeColor='#4040FF'/>
+              <Progress percent={ Number(coin.market_cap_dominance) } size='small' status='active' style={{ width: '100%' }} showInfo={false} strokeColor='#4040FF'/>
             </div>
             <div className='glance-row'>
               <span>市值排名</span>
@@ -121,7 +119,7 @@ export default memo(function Glance(props:Iprops) {
               <span>{ !coin.max_supply ? '无数据' : strToFixNum((supplyPct * 100).toString(), 2) + '%'} </span>
             </div>
             <div className='glance-row'>
-              <Progress percent={ supplyPct * 100} size='small' status='active' style={{ width: 420 }} showInfo={false} strokeColor='#4040FF'/>
+              <Progress percent={ supplyPct * 100} size='small' status='active' style={{ width: '100%' }} showInfo={false} strokeColor='#4040FF'/>
             </div>
             <div className='glance-row'>
               <span>流通量</span>
