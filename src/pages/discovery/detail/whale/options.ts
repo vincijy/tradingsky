@@ -28,11 +28,6 @@ export const options = {
       dataLabels: {
         enabled: true,
         format: '<a href=https://etherscan.io/address/{point.name} target=_blank rel=noreferrer>{point.name}</a>: {point.percentage:.1f} %',
-        filter: {
-          property: 'percentage',
-          operator: '>',
-          value: 1,
-        },
       },
     },
   },
