@@ -11,6 +11,8 @@ import Glance from './glance/index';
 const { TabPane } = Tabs;
 import { DiscoverDetailPage } from './style';
 import WhaleComponent from './whale';
+import ProductComponent from './product';
+
 
 export default memo(function Item(props:any) {
   const { key, id } = getUrlParams();
@@ -57,7 +59,7 @@ export default memo(function Item(props:any) {
             <TabPane
               tab='产品'
               key='1'>
-        Content of Tab Pane 2
+              <ProductComponent coin={coin} />
             </TabPane>
             <TabPane
               tab='巨鲸地址'
