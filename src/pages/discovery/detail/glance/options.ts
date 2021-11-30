@@ -26,12 +26,13 @@ export const options = {
   series: [{
     name: '价格',
     data: [],
+    color: 'rgb(60, 43, 255,0.6)',
     type: 'area',
     fillOpacity: 1,
     fillColor: {
-      linearGradient: { x1: 0, x2: 0, y1: 0, y2: 1 },
+      linearGradient: { x1: 1, x2: 1, y1: 0, y2: 1 },
       stops: [
-        [0, 'rgb(142, 217, 255, 1)'],
+        [0, 'rgb(60, 43, 255,0.7)'],
         [1, 'rgba(255, 255, 255, 0)'],
       ],
     },
@@ -49,7 +50,7 @@ export const options = {
   },
   plotOptions: {
     series: {
-      lineWidth: 1.5,
+      lineWidth: 1.8,
       animation: !1,
       connectNulls: !0,
       groupPadding: 0,
