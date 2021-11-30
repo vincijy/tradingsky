@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Card, Input, Select, Row, Col, Tabs } from 'antd';
 
-import { getCoin, getCoinList, getWhaleAddress, getWhaleTop, getRealTime, getAllPrice } from '@/api/discovery';
+import { getCoin, getCoinList, getWhaleAddress, getWhaleTop, getAllPrice } from '@/api/discovery';
 import HighchartsReact from 'highcharts-react-official';
 import { options } from './options';
 interface IProps {

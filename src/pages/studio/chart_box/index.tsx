@@ -3,7 +3,7 @@ import { useAppSelector, useAppDispatch } from '@/hooks';
 import LSChartDoubleLine from '@/components/chart/line';
 import { getHighCharts } from '@/components/chart';
 import { getChartData, getAssetPrice } from '@/api/chart';
-import { getWhaleAddress, getWhaleTop, getRealTime, getAllPrice } from '@/api/discovery';
+import { getWhaleAddress, getWhaleTop, getAllPrice } from '@/api/discovery';
 import { setPriceData, toggleAnnotation } from '@/store/chart/action';
 import { TypeDataRow } from '@/components/chart/def';
 import axios from 'axios';

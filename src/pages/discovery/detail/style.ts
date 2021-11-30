@@ -83,4 +83,17 @@ export const DiscoverDetailPage = styled.div `
     }
   }
 
+  // Highchart居中
+  .ant-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  // Highchart border
+  .ant-col-lg-14{
+  }
+
+  .ant-col-lg-10{
+  }
 `;

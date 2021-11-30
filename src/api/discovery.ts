@@ -22,13 +22,6 @@ export function getWhaleTop(asset:string):AxiosPromise<any> {
   });
 };
 
-export function getRealTime(asset:string):AxiosPromise<any> {
-  return request({
-    url: `/api/v1/explore/${asset}`,
-    params: {},
-  });
-};
-
 export function getAllPrice(asset:string):AxiosPromise<any> {
   return request({
     url: `/api/v1/explore/historical/${asset}`,
@@ -39,6 +32,13 @@ export function getAllPrice(asset:string):AxiosPromise<any> {
 export function getDynamicCoin(asset:string):AxiosPromise<any> {
   return request({
     url: `/api/v1/explore/${asset}`,
+    params: {},
+  });
+};
+
+export function getExtremum(asset:string):AxiosPromise<any> {
+  return request({
+    url: `/api/v1/explore/extremum/${asset}`,
     params: {},
   });
 };

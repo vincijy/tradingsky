@@ -54,3 +54,8 @@ export interface ICoin {
     percent_change_24h:string;
     price:string;
   }
+
+export interface IExtremum {
+    index:string;
+    v:number;
+}

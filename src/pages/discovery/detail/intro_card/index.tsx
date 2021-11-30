@@ -79,7 +79,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
           >
             <span style={{ fontSize: '30px' }}>
               <p style={{ fontSize: '14px', marginTop: '-14px', color: '#828282' }}> {coin.briefName} 价格</p>
-              $ { Number(coin.price) > 1 ? strToFixNum(coin.price, 2) : strToFixNum(coin.price, 4) }
+              $ { Number(coin.price) > 1 ? strToFixNum(coin.price, 2).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') : Number(coin.price).toPrecision(4) }
             </span>
             <span className='intro-icon-percent'
               style={{
@@ -95,63 +95,102 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
         <Row >
           <Col
             xs={{ span: 24 }}
-            lg={{ span: 12 }}
+            lg={{ span: 24 }}
             className={'links'}
           >
-            <div className='intro-foot-button'>
-              <a href={coin.officalUrl} target='_blank' rel='noreferrer'>
-                <MdTravelExplore style={{ marginLeft: '0.5px', fontSize: '24px' }}/>
-                <div>官网</div>
-              </a>
-            </div>
-            <div className='intro-foot-button'>
-              <a href={coin.whiteBookUrl} target='_blank' rel='noreferrer'>
-                <BiBookBookmark style={{ marginLeft: '10px', fontSize: '24px' }}/>
-                <div>白皮书</div>
-              </a>
-            </div>
-            <div className='intro-foot-button'>
-              <a href={coin.twitterUrl} target='_blank' rel='noreferrer'>
-                <FiTwitter style={{ marginLeft: '10px', fontSize: '24px' }}/>
-                <div>Twitter</div>
-              </a>
-            </div>
-            <div className='intro-foot-button'>
-              <a href={coin.discordUrl} target='_blank' rel='noreferrer'>
-                <SiDiscord style={{ marginLeft: '12px', fontSize: '24px' }}/>
-                <div>Discord</div>
-              </a>
-            </div>
-            <div className='intro-foot-button'>
-              <a href={coin.telegramUrl} target='_blank' rel='noreferrer'>
-                <SiTelegram style={{ marginLeft: '18px', fontSize: '24px' }}/>
-                <div>Telegram</div>
-              </a>
-            </div>
-            <div className='intro-foot-button'>
-              <a href={coin.percent_change_24h} target='_blank' rel='noreferrer'>
-                <GiMirrorMirror style={{ marginLeft: '6.1px', fontSize: '24px' }}/>
-                <div>mirror</div>
-              </a>
-            </div>
-            <div className='intro-foot-button'>
-              <a href={coin.percent_change_24h} target='_blank' rel='noreferrer'>
-                <MdOutlineForum style={{ marginLeft: '2.5px', fontSize: '24px' }}/>
-                <div>论坛</div>
-              </a>
-            </div>
-            <div className='intro-foot-button'>
-              <a href={coin.githubUrl} target='_blank' rel='noreferrer'>
-                <SiGithub style={{ marginLeft: '10px', fontSize: '24px' }}/>
-                <div>GitHub</div>
-              </a>
-            </div>
-            <div className='intro-foot-button'>
-              <a href={coin.githubUrl} target='_blank' rel='noreferrer'>
-                <BarChartOutlined style={{ fontSize: '24px' }}/>
-                <div>数据</div>
-              </a>
-            </div>
+            {
+              coin.officalUrl ?
+                <div className='intro-foot-button'>
+                  <a href={coin.officalUrl} target='_blank' rel='noreferrer'>
+                    <MdTravelExplore style={{ marginLeft: '0.5px', fontSize: '24px' }}/>
+                    <div>官网</div>
+                  </a>
+                </div> :
+                <div style={{ display: 'none' }}></div>
+            }
+            {
+              coin.whiteBookUrl ?
+                <div className='intro-foot-button'>
+                  <a href={coin.whiteBookUrl} target='_blank' rel='noreferrer'>
+                    <BiBookBookmark style={{ marginLeft: '10px', fontSize: '24px' }}/>
+                    <div>白皮书</div>
+                  </a>
+                </div> :
+                <div style={{ display: 'none' }}></div>
+            }
+            {
+              coin.twitterUrl ?
+                <div className='intro-foot-button'>
+                  <a href={coin.twitterUrl} target='_blank' rel='noreferrer'>
+                    <FiTwitter style={{ marginLeft: '10px', fontSize: '24px' }}/>
+                    <div>Twitter</div>
+                  </a>
+                </div> :
+                <div style={{ display: 'none' }}></div>
+            }
+            {
+              coin.discordUrl ?
+                <div className='intro-foot-button'>
+                  <a href={coin.discordUrl} target='_blank' rel='noreferrer'>
+                    <SiDiscord style={{ marginLeft: '12px', fontSize: '24px' }}/>
+                    <div>Discord</div>
+                  </a>
+                </div> :
+                <div style={{ display: 'none' }}></div>
+
+            }
+            {
+              coin.telegramUrl ?
+                <div className='intro-foot-button'>
+                  <a href={coin.telegramUrl} target='_blank' rel='noreferrer'>
+                    <SiTelegram style={{ marginLeft: '18px', fontSize: '24px' }}/>
+                    <div>Telegram</div>
+                  </a>
+                </div> :
+                <div style={{ display: 'none' }}></div>
+
+            }
+            {
+              coin.githubUrl ?
+                <div className='intro-foot-button'>
+                  <a href={coin.percent_change_24h} target='_blank' rel='noreferrer'>
+                    <GiMirrorMirror style={{ marginLeft: '6.1px', fontSize: '24px' }}/>
+                    <div>mirror</div>
+                  </a>
+                </div> :
+                <div style={{ display: 'none' }}></div>
+
+            }
+            {
+              coin.githubUrl ?
+                <div className='intro-foot-button'>
+                  <a href={coin.percent_change_24h} target='_blank' rel='noreferrer'>
+                    <MdOutlineForum style={{ marginLeft: '2.5px', fontSize: '24px' }}/>
+                    <div>论坛</div>
+                  </a>
+                </div> :
+                <div style={{ display: 'none' }}></div>
+            }
+            {
+              coin.githubUrl ?
+                <div className='intro-foot-button'>
+                  <a href={coin.githubUrl} target='_blank' rel='noreferrer'>
+                    <SiGithub style={{ marginLeft: '10px', fontSize: '24px' }}/>
+                    <div>GitHub</div>
+                  </a>
+                </div> :
+                <div style={{ display: 'none' }}></div>
+            }
+            {
+              coin.githubUrl ?
+                <div className='intro-foot-button'>
+                  <a href={coin.githubUrl} target='_blank' rel='noreferrer'>
+                    <BarChartOutlined style={{ fontSize: '24px' }}/>
+                    <div>数据</div>
+                  </a>
+                </div> :
+                <div style={{ display: 'none' }}></div>
+            }
           </Col>
         </Row>
       </Card>

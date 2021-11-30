@@ -39,7 +39,7 @@ export default memo(function Item() {
     <div>
       <DiscoverPage>
         <h2 style={{ fontSize: '32px', display: 'flex', justifyContent: 'center', marginTop: '5px' }}>探索</h2>
-        <h2 style={{ fontSize: '24px', display: 'flex', justifyContent: 'center', marginTop: '15px' }}>了解区块链产品，发现最新投资机会</h2>
+        <h2 style={{ fontSize: '24px', display: 'flex', justifyContent: 'center', marginTop: '15px', marginBottom: '35px' }}>了解区块链产品，发现最新投资机会</h2>
         {/* <div className='card-tool-bar'>
           <div className='too-bar-left'>
             <Input

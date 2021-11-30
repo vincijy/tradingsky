@@ -8,7 +8,7 @@ export const options = {
     text: '',
   },
   navigator: {
-    height: 35, // 导航栏高度(图表下方时间范围选择器)
+    height: 40, // 导航栏高度(图表下方时间范围选择器)
     maskFill: 'rgba(60, 65, 76, 0.1)',
   },
   scrollbar: {
@@ -39,7 +39,7 @@ export const options = {
 
   }],
   chart: {
-    height: 500,
+    height: 600,
     animation: false,
     zoomType: 'x',
     pinchType: 'x',

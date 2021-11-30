@@ -8,3 +8,4 @@ export const strToFixNum = (numStr:string, n:number, isPercent = false) => {
   }
   return isNaN(v) ? '-' : result;
 };
+
