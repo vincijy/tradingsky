@@ -4,10 +4,19 @@ export const options = {
     plotBorderWidth: null,
     plotShadow: false,
     type: 'pie',
-    height: 200,
+    height: 450,
+  },
+  credits: {
+    href: 'https://www.lianshucha.com/chart',
+    style: {
+      fontSize: '10px',
+      color: '#909090',
+    },
+    text: 'www.lianshucha.com',
+
   },
   title: {
-    text: '2018年1月浏览器市场份额',
+    text: '巨鲸持有占比',
   },
   tooltip: {
     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
@@ -18,16 +27,21 @@ export const options = {
       cursor: 'pointer',
       dataLabels: {
         enabled: true,
-        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-        // style: {
-        //   color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
-        // },
+        format: '<a href=https://etherscan.io/address/{point.name} target=_blank rel=noreferrer>{point.name}</a>: {point.percentage:.1f} %',
+        filter: {
+          property: 'percentage',
+          operator: '>',
+          value: 1,
+        },
       },
     },
   },
   series: [{
     name: 'Brands',
+    type: 'pie',
+    innerSize: '70%',
     colorByPoint: true,
     data: [],
   }],
+
 };

@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState } from 'react';
-import { Card, Input, Select, Row, Col, Tabs } from 'antd';
-
+import { Card, Input, Select, Row, Col, Tabs, Table, Space } from 'antd';
+import { DotChartOutlined } from '@ant-design/icons';
 import { getWhaleAddress, getWhaleTop } from '@/api/discovery';
 import { ICoin } from '@/api/def';
 import { strToFixNum } from '@/utils/cal';
@@ -17,6 +17,7 @@ export default memo(function WhaleComponent(props:Iprops) {
   console.log('coin', coin);
   const { key } = coin;
   const [pieData, setPieData] = useState([] as any);
+  const [OtherData, setOtherData] = useState(0);
   const requestData = async() => {
     // 获取巨鲸地址值
     // addressData = { data: { rows: [{ r: {address: 'xx', share: '0.5', balance: '1000' }}]}}
@@ -35,7 +36,16 @@ export default memo(function WhaleComponent(props:Iprops) {
       result.push(e);
     });
 
-    setPieData(result);
+    // add up others balance
+    let sum = 0;
+    for (let i = 0; i < 20; i++) {
+      sum += result[i].y;
+    }
+    const newSum = 100 - sum;
+    setOtherData(newSum);
+
+    // slice top10 addresses
+    setPieData(result.slice(0, 20));
 
     const whaleTopData = await getWhaleTop(key);
 
@@ -45,36 +55,45 @@ export default memo(function WhaleComponent(props:Iprops) {
   useEffect(() => {
     requestData();
   }, []);
+  const{ name } = pieData;
 
+  const columns = [
+    {
+      title: '地址',
+      dataIndex: 'name',
+    },
+    {
+      title: '所占百分比 %',
+      dataIndex: 'y',
+    },
+    {
+      title: '持有数量',
+      dataIndex: 'balance',
+    },
+    {
+      title: '查看明细',
+      // eslint-disable-next-line react/display-name
+      render: (pieData:any) => (
+        <Space>
+          <a href={`https://etherscan.io/address/${pieData.name}`} target='_blank' rel='noreferrer'>
+            <DotChartOutlined style={{ marginLeft: '10px', fontSize: '20px' }}/>
+          </a>
+        </Space>
+      ),
+    },
+  ];
   return (
     <WhaleWrapper>
-      <Card style={{ height: '500px', border: '1px solid red' }}>
+      <Card style={{ height: '500px' }}>
         <Row >
           <Col span={24}>
-            <ChartPie data={pieData}/>
+            <ChartPie data={pieData} otherData={OtherData}/>
           </Col>
         </Row>
       </Card>
-
-      <Card style={{ height: '500px', border: '1px solid red' }}>
-        {
-          pieData.map((e:any) => (
-            <Row
-              key={e.name}
-            >
-              <Col span={ 16 }>
-                { e.name }
-              </Col>
-              <Col span={ 4 }>
-                { e.y }
-              </Col>
-              <Col span={ 4 }>
-                { e.balance }
-              </Col>
-            </Row>
-          ))
-        }
-      </Card>
+      <div className='whale-table'>
+        <Table columns={columns} dataSource={pieData} pagination={{ pageSize: 1300, hideOnSinglePage: true }} />
+      </div>
     </WhaleWrapper>
   );
 });
