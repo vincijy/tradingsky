@@ -99,7 +99,10 @@ export default memo(function WhaleComponent(props:Iprops) {
       // eslint-disable-next-line react/display-name
       render: (pieData:any) => (
         <Space>
-          <a href={`https://etherscan.io/address/${pieData.name}`} target='_blank' rel='noreferrer'>
+          <a
+            href={`https://etherscan.io/address/${pieData.name}`}
+            target='_blank'
+            rel='noreferrer'>
             <GoLinkExternal style={{ marginLeft: '10px', fontSize: '20px' }}/>
           </a>
         </Space>
@@ -129,17 +132,31 @@ export default memo(function WhaleComponent(props:Iprops) {
   return (
     <WhaleWrapper>
       <Card style={{ height: '500px' }}>
-        <Row >
-          <Col span={24}>
-            <ChartPie data={pieData} otherData={OtherData}/>
+        <Row>
+          <Col
+            xs={ { span: 24 }}
+            sm={{ span: 24 }}
+            lg={{ span: 24 }}
+            style={{ textAlign: 'center' }}
+          >
+            <ChartPie
+              data={pieData}
+              otherData={OtherData}/>
           </Col>
         </Row>
       </Card>
       <div className='whale-table'>
-        <Table columns={topColumns} dataSource={topData} pagination={{ hideOnSinglePage: true }} title={() => '持有分布'} />
+        <Table
+          columns={topColumns}
+          dataSource={topData}
+          pagination={{ hideOnSinglePage: true }}
+          title={() => '持有分布'} />
       </div>
       <div className='whale-table'>
-        <Table columns={addColumns} dataSource={whaleList} pagination={{ pageSize: 1300, hideOnSinglePage: true }} />
+        <Table
+          columns={addColumns}
+          dataSource={whaleList}
+          pagination={{ pageSize: 1300, hideOnSinglePage: true }} />
       </div>
 
     </WhaleWrapper>

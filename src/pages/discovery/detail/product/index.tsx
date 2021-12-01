@@ -1,6 +1,6 @@
 
 import React, { memo, useEffect, useState } from 'react';
-import { Col, Row, Tag } from 'antd';
+import { Col, Row, Tag, Image } from 'antd';
 import { ICoin } from '@/api/def';
 import { ossImgs } from '@/oss';
 import { ProductWrapper } from './style';
@@ -11,13 +11,15 @@ export default memo(function Product(props:Iprops) {
   const { coin } = props;
   (coin as any).articleList = [
     {
+      imgSrc: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
       title: '比特币交割猛烈',
       content: '',
       href: 'www.baidu.com',
       summary: '这是一段简单的描述. 这是一段简单的描述. 这是一段简单的描述. 这是一段简单的描述.这是一段简单的描述.这是一段简单的描述.这是一段简单的描述.',
-      tags: ['A', 'B', 'c'],
+      tags: ['以太坊', '虚拟货币', 'eth'],
     },
     {
+      imgSrc: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
       title: '比特币交割猛烈',
       content: '',
       href: 'www.baidu.com',
@@ -26,11 +28,11 @@ export default memo(function Product(props:Iprops) {
       summary: '这是一段简单的描述. 这是一段简单的描述. 这是一段简单的描述. 这是一段简单的描述.这是一段简单的描述.这是一段简单的描述.这是一段简单的描述.',
     },
     {
+      imgSrc: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
       title: '比特币交割猛烈',
       content: '',
       href: 'www.baidu.com',
       tags: ['A', 'B', 'c'],
-
       summary: '这是一段简单的描述. 这是一段简单的描述. 这是一段简单的描述. 这是一段简单的描述.这是一段简单的描述.这是一段简单的描述.这是一段简单的描述.',
     },
   ];
@@ -38,30 +40,29 @@ export default memo(function Product(props:Iprops) {
   const artilce = (article:any) => {
     const { title, summary, tags } = article;
     return (
-      <Row style={{ height: '150px', marginBottom: '40px' }}>
+      <Row style={{ marginBottom: '40px' }}>
         <Col
-          xs={ { span: 7 }}
-          sm={{ span: 7 }}
-          lg={{ span: 7 }}
-          className='debug'
+          xs={ { span: 24 }}
+          sm={{ span: 24 }}
+          lg={{ span: 4 }}
+          className='imgCol'
         >
-          <img
-            className='postImg'
-            src={ossImgs.chart_0}
-            width={'100%'}
-            object-fit='fill'
+          <Image
+            src={article.imgSrc}
+            preview={false}
           />
         </Col>
         <Col
-          xs={ { span: 1 }}
-          sm={{ span: 1 }}
+          xs={ { span: 24 }}
+          sm={{ span: 24 }}
           lg={{ span: 1 }}
+          style={{ height: '20px' }}
         />
         <Col
-          xs={{ span: 16 }}
-          sm={{ span: 16 }}
-          lg={{ span: 16 }}
-          className='description debug'
+          xs={{ span: 24 }}
+          sm={{ span: 24 }}
+          lg={{ span: 19 }}
+          className='description'
         >
           <div>
             <h3>{ title }</h3>
@@ -76,7 +77,7 @@ export default memo(function Product(props:Iprops) {
                 return (
                   <Tag
                     key={ tag }
-                    style={{ color: '#aaa' }}> { tag }
+                    color='blue'> { tag }
                   </Tag>
                 );
               })
