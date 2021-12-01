@@ -27,12 +27,11 @@ export default memo(function Item() {
   const [searchVal, setSearchVal] = useState('');
   const onChange = (e:HTMLInputElement) => {
     setSearchVal((e as any).target.value);
-    console.log((e as any).target.value, 'sdsd');
   };
 
   const search = () => {
     setCoinList([]);
-    getCoinList({ pageId: pageId, pageSize: pageSize, fullName: searchVal } as any).then((res) => {
+    getCoinList({ pageId: pageId, pageSize: pageSize, briefName: searchVal } as any).then((res) => {
       const { list, total } = res.data;
       setTotal(total);
       // setCoinList(list);
