@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from 'react';
-import { Card, Input, Select, Spin } from 'antd';
+import { Card, Input, Select, Spin, Pagination, Row, Col } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import bitcoinLogo from '@/assets/img/btc_logo.png';
 import ethLogo from '@/assets/img/eth_logo.svg';
@@ -11,13 +11,30 @@ import { ICoin } from '@/api/def';
 import { DiscoverPage } from './style';
 const log = console.log.bind(console);
 
+const pageSize = 10;
 export default memo(function Item() {
   const { Option } = Select;
   const [ isLoading, setIsLoading] = useState(true);
   const [coinList, setCoinList] = useState([] as ICoin[]);
-  useEffect(() => {
-    getCoinList({ pageId: 1, pageSize: 20 }).then((res) => {
-      const { list } = res.data;
+
+  const [pageId, setPageId] = useState(1);
+  const [total, setTotal] = useState(1);
+
+  const onPageChange = (page:number) => {
+    setPageId(page);
+  };
+
+  const [searchVal, setSearchVal] = useState('');
+  const onChange = (e:HTMLInputElement) => {
+    setSearchVal((e as any).target.value);
+    console.log((e as any).target.value, 'sdsd');
+  };
+
+  const search = () => {
+    setCoinList([]);
+    getCoinList({ pageId: pageId, pageSize: pageSize, fullName: searchVal } as any).then((res) => {
+      const { list, total } = res.data;
+      setTotal(total);
       // setCoinList(list);
       let count = 0;
       list.forEach(async(coin) => {
@@ -33,22 +50,31 @@ export default memo(function Item() {
     }).catch((err) => {
       console.error(err);
     });
-  }, []);
+  };
+  useEffect(() => {
+    search();
+  }, [pageId]);
+
+  const onPressEnter = () => {
+    search();
+  };
 
   return (
     <div>
       <DiscoverPage>
         <h2 style={{ fontSize: '32px', display: 'flex', justifyContent: 'center', marginTop: '5px' }}>探索</h2>
         <h2 style={{ fontSize: '24px', display: 'flex', justifyContent: 'center', marginTop: '15px', marginBottom: '35px' }}>了解区块链产品，发现最新投资机会</h2>
-        {/* <div className='card-tool-bar'>
+        <div className='card-tool-bar'>
           <div className='too-bar-left'>
             <Input
               placeholder='搜索'
               bordered={false}
+              onChange={(e:any) => onChange(e)}
+              onPressEnter={onPressEnter}
               suffix={<SearchOutlined/>}
               style={{ backgroundColor: 'white', borderRadius: '6px', width: '250px', border: '1px solid #4040FF' }}/>
           </div>
-          <div className='too-bar-right'>
+          {/* <div className='too-bar-right'>
             <Select
               placeholder='分类'
               style={{ width: 120, backgroundColor: 'white', border: '1px solid #4040FF' }}
@@ -91,8 +117,8 @@ export default memo(function Item() {
               <Option value='发布时间从近到晚'>发布时间从近到晚</Option>
               <Option value='发布时间从完到近'>发布时间从完到近</Option>
             </Select>
-          </div>
-        </div> */}
+          </div> */}
+        </div>
         <div className='card-all'>
           {
             isLoading && <Spin
@@ -110,6 +136,19 @@ export default memo(function Item() {
             ))
           }
         </div>
+        <Row style={{ marginTop: '20px' }}>
+          <Col
+            span={24}
+            style={{ textAlign: 'center' }}>
+            <Pagination
+              simple
+              defaultCurrent={1}
+              total={total}
+              pageSize={pageSize}
+              onChange={ onPageChange }
+            />
+          </Col>
+        </Row>
       </DiscoverPage>
       <LSAppFooter/>
     </div>
