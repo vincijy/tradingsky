@@ -1,19 +1,22 @@
 import styled from 'styled-components';
 
 export const DiscoverItem = styled.div `
-  .debug {
-    border: 1px solid red;
-  }
   .ant-card {
     display:flex;
     flex-direction: column;
-    justify-content:flex-start;
+    /* justify-content:flex-start; */
     width:234px;
     height:310px;
     border-radius:22px;
     border: 1px solid rgb(222, 224, 224);
     margin:10px 10px;
-
+    /* border: 1px solid red; */
+    @media screen and (min-width: 0px) and (max-width: 767px) {
+      border-radius: 12px;
+      width: 95%;
+      height:320px;
+      margin: 0;
+    }
     @media screen and (min-width: 1550px) {
       margin:10px 20px; // Widescreen adaptation
     }
@@ -36,6 +39,9 @@ export const DiscoverItem = styled.div `
           font-weight: bold;
           margin-top: -8px;
           word-break: break-word;
+          @media screen and (min-width: 0px) and (max-width: 767px) {
+            font-size: 15px;
+          }
         }
 
         .ant-tag{
@@ -50,7 +56,10 @@ export const DiscoverItem = styled.div `
     .card-introduce {
       margin: 10px 0px;  // token introduce
       height: 35px;
-      font-size: 13px; 
+      font-size: 13px;
+      @media screen and (min-width: 0px) and (max-width: 767px) {
+        font-size: 15px;
+      }
       color:#808080;
       cursor: pointer;
     }
@@ -87,12 +96,17 @@ export const DiscoverItem = styled.div `
           }
         }
       }
+
     }
 
     .card-foot{
       margin-top: 20px;  // footer
+      @media screen and (min-width: 0px) and (max-width: 767px) {
+        margin-top: 30px;
+      }
       display:flex;
       justify-content: space-between;
+      margin-bottom: 20px !important;
 
       .card-foot-button{
         display:flex;
@@ -101,5 +115,6 @@ export const DiscoverItem = styled.div `
         cursor: pointer;
       }
     }
+
   }
 `;

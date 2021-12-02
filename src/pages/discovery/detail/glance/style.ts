@@ -10,7 +10,7 @@ export const GlanceWrapper = styled.div `
     justify-content: space-between;
     flex-direction: column;
     max-width: 400px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     .ant-card {
       margin: 30px;
       border-radius: 20px;

@@ -61,19 +61,20 @@ export default memo(function Item() {
   return (
     <div>
       <DiscoverPage>
-        <h2 style={{ fontSize: '32px', display: 'flex', justifyContent: 'center', marginTop: '5px' }}>探索</h2>
-        <h2 style={{ fontSize: '24px', display: 'flex', justifyContent: 'center', marginTop: '15px', marginBottom: '35px' }}>了解区块链产品，发现最新投资机会</h2>
+        <h2 className='card-title' style={{ justifyContent: 'center', marginTop: '5px' }}>探索</h2>
+        <h2 className='card-title-introduce' style={{ justifyContent: 'center', marginTop: '15px', marginBottom: '35px' }}>了解区块链产品，发现最新投资机会</h2>
         <div className='card-tool-bar'>
-          <div className='too-bar-left'>
+          <div className='tool-bar-left'>
             <Input
               placeholder='搜索'
               bordered={false}
               onChange={(e:any) => onChange(e)}
               onPressEnter={onPressEnter}
               suffix={<SearchOutlined/>}
-              style={{ backgroundColor: 'white', borderRadius: '6px', width: '250px', border: '1px solid #4040FF' }}/>
+              className='tool-search'
+              style={{ backgroundColor: 'white', borderRadius: '6px', border: '1px solid #4040FF' }}/>
           </div>
-          {/* <div className='too-bar-right'>
+          <div className='tool-bar-right'>
             <Select
               placeholder='分类'
               style={{ width: 120, backgroundColor: 'white', border: '1px solid #4040FF' }}
@@ -113,10 +114,10 @@ export default memo(function Item() {
               dropdownClassName='card-select-drop'>
               <Option value='市值从大到小'>市值从大到小</Option>
               <Option value='市值从小到大'>市值从小到大</Option>
-              <Option value='发布时间从近到晚'>发布时间从近到晚</Option>
-              <Option value='发布时间从完到近'>发布时间从完到近</Option>
+              <Option value='发布时间从近到晚'>发布从早到晚</Option>
+              <Option value='发布时间从完到近'>发布从晚到早</Option>
             </Select>
-          </div> */}
+          </div>
         </div>
         <div className='card-all'>
           {

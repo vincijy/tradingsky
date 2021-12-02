@@ -23,12 +23,12 @@ export default memo(function DiscoveryCard(props:IProps) {
   const navigateTo = (url:string) => {
     (window as any).open(url, '_blank').focus();
   };
-  console.log(item.market_cap_dominance, 'AAAAAAAadnajksdhkjashdnjkas');
 
   return (
     <DiscoverItem>
       <Card
-        bordered>
+        bordered
+        className='card-big'>
         <div
           className='card-info-area'
           onClick={() => navigateToDetail(item) }>
@@ -54,7 +54,7 @@ export default memo(function DiscoveryCard(props:IProps) {
               <TagsOutlined style={{ fontSize: '15px' }} />
               <div className='data-name'>价格</div>
             </div>
-            <div>{ item.price == '' ? '无数据' : strToFixNum(item.price, 3).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + '$'} </div>
+            <div className='card-name-data'>{ item.price == '' ? '无数据' : strToFixNum(item.price, 3).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + '$'} </div>
           </div>
 
           <div className='card-data-item'>
@@ -62,14 +62,14 @@ export default memo(function DiscoveryCard(props:IProps) {
               <ShopOutlined style={{ fontSize: '15px' }} />
               <div className='data-name'>市值排名</div>
             </div>
-            <div> { item.cmc_rank == '' ? '无数据' : item.cmc_rank} </div>
+            <div className='card-name-data'> { item.cmc_rank == '' ? '无数据' : item.cmc_rank} </div>
           </div>
           <div className='card-data-item'>
             <div className='card-data-info'>
               <PieChartOutlined style={{ fontSize: '15px' }} />
               <div className='data-name'>市值占比 </div>
             </div>
-            <div>{!item.market_cap_dominance ? '无数据' : strToFixNum(item.market_cap_dominance, 2) + '%'}</div>
+            <div className='card-name-data'>{!item.market_cap_dominance ? '无数据' : strToFixNum(item.market_cap_dominance, 2) + '%'}</div>
           </div>
         </div>
         <div className='card-foot'>
@@ -94,11 +94,11 @@ export default memo(function DiscoveryCard(props:IProps) {
               <div style={{ display: 'none' }}></div>
           }
           {
-            item.twitterUrl == '' ?
+            item.twitterUrl ?
               <div
                 className='card-foot-button'
                 onClick={() => navigateTo(item.twitterUrl) }>
-                <BarChartOutlined style={{ fontSize: '15px', marginBottom: '5px' }}/>
+                <BarChartOutlined style={{ fontSize: '15px', marginBottom: '5px' }} />
                 <div>数据</div>
               </div> :
               <div style={{ display: 'none' }}></div>

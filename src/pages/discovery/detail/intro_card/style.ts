@@ -52,14 +52,15 @@ export const DetailIntroCard = styled.div `
       display: flex; /* 1 */
       grid-template-columns: repeat(auto-fill, 45px); /* 2 */
       grid-gap: 1rem; /* 3 */
-      justify-content: space-between; /* 4 */
-      flex-wrap: wrap;
+      justify-content: flex-start; /* 4 */
+      flex-wrap: nowrap;
     }
     .intro-foot-button {
       display: flex;
       flex-direction: column;
       align-items: center;
       height: 42px;
+      margin-right: 20px;
       /* border: 1px solid darkblue; */
 
       a{

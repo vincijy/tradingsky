@@ -55,7 +55,8 @@ export default memo(function Glance(props:Iprops) {
       <Row style={{ marginBottom: '20px' }}>
         <Col
           xs={{ span: 24 }}
-          lg={{ span: 14 }}
+          lg={{ span: 15 }}
+          xxl={{ span: 18 }}
         >
           <HighchartsReact
             highcharts={getHighCharts()}
@@ -98,7 +99,11 @@ export default memo(function Glance(props:Iprops) {
             <div className='glance-row'>
               <span>最高价格</span>
               <span>
-                { (0.12312313123.toPrecision(4)) } $
+                {
+                  maxData.v > 1 ?
+                    strToFixNum(maxData.v.toString(), 2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') :
+                    maxData.v === undefined ? '无数据' : (maxData.v.toPrecision(4)) + '$'
+                }
               </span>
             </div>
             <div style={{ fontSize: '12px', color: 'rgb(130, 130, 130)', marginBottom: '5px', marginTop: '3px' }}>
@@ -106,7 +111,13 @@ export default memo(function Glance(props:Iprops) {
             </div>
             <div className='glance-row'>
               <span>最低价格</span>
-              <span>{ 0.123213131.toPrecision(4) } $</span>
+              <span>
+                {
+                  minData.v > 1 ?
+                    strToFixNum(minData.v.toString(), 2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') :
+                    minData.v === undefined ? '无数据' : (minData.v.toPrecision(4)) + '$'
+                }
+              </span>
             </div>
             <div style={{ fontSize: '12px', color: 'rgb(130, 130, 130)', marginTop: '3px' }}>
               <span>{ !minData.index ? '无数据' : unixToHuman(minData.index) }</span>

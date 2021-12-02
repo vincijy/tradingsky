@@ -74,7 +74,7 @@ export const DiscoverDetailPage = styled.div `
 
     // the bottom part of card
     .ant-tabs-content-holder{
-      margin-top: 20px;
+      /* margin-top: 20px; */
     }
 
     // the bottom line of tab
