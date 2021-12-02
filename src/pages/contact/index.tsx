@@ -40,7 +40,7 @@ export default memo(function ContactPage() {
             <Meta
               avatar={<Avatar src={earthAvatar} />}
               title='联系微信：'
-              description='hedge_zhu'
+              description='lianshucha'
             />
           </Card>
         </div>
