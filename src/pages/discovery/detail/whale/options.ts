@@ -35,7 +35,7 @@ export const options = {
     name: 'Brands',
     type: 'pie',
     innerSize: '70%',
-    colors: ['#5900ce', '#8f3aff', '#0036f9', '#0066FF', '#00BBFF', '#00ddff', '#00fff6', '#00DDAA', '#00DDAA', '#00DD77', '#00DD00', '#99DD00', '#FFFF00', '#FFBB00', '#FF8800', '#FF5511', '#FF7744', '#FFA488', '#FF8888', '#4400CC', '#4400CC' ],
+    colors: ['#5900ce', '#8f3aff', '#0036f9', '#0066FF', '#00BBFF', '#00ddff', '#00fff6', '#00DDAA', '#00DDAA', '#00DD77', '#00DD00', '#99DD00', '#FFFF00', '#FFBB00', '#FF8800', '#FF5511', '#FF7744', '#FFA488', '#FF8888', '#4400CC', '#3f00ff' ],
     colorByPoint: true,
     data: [],
   }],
