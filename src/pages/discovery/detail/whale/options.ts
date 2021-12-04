@@ -1,3 +1,5 @@
+import { isMobile } from '@/utils/is';
+const mobile = isMobile();
 export const options = {
   chart: {
     plotBackgroundColor: null,
@@ -27,7 +29,9 @@ export const options = {
       cursor: 'pointer',
       dataLabels: {
         enabled: true,
-        format: '<a href=https://etherscan.io/address/{point.name} target=_blank rel=noreferrer>{point.name}</a>: {point.percentage:.1f} %',
+        format: isMobile() ?
+          '<a href=https://etherscan.io/address/{point.name} target=_blank rel=noreferrer>{point.percentage:.1f} %, 点击查看</a>' :
+          '<a href=https://etherscan.io/address/{point.name} target=_blank rel=noreferrer>{point.name}</a>: {point.percentage:.1f} %',
       },
     },
   },
