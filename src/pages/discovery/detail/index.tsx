@@ -12,7 +12,7 @@ const { TabPane } = Tabs;
 import { DiscoverDetailPage } from './style';
 import WhaleComponent from './whale';
 import ProductComponent from './product';
-
+import ContractComponent from './contast';
 
 export default memo(function Item(props:any) {
   const { key, id } = getUrlParams();
@@ -72,7 +72,7 @@ export default memo(function Item(props:any) {
             <TabPane
               tab='合约地址'
               key='3'>
-        Content of Tab Pane 3
+              <ContractComponent coin={coin} />
             </TabPane>
           </Tabs>
         </Card>

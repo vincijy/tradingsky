@@ -1,6 +1,6 @@
 
 import React, { memo, useEffect, useState } from 'react';
-import { Col, Row, Tag, Image } from 'antd';
+import { Col, Row, Tag, Image, List, Avatar } from 'antd';
 import { ICoin } from '@/api/def';
 import { ossImgs } from '@/oss';
 import { ProductWrapper } from './style';
