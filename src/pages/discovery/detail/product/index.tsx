@@ -9,38 +9,17 @@ interface Iprops {
 };
 export default memo(function Product(props:Iprops) {
   const { coin } = props;
-  (coin as any).articleList = [
-    {
-      imgSrc: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      title: '比特币交割猛烈',
-      content: '',
-      href: 'www.baidu.com',
-      summary: '这是一段简单的描述. 这是一段简单的描述. 这是一段简单的描述. 这是一段简单的描述.这是一段简单的描述.这是一段简单的描述.这是一段简单的描述.',
-      tags: ['以太坊', '虚拟货币', 'eth'],
-    },
-    {
-      imgSrc: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      title: '比特币交割猛烈',
-      content: '',
-      href: 'www.baidu.com',
-      tags: ['A', 'B', 'c'],
-
-      summary: '这是一段简单的描述. 这是一段简单的描述. 这是一段简单的描述. 这是一段简单的描述.这是一段简单的描述.这是一段简单的描述.这是一段简单的描述.',
-    },
-    {
-      imgSrc: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      title: '比特币交割猛烈',
-      content: '',
-      href: 'www.baidu.com',
-      tags: ['A', 'B', 'c'],
-      summary: '这是一段简单的描述. 这是一段简单的描述. 这是一段简单的描述. 这是一段简单的描述.这是一段简单的描述.这是一段简单的描述.这是一段简单的描述.',
-    },
-  ];
-
+  const articleJson = JSON.parse((coin as any).articleJson);
+  const { articleList } = articleJson;
+  const navigateTo = (href:string) => {
+    window.open(href);
+  };
   const artilce = (article:any) => {
-    const { title, summary, tags } = article;
+    const { title, summary, tagList, href } = article;
     return (
-      <Row style={{ marginBottom: '40px' }}>
+      <Row
+        style={{ marginBottom: '40px', cursor: 'pointer' }}
+        onClick={ (e) => navigateTo(href)}>
         <Col
           xs={ { span: 24 }}
           sm={{ span: 24 }}
@@ -72,7 +51,8 @@ export default memo(function Product(props:Iprops) {
           </div>
           <div>
             {
-              tags.map((tag:any) => {
+              tagList &&
+              tagList.map((tag:any) => {
                 const a = 1;
                 return (
                   <Tag
@@ -90,7 +70,8 @@ export default memo(function Product(props:Iprops) {
   return (
     <ProductWrapper>
       {
-        (coin as any).articleList.map((item:any) => (
+        articleList &&
+        articleList.map((item:any) => (
           artilce(item)
         ))
       }
