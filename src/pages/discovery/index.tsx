@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 import { Card, Input, Select, Spin, Pagination, Row, Col } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import bitcoinLogo from '@/assets/img/btc_logo.png';
@@ -28,10 +28,11 @@ export default memo(function Item() {
   const onChange = (e:HTMLInputElement) => {
     setSearchVal((e as any).target.value);
   };
-
+  const tagRef = useRef('');
+  const chainRef = useRef('');
   const search = () => {
     setCoinList([]);
-    getCoinList({ pageId: pageId, pageSize: pageSize, briefName: searchVal } as any).then((res) => {
+    getCoinList({ pageId: pageId, pageSize: pageSize, briefName: searchVal, tag: tagRef.current, chain: chainRef.current } as any).then((res) => {
       const { list, total } = res.data;
       setTotal(total);
       // setCoinList(list);
@@ -50,6 +51,25 @@ export default memo(function Item() {
       console.error(err);
     });
   };
+  const tagSelect = (e:any) => {
+    if (e === '全部') {
+      tagRef.current = '';
+      search();
+      return;
+    }
+    tagRef.current = e;
+    search();
+  };
+  const chainSelect = (e:any) => {
+    if (e === '全部') {
+      chainRef.current = '';
+      search();
+      return;
+    }
+    chainRef.current = e;
+    search();
+  };
+
   useEffect(() => {
     search();
   }, [pageId]);
@@ -82,6 +102,7 @@ export default memo(function Item() {
               bordered={false}
               className='card-tool-select'
               dropdownStyle={{ borderRadius: '8px' }}
+              onChange={(e) => tagSelect(e)}
               dropdownClassName='card-select-drop'>
               <Option value='全部'>全部</Option>
               <Option value='主流币'>主流币</Option>
@@ -97,10 +118,11 @@ export default memo(function Item() {
               allowClear
               bordered={false}
               className='card-tool-select'
+              onChange={(e) => chainSelect(e)}
               dropdownStyle={{ borderRadius: '8px' }}
               dropdownClassName='card-select-drop'>
               <Option value='全部'>全部</Option>
-              <Option value='自生为链'>自带链</Option>
+              <Option value='自带链'>自带链</Option>
               <Option value='以太坊'>以太坊</Option>
               <Option value='BSC'>BSC</Option>
             </Select>

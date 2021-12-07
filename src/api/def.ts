@@ -44,6 +44,8 @@ export interface ICoin {
     telegramUrl:string;
     twitterUrl:string;
     whiteBookUrl:string;
+    mirrowUrl:string;
+    communityUrl:string;
 
     circulating_percent:string;
     circulating_supply:string;
@@ -53,6 +55,8 @@ export interface ICoin {
     max_supply:string;
     percent_change_24h:string;
     price:string;
+
+    moreDetail:string;
   }
 
 export interface IExtremum {
