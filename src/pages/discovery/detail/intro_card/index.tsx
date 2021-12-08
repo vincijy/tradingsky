@@ -147,7 +147,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
 
             }
             {
-              coin.githubUrl &&
+              coin.mirrowUrl &&
                 <div className='intro-foot-button'>
                   <a href={coin.percent_change_24h} target='_blank' rel='noreferrer'>
                     <GiMirrorMirror style={{ marginLeft: '6.1px', fontSize: '24px' }}/>
@@ -157,7 +157,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
 
             }
             {
-              coin.githubUrl &&
+              coin.communityUrl &&
                 <div className='intro-foot-button'>
                   <a href={coin.percent_change_24h} target='_blank' rel='noreferrer'>
                     <MdOutlineForum style={{ marginLeft: '2.5px', fontSize: '24px' }}/>
