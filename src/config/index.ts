@@ -28,3 +28,5 @@ export const authingComponentConfig = {
   contentCss: 'true',
 };
 
+// 文件图片图片路径前缀, 和图片文件名拼接使用
+export const IMG_PREFIX = 'http://img.lianshucha.com/static/img_lsc/';

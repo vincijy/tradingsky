@@ -12,6 +12,57 @@ import { DiscoverPage } from './style';
 const log = console.log.bind(console);
 
 const pageSize = 10;
+
+const tagOptions = [
+  {
+    key: 'all',
+    value: '全部',
+  },
+  {
+    key: 'main_stream',
+    value: '主流币',
+  },
+  {
+    key: 'stable',
+    value: '稳定币',
+  },
+  {
+    key: 'defi',
+    value: 'Defi',
+  },
+  {
+    key: 'web3',
+    value: 'Web3',
+  },
+  {
+    key: 'defi',
+    value: '交易所',
+  },
+  {
+    key: 'dao',
+    value: 'DAO',
+  },
+];
+
+const chainOptions = [
+  {
+    key: 'all',
+    value: '全部',
+  },
+  {
+    key: 'eth',
+    value: '以太坊',
+  },
+  {
+    key: 'self',
+    value: '自带链',
+  },
+  {
+    key: 'bsc',
+    value: 'BSC',
+  },
+];
+
 export default memo(function Item() {
   const { Option } = Select;
   const [ isLoading, setIsLoading] = useState(true);
@@ -52,7 +103,7 @@ export default memo(function Item() {
     });
   };
   const tagSelect = (e:any) => {
-    if (e === '全部') {
+    if (e === 'all') {
       tagRef.current = '';
       search();
       return;
@@ -61,7 +112,7 @@ export default memo(function Item() {
     search();
   };
   const chainSelect = (e:any) => {
-    if (e === '全部') {
+    if (e === 'all') {
       chainRef.current = '';
       search();
       return;
@@ -81,8 +132,14 @@ export default memo(function Item() {
   return (
     <div>
       <DiscoverPage>
-        <h2 className='card-title' style={{ justifyContent: 'center', marginTop: '5px' }}>探索</h2>
-        <h2 className='card-title-introduce' style={{ justifyContent: 'center', marginTop: '15px', marginBottom: '35px' }}>了解区块链产品，发现最新投资机会</h2>
+        <h2
+          className='card-title'
+          style={{ justifyContent: 'center', marginTop: '5px' }}>探索
+        </h2>
+        <h2
+          className='card-title-introduce'
+          style={{ justifyContent: 'center', marginTop: '15px', marginBottom: '35px' }}>了解区块链产品，发现最新投资机会
+        </h2>
         <div className='card-tool-bar'>
           <div className='tool-bar-left'>
             <Input
@@ -104,13 +161,13 @@ export default memo(function Item() {
               dropdownStyle={{ borderRadius: '8px' }}
               onChange={(e) => tagSelect(e)}
               dropdownClassName='card-select-drop'>
-              <Option value='全部'>全部</Option>
-              <Option value='主流币'>主流币</Option>
-              <Option value='稳定币'>稳定币</Option>
-              <Option value='Defi'>Defi</Option>
-              <Option value='Web3'>Web3</Option>
-              <Option value='交易所'>交易所</Option>
-              <Option value='DAO'>DAO</Option>
+              {
+                tagOptions.map((item) =>
+                  <Option
+                    key={item.key}
+                    value={item.key}>{item.value}
+                  </Option>)
+              }
             </Select>
             <Select
               placeholder='区块链'
@@ -121,10 +178,13 @@ export default memo(function Item() {
               onChange={(e) => chainSelect(e)}
               dropdownStyle={{ borderRadius: '8px' }}
               dropdownClassName='card-select-drop'>
-              <Option value='全部'>全部</Option>
-              <Option value='自带链'>自带链</Option>
-              <Option value='以太坊'>以太坊</Option>
-              <Option value='BSC'>BSC</Option>
+              {
+                chainOptions.map((item) =>
+                  <Option
+                    key={item.key}
+                    value={item.key}>{item.value}
+                  </Option>)
+              }
             </Select>
             <Select
               placeholder='排序'
