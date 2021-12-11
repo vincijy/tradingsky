@@ -3,23 +3,47 @@ import React, { memo, useEffect, useState } from 'react';
 import { Col, Row, Tag, Image, List, Avatar } from 'antd';
 import { ICoin } from '@/api/def';
 import { ossImgs } from '@/oss';
+import { getPostListByTag, getTagList } from '@/api/post';
 import { ProductWrapper } from './style';
 interface Iprops {
   coin:ICoin;
 };
+
 export default memo(function Product(props:Iprops) {
   const { coin } = props;
-  const articleJson = JSON.parse((coin as any).articleJson);
-  const { articleList } = articleJson;
+  const [articleList, setArticleList] = useState([]);
   const navigateTo = (href:string) => {
     window.open(href);
   };
+
+  useEffect(() => {
+    getTagList({ name: coin.key, pageId: 1, pageSize: 1 }).then((res:any) => {
+      if (res.data.list.length < 1) {
+        return;
+      }
+      const tagId = (res as any).data.list[0].id;
+      // eslint-disable-next-line promise/no-nesting
+      getPostListByTag(tagId, { pageId: 1, pageSize: 20 }).then((res:any) => {
+        setArticleList(res.data.list);
+      }).catch((e) => {
+        console.error(e);
+      });
+    }).catch((e) => {
+      console.log('e', e);
+    });
+
+
+  }, []);
+
+
+
   const artilce = (article:any) => {
-    const { title, summary, tagList, href } = article;
+    const { contentOutlink, img: imgSrc, tags, isContentOutside, introduction, createDate, title } = article;
+    const imgSrc___ = imgSrc.replace('api', 'bpi');
     return (
       <Row
         style={{ marginBottom: '40px', cursor: 'pointer' }}
-        onClick={ (e) => navigateTo(href)}>
+        onClick={ (e) => navigateTo(contentOutlink)}>
         <Col
           xs={ { span: 24 }}
           sm={{ span: 24 }}
@@ -27,7 +51,7 @@ export default memo(function Product(props:Iprops) {
           className='imgCol'
         >
           <Image
-            src={article.imgSrc}
+            src={imgSrc___}
             preview={false}
           />
         </Col>
@@ -47,12 +71,12 @@ export default memo(function Product(props:Iprops) {
             <h3>{ title }</h3>
           </div>
           <div style={{ overflow: 'hidden', padding: '10px 0px', color: '#aaa' }}>
-            { summary }
+            { introduction }
           </div>
           <div>
             {
-              tagList &&
-              tagList.map((tag:any) => {
+              tags &&
+              tags.map((tag:any) => {
                 const a = 1;
                 return (
                   <Tag

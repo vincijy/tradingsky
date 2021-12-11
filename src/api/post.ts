@@ -17,3 +17,18 @@ export function getPostList(params:any):AxiosPromise<ICoin> {
     params: params,
   });
 };
+
+
+export function getTagList(params:any):AxiosPromise<ICoin> {
+  return request({
+    url: '/bpi/v0/tag',
+    params: params,
+  });
+};
+
+export function getPostListByTag(id:string, params:any):AxiosPromise<ICoin> {
+  return request({
+    url: `/bpi/v0/tag_post/${id}`,
+    params: params,
+  });
+};

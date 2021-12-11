@@ -29,7 +29,7 @@ export default memo(function Glance(props:Iprops) {
       console.error(err);
     });
 
-    getPost(coin.moreDetail).then((res:any) => {
+    coin.moreDetail && getPost(coin.moreDetail).then((res:any) => {
       console.log(res);
       setPost(res.data);
     }).catch((e) => {
@@ -57,8 +57,6 @@ export default memo(function Glance(props:Iprops) {
   (options as any).series[0].data = resData;
   (options as any).title.text = `${coin.briefName} 价格走势`;
   const op = { ...options };
-  console.log(typeof strToFixNum(coin.market_cap, 2), 'AAAAAAcoin');
-
   return (
     <GlanceWrapper>
       <Row style={{ marginBottom: '20px' }}>
@@ -164,19 +162,23 @@ export default memo(function Glance(props:Iprops) {
           </Card>
         </Col>
       </Row>
-      <Row>
-        <div
-          className='row margin-top simditor'
-        >
+
+      {
+        post &&
+        <Row>
           <div
-            className='simditor-body'
+            className='row margin-top simditor'
           >
             <div
-              dangerouslySetInnerHTML={{ __html: post ? (post as any).detail : '' }}
-            />
+              className='simditor-body'
+            >
+              <div
+                dangerouslySetInnerHTML={{ __html: post ? (post as any).detail : '' }}
+              />
+            </div>
           </div>
-        </div>
-      </Row>
+        </Row>
+      }
       <Row />
     </GlanceWrapper>
   );
