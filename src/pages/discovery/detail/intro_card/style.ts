@@ -6,6 +6,20 @@ export const DetailIntroCard = styled.div `
   .ant-card-body{
     border-radius: 14px !important;
   }
+
+  .intro-button-back{
+    display: flex;
+    margin-bottom: 17px;
+    .intro-button-back-left{
+      margin-right: 2px;
+    }
+    .intro-button-back-right{
+      font-size: 17px;
+    }
+  }
+  .intro-button-back:hover{
+    font-weight: bold;
+  }
   
   .ant-card{
     border-radius: 14px !important;  // whole card

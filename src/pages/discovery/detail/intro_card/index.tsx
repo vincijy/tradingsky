@@ -1,12 +1,15 @@
 import React, { memo } from 'react';
+import { useHistory } from 'react-router';
+
 import { Card, Row, Col, Tag, Button } from 'antd';
 import { MdTravelExplore, MdOutlineForum } from 'react-icons/md';
 import { FiTwitter } from 'react-icons/fi';
 import { BiBookBookmark } from 'react-icons/bi';
 import { SiDiscord, SiTelegram, SiGithub } from 'react-icons/si';
 import { GiMirrorMirror } from 'react-icons/gi';
+import { IoIosArrowRoundBack } from 'react-icons/io';
 
-import { BarChartOutlined, LinkOutlined, HeartOutlined, PieChartOutlined } from '@ant-design/icons';
+import { BarChartOutlined, LinkOutlined, HeartOutlined, PieChartOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { ICoin } from '@/api/def';
 import { strToFixNum } from '@/utils/cal';
 import { DetailIntroCard } from './style';
@@ -16,8 +19,16 @@ interface Iprops {
 
 export default memo(function DetailIntroCardComponent(props:Iprops) {
   const { coin } = props;
+  const history = useHistory();
+  const backDiscovery = () => {
+    history && history.push('/discovery');
+  };
   return (
     <DetailIntroCard>
+      <Button type='link' className='intro-button-back' onClick={ backDiscovery }>
+        <span className='intro-button-back-left'><IoIosArrowRoundBack size={24}/></span>
+        <span className='intro-button-back-right'>返回</span>
+      </Button>
       <Card>
         <Row style={{ marginBottom: '10px' }}>
           <Col
