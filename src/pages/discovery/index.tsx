@@ -81,9 +81,25 @@ export default memo(function Item() {
   };
   const tagRef = useRef('');
   const chainRef = useRef('');
+
+  const [orderDescBy, setOrderDescBy] = useState('');
+  const [orderAscBy, setOrderAscBy] = useState('');
+
+  const sortBy = (key:string, desc_asc:'desc' | 'asc') => {
+    if (desc_asc === 'desc') {
+      setOrderDescBy(key);
+      setOrderAscBy('');
+    } else if (desc_asc === 'asc') {
+      setOrderDescBy('');
+      setOrderAscBy(key);
+    }
+    search();
+  };
+
   const search = () => {
     setCoinList([]);
-    getCoinList({ pageId: pageId, pageSize: pageSize, briefName: searchVal, tag: tagRef.current, chain: chainRef.current } as any).then((res) => {
+    setIsLoading(true);
+    getCoinList({ orderDescBy, orderAscBy, pageId: pageId, pageSize: pageSize, briefName: searchVal, tag: tagRef.current, chain: chainRef.current } as any).then((res) => {
       const { list, total } = res.data;
       setTotal(total);
       // setCoinList(list);
@@ -193,11 +209,12 @@ export default memo(function Item() {
               bordered={false}
               className='card-tool-select'
               dropdownStyle={{ borderRadius: '8px' }}
+              onChange={ (e:'asc'|'desc') => sortBy('coinPublishDate', e) }
               dropdownClassName='card-select-drop'>
-              <Option value='市值从大到小'>市值从大到小</Option>
-              <Option value='市值从小到大'>市值从小到大</Option>
-              <Option value='发布时间从近到晚'>发布从早到晚</Option>
-              <Option value='发布时间从完到近'>发布从晚到早</Option>
+              {/* <Option value='市值从大到小'>市值从大到小</Option>
+              <Option value='市值从小到大'>市值从小到大</Option> */}
+              <Option value='asc'>发布从早到晚</Option>
+              <Option value='desc'>发布从晚到早</Option>
             </Select>
           </div>
         </div>
