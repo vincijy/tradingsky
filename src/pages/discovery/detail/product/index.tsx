@@ -4,6 +4,7 @@ import { Col, Row, Tag, Image, List, Avatar } from 'antd';
 import { ICoin } from '@/api/def';
 import { ossImgs } from '@/oss';
 import { getPostListByTag, getTagList } from '@/api/post';
+import { genImgUrl } from '@/utils/img';
 import { ProductWrapper } from './style';
 interface Iprops {
   coin:ICoin;
@@ -38,8 +39,8 @@ export default memo(function Product(props:Iprops) {
 
 
   const artilce = (article:any) => {
-    const { contentOutlink, img: imgSrc, tags, isContentOutside, introduction, createDate, title } = article;
-    const imgSrc___ = imgSrc.replace('api', 'bpi');
+    const { contentOutlink, img: imgHashName, tags, isContentOutside, introduction, createDate, title } = article;
+    const imgSrc___ = genImgUrl(imgHashName);
     return (
       <Row
         style={{ marginBottom: '40px', cursor: 'pointer' }}
