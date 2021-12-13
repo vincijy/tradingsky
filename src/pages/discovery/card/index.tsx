@@ -7,8 +7,8 @@ import { useHistory } from 'react-router';
 import { ICoin } from '@/api/def';
 import { strToFixNum } from '@/utils/cal';
 import { genImgUrl } from '@/utils/img';
+import { tagOptions } from '../def';
 import { DiscoverItem } from './style';
-
 interface IProps{
   coin:ICoin;
 }
@@ -25,6 +25,14 @@ export default memo(function DiscoveryCard(props:IProps) {
     (window as any).open(url, '_blank').focus();
   };
 
+  const getOptionValue = (key:string, options:{ key:string, value:string }[]) => {
+    const op = options.find((op) => op.key === key);
+    if (op) {
+      return op.value;
+    }
+    return '';
+  };
+
   return (
     <DiscoverItem>
       <Card
@@ -38,7 +46,7 @@ export default memo(function DiscoveryCard(props:IProps) {
             className='card-logo'/>
           <div className='card-info'>
             <div className='card-name'> { `${item.fullName} (${item.briefName})` } </div>
-            <Tag color='magenta'> { item.tag } </Tag>
+            <Tag color='magenta'> { getOptionValue(item.tag, tagOptions) } </Tag>
           </div>
         </div>
         <div

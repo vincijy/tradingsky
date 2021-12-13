@@ -9,59 +9,10 @@ import DiscoveryCard from '@/pages/discovery/card';
 import { getCoin, getCoinList, getDynamicCoin } from '@/api/discovery';
 import { ICoin } from '@/api/def';
 import { DiscoverPage } from './style';
+import { tagOptions, chainOptions } from './def';
 const log = console.log.bind(console);
 
 const pageSize = 10;
-
-const tagOptions = [
-  {
-    key: 'all',
-    value: '全部',
-  },
-  {
-    key: 'main_stream',
-    value: '主流币',
-  },
-  {
-    key: 'stable',
-    value: '稳定币',
-  },
-  {
-    key: 'defi',
-    value: 'Defi',
-  },
-  {
-    key: 'web3',
-    value: 'Web3',
-  },
-  {
-    key: 'defi',
-    value: '交易所',
-  },
-  {
-    key: 'dao',
-    value: 'DAO',
-  },
-];
-
-const chainOptions = [
-  {
-    key: 'all',
-    value: '全部',
-  },
-  {
-    key: 'eth',
-    value: '以太坊',
-  },
-  {
-    key: 'self',
-    value: '自带链',
-  },
-  {
-    key: 'bsc',
-    value: 'BSC',
-  },
-];
 
 export default memo(function Item() {
   const { Option } = Select;
@@ -86,6 +37,7 @@ export default memo(function Item() {
   const [orderAscBy, setOrderAscBy] = useState('');
 
   const sortBy = (key:string, desc_asc:'desc' | 'asc') => {
+    setPageId(1);
     if (desc_asc === 'desc') {
       setOrderDescBy(key);
       setOrderAscBy('');
@@ -104,6 +56,9 @@ export default memo(function Item() {
       setTotal(total);
       // setCoinList(list);
       let count = 0;
+      if (list.length === 0) {
+        setIsLoading(false);
+      }
       list.forEach(async(coin) => {
         const res = await getDynamicCoin(coin.key);
         Object.assign(coin, res.data.rows[0].r);
@@ -119,6 +74,7 @@ export default memo(function Item() {
     });
   };
   const tagSelect = (e:any) => {
+    setPageId(1);
     if (e === 'all') {
       tagRef.current = '';
       search();
@@ -128,6 +84,7 @@ export default memo(function Item() {
     search();
   };
   const chainSelect = (e:any) => {
+    setPageId(1);
     if (e === 'all') {
       chainRef.current = '';
       search();
