@@ -7,6 +7,7 @@ import { useHistory } from 'react-router';
 import { ICoin } from '@/api/def';
 import { strToFixNum } from '@/utils/cal';
 import { genImgUrl } from '@/utils/img';
+import { getOptionValue } from '@/utils/select_option';
 import { tagOptions } from '../def';
 import { DiscoverItem } from './style';
 interface IProps{
@@ -23,14 +24,6 @@ export default memo(function DiscoveryCard(props:IProps) {
   };
   const navigateTo = (url:string) => {
     (window as any).open(url, '_blank').focus();
-  };
-
-  const getOptionValue = (key:string, options:{ key:string, value:string }[]) => {
-    const op = options.find((op) => op.key === key);
-    if (op) {
-      return op.value;
-    }
-    return '';
   };
 
   return (

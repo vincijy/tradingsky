@@ -13,8 +13,9 @@ import { BarChartOutlined, LinkOutlined, HeartOutlined, PieChartOutlined, ArrowL
 import { ICoin } from '@/api/def';
 import { strToFixNum } from '@/utils/cal';
 import { genImgUrl } from '@/utils/img';
+import { getOptionValue } from '@/utils/select_option';
+import { tagOptions } from '../../def';
 import { DetailIntroCard } from './style';
-
 interface Iprops {
   coin:ICoin;
 };
@@ -54,7 +55,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
                     color='magenta'
                     style={{ textAlign: 'center', border: 'none', lineHeight: '24px' }}
                     className='intro-top-tag'>
-                    { coin.tag }
+                    { getOptionValue(coin.tag, tagOptions) }
                   </Tag>
                 </div>
               </div>
