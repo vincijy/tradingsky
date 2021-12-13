@@ -74,7 +74,7 @@ export const DetailIntroCard = styled.div `
       flex-direction: column;
       align-items: center;
       height: 42px;
-      margin-right: 20px;
+      margin-right: 10px;
       /* border: 1px solid darkblue; */
 
       a{
