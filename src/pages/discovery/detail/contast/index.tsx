@@ -3,6 +3,7 @@ import React, { memo, useEffect, useState } from 'react';
 import { Col, Row, Tag, Image, List, Avatar } from 'antd';
 import { ICoin } from '@/api/def';
 import { ossImgs } from '@/oss';
+import { genImgUrl } from '@/utils/img';
 import { ContractWrapper } from './style';
 interface Iprops {
   coin:ICoin;
@@ -15,14 +16,14 @@ export default memo(function Contact(props:Iprops) {
   return (
     <ContractWrapper>
       <List
-        itemLayout= 'horizontal'
+        itemLayout='horizontal'
         dataSource={contrastList}
-        renderItem= {(item:any) => (
+        renderItem={(item:any) => (
           <List.Item>
             <List.Item.Meta
-              avatar={<Avatar src={item.imgSrc}/>}
+              avatar={<Avatar src={genImgUrl(item.imgSrc)}/>}
               title={item.title}
-              description= {item.address}
+              description={item.address}
             />
             <div className='metamask'>🦊</div>
           </List.Item>
