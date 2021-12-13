@@ -61,14 +61,15 @@ export default memo(function Item(props:any) {
               key='1'>
               <ProductComponent coin={coin} />
             </TabPane>
-            <TabPane
-              tab='巨鲸地址'
-              key='2'>
-              {
-                coin &&
+            {
+              coin && (coin as any).hasWhale !== '0' &&
+              <TabPane
+                tab='巨鲸地址'
+                key='2'>
                 <WhaleComponent coin={coin}/>
-              }
-            </TabPane>
+
+              </TabPane>
+            }
             {
               coin.contrastJson && coin.contrastJson !== '{}' &&
               <TabPane
