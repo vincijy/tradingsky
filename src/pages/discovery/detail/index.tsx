@@ -69,11 +69,14 @@ export default memo(function Item(props:any) {
                 <WhaleComponent coin={coin}/>
               }
             </TabPane>
-            <TabPane
-              tab='合约地址'
-              key='3'>
-              <ContractComponent coin={coin} />
-            </TabPane>
+            {
+              coin.contrastJson && coin.contrastJson !== '{}' &&
+              <TabPane
+                tab='合约地址'
+                key='3'>
+                <ContractComponent coin={coin} />
+              </TabPane>
+            }
           </Tabs>
         </Card>
       </DiscoverDetailPage>

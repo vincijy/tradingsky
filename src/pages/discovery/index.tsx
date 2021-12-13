@@ -12,7 +12,7 @@ import { DiscoverPage } from './style';
 import { tagOptions, chainOptions } from './def';
 const log = console.log.bind(console);
 
-const pageSize = 10;
+const pageSize = 16;
 
 export default memo(function Item() {
   const { Option } = Select;
