@@ -3,10 +3,10 @@ export const headerLinks = [
     title: '主页',
     link: '/',
   },
-  {
-    title: '探索',
-    link: '/discovery',
-  },
+  // {
+  //   title: '探索',
+  //   link: '/discovery',
+  // },
   {
     title: '图表',
     link: '/chart',
