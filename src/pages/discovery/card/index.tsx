@@ -6,6 +6,7 @@ import { MdTravelExplore } from 'react-icons/md';
 import { useHistory } from 'react-router';
 import { ICoin } from '@/api/def';
 import { strToFixNum } from '@/utils/cal';
+import { genImgUrl } from '@/utils/img';
 import { DiscoverItem } from './style';
 
 interface IProps{
@@ -33,7 +34,7 @@ export default memo(function DiscoveryCard(props:IProps) {
           className='card-info-area'
           onClick={() => navigateToDetail(item) }>
           <img
-            src={item.imgSrc}
+            src={genImgUrl(item.imgSrc)}
             className='card-logo'/>
           <div className='card-info'>
             <div className='card-name'> { `${item.fullName} (${item.briefName})` } </div>
@@ -54,7 +55,7 @@ export default memo(function DiscoveryCard(props:IProps) {
               <TagsOutlined style={{ fontSize: '15px' }} />
               <div className='data-name'>价格</div>
             </div>
-            <div className='card-name-data'>{ item.price == '' ? '无数据' : strToFixNum(item.price, 3).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + '$'} </div>
+            <div className='card-name-data'>{ item.price == '' ? '无数据' : `${strToFixNum(item.price, 3).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') }$`} </div>
           </div>
 
           <div className='card-data-item'>
@@ -69,7 +70,7 @@ export default memo(function DiscoveryCard(props:IProps) {
               <PieChartOutlined style={{ fontSize: '15px' }} />
               <div className='data-name'>市值占比 </div>
             </div>
-            <div className='card-name-data'>{!item.market_cap_dominance ? '无数据' : strToFixNum(item.market_cap_dominance, 2) + '%'}</div>
+            <div className='card-name-data'>{!item.market_cap_dominance ? '无数据' : `${strToFixNum(item.market_cap_dominance, 2) }%`}</div>
           </div>
         </div>
         <div className='card-foot'>
@@ -81,7 +82,7 @@ export default memo(function DiscoveryCard(props:IProps) {
                 <MdTravelExplore style={{ fontSize: '15px', marginBottom: '5px', marginLeft: '5.2px' }} />
                 <div>官网</div>
               </div> :
-              <div style={{ display: 'none' }}></div>
+              <div style={{ display: 'none' }} />
           }
           {
             item.twitterUrl ?
@@ -91,7 +92,7 @@ export default memo(function DiscoveryCard(props:IProps) {
                 <FiTwitter style={{ fontSize: '15px', marginBottom: '5px', marginLeft: '5.2px' }} />
                 <div>推特</div>
               </div> :
-              <div style={{ display: 'none' }}></div>
+              <div style={{ display: 'none' }} />
           }
           {
             item.twitterUrl ?
@@ -101,7 +102,7 @@ export default memo(function DiscoveryCard(props:IProps) {
                 <BarChartOutlined style={{ fontSize: '15px', marginBottom: '5px' }} />
                 <div>数据</div>
               </div> :
-              <div style={{ display: 'none' }}></div>
+              <div style={{ display: 'none' }} />
           }
           <div
             className='card-foot-button'
