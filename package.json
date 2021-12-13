@@ -50,6 +50,7 @@
     "react-router-config": "^5.1.1",
     "react-router-dom": "^5.2.1",
     "react-scripts": "4.0.3",
+    "react-share": "^4.4.0",
     "react-sticky": "^6.0.3",
     "react-ui-components": "^1.1.2",
     "redux": "^4.1.1",

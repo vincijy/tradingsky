@@ -2,6 +2,8 @@ import React, { memo } from 'react';
 import { useHistory } from 'react-router';
 
 import { Card, Row, Col, Tag, Button } from 'antd';
+import { TwitterShareButton, WeiboShareButton } from 'react-share';
+
 import { MdTravelExplore, MdOutlineForum } from 'react-icons/md';
 import { FiTwitter } from 'react-icons/fi';
 import { BiBookBookmark } from 'react-icons/bi';
@@ -79,8 +81,20 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
               shape='round'
               type='link'
             >
-              <LinkOutlined />
-              <span style={{ fontSize: '15px' }}>分享</span>
+              <WeiboShareButton url={window.location.href} >
+                <LinkOutlined />
+                <span style={{ fontSize: '15px' }}>分享微博</span>
+              </WeiboShareButton>
+            </Button>
+            <Button
+              size='small'
+              shape='round'
+              type='link'
+            >
+              <TwitterShareButton url={window.location.href} >
+                <LinkOutlined />
+                <span style={{ fontSize: '15px' }}>分享推特</span>
+              </TwitterShareButton>
             </Button>
           </Col>
         </Row>
