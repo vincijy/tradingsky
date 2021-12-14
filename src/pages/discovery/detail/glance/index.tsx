@@ -87,11 +87,11 @@ export default memo(function Glance(props:Iprops) {
             <h2>市值情况</h2>
             <div className='glance-row'>
               <span>总市值</span>
-              <span> { !coin.market_cap ? '无数据' : `${strToFixNum(coin.market_cap, 2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') }$` } </span>
+              <span> { !coin.market_cap ? '无数据' : `${strToFixNum(coin.market_cap, 2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') } $` } </span>
             </div>
             <div className='glance-row'>
               <span>市值占比</span>
-              <span> { !coin.market_cap_dominance ? '无数据' : `${strToFixNum(coin.market_cap_dominance, 2) }%` } </span>
+              <span> { !coin.market_cap_dominance ? '无数据' : `${strToFixNum(coin.market_cap_dominance, 2) } %` } </span>
             </div>
             <div className='glance-row'>
               <Progress
@@ -114,8 +114,8 @@ export default memo(function Glance(props:Iprops) {
               <span>
                 {
                   maxData.v > 1 ?
-                    strToFixNum(maxData.v.toString(), 2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') :
-                    maxData.v === undefined ? '无数据' : `${maxData.v.toPrecision(4) }$`
+                    strToFixNum(maxData.v.toString(), 2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + ' $' :
+                    maxData.v === undefined ? '无数据' : `${maxData.v.toPrecision(4) } $`
                 }
               </span>
             </div>
@@ -127,8 +127,8 @@ export default memo(function Glance(props:Iprops) {
               <span>
                 {
                   minData.v > 1 ?
-                    strToFixNum(minData.v.toString(), 2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') :
-                    minData.v === undefined ? '无数据' : `${minData.v.toPrecision(4) }$`
+                    strToFixNum(minData.v.toString(), 2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,') + ' $' :
+                    minData.v === undefined ? '无数据' : `${minData.v.toPrecision(4) } $`
                 }
               </span>
             </div>
@@ -140,7 +140,7 @@ export default memo(function Glance(props:Iprops) {
             <h2>流通情况</h2>
             <div className='glance-row'>
               <span>流通占比</span>
-              <span>{ !coin.max_supply ? '无数据' : `${strToFixNum((supplyPct * 100).toString(), 2) }%`} </span>
+              <span>{ !coin.max_supply ? '无数据' : `${strToFixNum((supplyPct * 100).toString(), 2) } %`} </span>
             </div>
             <div className='glance-row'>
               <Progress
