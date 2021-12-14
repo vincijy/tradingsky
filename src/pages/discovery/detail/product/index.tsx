@@ -32,11 +32,7 @@ export default memo(function Product(props:Iprops) {
     }).catch((e) => {
       console.log('e', e);
     });
-
-
   }, []);
-
-
 
   const artilce = (article:any) => {
     const { contentOutlink, img: imgHashName, tags, isContentOutside, introduction, createDate, title } = article;
@@ -82,7 +78,7 @@ export default memo(function Product(props:Iprops) {
                 return (
                   <Tag
                     key={ tag }
-                    color='blue'> { tag }
+                    color='blue'> { tag.toUpperCase() }
                   </Tag>
                 );
               })

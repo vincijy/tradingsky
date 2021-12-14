@@ -68,14 +68,14 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
             xs={{ span: 8 }}
             lg={{ span: 8 }}
           >
-            <Button
+            {/* <Button
               size='small'
               shape='round'
               type='link'
             >
               <HeartOutlined />
               <span style={{ fontSize: '15px' }}>收藏</span>
-            </Button>
+            </Button> */}
             <Button
               size='small'
               shape='round'

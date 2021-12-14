@@ -80,7 +80,7 @@ export default memo(function Glance(props:Iprops) {
             <h2>项目情况</h2>
             <div className='glance-row'>
               <span>发布日期</span>
-              <span>某个日期</span>
+              <span> { !coin.coinPublishDate ? '无数据' : `${coin.coinPublishDate}` } </span>
             </div>
           </Card>
           <Card className='glance-card'>
