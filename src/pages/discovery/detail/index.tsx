@@ -17,9 +17,6 @@ import ContractComponent from './contast';
 export default memo(function Item(props:any) {
   const { key, id } = getUrlParams();
   const [ coin, setCoin ] = useState({} as ICoin);
-  const changeSwitch = () => {
-    console.log('aa');
-  };
   const reqeustData = () => {
     getCoin(id).then(async(res) => {
       const coinStaticData = res.data;
@@ -36,7 +33,6 @@ export default memo(function Item(props:any) {
   useEffect(() => {
     reqeustData();
   }, []);
-  console.log(coin, 'coin');
   return (
     <div>
       <DiscoverDetailPage>

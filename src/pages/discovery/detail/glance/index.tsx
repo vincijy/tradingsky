@@ -30,7 +30,6 @@ export default memo(function Glance(props:Iprops) {
     });
 
     coin.moreDetail && getPost(coin.moreDetail).then((res:any) => {
-      console.log(res);
       setPost(res.data);
     }).catch((e) => {
       console.error(e);
@@ -38,11 +37,10 @@ export default memo(function Glance(props:Iprops) {
   };
   useEffect(() => {
     getAllPrice(coin.key).then((res) => {
-      console.log(res);
       const { data: { rows: dataRows } } = res;
       setDataRows(dataRows);
     }).catch((err) => {
-      console.log(err);
+      console.error(err);
     });
     reqeustData();
   }, [coin]);

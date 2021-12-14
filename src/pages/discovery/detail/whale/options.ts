@@ -1,5 +1,4 @@
 import { isMobile } from '@/utils/is';
-const mobile = isMobile();
 export const options = {
   chart: {
     plotBackgroundColor: null,

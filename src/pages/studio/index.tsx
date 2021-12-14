@@ -71,10 +71,6 @@ export default memo(function LSChartPage() {
   const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
   const { introduce } = selectedSubMenu;
 
-  const onCollapse = () => {
-    console.log('onCollapse');
-  };
-
   return (
     <ChartWrapper>
       <Layout>

@@ -30,7 +30,7 @@ export default memo(function Product(props:Iprops) {
         console.error(e);
       });
     }).catch((e) => {
-      console.log('e', e);
+      console.error(e);
     });
   }, []);
 

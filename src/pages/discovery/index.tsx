@@ -1,17 +1,13 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
-import { Card, Input, Select, Spin, Pagination, Row, Col } from 'antd';
+import { Input, Select, Spin, Pagination, Row, Col } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import bitcoinLogo from '@/assets/img/btc_logo.png';
-import ethLogo from '@/assets/img/eth_logo.svg';
 import LSAppFooter from '@/components/footer'; // footer
 
 import DiscoveryCard from '@/pages/discovery/card';
-import { getCoin, getCoinList, getDynamicCoin } from '@/api/discovery';
+import { getCoinList, getDynamicCoin } from '@/api/discovery';
 import { ICoin } from '@/api/def';
 import { DiscoverPage } from './style';
 import { tagOptions, chainOptions } from './def';
-const log = console.log.bind(console);
-
 const pageSize = 16;
 
 export default memo(function Item() {
@@ -54,21 +50,12 @@ export default memo(function Item() {
     getCoinList({ orderDescBy, orderAscBy, pageId: pageId, pageSize: pageSize, briefName: searchVal, tag: tagRef.current, chain: chainRef.current } as any).then((res) => {
       const { list, total } = res.data;
       setTotal(total);
-      // setCoinList(list);
-      let count = 0;
       if (list.length === 0) {
         setIsLoading(false);
       }
-      list.forEach(async(coin) => {
-        const res = await getDynamicCoin(coin.key);
-        Object.assign(coin, res.data.rows[0].r);
-        count += 1;
-        if (count === list.length) {
-          const newList = ([] as any).concat(list);
-          setCoinList(newList);
-          setIsLoading(false);
-        }
-      });
+      const newList = ([] as any).concat(list);
+      setCoinList(newList);
+      setIsLoading(false);
     }).catch((err) => {
       console.error(err);
     });

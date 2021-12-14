@@ -1,7 +1,4 @@
 import React, { memo, useEffect, useState } from 'react';
-import { Card, Input, Select, Row, Col, Tabs } from 'antd';
-
-import { getCoin, getCoinList, getWhaleAddress, getWhaleTop, getAllPrice } from '@/api/discovery';
 import HighchartsReact from 'highcharts-react-official';
 import { options } from './options';
 interface IProps {
@@ -27,7 +24,6 @@ export default memo(function ChartPie(props:IProps) {
     // 将外部组件传入的值data赋个ops.series[0].data
     (ops as any).series[0].data = newData;
     setOps({ ...ops });
-    console.log('巨鲸数据', ops);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);

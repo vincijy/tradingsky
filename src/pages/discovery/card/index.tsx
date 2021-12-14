@@ -64,14 +64,14 @@ export default memo(function DiscoveryCard(props:IProps) {
               <ShopOutlined style={{ fontSize: '15px' }} />
               <div className='data-name'>市值排名</div>
             </div>
-            <div className='card-name-data'> { item.cmc_rank == '' ? '无数据' : item.cmc_rank} </div>
+            <div className='card-name-data'> { item.makeplaceRank == '' ? '无数据' : item.makeplaceRank} </div>
           </div>
           <div className='card-data-item'>
             <div className='card-data-info'>
               <PieChartOutlined style={{ fontSize: '15px' }} />
               <div className='data-name'>市值占比 </div>
             </div>
-            <div className='card-name-data'>{!item.market_cap_dominance ? '无数据' : `${strToFixNum(item.market_cap_dominance, 2) }%`}</div>
+            <div className='card-name-data'>{!item.markplacePercent ? '无数据' : `${strToFixNum(item.markplacePercent, 2) }%`}</div>
           </div>
         </div>
         <div className='card-foot'>

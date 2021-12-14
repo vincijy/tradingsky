@@ -179,7 +179,7 @@ export default memo(function LSChartMenu() {
         c && c.reflow();
         updateWidth();
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
 
     }, 800);

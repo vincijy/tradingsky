@@ -28,7 +28,7 @@ store.subscribe(() => {
     }
     localStorage.setItem('dataAsset', dataAsset);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 });
 

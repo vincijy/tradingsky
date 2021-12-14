@@ -1,12 +1,10 @@
 import React, { memo, useEffect, useState } from 'react';
-import { Card, Input, Select, Row, Col, Tabs, Table, Space } from 'antd';
+import { Card, Col, Row, Table, Space } from 'antd';
 import { GoLinkExternal } from 'react-icons/go';
 import { getWhaleAddress, getWhaleTop } from '@/api/discovery';
 import { ICoin } from '@/api/def';
-import { strToFixNum } from '@/utils/cal';
 import { WhaleWrapper } from './style';
 import ChartPie from './chart_pie';
-const log = console.log.bind(console);
 
 interface Iprops {
   coin:ICoin;
@@ -14,7 +12,6 @@ interface Iprops {
 
 export default memo(function WhaleComponent(props:Iprops) {
   const { coin } = props;
-  console.log('coin', coin);
   const { key } = coin;
   const [topData, setTopData] = useState([] as any);
   const [pieData, setPieData] = useState([] as any);
@@ -23,8 +20,6 @@ export default memo(function WhaleComponent(props:Iprops) {
     // 获取巨鲸地址值
     // addressData = { data: { rows: [{ r: {address: 'xx', share: '0.5', balance: '1000' }}]}}
     const addressData = await getWhaleAddress(key);
-    log(addressData, 'addressData');
-
     const rows = addressData.data.rows;
     const result = [] as any;
     rows.forEach((row:any) => {
@@ -49,7 +44,6 @@ export default memo(function WhaleComponent(props:Iprops) {
     setPieData(result.slice(0, 20));
 
     const whaleTopData = await getWhaleTop(key);
-    log('whaleTopData', whaleTopData);
     const tops = whaleTopData.data.rows;
     const topsResults = [] as any;
     tops.forEach((top:any) => {
