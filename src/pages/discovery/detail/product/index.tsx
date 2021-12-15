@@ -30,7 +30,7 @@ export default memo(function Product(props:Iprops) {
         console.error(e);
       });
     }).catch((e) => {
-      console.error(e);
+      console.log('e', e);
     });
   }, []);
 
@@ -40,6 +40,7 @@ export default memo(function Product(props:Iprops) {
     return (
       <Row
         style={{ marginBottom: '40px', cursor: 'pointer' }}
+        className='product-all'
         onClick={ (e) => navigateTo(contentOutlink)}>
         <Col
           xs={ { span: 24 }}

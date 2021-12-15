@@ -8,9 +8,18 @@ import { getCoinList, getDynamicCoin } from '@/api/discovery';
 import { ICoin } from '@/api/def';
 import { DiscoverPage } from './style';
 import { tagOptions, chainOptions } from './def';
-const pageSize = 16;
 
 export default memo(function Item() {
+  // 宽屏14张卡片、其余10张卡片
+  const mediaMatch = window.matchMedia('(min-width: 1550px)');
+  const [matches, setMatches] = useState(mediaMatch.matches);
+  useEffect(() => {
+    const handler = (e:any) => setMatches(e.matches);
+    mediaMatch.addListener(handler);
+    return () => mediaMatch.removeListener(handler);
+  });
+  const pageSize = matches ? 14 : 10;
+
   const { Option } = Select;
   const [ isLoading, setIsLoading] = useState(true);
   const [coinList, setCoinList] = useState([] as ICoin[]);

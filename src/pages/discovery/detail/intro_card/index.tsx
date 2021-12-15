@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 
 import { Card, Row, Col, Tag, Button } from 'antd';
@@ -28,6 +28,58 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
   const backDiscovery = () => {
     history && history.push('/discovery');
   };
+
+  // 移动端
+  const mediaMatch = window.matchMedia('(min-width: 0px) and (max-width: 767px)');
+  const [matches, setMatches] = useState(mediaMatch.matches);
+  useEffect(() => {
+    const handler = (e:any) => setMatches(e.matches);
+    mediaMatch.addListener(handler);
+    return () => mediaMatch.removeListener(handler);
+  });
+  const style = {
+    imgContainer: (isMobile:Boolean) => ({
+      height: isMobile ? '64px' : '104px',
+      width: isMobile ? '64px' : '104px',
+    }),
+    nameContainer: (isMobile:Boolean) => ({
+      fontSize: isMobile ? '16px' : '24px',
+      fontWeight: 'bold',
+      lineHeight: isMobile ? '16px' : '34px',
+      marginBottom: '9px',
+    }) as const, // fix fontWeight of react
+    middleContainer: (isMobile:Boolean) => ({
+      marginTop: isMobile ? '25px' : '20px',
+    }),
+    websiteContainer: (isMobile:Boolean) => ({
+      marginLeft: '0.5px',
+      fontSize: isMobile ? '20px' : '24px',
+    }),
+    iconContainer: (isMobile:Boolean) => ({
+      marginLeft: '10px',
+      fontSize: isMobile ? '20px' : '24px',
+    }),
+    dsContainer: (isMobile:Boolean) => ({
+      marginLeft: '12px',
+      fontSize: isMobile ? '20px' : '24px',
+    }),
+    tsContainer: (isMobile:Boolean) => ({
+      marginLeft: '18px',
+      fontSize: isMobile ? '20px' : '24px',
+    }),
+    mrContainer: (isMobile:Boolean) => ({
+      marginLeft: '6.1px',
+      fontSize: isMobile ? '20px' : '24px',
+    }),
+    cmContainer: (isMobile:Boolean) => ({
+      marginLeft: '2.5px',
+      fontSize: isMobile ? '20px' : '24px',
+    }),
+    gitContainer: (isMobile:Boolean) => ({
+      fontSize: isMobile ? '20px' : '24px',
+    }),
+  };
+
   return (
     <DetailIntroCard>
       <Button
@@ -41,15 +93,18 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
         <Row style={{ marginBottom: '10px' }}>
           <Col
             // className={'debug'}
-            xs={{ span: 16 }}
+            xs={{ span: 18 }}
             lg={{ span: 16 }}
           >
             <div className='intro-top'>
               <img
                 src={genImgUrl(coin.imgSrc)}
-                style={{ height: '104px', width: '104px' }} />
+                style={style.imgContainer(matches)}
+                className='intro-top-img'/>
               <div className='intro-top-name'>
-                <span style={{ fontSize: '24px', fontWeight: 'bold', lineHeight: '34px', marginBottom: '9px' }} >
+                <span
+                  style={style.nameContainer(matches)}
+                >
                   { `${coin.fullName} (${coin.briefName})` }
                 </span>
                 <div >
@@ -100,10 +155,9 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
         </Row>
         <Row style={{ marginBottom: '50px' }}>
           <Col
-            // className={'debug'}
             xs={{ span: 24 }}
             lg={{ span: 13 }}
-            style={{ marginTop: '20px' }}
+            style={style.middleContainer(matches)}
           >
             <span style={{ fontSize: '16px' }}>{ coin.detail }</span>
           </Col>
@@ -122,7 +176,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
               style={{
                 backgroundColor: Number(coin.percent_change_24h) < 0 ? '#ea3943' : '#16c784',
                 marginLeft: '20px',
-                fontSize: '20px',
+                fontSize: '15px',
               }} >
               {/* fix the bug of negative price */}
               { Number(coin.percent_change_24h) < 0 ? `- ${ strToFixNum( (Number(coin.percent_change_24h) * -1).toString(), 2)}` : `+ ${ strToFixNum(coin.percent_change_24h, 2)}` }%
@@ -143,7 +197,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
                     href={coin.officalUrl}
                     target='_blank'
                     rel='noreferrer'>
-                    <MdTravelExplore style={{ marginLeft: '0.5px', fontSize: '24px' }}/>
+                    <MdTravelExplore style={style.websiteContainer(matches)}/>
                     <div>官网</div>
                   </a>
                 </div>
@@ -155,7 +209,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
                     href={coin.whiteBookUrl}
                     target='_blank'
                     rel='noreferrer'>
-                    <BiBookBookmark style={{ marginLeft: '10px', fontSize: '24px' }}/>
+                    <BiBookBookmark style={style.iconContainer(matches)}/>
                     <div>白皮书</div>
                   </a>
                 </div>
@@ -167,7 +221,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
                     href={coin.twitterUrl}
                     target='_blank'
                     rel='noreferrer'>
-                    <FiTwitter style={{ marginLeft: '10px', fontSize: '24px' }}/>
+                    <FiTwitter style={style.iconContainer(matches)}/>
                     <div>Twitter</div>
                   </a>
                 </div>
@@ -179,7 +233,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
                     href={coin.discordUrl}
                     target='_blank'
                     rel='noreferrer'>
-                    <SiDiscord style={{ marginLeft: '12px', fontSize: '24px' }}/>
+                    <SiDiscord style={style.dsContainer(matches)}/>
                     <div>Discord</div>
                   </a>
                 </div>
@@ -192,7 +246,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
                     href={coin.telegramUrl}
                     target='_blank'
                     rel='noreferrer'>
-                    <SiTelegram style={{ marginLeft: '18px', fontSize: '24px' }}/>
+                    <SiTelegram style={style.tsContainer(matches)}/>
                     <div>Telegram</div>
                   </a>
                 </div>
@@ -205,7 +259,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
                     href={coin.percent_change_24h}
                     target='_blank'
                     rel='noreferrer'>
-                    <GiMirrorMirror style={{ marginLeft: '6.1px', fontSize: '24px' }}/>
+                    <GiMirrorMirror style={style.mrContainer(matches)}/>
                     <div>mirror</div>
                   </a>
                 </div>
@@ -218,7 +272,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
                     href={coin.percent_change_24h}
                     target='_blank'
                     rel='noreferrer'>
-                    <MdOutlineForum style={{ marginLeft: '2.5px', fontSize: '24px' }}/>
+                    <MdOutlineForum style={style.cmContainer(matches)}/>
                     <div>论坛</div>
                   </a>
                 </div>
@@ -230,7 +284,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
                     href={coin.githubUrl}
                     target='_blank'
                     rel='noreferrer'>
-                    <SiGithub style={{ marginLeft: '10px', fontSize: '24px' }}/>
+                    <SiGithub style={style.iconContainer(matches)}/>
                     <div>GitHub</div>
                   </a>
                 </div>
@@ -242,7 +296,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
                     href={coin.githubUrl}
                     target='_blank'
                     rel='noreferrer'>
-                    <BarChartOutlined style={{ fontSize: '24px' }}/>
+                    <BarChartOutlined style={style.gitContainer(matches)}/>
                     <div>数据</div>
                   </a>
                 </div>

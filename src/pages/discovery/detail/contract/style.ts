@@ -12,6 +12,9 @@ export const ContractWrapper = styled.div `
     justify-content: space-between;
     .metamask{
       margin-right: 50px;
+      @media screen and (min-width: 0px) and (max-width: 767px) {
+        margin-right: 0px;
+      }
     }
   }
 }

@@ -16,7 +16,5 @@ export const WhaleWrapper = styled.div `
     .ant-table-title{
       font-size:20px;
     };
-
   }
-
 `;

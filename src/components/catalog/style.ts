@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const CatalogWrapper = styled.div `
     padding: 16px 32px;
+    @media screen and (min-width: 0px) and (max-width: 767px) {
+        padding: 16px 0px;
+    }
 
     h2{
         font-size: 26px;

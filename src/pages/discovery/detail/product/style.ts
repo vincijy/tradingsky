@@ -1,15 +1,25 @@
 import styled from 'styled-components';
 
 export const ProductWrapper = styled.div `
-  .description {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 150px;
+  .product-all{
+    .ant-image-img{
+      height: 100%;
+    }
+    .description {
+      // ipad
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
+        h3{
+          text-align: center;
+          font-size: 20px;
+        }
+        div{
+          text-align: center;
+          font-size: 16px;
+        }
+      }
+    }
   }
-  .debug {
-    border: 1px solid red;
-  }
+
   .postImg {
     border-radius: 20px;
     object-fit: cover;
@@ -19,7 +29,6 @@ export const ProductWrapper = styled.div `
     img {
       border-radius: 15px;
       object-fit: cover;
-      height: 150px;
     }
   }
 `;

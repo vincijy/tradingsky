@@ -105,6 +105,7 @@ export default memo(function LSCatalog() {
                 })}
                 key={item.name}
                 columns={columns}
+                scroll={{ x: 1000 }}
                 dataSource={
                   item.subMenus.map((subItem:SubMenuItem, index) => (
                     {

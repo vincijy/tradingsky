@@ -1,5 +1,6 @@
 
 import { AreaChartOutlined } from '@ant-design/icons';
+import { isMobile, isPad } from '@/utils/is';
 import { tooltip } from './tooltip';
 
 
@@ -40,7 +41,7 @@ export const options = {
 
   }],
   chart: {
-    height: 600,
+    height: isMobile() ? 400 : 600,
     animation: false,
     zoomType: 'x',
     pinchType: 'x',

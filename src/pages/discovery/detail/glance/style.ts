@@ -10,6 +10,14 @@ export const GlanceWrapper = styled.div `
     justify-content: space-between;
     flex-direction: column;
     max-width: 400px;
+    // ipad
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      max-width: 100%;
+    }
+    // ipad pro
+    @media screen and (min-width: 1024px) and (max-width: 1366px) {
+      max-width: 350px;
+    }
     /* margin: 0 auto; */
     .ant-card {
       margin: 30px;

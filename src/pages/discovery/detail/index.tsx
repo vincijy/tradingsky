@@ -1,6 +1,7 @@
 
 import React, { memo, useEffect, useState } from 'react';
 import { Card, Tabs } from 'antd';
+import { isMobile, isPad } from '@/utils/is';
 
 import LSAppFooter from '@/components/footer'; // footer
 import { getCoin, getDynamicCoin } from '@/api/discovery';
@@ -12,7 +13,7 @@ const { TabPane } = Tabs;
 import { DiscoverDetailPage } from './style';
 import WhaleComponent from './whale';
 import ProductComponent from './product';
-import ContractComponent from './contast';
+import ContractComponent from './contract';
 
 export default memo(function Item(props:any) {
   const { key, id } = getUrlParams();
@@ -33,6 +34,7 @@ export default memo(function Item(props:any) {
   useEffect(() => {
     reqeustData();
   }, []);
+
   return (
     <div>
       <DiscoverDetailPage>
@@ -43,7 +45,7 @@ export default memo(function Item(props:any) {
         <Card style={{ marginTop: '20px' }}>
           <Tabs
             defaultActiveKey='0'
-            tabBarGutter={70}>
+            tabBarGutter={isMobile() ? 10 : 70 }>
             <TabPane
               tab='总览'
               key='0'>

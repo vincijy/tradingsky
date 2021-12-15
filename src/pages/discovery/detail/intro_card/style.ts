@@ -29,11 +29,21 @@ export const DetailIntroCard = styled.div `
     // top
     .intro-top{
       display: flex;
-
       .intro-top-name{
         display: flex;
         flex-direction: column;
         margin-left: 15px;
+        @media screen and (min-width: 0px) and (max-width: 767px) {
+          font-size: 10px;
+        }
+      }
+    }
+    .share_and_collect {
+      display: flex;
+      justify-content: flex-end;
+      @media screen and (min-width: 0px) and (max-width: 767px) {
+        justify-content: flex-start;
+        margin-top: 20px;
       }
     }
 
@@ -44,20 +54,19 @@ export const DetailIntroCard = styled.div `
       flex-direction: row;
       justify-content: flex-end;
       align-items: center;
-      /* border: 1px solid red; */
+      @media screen and (min-width: 0px) and (max-width: 767px) {
+        justify-content: flex-start;
+        padding-top: 30px;
+      }
     }
 
     .intro-icon-percent{
       border: 1px solid #e0e0e0;
-      border-radius: 6px;
+      border-radius: 10px;
       padding: 5px 10px;
       color: white;
+      margin-top: 5px;
       }
-    }
-
-    .share_and_collect {
-      display: flex;
-      justify-content: flex-end;
     }
 
     // bottom
@@ -75,8 +84,9 @@ export const DetailIntroCard = styled.div `
       align-items: center;
       height: 42px;
       margin-right: 10px;
-      /* border: 1px solid darkblue; */
-
+      @media screen and (min-width: 0px) and (max-width: 767px) {
+        margin-right: -5px;
+      }
       a{
         display: flex;
         flex-direction: column;
@@ -86,9 +96,4 @@ export const DetailIntroCard = styled.div `
         }
       }
     }
-
-
-  .debug {
-    /* border: 1px solid red; */
-  }
 `;

@@ -1,11 +1,30 @@
 import styled from 'styled-components';
 export const DiscoverDetailPage = styled.div `
+  // whole card
+  .ant-card-body{
+    box-shadow: 0 4px 8px rgb(224 224 224 / 40%);
+    border-radius: 14px !important;
+  }
+  // don't delete this, it's fix the bug of border show
+  .ant-card{
+    border-radius: 14px !important;
+  }
 
   padding: 40px 120px;
   padding-bottom: 100px;
   background: #f4f6f6;
   @media screen and (min-width: 0px) and (max-width: 700px) { // 移动端适配 iPhone：footer宽度
     padding: 20px 10px;
+  }
+  // ipad
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    padding: 20px 30px;
+    padding-bottom: 130px;
+  }
+  // ipad pro
+  @media screen and (min-width: 1024px) and (max-width: 1366px) {
+    padding: 20px 60px;
+    padding-bottom: 40px;
   }
   .card-tool-bar{
     display: flex;
@@ -17,11 +36,6 @@ export const DiscoverDetailPage = styled.div `
       border-radius: 6px;
       margin: 0px 10px;
     }
-
-  }
-
-  .debug {
-    border: 1px solid red;
   }
   .priceWrapper {
     display: flex;
@@ -29,23 +43,11 @@ export const DiscoverDetailPage = styled.div `
     flex-direction: row;
     align-items: center;
   }
-
   .card-all {
     justify-content: space-between;
     padding: 0px;
     display: flex;
     flex-wrap: wrap;
-  }
-
-  // whole card
-  .ant-card-body{
-    box-shadow: 0 4px 8px rgb(224 224 224 / 40%);
-    border-radius: 14px !important;
-  }
-
-  // don't delete this, it's fix the bug of border show
-  .ant-card{
-    border-radius: 14px !important;
   }
 
   .ant-tabs{
@@ -55,11 +57,17 @@ export const DiscoverDetailPage = styled.div `
       margin-bottom: 8px;
       padding: 4px 10px;
       border-radius: 8px;
+      @media screen and (min-width: 0px) and (max-width: 700px) {
+        margin-left: 5px;
+      }
     }
 
     // single button
     .ant-tabs-tab-btn{
       font-size: 18px;
+      @media screen and (min-width: 0px) and (max-width: 700px) {
+        font-size: 13px;
+      }
     }
 
     // active button

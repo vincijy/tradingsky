@@ -153,6 +153,7 @@ export default memo(function WhaleComponent(props:Iprops) {
         <Table
           columns={addColumns}
           dataSource={whaleList}
+          scroll={{ x: 800 }}
           pagination={{ pageSize: 1300, hideOnSinglePage: true }} />
       </div>
 

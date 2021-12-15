@@ -2,6 +2,7 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Col, Row, Tag, Image, List, Avatar, message } from 'antd';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { isMobile, isPad } from '@/utils/is';
 
 import { ICoin } from '@/api/def';
 import { ossImgs } from '@/oss';
@@ -30,13 +31,13 @@ export default memo(function Contact(props:Iprops) {
               onCopy={copyAddress}>
               <List.Item.Meta
                 avatar={<Avatar style={{ marginTop: '10px', marginBottom: '10px' }} src={genImgUrl(item.imgSrc)}/>}
-                title={item.title}
+                title={item.metamask == 'true' ? item.title + ' （MetaMask）' : item.title}
                 description={item.address}
               />
             </CopyToClipboard>
             {
               item.metamask == 'true' &&
-                <div className='metamask'><img style={{ height: '17.5px' }} src={metamasklogo} /></div>
+                <div className='metamask'><img style={{ height: '17.5px', display: isMobile() ? 'none' : '' }} src={metamasklogo} /></div>
             }
           </List.Item>
         )}
