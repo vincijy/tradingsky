@@ -20,6 +20,9 @@ export default memo(function WhaleComponent(props:Iprops) {
     // 获取巨鲸地址值
     // addressData = { data: { rows: [{ r: {address: 'xx', share: '0.5', balance: '1000' }}]}}
     const addressData = await getWhaleAddress(key);
+    if (!addressData || !addressData.data || !addressData.data.rows) {
+      return;
+    }
     const rows = addressData.data.rows;
     const result = [] as any;
     rows.forEach((row:any) => {

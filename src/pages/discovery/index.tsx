@@ -32,7 +32,8 @@ export default memo(function Item() {
   const [orderDescBy, setOrderDescBy] = useState('');
   const [orderAscBy, setOrderAscBy] = useState('');
 
-  const sortBy = (key:string, desc_asc:'desc' | 'asc') => {
+  const sortBy = (e:string) => {
+    const [key, desc_asc] = e.split('.');
     setPageId(1);
     if (desc_asc === 'desc') {
       setOrderDescBy(key);
@@ -153,12 +154,12 @@ export default memo(function Item() {
               bordered={false}
               className='card-tool-select'
               dropdownStyle={{ borderRadius: '8px' }}
-              onChange={ (e:'asc'|'desc') => sortBy('coinPublishDate', e) }
+              onChange={ (e:string) => sortBy(e) }
               dropdownClassName='card-select-drop'>
-              {/* <Option value='市值从大到小'>市值从大到小</Option>
-              <Option value='市值从小到大'>市值从小到大</Option> */}
-              <Option value='asc'>发布从早到晚</Option>
-              <Option value='desc'>发布从晚到早</Option>
+              {/* <Option value='makeplaceRank.asc'>市值从大到小</Option>
+              <Option value='makeplaceRank.desc'>市值从小到大</Option> */}
+              <Option value='coinPublishDate.asc'>发布从早到晚</Option>
+              <Option value='coinPublishDate.desc'>发布从晚到早</Option>
             </Select>
           </div>
         </div>
