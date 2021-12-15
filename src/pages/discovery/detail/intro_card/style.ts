@@ -77,6 +77,9 @@ export const DetailIntroCard = styled.div `
       grid-gap: 1rem; /* 3 */
       justify-content: flex-start; /* 4 */
       flex-wrap: nowrap;
+      @media screen and (min-width: 0px) and (max-width: 767px) {
+        flex-wrap: wrap;
+      }
     }
     .intro-foot-button {
       display: flex;

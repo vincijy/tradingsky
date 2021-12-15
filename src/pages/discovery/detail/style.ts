@@ -26,6 +26,10 @@ export const DiscoverDetailPage = styled.div `
     padding: 20px 60px;
     padding-bottom: 40px;
   }
+  // wide screen
+  @media screen and (min-width: 1550px) {
+    padding-bottom: 160px;
+  }
   .card-tool-bar{
     display: flex;
     justify-content: space-between;
