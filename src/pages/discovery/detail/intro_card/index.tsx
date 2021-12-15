@@ -96,27 +96,30 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
             xs={{ span: 18 }}
             lg={{ span: 16 }}
           >
-            <div className='intro-top'>
-              <img
-                src={genImgUrl(coin.imgSrc)}
-                style={style.imgContainer(matches)}
-                className='intro-top-img'/>
-              <div className='intro-top-name'>
-                <span
-                  style={style.nameContainer(matches)}
-                >
-                  { `${coin.fullName} (${coin.briefName})` }
-                </span>
-                <div >
-                  <Tag
-                    color='magenta'
-                    style={{ textAlign: 'center', border: 'none', lineHeight: '24px' }}
-                    className='intro-top-tag'>
-                    { getOptionValue(coin.tag, tagOptions) }
-                  </Tag>
+            {
+              coin.imgSrc &&
+              <div className='intro-top'>
+                <img
+                  src={genImgUrl(coin.imgSrc)}
+                  style={style.imgContainer(matches)}
+                  className='intro-top-img'/>
+                <div className='intro-top-name'>
+                  <span
+                    style={style.nameContainer(matches)}
+                  >
+                    { `${coin.fullName} (${coin.briefName})` }
+                  </span>
+                  <div >
+                    <Tag
+                      color='magenta'
+                      style={{ textAlign: 'center', border: 'none', lineHeight: '24px' }}
+                      className='intro-top-tag'>
+                      { getOptionValue(coin.tag, tagOptions) }
+                    </Tag>
+                  </div>
                 </div>
               </div>
-            </div>
+            }
           </Col>
           <Col
             className={'share_and_collect'}
