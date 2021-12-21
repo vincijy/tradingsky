@@ -31,6 +31,10 @@ export const tagOptions = [
     key: 'smart_contract',
     value: '智能合约平台',
   },
+  {
+    key: 'metaverse',
+    value: '元宇宙',
+  },
 ];
 
 export const chainOptions = [
@@ -49,9 +53,5 @@ export const chainOptions = [
   {
     key: 'bsc',
     value: 'BSC',
-  },
-  {
-    key: 'metaverse',
-    value: '元宇宙',
   },
 ];
