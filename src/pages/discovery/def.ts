@@ -27,6 +27,10 @@ export const tagOptions = [
     key: 'dao',
     value: 'DAO',
   },
+  {
+    key: 'smart_contract',
+    value: '智能合约平台',
+  },
 ];
 
 export const chainOptions = [
@@ -45,5 +49,9 @@ export const chainOptions = [
   {
     key: 'bsc',
     value: 'BSC',
+  },
+  {
+    key: 'metaverse',
+    value: '元宇宙',
   },
 ];
