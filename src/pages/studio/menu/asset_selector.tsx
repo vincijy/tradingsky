@@ -21,11 +21,10 @@ export default memo(function AssetSelector() {
    * @param value 币种
    */
   const changeDataAsset = (value:string) => {
-    const action = changeAsset({
+    dispatch(changeAsset({
       dataAsset: value,
-    });
-    dispatch(action);
-    dispatch(updateChartOption({
+    }));
+    selectedSubMenu.chart[value] && dispatch(updateChartOption({
       options: selectedSubMenu.chart[value],
     }));
     // 关闭批注

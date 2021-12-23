@@ -16,7 +16,7 @@ export function getAppInitState() {
   if (subMenu) {
     chartOptions = subMenu.chart.btc;
   }
-  const dataAssetStr = localStorage.getItem('dataAsset') as 'btc'|'eth'| undefined;
+  const dataAssetStr = localStorage.getItem('dataAsset');
 
   const appInitState = {
     chartOptions: mergeOption(commonOptions, chartOptions || initialPrivateOption),
