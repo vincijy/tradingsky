@@ -10,6 +10,8 @@ import { changeAsset, toggleAnnotation } from '@/store/chart/action';
 import { updateChartOption } from '@/store/chart/action';
 import { isMobile } from '@/utils/is';
 import { assetList } from '@/config/asset_list';
+import { genImgUrl } from '@/utils/img';
+
 export default memo(function AssetSelector() {
   const dispatch = useAppDispatch();
   const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
@@ -70,7 +72,7 @@ export default memo(function AssetSelector() {
                     value={item.key}
                     key={item.key}>
                     <img
-                      src={item.imgSrc}
+                      src={genImgUrl(item.imgSrc)}
                       height='16px'
                       style={{ marginRight: '3px' }}/>
                     {item.displayValue}

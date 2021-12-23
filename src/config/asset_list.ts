@@ -1,5 +1,3 @@
-import btcLogo from '@/assets/img/btc_logo.png';
-import ethLogo from '@/assets/img/eth_logo.svg';
 export const assetList = [
   {
     key: 'main_stream',
@@ -7,12 +5,12 @@ export const assetList = [
     children: [
       {
         key: 'btc',
-        imgSrc: btcLogo,
+        imgSrc: '17ab07f0db1d7a2c24308f843c63755f.png',
         displayValue: '比特币',
       },
       {
         key: 'eth',
-        imgSrc: ethLogo,
+        imgSrc: '9e25e83ee0e4729e8479ff1c98ab151f.png',
         displayValue: '以太坊',
       },
     ],
@@ -23,12 +21,12 @@ export const assetList = [
     children: [
       {
         key: 'usdt',
-        imgSrc: btcLogo,
+        imgSrc: '2fefeeacf7385bed846dac54d90195e4.png',
         displayValue: 'usdt',
       },
       {
         key: 'busd',
-        imgSrc: ethLogo,
+        imgSrc: '2fefeeacf7385bed846dac54d90195e4.png',
         displayValue: 'busd',
       },
     ],

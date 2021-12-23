@@ -6,6 +6,7 @@ import LSAppFooter from '@/components/footer'; // footer
 import DiscoveryCard from '@/pages/discovery/card';
 import { getCoinList, getDynamicCoin } from '@/api/discovery';
 import { ICoin } from '@/api/def';
+import { isProdEnv } from '@/utils/is';
 import { DiscoverPage } from './style';
 import { tagOptions, chainOptions } from './def';
 
@@ -53,11 +54,24 @@ export default memo(function Item() {
     }
     search();
   };
-
   const search = () => {
     setCoinList([]);
     setIsLoading(true);
-    getCoinList({ orderDescBy, orderAscBy, pageId: pageId, pageSize: pageSize, briefName: searchVal, tag: tagRef.current, chain: chainRef.current, statusCode: '1' } as any).then((res) => {
+    const payload = {
+      orderDescBy,
+      orderAscBy,
+      pageId: pageId,
+      pageSize: pageSize,
+      briefName: searchVal,
+      tag: tagRef.current,
+      chain: chainRef.current,
+    };
+    // 生产环境需要过滤下仅仅显示已经发布的
+    if (isProdEnv) {
+      (payload as any)['statusCode'] = '1';
+    }
+
+    getCoinList(payload).then((res) => {
       const { list, total } = res.data;
       setTotal(total);
       if (list.length === 0) {

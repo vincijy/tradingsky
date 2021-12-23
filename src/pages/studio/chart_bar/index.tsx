@@ -10,6 +10,7 @@ import { updateLayout } from '@/store/ui/action';
 import { isMobile } from '@/utils/is';
 import { assetList } from '@/config/asset_list';
 import { flatten } from 'lodash';
+import { genImgUrl } from '@/utils/img';
 import AssetSelector from '../menu/asset_selector';
 import CollectionButton from './collection_button';
 import ShareButton from './share_button';
@@ -116,7 +117,7 @@ export default memo(function LSChartBar() {
             className='lsc-head-wrapper'
           >
             <img
-              src={logo}
+              src={genImgUrl(logo as any)}
               alt={assetName}
               className='chart-head-img'
               style={{ marginBottom: '3px' }}

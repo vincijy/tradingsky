@@ -1,11 +1,9 @@
 import { memo } from 'react';
-import btcLogo from '@/assets/img/btc_logo.png';
-import ethLogo from '@/assets/img/eth_logo.svg';
 import { useAppSelector } from '@/hooks';
 import { isMobile } from '@/utils/is';
-import { Button } from 'antd';
 import { assetList } from '@/config/asset_list';
 import { flatten } from 'lodash';
+import { genImgUrl } from '@/utils/img';
 import { ChartTitleArea } from './style';
 
 export default memo(function LSChartHead() {
@@ -41,7 +39,7 @@ export default memo(function LSChartHead() {
           isMobile() &&
             <span>
               <img
-                src={logo}
+                src={ genImgUrl(logo as string) }
                 alt={assetName}
                 className='chart-head-img'
               />
