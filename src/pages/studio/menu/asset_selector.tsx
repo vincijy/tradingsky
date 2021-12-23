@@ -1,5 +1,5 @@
 // 第三方
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { Select } from 'antd';
 
 import { useAppSelector, useAppDispatch } from '@/hooks';
@@ -8,10 +8,8 @@ import { getAnnotationManager } from '@/utils/annotation';
 import { changeAsset, toggleAnnotation } from '@/store/chart/action';
 
 import { updateChartOption } from '@/store/chart/action';
-import btcLogo from '@/assets/img/btc_logo.png';
-import ethLogo from '@/assets/img/eth_logo.svg';
 import { isMobile } from '@/utils/is';
-
+import { assetList } from '@/config/asset_list';
 export default memo(function AssetSelector() {
   const dispatch = useAppDispatch();
   const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
@@ -22,20 +20,11 @@ export default memo(function AssetSelector() {
    *  1 批注重新绘制
    * @param value 币种
    */
-  const changeDataAsset = (value:'eth' | 'btc') => {
-    if (value === 'btc'){
-      const action = changeAsset({
-        dataAsset: 'btc',
-      });
-
-      dispatch(action);
-    } else if (value === 'eth'){
-      const action = changeAsset({
-        dataAsset: 'eth',
-      });
-
-      dispatch(action);
-    }
+  const changeDataAsset = (value:string) => {
+    const action = changeAsset({
+      dataAsset: value,
+    });
+    dispatch(action);
     dispatch(updateChartOption({
       options: selectedSubMenu.chart[value],
     }));
@@ -46,24 +35,52 @@ export default memo(function AssetSelector() {
     const an = getAnnotationManager();
     an && an.clearAnnotationCircle();
   };
+  function onChange(value:any) {
+    console.log(`selected ${value}`);
+  }
 
+  function onSearch(val:any) {
+    console.log('search:', val);
+  }
+  const filterOption = (input:string, option:any) => {
+    const matchKey = (option as any).key.toLowerCase().indexOf(input.toLowerCase()) >= 0;
+    const matchValue = (option as any).children[1].toLowerCase().indexOf(input.toLowerCase()) >= 0;
+    return matchKey || matchValue;
+  };
   return (
     <div className='asset-select'>
       <Select
         onSelect={ changeDataAsset }
         defaultValue={asset}
+        showSearch
+        placeholder='选择币种'
+        optionFilterProp='children'
+        onChange={onChange}
+        onSearch={onSearch}
         style={{ width: isMobile() ? 260 : 120 }}
-        bordered={false} >
-        <Select.Option value='btc'><img
-          src={btcLogo}
-          height='16px'
-          style={{ marginRight: '3px' }}/>比特币
-        </Select.Option>
-        <Select.Option value='eth'><img
-          src={ethLogo}
-          height='16px'
-          style={{ marginRight: '3px' }}/>以太坊
-        </Select.Option>
+        bordered={false}
+        filterOption={filterOption}
+      >{
+          assetList.map((category) => (
+            <Select.OptGroup
+              label={category.value}
+              key={category.key}>
+              {
+                category.children.map((item) => (
+                  <Select.Option
+                    value={item.key}
+                    key={item.key}>
+                    <img
+                      src={item.imgSrc}
+                      height='16px'
+                      style={{ marginRight: '3px' }}/>
+                    {item.displayValue}
+                  </Select.Option>
+                ))
+              }
+            </Select.OptGroup>
+          ))
+        }
       </Select>
     </div>
   );

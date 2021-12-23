@@ -5,6 +5,7 @@ import * as A from './action_type';
 interface IAssetPriceData {
     btc:TypeDataRow;
     eth:TypeDataRow;
+    [key:string]:TypeDataRow;
 }
 
 export interface IPayloadSetPriceData {
@@ -20,7 +21,7 @@ export interface IPayloadToggleAnnotation {
 };
 
 export interface IPayloadChangeAsset {
-    dataAsset:'btc' | 'eth';
+    dataAsset:'btc' | 'eth' | string;
 }
 
 
@@ -29,7 +30,7 @@ export interface IChartState {
     // TODO: fix types
     options:any;
     annotationVisible:boolean;
-    dataAsset:'btc' | 'eth';
+    dataAsset:'btc' | 'eth' |string;
 }
 
 export interface IPayloadMap {

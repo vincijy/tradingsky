@@ -108,7 +108,7 @@ export default memo(function LSChartBox() {
     // 请求价格数据的promise
     const p2 = new Promise<TypeDataRow>((resolve, reject) => {
       // 如果已经请求过了, 不必再次请求
-      if (priceData[currrentAsset].length !== 0) {
+      if (priceData[currrentAsset] && priceData[currrentAsset].length !== 0) {
         resolve(priceData[currrentAsset]);
         return;
       }
@@ -158,6 +158,12 @@ export default memo(function LSChartBox() {
             }));
             break;
           default:
+            dispatch(setPriceData({
+              priceData: {
+                ...priceData,
+                [currrentAsset]: dataB,
+              },
+            }));
             break;
         }
       })

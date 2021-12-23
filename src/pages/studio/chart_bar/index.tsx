@@ -5,11 +5,11 @@ import { MenuFoldOutlined, UnlockFilled } from '@ant-design/icons';
 import { useAppSelector, useAppDispatch } from '@/hooks';
 import { getHighCharts } from '@/components/chart';
 import { ossImgs } from '@/oss';
-import btcLogo from '@/assets/img/btc_logo.png';
-import ethLogo from '@/assets/img/eth_logo.svg';
 import { toggleMenuVisible } from '@/store/ui/action';
 import { updateLayout } from '@/store/ui/action';
 import { isMobile } from '@/utils/is';
+import { assetList } from '@/config/asset_list';
+import { flatten } from 'lodash';
 import AssetSelector from '../menu/asset_selector';
 import CollectionButton from './collection_button';
 import ShareButton from './share_button';
@@ -70,13 +70,13 @@ export default memo(function LSChartBar() {
   const asset = useAppSelector((state) => state.chart.dataAsset);
   const { name } = selectedSubMenu;
 
-  const logo = asset === 'btc' ? btcLogo : ethLogo;
-
-  let assetName = asset === 'btc' ? '比特币' : '以太坊';
-
+  const assetItem = flatten(assetList.map((category) => category.children)).find((a:any) => a.key === asset);
+  const logo = assetItem?.imgSrc;
+  let assetName = assetItem?.displayValue;
   if (isMobile()) {
-    assetName = asset === 'btc' ? 'BTC' : 'ETH';
+    assetName = assetItem?.displayValue.toLocaleUpperCase();
   }
+
   const chartBoxWidth = useAppSelector((state) => state.ui.layout.chartBoxWidth);
 
   const pcStyle = {

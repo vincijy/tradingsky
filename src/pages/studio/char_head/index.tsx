@@ -4,18 +4,20 @@ import ethLogo from '@/assets/img/eth_logo.svg';
 import { useAppSelector } from '@/hooks';
 import { isMobile } from '@/utils/is';
 import { Button } from 'antd';
+import { assetList } from '@/config/asset_list';
+import { flatten } from 'lodash';
 import { ChartTitleArea } from './style';
+
 export default memo(function LSChartHead() {
   const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
   const asset = useAppSelector((state) => state.chart.dataAsset);
   const { name } = selectedSubMenu;
 
-  const logo = asset === 'btc' ? btcLogo : ethLogo;
-
-  let assetName = asset === 'btc' ? '比特币' : '以太坊';
-
+  const assetItem = flatten(assetList.map((category) => category.children)).find((a:any) => a.key === asset);
+  const logo = assetItem?.imgSrc;
+  let assetName = assetItem?.displayValue;
   if (isMobile()) {
-    assetName = asset === 'btc' ? 'BTC' : 'ETH';
+    assetName = assetItem?.key.toLocaleUpperCase();
   }
 
   const introduce = () => {

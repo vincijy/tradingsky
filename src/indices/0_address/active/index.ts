@@ -1,8 +1,10 @@
 import * as D from '../../def';
 import { annotation } from './annotation';
 import { introduce } from './introduce';
-import { chart } from './chart_btc';
+import { chart as chartBtc } from './chart_btc';
+import { chart as chartDefault } from './chart_default';
 import { chartEth } from './chart_eth';
+
 
 export const active:D.SubMenuItem = {
   name: '活跃地址量',
@@ -14,7 +16,7 @@ export const active:D.SubMenuItem = {
     index: 'address/active',
   },
   introduce: introduce,
-  assetList: ['btc', 'eth'],
+  assetList: ['btc', 'eth', 'usdt', 'busd'],
   catalogText: '每天发生交易的地址数量统计',
   toolbox: {
     annotation: {
@@ -24,6 +26,14 @@ export const active:D.SubMenuItem = {
       enabled: true,
     },
   },
-  chart: { btc: chart, eth: chartEth },
-  annotation: { btc: annotation, eth: annotation },
+  chart: {
+    btc: chartBtc,
+    eth: chartEth,
+    usdt: chartDefault,
+    busd: chartDefault,
+  },
+  annotation: {
+    btc: annotation,
+    eth: annotation,
+  },
 };

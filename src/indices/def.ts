@@ -86,8 +86,9 @@ export interface SubMenuItem {
        * 缺省情况下图表沿用默认配置
        */
       chart:{
-        btc:any;
-        eth:any;
+        // btc:any;
+        // eth:any;
+        [key:string]:any;
       };
 
       /**
@@ -103,6 +104,7 @@ export interface SubMenuItem {
       xStart?:{
         btc:IDate;
         eth:IDate;
+        [key:string]:IDate;
       };
 }
 
@@ -172,6 +174,7 @@ export interface IAnnotation {
 export interface IAnnotationConfig {
   btc:IAnnotation;
   eth:IAnnotation;
+  [key:string]:IAnnotation;
 }
 
 

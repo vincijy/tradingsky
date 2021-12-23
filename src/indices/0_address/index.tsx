@@ -15,7 +15,7 @@ export const address:D.MenuItem = {
   icon: <FaFingerprint />,
   key: 'sub1',
   visible: true,
-  assetList: ['btc', 'eth'],
+  assetList: ['btc', 'eth', 'usdt', 'busd'],
   subMenus: [
     active,
     newAddress,
