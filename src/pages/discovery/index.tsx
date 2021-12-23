@@ -57,7 +57,7 @@ export default memo(function Item() {
   const search = () => {
     setCoinList([]);
     setIsLoading(true);
-    getCoinList({ orderDescBy, orderAscBy, pageId: pageId, pageSize: pageSize, briefName: searchVal, tag: tagRef.current, chain: chainRef.current } as any).then((res) => {
+    getCoinList({ orderDescBy, orderAscBy, pageId: pageId, pageSize: pageSize, briefName: searchVal, tag: tagRef.current, chain: chainRef.current, statusCode: '1' } as any).then((res) => {
       const { list, total } = res.data;
       setTotal(total);
       if (list.length === 0) {

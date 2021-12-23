@@ -2,7 +2,7 @@ import '@authing/react-ui-components/lib/index.min.css';
 
 import smallLogo from '@/assets/img/logo.png';
 // 开发环境
-const DEV_BASE_URL = 'http://192.168.50.230:3000';
+const DEV_BASE_URL = 'http://localhost:3000';
 // 生产环境
 const PROD_BASE_URL = '';
 

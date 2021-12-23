@@ -22,7 +22,7 @@ export default memo(function Item(props:any) {
     getCoin(id).then(async(res) => {
       const coinStaticData = res.data;
       const res2 = await getDynamicCoin(key);
-      const coinDynamicData = res2.data.rows[0].r;
+      const coinDynamicData = res2.data.rows.length > 0 ? res2.data.rows[0].r : {};
       setCoin({
         ...coinStaticData,
         ...coinDynamicData,

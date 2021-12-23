@@ -134,7 +134,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
               <HeartOutlined />
               <span style={{ fontSize: '15px' }}>收藏</span>
             </Button> */}
-            <Button
+            {/* <Button
               size='small'
               shape='round'
               type='link'
@@ -153,7 +153,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
                 <LinkOutlined />
                 <span style={{ fontSize: '15px' }}>分享推特</span>
               </TwitterShareButton>
-            </Button>
+            </Button> */}
           </Col>
         </Row>
         <Row style={{ marginBottom: '50px' }}>
