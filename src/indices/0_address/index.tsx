@@ -9,21 +9,28 @@ import { addressMore100 } from './more_100';
 import { moreOneyear } from './more_1y';
 import { addressMore1k } from './more_1k';
 import { activeSentiment } from './active_sentiment';
+import { nonZero } from './non_zero';
+import { smartContractPct } from './smartcontract_pct';
+import { top1Pct } from './top1_pct';
+
 
 export const address:D.MenuItem = {
   name: '地址',
   icon: <FaFingerprint />,
   key: 'sub1',
   visible: true,
-  assetList: ['btc', 'eth', 'usdt', 'busd'],
+  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
   subMenus: [
     active,
     newAddress,
+    nonZero,
     addressMore001,
     addressMore1,
     addressMore100,
     moreOneyear,
     addressMore1k,
     activeSentiment,
+    smartContractPct,
+    top1Pct,
   ],
 };

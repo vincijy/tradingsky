@@ -7,6 +7,10 @@ import { profitPercent } from './profit_percent';
 import { rsi } from './rsi';
 import { jze60d } from './jze_60d';
 import { week200 } from './week_200';
+import { marketCap } from './market_cap';
+import { transVolume } from './transfer_volume';
+import { uniVolume } from './uniswap_volume';
+
 
 
 export const marketPrice:D.MenuItem = {
@@ -14,7 +18,7 @@ export const marketPrice:D.MenuItem = {
   icon: <IoPricetagsOutline />,
   key: 'sub4',
   visible: true,
-  assetList: ['btc', 'eth'],
+  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
   subMenus: [
     rsi,
     jze60d,
@@ -22,5 +26,8 @@ export const marketPrice:D.MenuItem = {
     priceDrawdown,
     realizedPL,
     profitPercent,
+    marketCap,
+    transVolume,
+    uniVolume,
   ],
 };

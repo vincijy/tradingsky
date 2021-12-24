@@ -1,21 +1,20 @@
 import * as D from '../../def';
 import { introduce } from './introduce';
-import { chart } from './chart_btc';
-import { chartEth } from './chart_eth';
-import { chart as chartDefault } from './chart_default';
+import { chart as chartDefault } from './chart';
 
-export const newAddress:D.SubMenuItem = {
-  name: '新增地址量',
-  key: '新增地址量',
-  loginRequired: true,
+export const marketCap:D.SubMenuItem = {
+  name: '市值',
+  key: '市值',
+  loginRequired: true, // 付费指标
   vipRequired: false,
   visible: true,
+  isNew: false,
   args: {
-    index: 'address/new',
+    index: 'market/marketcap_usd',
   },
   introduce: introduce,
-  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
-  catalogText: '每天区块链网络新增地址数量统计',
+  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
+  catalogText: '美元计价的市场价值',
   toolbox: {
     annotation: {
       enabled: false, // 无标注
@@ -25,8 +24,6 @@ export const newAddress:D.SubMenuItem = {
     },
   },
   chart: {
-    btc: chart,
-    eth: chartEth,
     usdt: chartDefault,
     busd: chartDefault,
     usdc: chartDefault,
@@ -35,6 +32,5 @@ export const newAddress:D.SubMenuItem = {
     sushi: chartDefault,
     uni: chartDefault,
     mana: chartDefault,
-
   },
 };

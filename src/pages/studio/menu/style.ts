@@ -52,13 +52,11 @@ export const MenuWrapper = styled.div `
             // height: 40px;
         }
     }
-
     .asset-select{ // 数据切换
         display: flex;
-
+        width:200%;
         justify-content: center;
         margin: 10px 0;
-
         img{ // 两个小icon
             width: 16px;
             height: 16px;

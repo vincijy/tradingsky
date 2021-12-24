@@ -1,21 +1,20 @@
 import * as D from '../../def';
 import { introduce } from './introduce';
-import { chart } from './chart_btc';
-import { chartEth } from './chart_eth';
 import { chart as chartDefault } from './chart_default';
 
-export const flowChange:D.SubMenuItem = {
-  name: '交易所净流量变化',
-  key: '交易所净流量变化',
+
+export const balanceExchange:D.SubMenuItem = {
+  name: '交易所余额',
+  key: '交易所余额',
   loginRequired: true,
-  vipRequired: true,
+  vipRequired: false,
   visible: true,
   args: {
-    index: 'exchange/flow_change',
+    index: 'exchange/balance_exchanges',
   },
   introduce: introduce,
-  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
-  catalogText: '交易所净流量变化',
+  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
+  catalogText: '交易所地址上的token余额',
   toolbox: {
     annotation: {
       enabled: false, // 无标注
@@ -25,8 +24,6 @@ export const flowChange:D.SubMenuItem = {
     },
   },
   chart: {
-    btc: chart,
-    eth: chartEth,
     usdt: chartDefault,
     busd: chartDefault,
     usdc: chartDefault,

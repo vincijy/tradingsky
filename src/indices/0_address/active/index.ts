@@ -16,7 +16,7 @@ export const active:D.SubMenuItem = {
     index: 'address/active',
   },
   introduce: introduce,
-  assetList: ['btc', 'eth', 'usdt', 'busd'],
+  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
   catalogText: '每天发生交易的地址数量统计',
   toolbox: {
     annotation: {
@@ -31,6 +31,12 @@ export const active:D.SubMenuItem = {
     eth: chartEth,
     usdt: chartDefault,
     busd: chartDefault,
+    usdc: chartDefault,
+    okb: chartDefault,
+    ftt: chartDefault,
+    sushi: chartDefault,
+    uni: chartDefault,
+    mana: chartDefault,
   },
   annotation: {
     btc: annotation,

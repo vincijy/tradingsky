@@ -1,21 +1,20 @@
 import * as D from '../../def';
 import { introduce } from './introduce';
-import { chart } from './chart_btc';
-import { chartEth } from './chart_eth';
+
 import { chart as chartDefault } from './chart_default';
 
-export const flowChange:D.SubMenuItem = {
-  name: '交易所净流量变化',
-  key: '交易所净流量变化',
+export const top1Pct:D.SubMenuItem = {
+  name: '前1%地址持有百分比',
+  key: '前1%地址持有百分比',
   loginRequired: true,
   vipRequired: true,
   visible: true,
   args: {
-    index: 'exchange/flow_change',
+    index: 'address/top1pct_address',
   },
   introduce: introduce,
-  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
-  catalogText: '交易所净流量变化',
+  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
+  catalogText: '前1%地址持有所占的百分比',
   toolbox: {
     annotation: {
       enabled: false, // 无标注
@@ -25,8 +24,6 @@ export const flowChange:D.SubMenuItem = {
     },
   },
   chart: {
-    btc: chart,
-    eth: chartEth,
     usdt: chartDefault,
     busd: chartDefault,
     usdc: chartDefault,

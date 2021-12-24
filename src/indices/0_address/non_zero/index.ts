@@ -1,21 +1,20 @@
 import * as D from '../../def';
 import { introduce } from './introduce';
-import { chart } from './chart_btc';
-import { chartEth } from './chart_eth';
+
 import { chart as chartDefault } from './chart_default';
 
-export const flowChange:D.SubMenuItem = {
-  name: '交易所净流量变化',
-  key: '交易所净流量变化',
+export const nonZero:D.SubMenuItem = {
+  name: '非零地址量',
+  key: '非零地址量',
   loginRequired: true,
-  vipRequired: true,
+  vipRequired: false,
   visible: true,
   args: {
-    index: 'exchange/flow_change',
+    index: 'address/non_zero_count',
   },
   introduce: introduce,
-  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
-  catalogText: '交易所净流量变化',
+  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
+  catalogText: '每天区块链网络非零地址数量统计',
   toolbox: {
     annotation: {
       enabled: false, // 无标注
@@ -25,8 +24,6 @@ export const flowChange:D.SubMenuItem = {
     },
   },
   chart: {
-    btc: chart,
-    eth: chartEth,
     usdt: chartDefault,
     busd: chartDefault,
     usdc: chartDefault,

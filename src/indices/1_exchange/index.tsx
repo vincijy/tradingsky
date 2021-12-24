@@ -5,17 +5,20 @@ import { balancePercent } from './balance_percent';
 import { positionChange } from './position_change';
 import { flowChange } from './flow_change';
 import { fundingRate } from './funding_rate';
+import { balanceExchange } from './balance';
+
 
 export const exchange:D.MenuItem = {
   name: '交易所',
   icon: <FaBalanceScaleLeft />,
   key: 'sub2',
   visible: true,
-  assetList: ['btc', 'eth'],
+  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
   subMenus: [
     balancePercent,
     positionChange,
     flowChange,
     fundingRate,
+    balanceExchange,
   ],
 };

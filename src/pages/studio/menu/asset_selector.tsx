@@ -58,7 +58,7 @@ export default memo(function AssetSelector() {
         optionFilterProp='children'
         onChange={onChange}
         onSearch={onSearch}
-        style={{ width: isMobile() ? 260 : 120 }}
+        style={{ width: isMobile() ? 260 : 200 }}
         bordered={false}
         filterOption={filterOption}
       >{

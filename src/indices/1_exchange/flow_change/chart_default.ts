@@ -1,11 +1,19 @@
+import { LineColor } from '../../def';
+
+const plotLines = [{
+  value: 0,
+  color: '#5a5a5a',
+  width: 2,
+
+}];
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
 export const chart = {
   yAxis: [
     {
-      // TickInterval: 200000, // 刻度间隔
-      // minTickInterval: 5000, // 最小刻度间隔
+      TickInterval: 2500, // 刻度间隔
+      minTickInterval: 800, // 最小刻度间隔
       zoomEnabled: true, // 允许缩放
       alignTicks: false, // 左右y轴不对齐
       Tickmember: 12, // 允许存在的最多刻度
@@ -13,16 +21,15 @@ export const chart = {
       title: {
         text: '',
       },
-      // minorTickInterval: 'auto',
       align: 'right',
       opposite: false,
       className: 'highcharts-navigator-yaxis',
       labels: {
         // 橙色
-        style: { color: '#c57514' },
+        style: { color: '#3c414c' },
       },
+      plotLines: plotLines, // 分隔线
       gridLineColor: 'rgba(0,0,0,0.05)',
-
     },
     {
       // 右侧轴线
@@ -37,10 +44,10 @@ export const chart = {
   ],
   series: [
     {
-      name: '活跃地址量',
+      name: '交易所净流量变化',
       data: [],
-      // 橙色
-      color: 'rgb(64, 64, 255, 0.7)',
+      color: LineColor.darkGreen,
+      negativeColor: LineColor.red,
       yAxis: 0,
       id: 'series0',
       visible: false,
@@ -55,11 +62,12 @@ export const chart = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '活跃地址量(7日均线)',
-      color: 'rgb(64, 64, 255)',
+      name: '交易所净流量变化',
+      color: LineColor.darkGreen,
+      negativeColor: LineColor.red,
       yAxis: 0,
       params: {
-        period: 0,
+        period: 14,
       },
       visible: true,
       showInLegend: true,

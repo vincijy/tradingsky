@@ -2,6 +2,7 @@ import * as D from '../../def';
 import { introduce } from './introduce';
 import { chart } from './chart_btc';
 import { chartEth } from './chart_eth';
+import { chart as chartDefault } from './chart_default';
 
 export const positionChange:D.SubMenuItem = {
   name: '交易所净头寸变化',
@@ -13,7 +14,7 @@ export const positionChange:D.SubMenuItem = {
     index: 'exchange/position_change',
   },
   introduce: introduce,
-  assetList: ['btc', 'eth'],
+  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
   catalogText: '交易所钱包净持仓变化（流入/流出）',
   toolbox: {
     annotation: {
@@ -23,5 +24,16 @@ export const positionChange:D.SubMenuItem = {
       enabled: true,
     },
   },
-  chart: { btc: chart, eth: chartEth },
+  chart: {
+    btc: chart,
+    eth: chartEth,
+    usdt: chartDefault,
+    busd: chartDefault,
+    usdc: chartDefault,
+    okb: chartDefault,
+    ftt: chartDefault,
+    sushi: chartDefault,
+    uni: chartDefault,
+    mana: chartDefault,
+  },
 };
