@@ -19,7 +19,7 @@ export const menus:D.MenuItem[] = [
     key: '我的收藏',
     subMenus: [],
     visible: true,
-    assetList: ['btc', 'eth'],
+    assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
     icon: <HeartOutlined />,
   },
   /**

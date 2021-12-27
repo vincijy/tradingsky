@@ -11,6 +11,9 @@ import { updateChartOption } from '@/store/chart/action';
 import { isMobile } from '@/utils/is';
 import { assetList } from '@/config/asset_list';
 import { genImgUrl } from '@/utils/img';
+import { commonOptions } from '@/indices/chart_common';
+import { mergeOption } from '@/utils/merge_option';
+
 
 export default memo(function AssetSelector() {
   const dispatch = useAppDispatch();
@@ -27,7 +30,7 @@ export default memo(function AssetSelector() {
       dataAsset: value,
     }));
     selectedSubMenu.chart[value] && dispatch(updateChartOption({
-      options: selectedSubMenu.chart[value],
+      options: mergeOption(commonOptions, selectedSubMenu.chart[value]),
     }));
     // 关闭批注
     dispatch(toggleAnnotation({

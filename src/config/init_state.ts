@@ -20,8 +20,8 @@ export function getAppInitState() {
 
   const appInitState = {
     chartOptions: mergeOption(commonOptions, chartOptions || initialPrivateOption),
-    menu: menu || menus[6],
-    subMenu: subMenu || menus[6].subMenus[0],
+    menu: menu || menus[1],
+    subMenu: subMenu || menus[1].subMenus[0],
     dataAsset: dataAssetStr ? dataAssetStr : 'btc',
   };
 
