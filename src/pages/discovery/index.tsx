@@ -4,22 +4,23 @@ import { SearchOutlined } from '@ant-design/icons';
 import LSAppFooter from '@/components/footer'; // footer
 
 import DiscoveryCard from '@/pages/discovery/card';
-import { getCoinList, getDynamicCoin } from '@/api/discovery';
+import { getCoinList } from '@/api/discovery';
 import { ICoin } from '@/api/def';
 import { isProdEnv } from '@/utils/is';
 import { DiscoverPage } from './style';
 import { tagOptions, chainOptions } from './def';
 
 export default memo(function Item() {
-  // 宽屏14张卡片、其余10张卡片
-  const mediaMatch = window.matchMedia('(min-width: 1550px)');
-  const [matches, setMatches] = useState(mediaMatch.matches);
-  useEffect(() => {
-    const handler = (e:any) => setMatches(e.matches);
-    mediaMatch.addListener(handler);
-    return () => mediaMatch.removeListener(handler);
-  });
-  const pageSize = matches ? 14 : 10;
+  // // 宽屏20张卡片、其余10张卡片
+  // const mediaMatch = window.matchMedia('(min-width: 1550px)');
+  // const [matches, setMatches] = useState(mediaMatch.matches);
+  // useEffect(() => {
+  //   const handler = (e:any) => setMatches(e.matches);
+  //   mediaMatch.addListener(handler);
+  //   return () => mediaMatch.removeListener(handler);
+  // });
+  // const pageSize = matches ? 20 : 20;
+  const pageSize = 20;
 
   const { Option } = Select;
   const [ isLoading, setIsLoading] = useState(true);
@@ -39,7 +40,7 @@ export default memo(function Item() {
   const tagRef = useRef('');
   const chainRef = useRef('');
 
-  const [orderDescBy, setOrderDescBy] = useState('');
+  const [orderDescBy, setOrderDescBy] = useState('coinPublishDate');
   const [orderAscBy, setOrderAscBy] = useState('');
 
   const sortBy = (e:string) => {
