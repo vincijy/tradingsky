@@ -14,7 +14,7 @@ export const flowChange:D.SubMenuItem = {
     index: 'exchange/flow_change',
   },
   introduce: introduce,
-  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
+  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro'],
   catalogText: '交易所净流量变化',
   toolbox: {
     annotation: {
@@ -35,5 +35,7 @@ export const flowChange:D.SubMenuItem = {
     sushi: chartDefault,
     uni: chartDefault,
     mana: chartDefault,
+    matic: chartDefault,
+    cro: chartDefault,
   },
 };

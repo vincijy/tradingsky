@@ -14,7 +14,7 @@ export const newAddress:D.SubMenuItem = {
     index: 'address/new',
   },
   introduce: introduce,
-  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
+  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro'],
   catalogText: '每天区块链网络新增地址数量统计',
   toolbox: {
     annotation: {
@@ -35,6 +35,8 @@ export const newAddress:D.SubMenuItem = {
     sushi: chartDefault,
     uni: chartDefault,
     mana: chartDefault,
+    matic: chartDefault,
+    cro: chartDefault,
 
   },
 };

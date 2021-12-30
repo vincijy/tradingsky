@@ -50,6 +50,11 @@ export const assetList = [
         imgSrc: '88ea87c150e9190258757e1e2b10a1df.png',
         displayValue: 'FTX Token (FTT)',
       },
+      {
+        key: 'cro',
+        imgSrc: 'cda086bb69d4ec19c4b1249c08ae89a9.png',
+        displayValue: 'Crypto.com (CRO)',
+      },
     ],
   },
   {
@@ -65,6 +70,11 @@ export const assetList = [
         key: 'uni',
         imgSrc: '79dd76ef333f3dc2549ab32c75946377.png',
         displayValue: 'Uniswap (UNI)',
+      },
+      {
+        key: 'matic',
+        imgSrc: '1f343887a93b02e21dd2fa84cf08bbcb.png',
+        displayValue: 'Polygon(MATIC)',
       },
     ],
   },

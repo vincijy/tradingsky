@@ -14,7 +14,7 @@ export const positionChange:D.SubMenuItem = {
     index: 'exchange/position_change',
   },
   introduce: introduce,
-  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
+  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro'],
   catalogText: '交易所钱包净持仓变化（流入/流出）',
   toolbox: {
     annotation: {
@@ -35,5 +35,7 @@ export const positionChange:D.SubMenuItem = {
     sushi: chartDefault,
     uni: chartDefault,
     mana: chartDefault,
+    matic: chartDefault,
+    cro: chartDefault,
   },
 };

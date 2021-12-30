@@ -13,7 +13,7 @@ export const smartContractPct:D.SubMenuItem = {
     index: 'address/smartcontract_percent',
   },
   introduce: introduce,
-  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
+  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro'],
   catalogText: '智能合约中token所占的百分比',
   toolbox: {
     annotation: {
@@ -32,5 +32,7 @@ export const smartContractPct:D.SubMenuItem = {
     sushi: chartDefault,
     uni: chartDefault,
     mana: chartDefault,
+    matic: chartDefault,
+    cro: chartDefault,
   },
 };

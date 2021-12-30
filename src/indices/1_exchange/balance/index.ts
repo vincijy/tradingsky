@@ -13,7 +13,7 @@ export const balanceExchange:D.SubMenuItem = {
     index: 'exchange/balance_exchanges',
   },
   introduce: introduce,
-  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
+  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro'],
   catalogText: '交易所地址上的token余额',
   toolbox: {
     annotation: {
@@ -32,5 +32,7 @@ export const balanceExchange:D.SubMenuItem = {
     sushi: chartDefault,
     uni: chartDefault,
     mana: chartDefault,
+    matic: chartDefault,
+    cro: chartDefault,
   },
 };

@@ -13,7 +13,7 @@ export const nonZero:D.SubMenuItem = {
     index: 'address/non_zero_count',
   },
   introduce: introduce,
-  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
+  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro'],
   catalogText: '每天区块链网络非零地址数量统计',
   toolbox: {
     annotation: {
@@ -32,5 +32,7 @@ export const nonZero:D.SubMenuItem = {
     sushi: chartDefault,
     uni: chartDefault,
     mana: chartDefault,
+    matic: chartDefault,
+    cro: chartDefault,
   },
 };

@@ -18,7 +18,7 @@ export const marketPrice:D.MenuItem = {
   icon: <IoPricetagsOutline />,
   key: 'sub4',
   visible: true,
-  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
+  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro'],
   subMenus: [
     rsi,
     jze60d,

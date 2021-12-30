@@ -13,7 +13,7 @@ export const top1Pct:D.SubMenuItem = {
     index: 'address/top1pct_address',
   },
   introduce: introduce,
-  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
+  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro'],
   catalogText: '前1%地址持有所占的百分比',
   toolbox: {
     annotation: {
@@ -32,5 +32,7 @@ export const top1Pct:D.SubMenuItem = {
     sushi: chartDefault,
     uni: chartDefault,
     mana: chartDefault,
+    matic: chartDefault,
+    cro: chartDefault,
   },
 };

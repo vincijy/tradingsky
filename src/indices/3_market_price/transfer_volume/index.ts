@@ -13,7 +13,7 @@ export const transVolume:D.SubMenuItem = {
     index: 'market/transfers_volume',
   },
   introduce: introduce,
-  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana'],
+  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro'],
   catalogText: '链上交易量统计',
   toolbox: {
     annotation: {
@@ -32,5 +32,7 @@ export const transVolume:D.SubMenuItem = {
     sushi: chartDefault,
     uni: chartDefault,
     mana: chartDefault,
+    matic: chartDefault,
+    cro: chartDefault,
   },
 };
