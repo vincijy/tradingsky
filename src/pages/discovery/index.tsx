@@ -182,8 +182,8 @@ export default memo(function Item() {
               dropdownClassName='card-select-drop'>
               {/* <Option value='makeplaceRank.asc'>市值从大到小</Option>
               <Option value='makeplaceRank.desc'>市值从小到大</Option> */}
-              <Option value='coinPublishDate.asc'>发布从早到晚</Option>
-              <Option value='coinPublishDate.desc'>发布从晚到早</Option>
+              <Option value='coinPublishDate.asc'>发布时间降序</Option>
+              <Option value='coinPublishDate.desc'>发布时间升序</Option>
             </Select>
           </div>
         </div>

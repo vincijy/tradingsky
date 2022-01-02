@@ -79,7 +79,15 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
       fontSize: isMobile ? '20px' : '24px',
     }),
   };
-
+  let indexUrl = '';
+  if (coin.chainIndiceJson) {
+    try {
+      const chainIndiceJson = JSON.parse(coin.chainIndiceJson);
+      indexUrl = chainIndiceJson.default;
+    } catch (error) {
+      console.error(error, coin.chainIndiceJson);
+    }
+  }
   return (
     <DetailIntroCard>
       <Button
@@ -296,7 +304,7 @@ export default memo(function DetailIntroCardComponent(props:Iprops) {
               coin.githubUrl &&
                 <div className='intro-foot-button'>
                   <a
-                    href={coin.githubUrl}
+                    href={indexUrl}
                     target='_blank'
                     rel='noreferrer'>
                     <BarChartOutlined style={style.gitContainer(matches)}/>
