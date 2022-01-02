@@ -26,6 +26,15 @@ export default memo(function DiscoveryCard(props:IProps) {
     (window as any).open(url, '_blank').focus();
   };
 
+  let indexUrl = '';
+  if (item.chainIndiceJson) {
+    try {
+      const chainIndiceJson = JSON.parse(item.chainIndiceJson);
+      indexUrl = chainIndiceJson.default;
+    } catch (error) {
+      console.error(error, item.chainIndiceJson);
+    }
+  }
   return (
     <DiscoverItem>
       <Card
@@ -96,10 +105,10 @@ export default memo(function DiscoveryCard(props:IProps) {
               <div style={{ display: 'none' }} />
           }
           {
-            item.twitterUrl ?
+            indexUrl ?
               <div
                 className='card-foot-button'
-                onClick={() => navigateTo(item.twitterUrl) }>
+                onClick={() => navigateTo(indexUrl) }>
                 <BarChartOutlined style={{ fontSize: '15px', marginBottom: '5px' }} />
                 <div>数据</div>
               </div> :

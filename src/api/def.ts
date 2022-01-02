@@ -22,7 +22,7 @@ export interface ICoin {
     articleJson:string;
     briefIntroduction:null;
     briefName:string;
-    chainIndiceJson:string;
+    chainIndiceJson:string;// {default: }
     coinPublishDate:Date;
     contrastJson:string;
     createDate:Date;
