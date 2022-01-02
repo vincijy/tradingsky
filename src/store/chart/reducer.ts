@@ -1,4 +1,5 @@
 import { getAppInitState } from '@/config/init_state';
+import { getUrlParams } from '@/utils/url';
 import * as A from './action_type';
 import { IChartState, IAction, TypePaylodMapKey } from './def';
 const initState:IChartState = {
@@ -29,6 +30,11 @@ export function reducer(state:IChartState = initState, action:IAction<TypePaylod
         annotationVisible: (action as IAction<'TOGGLE_ANNOTATION'>).payload.annotationVisible,
       };
     case A.CHANGE_ASSET:
+      // eslint-disable-next-line no-case-declarations
+      const dataAsset = (action as IAction<'CHANGE_ASSET'>).payload.dataAsset;
+      // eslint-disable-next-line no-case-declarations
+      const { index } = getUrlParams();
+      window.history.pushState('', '', `/chart?index=${index}&asset=${dataAsset}`);
       return {
         ...state,
         dataAsset: (action as IAction<'CHANGE_ASSET'>).payload.dataAsset,

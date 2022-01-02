@@ -77,6 +77,7 @@ export default memo(function CollectionMenus(props:IProps) {
         menu: selectedMenuItem,
         subMenu: s,
       },
+      asset,
     }));
     dispatch(toggleAnnotation({
       annotationVisible: false,

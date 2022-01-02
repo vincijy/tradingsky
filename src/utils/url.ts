@@ -1,3 +1,7 @@
+/**
+ * get params from url
+ * @returns an object containing pairs of key and value
+ */
 export function getUrlParams() {
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = {};

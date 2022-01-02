@@ -6,10 +6,11 @@ import { useAppSelector, useAppDispatch } from '@/hooks';
 
 export default memo(function ShareButton() {
   const subMenu = useAppSelector((state) => state.ui.currentMenu.subMenu);
+  const asset = useAppSelector((state) => state.chart.dataAsset);
   const share = () => {
     const { args: { index } } = subMenu;
     const { host, pathname } = window.location;
-    const url = `${host}${pathname}?index=${index}`;
+    const url = `${host}${pathname}?index=${index}&asset=${asset}`;
     copyToClipboard(url);
   };
 

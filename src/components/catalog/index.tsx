@@ -5,7 +5,7 @@ import { Table } from 'antd';
 import { changeMenu } from '@/store/ui/action';
 import { SubMenuItem } from '@/indices/def';
 import { useHistory } from 'react-router';
-import { useAppDispatch } from '@/hooks';
+import { useAppDispatch, useAppSelector } from '@/hooks';
 import { CatalogWrapper } from './style';
 import { ICatalogItem } from './def';
 
@@ -59,6 +59,7 @@ const columns = [
 export default memo(function LSCatalog() {
   const dispatch = useAppDispatch();
   const history = useHistory();
+  const asset = useAppSelector((state) => state.chart.dataAsset);
 
   /**
    * 先更新菜单状态, 再跳转到图表页面
@@ -78,12 +79,12 @@ export default memo(function LSCatalog() {
       console.error('subMenuItem not found');
       return;
     }
-
     dispatch(changeMenu({
       currentMenu: {
         menu: menuItem,
         subMenu: subMenuItem,
       },
+      asset: asset,
     }));
     history && history.push('/chart');
     // 页面滚动到顶部

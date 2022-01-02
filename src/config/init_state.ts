@@ -10,13 +10,18 @@ import { commonOptions } from '@/indices/chart_common';
  * @returns
  */
 export function getAppInitState() {
-  const { index } = getUrlParams();
+  const { index, asset } = getUrlParams();
   const { menu, subMenu } = findMenuByIndex(menus, index);
+  const dataAssetStr = asset || localStorage.getItem('dataAsset');
+
   let chartOptions;
   if (subMenu) {
-    chartOptions = subMenu.chart.btc;
+    if (dataAssetStr) {
+      chartOptions = subMenu.chart[dataAssetStr];
+    } else {
+      chartOptions = subMenu.chart['btc'];
+    }
   }
-  const dataAssetStr = localStorage.getItem('dataAsset');
 
   const appInitState = {
     chartOptions: mergeOption(commonOptions, chartOptions || initialPrivateOption),

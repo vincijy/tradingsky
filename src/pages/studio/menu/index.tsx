@@ -19,14 +19,11 @@ import { isMobile, isPad } from '@/utils/is';
 import { Tabs } from 'antd';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { getChart, getHighCharts } from '@/components/chart';
+import { getChart } from '@/components/chart';
 import { changeMenu, toggleChartRecreated, toggleMenuVisible, updateLayout } from '../../../store/ui/action';
 import { MenuWrapper, MenuWrapperPC } from './style';
 import CollectionMenus from './collection_menus';
 import AssetSelector from './asset_selector';
-
-const minW = 1042;
-const maxW = 1294;
 
 export default memo(function LSChartMenu() {
   const dispatch = useAppDispatch();
@@ -34,7 +31,7 @@ export default memo(function LSChartMenu() {
 
   const [menus] = useState(indiceMenus);
   const asset = useAppSelector((state) => state.chart.dataAsset);
-  const [selctedKey, setSelctedKey] = useState('');
+  const [selctedKey, setSelctedKey] = useState('活跃地址量');
   /**
    * 根据菜单的路径更新redux
    * @param e 读取菜单的路径
@@ -63,6 +60,7 @@ export default memo(function LSChartMenu() {
         menu: selectedMenuItem,
         subMenu: s,
       },
+      asset,
     }));
     dispatch(toggleAnnotation({
       annotationVisible: false,
@@ -232,7 +230,7 @@ export default memo(function LSChartMenu() {
           type='card'
           tabPosition={'left'}
           onTabClick={ (activeKey:string) => showMenus(activeKey) }
-          defaultActiveKey='sub6'
+          defaultActiveKey='sub1'
         >
           {
             menusPc.filter((Item) => Item.assetList.indexOf(`${asset}`) > -1).map((menuItem) => (

@@ -7,6 +7,7 @@ export interface IPayloadChangeMenu {
         menu:Omit<MenuItem, 'subMenus'>;
         subMenu:SubMenuItem;
     };
+    asset:string;
 };
 
 export interface IPayloadsetLoginPanelVisible {
