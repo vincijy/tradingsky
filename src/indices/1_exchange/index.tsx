@@ -13,7 +13,7 @@ export const exchange:D.MenuItem = {
   icon: <FaBalanceScaleLeft />,
   key: 'sub2',
   visible: true,
-  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro'],
+  assetList: ['btc', 'eth', 'usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro', 'wbtc', 'link', 'dai'],
   subMenus: [
     balancePercent,
     positionChange,

@@ -13,7 +13,7 @@ export const marketCap:D.SubMenuItem = {
     index: 'market/marketcap_usd',
   },
   introduce: introduce,
-  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro'],
+  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro', 'wbtc', 'link', 'dai'],
   catalogText: '美元计价的市场价值',
   toolbox: {
     annotation: {
@@ -34,5 +34,8 @@ export const marketCap:D.SubMenuItem = {
     mana: chartDefault,
     matic: chartDefault,
     cro: chartDefault,
+    wbtc: chartDefault,
+    link: chartDefault,
+    dai: chartDefault,
   },
 };

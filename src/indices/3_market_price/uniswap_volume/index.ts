@@ -13,7 +13,7 @@ export const uniVolume:D.SubMenuItem = {
     index: 'market/uniswap_volume',
   },
   introduce: introduce,
-  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro'],
+  assetList: ['usdt', 'busd', 'usdc', 'okb', 'ftt', 'sushi', 'uni', 'mana', 'matic', 'cro', 'wbtc', 'link', 'dai'],
   catalogText: 'Uniswap交易量统计',
   toolbox: {
     annotation: {
@@ -34,5 +34,8 @@ export const uniVolume:D.SubMenuItem = {
     mana: chartDefault,
     matic: chartDefault,
     cro: chartDefault,
+    wbtc: chartDefault,
+    link: chartDefault,
+    dai: chartDefault,
   },
 };

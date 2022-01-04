@@ -34,6 +34,11 @@ export const assetList = [
         imgSrc: '28e04efdcd8942557fc141321dd10abd.png',
         displayValue: 'USD Coin (USDC)',
       },
+      {
+        key: 'dai',
+        imgSrc: 'a96e12f63cb762825a3132119d9d8165.png',
+        displayValue: 'Dai (DAI)',
+      },
     ],
   },
   {
@@ -75,6 +80,22 @@ export const assetList = [
         key: 'matic',
         imgSrc: '1f343887a93b02e21dd2fa84cf08bbcb.png',
         displayValue: 'Polygon(MATIC)',
+      },
+      {
+        key: 'wbtc',
+        imgSrc: '49c3fb77c2020bcd1cb18c34affdb19f.png',
+        displayValue: 'Wrapped Bitcoin (WBTC)',
+      },
+    ],
+  },
+  {
+    key: 'smartcontract_coin',
+    value: '智能合约平台',
+    children: [
+      {
+        key: 'link',
+        imgSrc: 'edad4a1877a8acae2e7e52a6e4ac3d02.png',
+        displayValue: 'Chainlink (LINK)',
       },
     ],
   },
