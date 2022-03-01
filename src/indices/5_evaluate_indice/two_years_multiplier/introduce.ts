@@ -6,7 +6,7 @@ export const introduce = {
   
   ### 指标原理
   + 2年MA乘数是很好的长期投资工具。
-  + 指标使用：2年移动平均线（730DMA）和2年移动平均线（730DMA ）x 2计算得出。
+  + 指标使用：2年移动平均线（730DMA）和2年移动平均线（730DMA ）x 5计算得出。
   
   ### 创作者
   该指标由 [Philip Swift](https://twitter.com/PositiveCrypto) 创建`,

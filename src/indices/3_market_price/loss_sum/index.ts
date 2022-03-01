@@ -16,7 +16,7 @@ export const lossSupply:D.SubMenuItem = {
   },
   introduce: introduce,
   assetList: ['btc', 'eth'],
-  catalogText: '处于盈利状态的代币数量',
+  catalogText: '处于亏损状态的代币数量',
   toolbox: {
     annotation: {
       enabled: false, // 无标注
