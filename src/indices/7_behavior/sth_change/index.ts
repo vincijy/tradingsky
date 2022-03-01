@@ -9,7 +9,6 @@ export const sthChange:D.SubMenuItem = {
   loginRequired: true,
   vipRequired: true,
   visible: true,
-  isNew: true,
 
   args: {
     index: 'behavior/sth_change',

@@ -10,13 +10,6 @@ import { PriceWrapper, PricePageWrapper } from './style';
 
 const priceList = [
   {
-    title: '月费',
-    price: '¥120',
-    unit: '月',
-    average: '日均4元',
-    content: '每月付款，价格低至日均4元。解锁L1与L2的所有数据，满足您最基本的数据需求。',
-  },
-  {
     title: '季费',
     price: '¥299',
     average: '日均3.3元',

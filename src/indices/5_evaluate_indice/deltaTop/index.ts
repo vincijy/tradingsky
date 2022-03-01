@@ -8,7 +8,6 @@ export const deltaTop:D.SubMenuItem = {
   loginRequired: true,
   vipRequired: false,
   visible: true,
-  isNew: true,
 
   args: {
     index: 'value/delta_top',

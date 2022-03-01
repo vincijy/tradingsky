@@ -7,7 +7,6 @@ export const rhodl = {
   key: 'RHODL指标',
   loginRequired: true,
   vipRequired: true,
-  isNew: true,
   visible: true,
   args: {
     index: 'behavior/rhodl',

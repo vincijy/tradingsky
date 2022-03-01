@@ -10,7 +10,7 @@ export const PriceWrapper = styled.div `
     .site-card-wrapper {
         padding: 30px;
         background: white;
-        width: 80%;
+        width: 60%;
         text-align: center;
         .price-row {
             display: flex;

@@ -3,18 +3,20 @@ import { introduce } from './introduce';
 import { chart } from './chart_btc';
 import { chartEth } from './chart_eth';
 
-export const balancePercent:D.SubMenuItem = {
-  name: '交易所余额占比',
-  key: '交易所余额占比',
+export const liveliness:D.SubMenuItem = {
+  name: 'Liveliness活跃度指标',
+  key: 'Liveliness活跃度指标',
   loginRequired: true,
   vipRequired: true,
   visible: true,
+  isNew: true,
+
   args: {
-    index: 'exchange/balance_percent',
+    index: 'behavior/liveliness',
   },
   introduce: introduce,
   assetList: ['btc', 'eth'],
-  catalogText: '交易所余额的供应量占比',
+  catalogText: '长期持有者持有Coin数量',
   toolbox: {
     annotation: {
       enabled: false, // 无标注
@@ -24,4 +26,16 @@ export const balancePercent:D.SubMenuItem = {
     },
   },
   chart: { btc: chart, eth: chartEth },
+  xStart: {
+    btc: {
+      year: 2010,
+      month: 7,
+      day: 30,
+    },
+    eth: {
+      year: 2016,
+      month: 2,
+      day: 1,
+    },
+  },
 };

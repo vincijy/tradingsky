@@ -11,6 +11,7 @@ import { sthSupply } from './sth_supply';
 import { sthChange } from './sth_change';
 import { lthSupply } from './lth_supply';
 import { lthChange } from './lth_change';
+import { liveliness } from './liveliness';
 
 export const investorBehavior:D.MenuItem = {
   name: '投资者行为',
@@ -19,6 +20,7 @@ export const investorBehavior:D.MenuItem = {
   visible: true,
   assetList: ['btc', 'eth'],
   subMenus: [
+    liveliness,
     rhodl,
     reserveRisk,
     lthSupply,

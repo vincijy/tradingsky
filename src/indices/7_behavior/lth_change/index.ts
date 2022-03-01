@@ -9,7 +9,6 @@ export const lthChange:D.SubMenuItem = {
   loginRequired: true,
   vipRequired: true,
   visible: true,
-  isNew: true,
 
   args: {
     index: 'behavior/lth_change',
