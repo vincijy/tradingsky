@@ -51,7 +51,7 @@ export const PriceWrapper = styled.div `
         }
         button {
             background: #000000;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
     }
 `;

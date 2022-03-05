@@ -9,7 +9,7 @@ module.exports = function(app) {
 
   // 线上另一台生产服务器
   app.use('/bpi', createProxyMiddleware({
-    target: 'http://43.129.253.147',
+    target: 'http://localhost:5000',
     changeOrigin: true,
     pathRewrite: { '^/bpi/': '/api/' },
   }));
