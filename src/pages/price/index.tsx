@@ -5,7 +5,7 @@ import LSAppFooter from '@/components/footer'; // 尾部
 import { ossImgs } from '@/oss';
 import { alipayOrder } from '@/api/pay';
 import QRCode from 'qrcode';
-import { useLoading } from '@/hooks';
+import { useLoading, useAppSelector } from '@/hooks';
 import { PriceWrapper, PricePageWrapper } from './style';
 import { PayMethod } from './def';
 // 月：120（日均4元）
@@ -47,12 +47,14 @@ export default memo(function PricePage() {
     setIsModalVisible(false);
   };
   const { isLoading, startLoading, stopLoading } = useLoading(undefined);
+  const { id } = useAppSelector((state) => state.user.userInfo);
   const payByAlipay = async(money:number) => {
     setPayMethod(PayMethod.alipay);
     const orderUid = '';
     const data = {
       'order_uid': orderUid,
       'final_price': money,
+      'user_id': id,
     };
     startLoading();
     try {
