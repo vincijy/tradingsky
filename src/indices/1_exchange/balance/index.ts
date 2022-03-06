@@ -4,10 +4,10 @@ import { chart as chartDefault } from './chart_default';
 
 
 export const balanceExchange:D.SubMenuItem = {
-  name: '交易所余额',
-  key: '交易所余额',
+  name: '交易所余额（Token)',
+  key: '交易所余额（Token)',
   loginRequired: true,
-  vipRequired: false,
+  vipRequired: true,
   visible: true,
   args: {
     index: 'exchange/balance_exchanges',

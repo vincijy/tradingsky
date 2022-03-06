@@ -32,7 +32,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '交易所余额',
+      name: '交易所余额（Token',
       data: [],
       // 橙色
       color: 'rgb(64, 64, 255, 0.7)',
@@ -50,7 +50,7 @@ export const chart = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '交易所余额',
+      name: '交易所余额（Token',
       color: 'rgb(64, 64, 255, 0.7)',
       yAxis: 0,
       params: {
