@@ -6,8 +6,10 @@ import { ossImgs } from '@/oss';
 import { alipayOrder } from '@/api/pay';
 import QRCode from 'qrcode';
 import { useLoading, useAppSelector } from '@/hooks';
+import { StorageKey } from '@/def';
 import { PriceWrapper, PricePageWrapper } from './style';
 import { PayMethod } from './def';
+
 // 月：120（日均4元）
 // 季：299（日均3.3元）
 // 年：999（日均2.7元）
@@ -50,11 +52,12 @@ export default memo(function PricePage() {
   const { id } = useAppSelector((state) => state.user.userInfo);
   const payByAlipay = async(money:number) => {
     setPayMethod(PayMethod.alipay);
-    const orderUid = '';
+    // TODO: delete it when deploy to product
+    money = 0.5;
     const data = {
-      'order_uid': orderUid,
-      'final_price': money,
+      'final_price': `${money}`,
       'user_id': id,
+      'intro_user_id': localStorage.getItem(StorageKey.introUserId) || '',
     };
     startLoading();
     try {
