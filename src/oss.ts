@@ -4,6 +4,8 @@ import chart_1 from '@/assets/img/chart_1-min.png';
 import qrcode from '@/assets/img/qrcode-min.jpg';
 import restriction from '@/assets/img/restriction-min.jpg';
 import priceBg from '@/assets/img/price_bg.png';
+import main_1 from '@/assets/img/main1.png';
+
 
 export const ossImgs = {
   homeMain,
@@ -13,4 +15,5 @@ export const ossImgs = {
   qrcode,
   restriction,
   priceBg,
+  main_1,
 };

@@ -1,8 +1,9 @@
 // 第三方
 import { memo } from 'react';
 import { useHistory } from 'react-router-dom';
+import { ossImgs } from '@/oss';
 
-import { Carousel } from 'antd';
+import { Carousel, Image } from 'antd';
 import { MainWrapper } from './pc_style';
 
 export default memo(function LSHomeMain() {
@@ -36,12 +37,10 @@ export default memo(function LSHomeMain() {
           </div>
           <div className='pad'>
             <div className='pad_inner_box'>
-              <Carousel autoplay>
+              <Carousel >
                 <div>
-                  <h3 />
                 </div>
                 <div>
-                  <h3 />
                 </div>
                 <div>
                   <h3 />

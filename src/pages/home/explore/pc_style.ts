@@ -1,21 +1,23 @@
 import styled from 'styled-components';
 import { ossImgs } from '@/oss';
 
-export const CatalogWrapper = styled.div `
+export const ExploreWrapper = styled.div `
     height: 100hv; // 整体大小
     .catalog-container {
         justify-content: center;
-        display: flex;
+        // flex-direction: column;
         align-items: center;
+        display: flex;
         width: 100%;
+        background: #F5F5F6;
         height: 550px;
     }
     .catalog-text-area {
         text-align: left;
-        width: 40%;
+        width: 38%;
         height: 400px;
         margin-top: 40px;
-        padding-left: 80px;
+        padding-left: 40px;
         visibility: visible;
         animation-duration: 0.6s;
         animation-name: fadeInUp;
@@ -30,7 +32,8 @@ export const CatalogWrapper = styled.div `
             margin-bottom: 25px;
         }
         p {
-            font-size: 18px;
+            font-size: 23px;
+            margin-top: 20px;
             color: #353030;
             line-height: 30px;
         }
@@ -44,14 +47,29 @@ export const CatalogWrapper = styled.div `
             vertical-align: middle;
             margin-right: 14px;
         }
+        .explore-button{
+            padding: 0 70px;
+            height: 50px;
+            line-height: 48px;
+            background-color: #ffffff;
+            border-radius: 4px;
+            font-size: 16px;
+            margin: 50px auto 0;
+            font-weight: bold;
+            box-sizing: border-box;
+            border: 2px solid black;
+            color: black;
+
+        }
+
     }
     .catalog-img-area {
-        background: url(${ossImgs.catalog_chart}) no-repeat center; // 图片填充
+        background: url(${ossImgs.main_1}) no-repeat center; // 图片填充
         background-size: 93% 90%;
         width: 43%;
         height: 400px;
-        padding: 20px;
-        background-color: #ecedef;
+        padding: 5px;
+        background-color: #fff;
         border-radius: 20px;
         visibility: visible;
         animation-duration: 0.6s;
@@ -137,7 +155,6 @@ export const CatalogWrapper = styled.div `
                 @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：隐藏字段
                     display: none;
                 }
-            }
         }
     }
 

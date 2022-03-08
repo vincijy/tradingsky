@@ -1,21 +1,20 @@
 import styled from 'styled-components';
 import { ossImgs } from '@/oss';
 
-export const CatalogWrapper = styled.div `
-    height: 80hv; // 整体大小
+export const ExploreWrapper = styled.div `
+    height: 90hv; // 整体大小
     transform: translateY(-100px);
     .catalog-container {
         justify-content: center;
         display: flex;
+        background: #F5F5F6;
         flex-direction: column;
         align-items: center;
         width: 100%;
     }
     h2.head-text {
-        font-size: 24;
         font-size: 21px;
-        margin-top: 40px;
-        margin-bottom: 30px;
+        margin-top: 30px;
         font-weight: bold;
     }   
     .catalog-text-area {
@@ -24,18 +23,20 @@ export const CatalogWrapper = styled.div `
         animation-duration: 0.6s;
         animation-name: fadeInUp;
         width: 90vw;
+        margin-bottom: 50px;
         .small-text {
-            margin-top: 15px;
             font-size: 14px;
             color: gray;
-            margin-bottom: 15px;
-            text-align: center;
             width: 100%;
         }
         li {
-            font-size: 14px;
+            font-size: 16px;
             color: #353030;
+            margin-bottom: 15px;
+            margin-top: 20px;
+            // font-weight: bold;
             line-height: 30px;
+            text-align: center;
         }
         .desc::before {
             content: " ";
@@ -47,14 +48,34 @@ export const CatalogWrapper = styled.div `
             vertical-align: middle;
             margin-right: 14px;
         }
+
+    }
+    .btn-area {
+        text-align: center;
+        .btn {
+            padding: 0 50px;
+            height: 50px;
+            line-height: 48px;
+            display: inline-block;
+            background-color: #ffffff;
+            border-radius: 4px;
+            font-size: 16px;
+            margin: 25px auto 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-sizing: border-box;
+            border: 2px solid black;
+            transition: opacity 0.3s;
+            color: black;
+        }
     }
     .catalog-img-area {
-        background: url(${ossImgs.catalog_chart}) no-repeat center; // 图片填充
+        background: url(${ossImgs.main_1}) no-repeat center; // 图片填充
         background-size: 90% 90%;
         width: 90vw;
         height: 57vw;
         padding: 20px;
-        background-color: #ecedef;
+        background-color: #fff;
         border-radius: 20px;
         visibility: visible;
         animation-duration: 0.6s;

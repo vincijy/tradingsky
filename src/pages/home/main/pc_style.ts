@@ -67,6 +67,14 @@ export const MainWrapper = styled.div `
                     height: 100%;
                     background: url(${ossImgs.chart_0}) no-repeat center; // 图片填充
                     background-size: 100% 100%;
+                    // .main-img-1{
+                    //     max-width: 100%;
+                    //     height: auto;
+                    //     background-size: 100% 100% ;
+                    //     margin: 0 auto;
+                    //     display: block;
+                    //     font-size: 0;
+                    // }
                 }
             }
          }
