@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ossImgs } from '@/oss';
 
 export const DeclareWrapper = styled.div `
     .declare-container {
@@ -12,7 +13,9 @@ export const DeclareWrapper = styled.div `
         margin-top: 30px;
         text-align: center;
         background: #F5F5F6;
-        color: #404EED;
+        // color: #404EED;
+        // border: 0.1px solid #404EED;
+        background: url(${ossImgs.main_2}) no-repeat center; // 图片填充
         font-size: 18px;
         h2{
             font-size: 33px;
