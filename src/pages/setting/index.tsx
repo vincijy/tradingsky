@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { shallowEqual } from 'react-redux';
 
 import { useAppSelector } from '@/hooks';
@@ -7,6 +7,7 @@ import { Tabs, Card, Form, Input, Button } from 'antd';
 import { IdcardOutlined, SolutionOutlined } from '@ant-design/icons';
 import LSAppFooter from '@/components/footer'; // 尾部
 
+import { getMyOrders, getProfitOrders } from '@/api/order';
 import { SettingWrapper } from './style';
 
 export default memo(function LSSettingPage() {
@@ -17,6 +18,22 @@ export default memo(function LSSettingPage() {
   const { userInfo } = useAppSelector((state) => ({
     userInfo: state.user.userInfo,
   }), shallowEqual);
+  const id = useAppSelector((state) => state.user.userInfo.id);
+
+  const fetchMyOrders = async() => {
+    const res = await getMyOrders({ pageId: 1, pageSize: 100, userId: id });
+    console.log(res.data.list);
+  };
+
+  const fetchProfitOrders = async() => {
+    const res = await getProfitOrders({ pageId: 1, pageSize: 100, introUserId: id });
+    console.log(res.data.list);
+  };
+
+  useEffect(() => {
+    fetchMyOrders();
+    fetchProfitOrders();
+  }, []);
 
   return (
     <div>
