@@ -18,7 +18,7 @@ export function getMyOrders(params:{pageId:number, pageSize:number, userId:strin
   total:number;
 }> {
   return request({
-    url: '/bpi/v0/order',
+    url: '/bpi/v0/orders',
     params: params,
   });
 };
@@ -33,7 +33,7 @@ list:IOrder[];
 total:number;
 }> {
   return request({
-    url: '/bpi/v0/order/share',
+    url: '/bpi/v0/orders/share',
     params: params,
   });
 };

@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { shallowEqual } from 'react-redux';
 
 import { useAppSelector } from '@/hooks';
@@ -8,9 +8,11 @@ import { IdcardOutlined, SolutionOutlined } from '@ant-design/icons';
 import LSAppFooter from '@/components/footer'; // 尾部
 
 import { getMyOrders, getProfitOrders } from '@/api/order';
+import { Table } from 'antd';
 import { SettingWrapper } from './style';
+import { orderStatusTypeList } from './def';
 
-export default memo(function LSSettingPage() {
+export default memo(function SettingPage() {
 
   const { TabPane } = Tabs;
 
@@ -20,14 +22,88 @@ export default memo(function LSSettingPage() {
   }), shallowEqual);
   const id = useAppSelector((state) => state.user.userInfo.id);
 
+  const [myOrders, setMyOrders] = useState([] as any);
+  const myOrdersColumns = [
+    {
+      title: '用户ID',
+      dataIndex: 'userId',
+      key: 'userId',
+    },
+    {
+      title: '订单ID',
+      dataIndex: 'orderId',
+      key: 'orderId',
+    },
+    {
+      title: '价格',
+      dataIndex: 'finalPrice',
+      key: 'finalPrice',
+    },
+    {
+      title: '订单状态',
+      dataIndex: 'orderStatusTypeCode',
+      key: 'orderStatusTypeCode',
+    },
+    {
+      title: '时间',
+      dataIndex: 'createDate',
+      key: 'createDate',
+    },
+  ];
   const fetchMyOrders = async() => {
     const res = await getMyOrders({ pageId: 1, pageSize: 100, userId: id });
-    console.log(res.data.list);
+    if (res && res.data && res.data.list) {
+      res.data.list.forEach((order) => {
+        const statusType = orderStatusTypeList.find((item) => item.code === order.orderStatusTypeCode);
+        if (!statusType) {
+          return;
+        }
+        order.orderStatusTypeCode = statusType.title;
+      });
+      setMyOrders(res.data.list);
+    }
   };
 
+  const profitOrdersColumns = [
+    {
+      title: '订单ID',
+      dataIndex: 'orderId',
+      key: 'orderId',
+    },
+    {
+      title: '价格',
+      dataIndex: 'finalPrice',
+      key: 'finalPrice',
+    },
+    {
+      title: '订单状态',
+      dataIndex: 'orderStatusTypeCode',
+      key: 'orderStatusTypeCode',
+    },
+    {
+      title: '介绍人ID',
+      dataIndex: 'introuserId',
+      key: 'introuserId',
+    },
+    {
+      title: '时间',
+      dataIndex: 'createDate',
+      key: 'createDate',
+    },
+  ];
+  const [profitOrders, setProfitOrders] = useState([] as any);
   const fetchProfitOrders = async() => {
     const res = await getProfitOrders({ pageId: 1, pageSize: 100, introUserId: id });
-    console.log(res.data.list);
+    if (res && res.data && res.data.list) {
+      res.data.list.forEach((order) => {
+        const statusType = orderStatusTypeList.find((item) => item.code === order.orderStatusTypeCode);
+        if (!statusType) {
+          return;
+        }
+        order.orderStatusTypeCode = statusType.title;
+      });
+      setProfitOrders(res.data.list);
+    }
   };
 
   useEffect(() => {
@@ -40,8 +116,24 @@ export default memo(function LSSettingPage() {
       <SettingWrapper>
         <Tabs defaultActiveKey='1' >
           <TabPane
+            tab='我的订单'
+            key='1'
+            style={{ marginBottom: '500px' }}>
+            <Table
+              dataSource={myOrders}
+              columns={myOrdersColumns} />;
+          </TabPane>
+          <TabPane
+            tab='返佣订单'
+            key='2'
+            style={{ marginBottom: '500px' }}>
+            <Table
+              dataSource={profitOrdersColumns}
+              columns={profitOrders} />;
+          </TabPane>
+          <TabPane
             tab='个人信息'
-            key='1'>
+            key='3'>
             <Card
               title='基本信息'
               style={{ width: 500, marginBottom: '30px' }}
@@ -74,7 +166,7 @@ export default memo(function LSSettingPage() {
           </TabPane>
           <TabPane
             tab='费用管理'
-            key='2'
+            key='4'
             style={{ marginBottom: '500px' }}>
             <Card
               title='基本信息'
@@ -88,12 +180,6 @@ export default memo(function LSSettingPage() {
                 </Form.Item>
               </Form>
             </Card>
-          </TabPane>
-          <TabPane
-            tab='开发者工具'
-            key='3'
-            style={{ marginBottom: '500px' }}>
-            正在开发中～
           </TabPane>
         </Tabs>
       </SettingWrapper>
