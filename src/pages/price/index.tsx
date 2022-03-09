@@ -9,6 +9,7 @@ import { useLoading, useAppSelector } from '@/hooks';
 import { StorageKey } from '@/def';
 import { PriceWrapper, PricePageWrapper } from './style';
 import { PayMethod } from './def';
+import CheckPaidTimer from './check_paid_timer';
 
 // 月：120（日均4元）
 // 季：299（日均3.3元）
@@ -50,9 +51,14 @@ export default memo(function PricePage() {
   };
   const { isLoading, startLoading, stopLoading } = useLoading(undefined);
   const { id } = useAppSelector((state) => state.user.userInfo);
+  const [orderId, setOrderId] = useState('');
   const payByAlipay = async(money:number) => {
     setPayMethod(PayMethod.alipay);
     // TODO: delete it when deploy to product
+    if (!id) {
+      message.error('请先登录');
+      return;
+    }
     const data = {
       'final_price': `${money}`,
       'user_id': id,
@@ -62,6 +68,8 @@ export default memo(function PricePage() {
     try {
       const res = await alipayOrder(data);
       const qrcode = res.data.data['alipay_trade_precreate_response']['qr_code'];
+      const out_trade_no = res.data.data['alipay_trade_precreate_response']['out_trade_no'];
+      setOrderId(out_trade_no);
       QRCode.toDataURL(qrcode, function(error:any, url:string) {
         setAlipayQrcodeBase64(url);
         showModal();
@@ -101,13 +109,13 @@ export default memo(function PricePage() {
                       { item.content }
                     </div>
                     <div>
-                      <Button
+                      {/* <Button
                         loading={isLoading}
                         type='primary'
                         onClick={ () => payByAlipay(item.price) }
                         block>
                     支付宝(推荐)
-                      </Button>
+                      </Button> */}
                       <Button
                         type='primary'
                         onClick={ payByWechat }
@@ -160,6 +168,10 @@ export default memo(function PricePage() {
               <p>支付结束后, 请退出重新登录 </p>
             </div>
           </Modal>
+      }
+      {
+        payMethd === PayMethod.alipay && isModalVisible &&
+          <CheckPaidTimer orderId={orderId}/>
       }
 
       <LSAppFooter/>

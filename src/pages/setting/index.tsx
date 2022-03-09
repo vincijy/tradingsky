@@ -9,8 +9,8 @@ import LSAppFooter from '@/components/footer'; // 尾部
 
 import { getMyOrders, getProfitOrders } from '@/api/order';
 import { Table } from 'antd';
+import { orderStatusTypeList } from '@/def';
 import { SettingWrapper } from './style';
-import { orderStatusTypeList } from './def';
 
 export default memo(function SettingPage() {
 
