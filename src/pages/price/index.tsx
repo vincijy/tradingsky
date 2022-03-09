@@ -53,7 +53,6 @@ export default memo(function PricePage() {
   const payByAlipay = async(money:number) => {
     setPayMethod(PayMethod.alipay);
     // TODO: delete it when deploy to product
-    money = 0.5;
     const data = {
       'final_price': `${money}`,
       'user_id': id,
@@ -74,6 +73,7 @@ export default memo(function PricePage() {
       stopLoading();
     }
   };
+  (window as any).payByAlipay = payByAlipay;
   const payByWechat = async() => {
     setPayMethod(PayMethod.wechat);
     showModal();
@@ -155,6 +155,9 @@ export default memo(function PricePage() {
                 width={200}
                 height={200}
                 alt='支付宝二维码' />
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <p>支付结束后, 请退出重新登录 </p>
             </div>
           </Modal>
       }
