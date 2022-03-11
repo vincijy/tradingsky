@@ -10,6 +10,7 @@ import LSAppFooter from '@/components/footer'; // 尾部
 import { getMyOrders, getProfitOrders } from '@/api/order';
 import { Table } from 'antd';
 import { orderStatusTypeList } from '@/def';
+import ShareLink from '@/components/share_link';
 import { SettingWrapper } from './style';
 
 export default memo(function SettingPage() {
@@ -127,6 +128,7 @@ export default memo(function SettingPage() {
             tab='返佣订单'
             key='2'
             style={{ marginBottom: '500px' }}>
+            <ShareLink />
             <Table
               dataSource={profitOrdersColumns}
               columns={profitOrders} />;
