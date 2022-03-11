@@ -62,7 +62,7 @@ export default memo(function PricePage() {
     const data = {
       'final_price': `${money}`,
       'user_id': id,
-      'intro_user_id': localStorage.getItem(StorageKey.introUserId) || '',
+      'intro_user_id': localStorage.getItem(StorageKey.sharerUserId) || '',
     };
     startLoading();
     try {

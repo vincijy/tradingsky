@@ -1,5 +1,5 @@
 export enum StorageKey {
-  introUserId = 'introUserId'
+  sharerUserId = 'sharerUserId',
 };
 
 export const orderStatusTypeList = [

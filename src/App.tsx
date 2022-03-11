@@ -8,6 +8,7 @@ import routes from '@/router'; // 本地路由
 import store from '@/store';
 import 'antd/dist/antd.less'; // 按需引入、设置主题
 import RouteLoading from '@/components/route_loading';
+import Wrapper from '@/components/wrapper';
 import { FontStyle } from './style';
 
 // 组件
@@ -19,6 +20,7 @@ export default memo(function App() {
       <div id='authing_root' />
       <BrowserRouter>
         <LSAppHeader/>
+        <Wrapper/>
         <Suspense fallback={<RouteLoading/>}>
           {renderRoutes(routes)}
         </Suspense>
