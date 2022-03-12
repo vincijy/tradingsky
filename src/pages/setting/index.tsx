@@ -83,8 +83,8 @@ export default memo(function SettingPage() {
     },
     {
       title: '介绍人ID',
-      dataIndex: 'introuserId',
-      key: 'introuserId',
+      dataIndex: 'introUserId',
+      key: 'introUserId',
     },
     {
       title: '时间',
@@ -130,8 +130,8 @@ export default memo(function SettingPage() {
             style={{ marginBottom: '500px' }}>
             <ShareLink />
             <Table
-              dataSource={profitOrdersColumns}
-              columns={profitOrders} />;
+              dataSource={profitOrders}
+              columns={profitOrdersColumns} />;
           </TabPane>
           <TabPane
             tab='个人信息'
