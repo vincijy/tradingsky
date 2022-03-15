@@ -8,3 +8,11 @@ export function alipayOrder(data:any) {
     data,
   });
 }
+
+export function wechatPayOrder(data:any) {
+  return request({
+    url: '/bpi/v0/pay/wechat/web_url',
+    method: 'post',
+    data,
+  });
+}

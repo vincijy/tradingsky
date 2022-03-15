@@ -3,7 +3,7 @@ import { Card, Button, Modal, message } from 'antd';
 
 import LSAppFooter from '@/components/footer'; // 尾部
 import { ossImgs } from '@/oss';
-import { alipayOrder } from '@/api/pay';
+import { alipayOrder, wechatPayOrder } from '@/api/pay';
 import QRCode from 'qrcode';
 import { useLoading, useAppSelector } from '@/hooks';
 import { StorageKey } from '@/def';
@@ -36,6 +36,7 @@ const priceList = [
 export default memo(function PricePage() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [alipayQrcodeBase64, setAlipayQrcodeBase64] = useState('');
+  const [wechatPayQrcode, setWechatPayQrcode] = useState('');
   const [payMethd, setPayMethod] = useState(PayMethod.alipay);
 
   const showModal = () => {
@@ -54,7 +55,6 @@ export default memo(function PricePage() {
   const [orderId, setOrderId] = useState('');
   const payByAlipay = async(money:number) => {
     setPayMethod(PayMethod.alipay);
-    // TODO: delete it when deploy to product
     if (!id) {
       message.error('请先登录');
       return;
@@ -76,16 +76,39 @@ export default memo(function PricePage() {
       });
     } catch (error) {
       console.error(error);
-      message.error('支付宝生成订单失败, 请加客服微信支付');
+      message.error('支付宝生成订单失败, 请使用[微信]或者联系[客服微信]支付');
     } finally {
       stopLoading();
     }
   };
   (window as any).payByAlipay = payByAlipay;
-  const payByWechat = async() => {
+  const payByWechat = async(money:number) => {
     setPayMethod(PayMethod.wechat);
-    showModal();
+    if (!id) {
+      message.error('请先登录');
+      return;
+    }
+    const data = {
+      'final_price': `${money}`,
+      'user_id': id,
+      'intro_user_id': localStorage.getItem(StorageKey.sharerUserId) || '',
+    };
+    startLoading();
+    try {
+      const res = await wechatPayOrder(data);
+      const qrcode = res.data.data['url_qrcode'];
+      const order_uid = res.data.data['order_uid'];
+      setOrderId(order_uid);
+      setWechatPayQrcode(qrcode);
+      showModal();
+    } catch (error) {
+      console.error(error);
+      message.error('微信生成订单失败, 请使用[支付宝]或者联系[客服微信]支付');
+    } finally {
+      stopLoading();
+    }
   };
+  (window as any).payByWechat = payByWechat;
   return (
     <PricePageWrapper style={{ height: '100%' }}>
       <PriceWrapper>
@@ -109,16 +132,17 @@ export default memo(function PricePage() {
                       { item.content }
                     </div>
                     <div>
-                      {/* <Button
+                      <Button
                         loading={isLoading}
                         type='primary'
                         onClick={ () => payByAlipay(item.price) }
                         block>
                     支付宝(推荐)
-                      </Button> */}
+                      </Button>
                       <Button
+                        loading={isLoading}
                         type='primary'
-                        onClick={ payByWechat }
+                        onClick={ () => payByWechat(item.price) }
                         block>
                     微信
                       </Button>
@@ -132,19 +156,37 @@ export default memo(function PricePage() {
       </PriceWrapper>
       {
         payMethd === PayMethod.wechat &&
+        // <Modal
+        //   visible={isModalVisible}
+        //   onOk={handleOk}
+        //   onCancel={handleCancel}>
+        //   <div style={{ textAlign: 'center' }}>
+        //     <p>暂不支持微信自动收款,可加微信客服开通或使用支付宝支付~</p>
+        //   </div>
+        //   <div style={{ display: 'flex', justifyContent: 'center' }}>
+        //     <img
+        //       src={ossImgs.qrcode}
+        //       width={200}
+        //       height={200}
+        //       alt='微信联系二维码' />
+        //   </div>
+        // </Modal>
         <Modal
           visible={isModalVisible}
           onOk={handleOk}
           onCancel={handleCancel}>
           <div style={{ textAlign: 'center' }}>
-            <p>暂不支持微信自动收款,可加微信客服开通或使用支付宝支付~</p>
+            <p>微信支付:扫码开通~</p>
           </div>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <img
-              src={ossImgs.qrcode}
+              src={wechatPayQrcode}
               width={200}
               height={200}
-              alt='微信联系二维码' />
+              alt='微信支付二维码' />
+          </div>
+          <div style={{ textAlign: 'center' }}>
+            <p>支付结束后, 请退出重新登录 </p>
           </div>
         </Modal>
       }
@@ -170,7 +212,7 @@ export default memo(function PricePage() {
           </Modal>
       }
       {
-        payMethd === PayMethod.alipay && isModalVisible &&
+        isModalVisible &&
           <CheckPaidTimer orderId={orderId}/>
       }
 
