@@ -23,6 +23,12 @@ export function getMyOrders(params:{pageId:number, pageSize:number, userId:strin
   });
 };
 
+export function getOrderByOrderId(orderId:string):AxiosPromise<IOrder> {
+  return request({
+    url: `/bpi/v0/orders/single/${orderId}`,
+  });
+};
+
 /**
  * 获取可以分成的订单ID
  * @param id
@@ -37,3 +43,4 @@ total:number;
     params: params,
   });
 };
+

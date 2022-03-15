@@ -1,6 +1,6 @@
 import React, { memo, useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '@/hooks';
-import { getMyOrders } from '@/api/order';
+import { getOrderByOrderId } from '@/api/order';
 import { useRef } from 'react';
 import { orderStatusTypeList } from '@/def';
 import { message } from 'antd';
@@ -27,15 +27,12 @@ export default memo(function CheckPaidTimer(props:IProps) {
     if (!orderId) {
       return;
     }
-    const res = await getMyOrders({ pageSize: 2000, pageId: 1, userId: userId });
-    if (!res.data || !res.data.list) {
+    const res = await getOrderByOrderId(orderId);
+    if (!res || !res.data) {
       return;
     }
-    const orderList = res.data.list;
-    const order = orderList.find((item) => item.orderId === orderId);
-    if (!order) {
-      return;
-    }
+    const order = res.data;
+    console.log(order);
     if (order.orderStatusTypeCode !== '0') {
       logout();
       message.success('支付成功, 请重新登录');
