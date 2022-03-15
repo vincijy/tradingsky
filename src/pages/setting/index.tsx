@@ -54,14 +54,16 @@ export default memo(function SettingPage() {
   const fetchMyOrders = async() => {
     const res = await getMyOrders({ pageId: 1, pageSize: 100, userId: id });
     if (res && res.data && res.data.list) {
-      res.data.list.forEach((order) => {
+      // 过滤掉未支付
+      const paidList = res.data.list.filter((item) => item.orderStatusTypeCode !== '0');
+      paidList.forEach((order) => {
         const statusType = orderStatusTypeList.find((item) => item.code === order.orderStatusTypeCode);
         if (!statusType) {
           return;
         }
         order.orderStatusTypeCode = statusType.title;
       });
-      setMyOrders(res.data.list);
+      setMyOrders(paidList);
     }
   };
 
@@ -96,14 +98,16 @@ export default memo(function SettingPage() {
   const fetchProfitOrders = async() => {
     const res = await getProfitOrders({ pageId: 1, pageSize: 100, introUserId: id });
     if (res && res.data && res.data.list) {
-      res.data.list.forEach((order) => {
+      // 过滤掉未支付
+      const paidList = res.data.list.filter((item) => item.orderStatusTypeCode !== '0');
+      paidList.forEach((order) => {
         const statusType = orderStatusTypeList.find((item) => item.code === order.orderStatusTypeCode);
         if (!statusType) {
           return;
         }
         order.orderStatusTypeCode = statusType.title;
       });
-      setProfitOrders(res.data.list);
+      setProfitOrders(paidList);
     }
   };
 
