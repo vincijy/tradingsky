@@ -7,6 +7,7 @@ import { message } from 'antd';
 import { getAuthingClient } from '@/authing';
 import * as UA from '@/store/user/action'; // 改变登录状态
 import * as UIAction from '@/store/ui/action'; // 改变登录状态
+import { injectAuthingPanel } from '@/components/authing';
 
 interface IProps {
   orderId:string;
@@ -16,7 +17,15 @@ export default memo(function CheckPaidTimer(props:IProps) {
   const ref = useRef<any>(null);
   const dispatch = useAppDispatch();
   const { orderId } = props;
-
+  const showAuthingLoginPanel = () => {
+    dispatch(UIAction.changeAuthingPanel({
+      authingPanel: {
+        visible: true,
+        view: 'login',
+      },
+    }));
+    injectAuthingPanel();
+  };
   const stopLoopCheck = () => {
     ref.current && clearInterval(ref.current);
     ref.current = undefined;
@@ -32,12 +41,12 @@ export default memo(function CheckPaidTimer(props:IProps) {
       return;
     }
     const order = res.data;
-    console.log(order);
     if (order.orderStatusTypeCode !== '0') {
       logout();
+      (window as any).handleCancel();
       message.success('支付成功, 请重新登录');
       stopLoopCheck();
-      dispatch(UIAction.setLoginPanelVisible({ loginPanelVisible: true }));
+      showAuthingLoginPanel();
     };
   };
   const authenticationClient = getAuthingClient();
