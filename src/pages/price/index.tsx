@@ -140,7 +140,7 @@ export default memo(function PricePage() {
                         type='primary'
                         onClick={ () => payByAlipay(item.price) }
                         block>
-                    支付宝(推荐)
+                    支付宝
                       </Button>
                       <Button
                         loading={isLoading}

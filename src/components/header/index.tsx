@@ -76,6 +76,9 @@ export default memo(function LSAppHeader() {
         <NavLink to='/chart' >图表数据</NavLink>
       </Menu.Item>
       <Menu.Item key='1'>
+        <NavLink to='/order' >订单信息</NavLink>
+      </Menu.Item>
+      <Menu.Item key='2'>
         <NavLink to='/setting' >个人信息</NavLink>
       </Menu.Item>
       <Menu.Divider />

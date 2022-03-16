@@ -56,6 +56,11 @@ const routes = [
     exact: true,
     component: lazy(() => import( '@/pages/discovery/detail/index')),
   },
+  {
+    path: '/order',
+    exact: true,
+    component: lazy(() => import( '@/pages/order/index')),
+  },
 ];
 
 export default routes;
