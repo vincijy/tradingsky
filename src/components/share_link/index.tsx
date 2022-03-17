@@ -23,7 +23,7 @@ export default memo(function ShareLink() {
   return (
     <div>
       <span>
-        将链接分享给好友, 获取返佣收入: <span style={{ backgroundColor: '#f50', color: 'white' }}>{ url }</span>
+        将链接分享给好友, 获取返佣收入: <span style={{ fontWeight: 'bold' }}>{ url }</span>
       </span>
       <Button
         size='small'

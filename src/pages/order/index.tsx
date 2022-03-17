@@ -3,7 +3,7 @@ import LSAppFooter from '@/components/footer'; // 尾部
 import ShareLink from '@/components/share_link';
 import { orderStatusTypeList } from '@/def';
 import { useAppSelector } from '@/hooks';
-import { Table, Tabs } from 'antd';
+import { Table, Tabs, Card } from 'antd';
 import React, { memo, useEffect, useState } from 'react';
 import { orderStatusType } from '@/def';
 import { OrderWrapper } from './style';
@@ -102,19 +102,19 @@ export default memo(function OrderPage() {
       return [0.1 * v, `10% * ${v}`];
     }
     else if (totalNum > 10 && totalNum < 51) {
+      return [0.2 * v, `20% * ${v}`];
+    }
+    else if (totalNum > 50 && totalNum < 101) {
       return [0.3 * v, `30% * ${v}`];
     }
-    else if (totalNum > 50 && totalNum < 201) {
+    else if (totalNum > 100 && totalNum < 301) {
       return [0.4 * v, `40% * ${v}`];
     }
-    else if (totalNum > 200 && totalNum < 301) {
+    else if (totalNum > 300 && totalNum < 501) {
       return [0.5 * v, `50% * ${v}`];
     }
-    else if (totalNum > 300 && totalNum < 501) {
-      return [0.6 * v, `60% * ${v}`];
-    }
     else if (totalNum > 500) {
-      return [0.7 * v, `70% * ${v}`];
+      return [0.6 * v, `60% * ${v}`];
     }
     else {
       return [v, `100% * ${v}`];
@@ -158,6 +158,100 @@ export default memo(function OrderPage() {
     fetchProfitOrders();
   }, []);
 
+  const rules = [
+    {
+      level: '1星',
+      orderNum: '1~10',
+      rate: '10%',
+    },
+    {
+      level: '2星',
+      orderNum: '11~50',
+      rate: '20%',
+    },
+    {
+      level: '3星',
+      orderNum: '51~100',
+      rate: '30%',
+    },
+    {
+      level: '4星',
+      orderNum: '101~300',
+      rate: '40%',
+    },
+    {
+      level: '5星',
+      orderNum: '301~500',
+      rate: '50%',
+    },
+    {
+      level: '6星',
+      orderNum: '>=501',
+      rate: '60%',
+    },
+  ];
+  // 1星 10% 0-10人
+  // 2星 20% 10-50人
+  // 3星 30% 50-100人
+  // 4星 40% 100-300人
+  // 5星 50% 300-500人
+  // 6星 60% 500人及以上
+  const rulesColumns = [
+    {
+      title: '等级',
+      dataIndex: 'level',
+      key: 'level',
+    },
+    {
+      title: '订单数量',
+      dataIndex: 'orderNum',
+      key: 'orderNum',
+    },
+    {
+      title: '结算返佣提成比例',
+      dataIndex: 'rate',
+      key: 'rate',
+    },
+  ];
+
+  const orderStatics = [
+    {
+      notReturnNum: notReturnedProfitOrders.length,
+      returnedNum: returnedProfitOrders.length,
+      allValidNum: profitOrders.length,
+      notReturnMoney: profit.toFixed(2),
+      calMethod: calMethod,
+    },
+  ];
+
+  const orderStaticsColumns = [
+    {
+      title: '未结算订单数量',
+      dataIndex: 'notReturnNum',
+      key: 'notReturnNum',
+    },
+    {
+      title: '已结算订单数量',
+      dataIndex: 'returnedNum',
+      key: 'returnedNum',
+    },
+    {
+      title: '累计订单数量',
+      dataIndex: 'allValidNum',
+      key: 'allValidNum',
+    },
+    {
+      title: '当前可返佣金额',
+      dataIndex: 'notReturnMoney',
+      key: 'notReturnMoney',
+    },
+    {
+      title: '返佣提成计算方式',
+      dataIndex: 'calMethod',
+      key: 'calMethod',
+    },
+  ];
+
   return (
     <div>
       <OrderWrapper>
@@ -174,17 +268,43 @@ export default memo(function OrderPage() {
             tab='返佣统计'
             key='2'
             style={{ marginBottom: '500px' }}>
-            <ShareLink />
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '30px' }}>
-              <span>未结算的订单数: {notReturnedProfitOrders.length}</span>
-              <span>已结算的订单数: {returnedProfitOrders.length}</span>
-              <span>总的订单数: {profitOrders.length}</span>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'flex-start', marginTop: '20px' }}>
-              <span style={{ marginRight: '20px' }}>未结算的金额: ¥{profit.toFixed(2)}</span>
-              <span>返佣计算方式: {calMethod}</span>
-            </div>
-            <div style={{ marginTop: '20px' }}>点击 [返佣订单] 可查看具体的订单情况</div>
+
+            <Card
+              title='参与推荐返佣方式:'
+              style={{ marginTop: 10 }}>
+              <ShareLink />
+            </Card>
+
+            <Card
+              title='当前结算数据'
+              style={{ marginTop: 40 }}>
+              <Table
+                pagination={false}
+                dataSource={orderStatics}
+                columns={orderStaticsColumns} />
+              <p style={{ marginTop: '20px' }}>点击 [返佣订单] 可查看具体的订单情况.</p>
+            </Card>
+
+            <Card
+              title='结算途径'
+              style={{ marginTop: 40 }}>
+              <p style={{ marginTop: '20px' }}>联系客服微信 <span style={{ fontWeight: 'bold' }}>lianshucha</span> 进行结算</p>
+            </Card>
+
+            <Card
+              title='提成规则说明:'
+              style={{ marginTop: 40 }}>
+              <p>分成计算规则: 根据不同推荐人的[累计推荐有效订单数量], 划分不同的返佣提成比例. 根据比例进行订单提成.</p>
+              <p>下方为具体的规则</p>
+              <Table
+                dataSource={rules}
+                pagination={false}
+                columns={rulesColumns} />
+              <p>
+                举例: 用户通过分享链接, 得到已付费的累计有效订单数量为32, 则对应的结算提成为20%, 当他找客服结算的时候 [总的未结算订单金额]*20% 即是
+                他的返佣所得.
+              </p>
+            </Card>
           </TabPane>
           <TabPane
             tab='返佣订单'
