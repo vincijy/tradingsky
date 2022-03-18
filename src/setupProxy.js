@@ -2,21 +2,18 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
+
+  // 含有数据接口的测试服务器
   app.use('/api', createProxyMiddleware({
     target: 'http://121.43.176.46:8081',
     changeOrigin: true,
   }));
 
-  // 线上另一台生产服务器
+
+  // 生产服务器的 python backend
   app.use('/bpi', createProxyMiddleware({
-    target: 'http://localhost:5000',
+    target: 'http://paynotify.lianshucha.com',
     changeOrigin: true,
     pathRewrite: { '^/bpi/': '/api/' },
-  }));
-
-  app.use('/cross', createProxyMiddleware({
-    target: 'http://121.43.176.46:8081',
-    changeOrigin: true,
-    pathRewrite: { '^/cross': '' },
   }));
 };
