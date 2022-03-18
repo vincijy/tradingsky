@@ -154,20 +154,20 @@ export default memo(function LSChartBar() {
               onCancel={handleCancel}>
               <div style={{ textAlign: 'center' }}>
                 <p>L2数据为高级数据, 需将账号升级为L2才可访问近期数据</p>
-                <p>为了提供更好的售后支持, 请加微信开通~</p>
+                {/* <p>为了提供更好的售后支持, 请加微信开通~</p> */}
               </div>
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
+              {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <img
                   src={ossImgs.qrcode}
                   width={200}
                   height={200}
                   alt='微信二维码' />
-              </div>
-              <div style={{ textAlign: 'center' }}>
+              </div> */}
+              <div style={{ textAlign: 'center', marginTop: '30px' }}>
                 <a
                   href='/price'
                   style={{ color: 'orange', textDecoration: 'underline' }}>
-            点击了解定价
+            前往查看定价, 自助开通
                 </a>
               </div>
             </Modal>

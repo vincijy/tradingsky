@@ -117,7 +117,7 @@ export default memo(function OrderPage() {
       return [0.6 * v, `60% * ${v}`];
     }
     else {
-      return [v, `100% * ${v}`];
+      return [v, `0% * ${v}`];
     }
   };
   const [profitOrders, setProfitOrders] = useState([] as any);
