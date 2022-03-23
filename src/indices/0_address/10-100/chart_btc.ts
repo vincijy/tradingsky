@@ -34,7 +34,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '余额 1-10 地址量',
+      name: '余额 10-100 地址量',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -52,7 +52,7 @@ export const chart = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '余额 1-10 地址量(7日均线)',
+      name: '余额 10-100 地址量(7日均线)',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {
