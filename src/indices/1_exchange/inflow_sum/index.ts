@@ -10,7 +10,6 @@ export const exchangeInflow:D.SubMenuItem = {
   loginRequired: true,
   vipRequired: true,
   visible: true,
-  isNew: true,
   args: {
     index: 'exchange/inflow_sum',
   },

@@ -12,10 +12,15 @@ import { activeSentiment } from './active_sentiment';
 import { nonZero } from './non_zero';
 import { smartContractPct } from './smartcontract_pct';
 import { top1Pct } from './top1_pct';
-
+import { addressLess1 } from './less_1';
+import { addressOnetoten } from './1_10';
+import { addressTentoHundred } from './10-100';
+import { addresshundredtoThousand } from './100-1k';
+import { addressMore10k } from './more_10k';
+import { transactionRate } from './transaction_rate';
 
 export const address:D.MenuItem = {
-  name: '地址',
+  name: '地址/网络',
   icon: <FaFingerprint />,
   key: 'sub1',
   visible: true,
@@ -27,8 +32,14 @@ export const address:D.MenuItem = {
     addressMore001,
     addressMore1,
     addressMore100,
-    moreOneyear,
+    addressLess1,
+    addressOnetoten,
+    addressTentoHundred,
+    addresshundredtoThousand,
     addressMore1k,
+    addressMore10k,
+    transactionRate,
+    moreOneyear,
     activeSentiment,
     smartContractPct,
     top1Pct,

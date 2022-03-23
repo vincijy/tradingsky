@@ -7,7 +7,6 @@ export const hashRate = {
   loginRequired: true, // 付费指标
   vipRequired: true,
   visible: true,
-  isNew: true,
 
   args: {
     index: 'miner/hash_rate',

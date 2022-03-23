@@ -1,20 +1,21 @@
 import * as D from '../../def';
 import { introduce } from './introduce';
-import { chart as chartBtc } from './chart_btc';
-import { chart as chartEth } from './chart_eth';
+import { chart } from './chart_btc';
+import { chartEth } from './chart_eth';
 
-export const balanceEx:D.SubMenuItem = {
-  name: '交易所余额',
-  key: '交易所余额',
+export const addresshundredtoThousand:D.SubMenuItem = {
+  name: '余额 100-1k 地址量',
+  key: '余额 100-1k 地址量',
   loginRequired: true,
   vipRequired: true,
   visible: true,
+  isNew: true,
   args: {
-    index: 'exchange/balance_exchange',
+    index: 'address/100_1k',
   },
   introduce: introduce,
   assetList: ['btc', 'eth'],
-  catalogText: '交易所地址上的token余额',
+  catalogText: '持币余额在100-1k之间的地址数量',
   toolbox: {
     annotation: {
       enabled: false, // 无标注
@@ -24,7 +25,7 @@ export const balanceEx:D.SubMenuItem = {
     },
   },
   chart: {
-    btc: chartBtc,
+    btc: chart,
     eth: chartEth,
   },
 };

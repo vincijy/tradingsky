@@ -11,7 +11,6 @@ export const nonZero:D.SubMenuItem = {
   loginRequired: true,
   vipRequired: false,
   visible: true,
-  isNew: true,
   args: {
     index: 'address/non_zero_count',
   },
