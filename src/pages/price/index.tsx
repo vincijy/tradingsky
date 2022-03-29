@@ -135,19 +135,19 @@ export default memo(function PricePage() {
                       { item.content }
                     </div>
                     <div>
-                      <Button
+                      {/* <Button
                         loading={isLoading}
                         type='primary'
                         onClick={ () => payByAlipay(item.price) }
                         block>
                     支付宝
-                      </Button>
+                      </Button> */}
                       <Button
                         loading={isLoading}
                         type='primary'
                         onClick={ () => payByWechat(item.price) }
                         block>
-                    微信
+                    微信支付
                       </Button>
                     </div>
                   </Card>
