@@ -3,7 +3,7 @@ import { Card, Button, Modal, message } from 'antd';
 
 import LSAppFooter from '@/components/footer'; // 尾部
 import { ossImgs } from '@/oss';
-import { alipayOrder, wechatPayOrder } from '@/api/pay';
+import { alipayOrder, hupiPayOrder } from '@/api/pay';
 import QRCode from 'qrcode';
 import { useLoading, useAppSelector } from '@/hooks';
 import { StorageKey } from '@/def';
@@ -85,8 +85,8 @@ export default memo(function PricePage() {
     }
   };
   (window as any).payByAlipay = payByAlipay;
-  const payByWechat = async(money:number) => {
-    setPayMethod(PayMethod.wechat);
+  const payByHupi = async(money:number, method:PayMethod) => {
+    setPayMethod(method);
     if (!id) {
       message.error('请先登录');
       return;
@@ -95,10 +95,11 @@ export default memo(function PricePage() {
       'final_price': `${money}`,
       'user_id': id,
       'intro_user_id': localStorage.getItem(StorageKey.sharerUserId) || '',
+      'method': method,
     };
     startLoading();
     try {
-      const res = await wechatPayOrder(data);
+      const res = await hupiPayOrder(data);
       const qrcode = res.data.data['url_qrcode'];
       const order_uid = res.data.data['order_uid'];
       setOrderId(order_uid);
@@ -111,7 +112,7 @@ export default memo(function PricePage() {
       stopLoading();
     }
   };
-  (window as any).payByWechat = payByWechat;
+  (window as any).payByHupi = payByHupi;
   return (
     <PricePageWrapper style={{ height: '100%' }}>
       <PriceWrapper>
@@ -135,17 +136,17 @@ export default memo(function PricePage() {
                       { item.content }
                     </div>
                     <div>
-                      {/* <Button
-                        loading={isLoading}
-                        type='primary'
-                        onClick={ () => payByAlipay(item.price) }
-                        block>
-                    支付宝
-                      </Button> */}
                       <Button
                         loading={isLoading}
                         type='primary'
-                        onClick={ () => payByWechat(item.price) }
+                        onClick={ () => payByHupi(item.price, PayMethod.alipay)}
+                        block>
+                    支付宝
+                      </Button>
+                      <Button
+                        loading={isLoading}
+                        type='primary'
+                        onClick={ () => payByHupi(item.price, PayMethod.wechat) }
                         block>
                     微信支付
                       </Button>
@@ -158,7 +159,6 @@ export default memo(function PricePage() {
         </div>
       </PriceWrapper>
       {
-        payMethd === PayMethod.wechat &&
         // <Modal
         //   visible={isModalVisible}
         //   onOk={handleOk}
@@ -179,21 +179,21 @@ export default memo(function PricePage() {
           onOk={handleOk}
           onCancel={handleCancel}>
           <div style={{ textAlign: 'center' }}>
-            <p>微信支付:扫码开通~</p>
+            <p>{ payMethd === PayMethod.alipay ? '支付宝' : '微信' }支付:扫码开通~</p>
           </div>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <img
               src={wechatPayQrcode}
               width={200}
               height={200}
-              alt='微信支付二维码' />
+              alt='支付二维码' />
           </div>
           <div style={{ textAlign: 'center' }}>
             <p>支付结束后, 请退出重新登录 </p>
           </div>
         </Modal>
       }
-      {
+      {/* {
         payMethd === PayMethod.alipay &&
           <Modal
             visible={isModalVisible}
@@ -213,7 +213,7 @@ export default memo(function PricePage() {
               <p>支付结束后, 请退出重新登录 </p>
             </div>
           </Modal>
-      }
+      } */}
       {
         isModalVisible &&
           <CheckPaidTimer orderId={orderId}/>

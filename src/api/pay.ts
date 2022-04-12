@@ -9,9 +9,9 @@ export function alipayOrder(data:any) {
   });
 }
 
-export function wechatPayOrder(data:any) {
+export function hupiPayOrder(data:any) {
   return request({
-    url: '/bpi/v0/pay/wechat/web_url',
+    url: '/bpi/v0/pay/hupi/web_url',
     method: 'post',
     data,
   });
