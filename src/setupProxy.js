@@ -16,4 +16,11 @@ module.exports = function(app) {
     changeOrigin: true,
     pathRewrite: { '^/bpi/': '/api/' },
   }));
+
+  // // 本地开发的 python backend
+  // app.use('/bpi', createProxyMiddleware({
+  //   target: 'http://localhost:5000',
+  //   changeOrigin: true,
+  //   pathRewrite: { '^/bpi/': '/api/' },
+  // }));
 };
