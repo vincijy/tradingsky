@@ -10,7 +10,35 @@ import { sentiment } from './6_sentiment';
 import { investorBehavior } from './7_behavior';
 import { miner } from './8_miner';
 
-export const menus:D.MenuItem[] = [
+// 预处理, 添加公共配置等等
+const preProcess = (menus:D.MenuItem[]) => {
+  menus.forEach((menu:D.MenuItem) => {
+    menu.subMenus.forEach((subMenu:D.SubMenuItem) => {
+      Object.keys(subMenu.chart).forEach((k:string) => {
+        const chartOption = subMenu.chart[k];
+        if (k === 'btc') {
+          return;
+        }
+        // TODO: check why:不加这一行如果, push后直接return为啥还会重复添加
+        if (chartOption.series.find((item:any) => item.name === 'btc价格')) {
+          return;
+        }
+        chartOption.series.push(
+          {
+            name: 'btc价格',
+            data: [],
+            color: 'rgb(247, 147, 26, 0.5)',
+            yAxis: 1,
+            visible: false,
+          },
+        );
+      });
+    });
+  });
+  return menus;
+};
+
+const menus__:D.MenuItem[] = [
   /**
    * 我的收藏
    */
@@ -67,3 +95,5 @@ export const menus:D.MenuItem[] = [
    */
   miner,
 ];
+
+export const menus = preProcess(menus__);

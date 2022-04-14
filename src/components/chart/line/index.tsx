@@ -15,14 +15,40 @@ import { isMobile } from '@/utils/is';
 import { getHighCharts, setChart } from '../index';
 
 import { constructorType } from '../def';
+import { TypeDataRow } from '../def';
 import * as D from './def';
 import { convert, cutDataByDate, assignSmaDataToSerie, cutDataByDateWithRight, getOneYearAgo, getToday } from './util';
 
+interface IProps {
+  /**
+   * 左侧y轴数据
+   */
+  seriesA:{
+    name:string;
+    data:TypeDataRow;
+  };
 
-export default memo(function LSChartDoubleLine(props:D.IProps) {
-  const { seriesA, seriesB } = props;
-  const{ data: dataA } = seriesA;
-  const{ data: dataB } = seriesB;
+  /**
+   * 右侧y轴数据
+   */
+  seriesB:{
+    name:string;
+    data:TypeDataRow;
+  };
+
+  /**
+   * TODO
+   */
+  seriesC?:{
+    name:string;
+    data:TypeDataRow;
+  };
+}
+
+export default memo(function LinesChart(props:IProps) {
+  const { seriesA, seriesB, seriesC } = props;
+  const { data: dataA } = seriesA;
+  const { data: dataB } = seriesB;
 
   const options = useAppSelector((state) => state.chart.options);
   const xStart = useAppSelector((state) => state.ui.currentMenu.subMenu.xStart);
@@ -89,6 +115,20 @@ export default memo(function LSChartDoubleLine(props:D.IProps) {
       handlePriceSTOF(priceV);
     } else {
       price.data = priceV;
+    }
+  }
+
+  // btc价格线
+  if (seriesC) {
+    const { data: dataC } = seriesC;
+    const btcPrice = options.series.find((s:D.ISerie) => s.name === 'btc价格');
+    if (btcPrice && dataC && dataC.length > 0) {
+      const d = convert(dataC).v;
+      if (!d) {
+        console.error('Cannot convert data');
+      }
+      const priceV = dataMayCut(d, startDate);
+      btcPrice.data = priceV;
     }
   }
 

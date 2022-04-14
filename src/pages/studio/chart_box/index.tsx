@@ -1,16 +1,13 @@
 import { memo, useEffect, useState, useLayoutEffect, useCallback, useMemo } from 'react';
 import { useAppSelector, useAppDispatch } from '@/hooks';
-import LSChartDoubleLine from '@/components/chart/line';
+import LinesChart from '@/components/chart/line';
 import { getHighCharts } from '@/components/chart';
 import { getChartData, getAssetPrice } from '@/api/chart';
-import { getWhaleAddress, getWhaleTop, getAllPrice } from '@/api/discovery';
-import { setPriceData, toggleAnnotation } from '@/store/chart/action';
+import { setPriceData } from '@/store/chart/action';
 import { TypeDataRow } from '@/components/chart/def';
 import axios from 'axios';
 import { CancelTokenSource } from 'axios';
 import { isMobile } from '@/utils/is';
-import { getAnnotationManager } from '@/utils/annotation';
-import { Button } from 'antd';
 import LSChartToolbox from '../chart_toolbox';
 import LSChartHead from '../char_head';
 import LSChartCover from '../chart_cover';
@@ -78,10 +75,11 @@ export default memo(function LSChartBox() {
   }, [loginRequired, vipRequired, isLogin, role, asset, assetList]);
 
   const priceData = useAppSelector((state) => state.chart.priceData);
-  const currrentAsset = useAppSelector((state) => state.chart.dataAsset);
+  const currentAsset = useAppSelector((state) => state.chart.dataAsset);
   const initData:TypeDataRow = [];
   const [dataA, setDataA] = useState(initData);
-  const [dataB, setDataB] = useState(priceData[currrentAsset]);
+  const [dataB, setDataB] = useState(priceData[currentAsset]);
+  const [dataC, setDataC] = useState(priceData['btc']);
   const dispatch = useAppDispatch();
 
   const requestData = () => {
@@ -107,9 +105,10 @@ export default memo(function LSChartBox() {
 
     // 请求价格数据的promise
     const p2 = new Promise<TypeDataRow>((resolve, reject) => {
+      console.log(priceData, currentAsset, '8888');
       // 如果已经请求过了, 不必再次请求
-      if (priceData[currrentAsset] && priceData[currrentAsset].length !== 0) {
-        resolve(priceData[currrentAsset]);
+      if (priceData[currentAsset] && priceData[currentAsset].length !== 0) {
+        resolve(priceData[currentAsset]);
         return;
       }
 
@@ -124,48 +123,62 @@ export default memo(function LSChartBox() {
         });
     });
 
-    Promise.all([p1, p2])
+    // 需要给小币种增加比特币价格线.单独请求比特币价格数据的promise.
+    const p3 = new Promise<TypeDataRow>((resolve, reject) => {
+
+      if (currentAsset === 'btc') {
+        resolve([]);
+        return;
+      }
+
+      // 如果已经请求过了, 不必再次请求
+      if (priceData['btc'] && priceData['btc'].length !== 0) {
+        resolve(priceData['btc']);
+        return;
+      }
+
+      // btc价格
+      getAssetPrice('btc')
+        .then((res) => {
+          resolve(res.data.rows || []);
+        })
+        .catch((err) => {
+          console.error(err);
+          reject();
+        });
+    });
+
+    Promise.all([p1, p2, p3])
       .then((res) => {
         hideLoading();
-        const [dataA, dataB] = res;
-
-        // 指标数据更新
-        dataA.length > 0 && setDataA(dataA);
-
-
-        // 价格数据更新
-        if (dataB.length === 0) {
+        const [dataA, dataB, dataC] = res;
+        if (dataA.length === 0) {
           return;
         }
-        setDataB(dataB);
+        // 指标数据更新
+        setDataA(dataA);
 
-        // 存到redux
-        switch (currrentAsset) {
-          case 'btc':
-            dispatch(setPriceData({
-              priceData: {
-                ...priceData,
-                btc: dataB,
-              },
-            }));
-            break;
-          case 'eth':
-            dispatch(setPriceData({
-              priceData: {
-                ...priceData,
-                eth: dataB,
-              },
-            }));
-            break;
-          default:
-            dispatch(setPriceData({
-              priceData: {
-                ...priceData,
-                [currrentAsset]: dataB,
-              },
-            }));
-            break;
+        if (dataB.length > 0) {
+          setDataB(dataB);
         }
+
+        if (dataC.length > 0) {
+          setDataC(dataC);
+        }
+
+        const newPriceData = currentAsset === 'btc' ?
+          {
+            ...priceData,
+            btc: dataB,
+          } :
+          {
+            ...priceData,
+            [currentAsset]: dataB,
+            btc: dataC,
+          };
+        dispatch(setPriceData({
+          priceData: newPriceData,
+        }));
       })
       .catch((err) => {
         console.error(err);
@@ -224,9 +237,10 @@ export default memo(function LSChartBox() {
           />
         }
 
-        <LSChartDoubleLine
+        <LinesChart
           seriesA={ { data: dataA, name: name } }
           seriesB={ { data: dataB, name: '价格' } }
+          seriesC={ { data: dataC, name: 'btc价格' } }
         />
       </div>
     </BoxWrapper>
