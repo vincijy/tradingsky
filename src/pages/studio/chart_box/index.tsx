@@ -105,7 +105,6 @@ export default memo(function LSChartBox() {
 
     // 请求价格数据的promise
     const p2 = new Promise<TypeDataRow>((resolve, reject) => {
-      console.log(priceData, currentAsset, '8888');
       // 如果已经请求过了, 不必再次请求
       if (priceData[currentAsset] && priceData[currentAsset].length !== 0) {
         resolve(priceData[currentAsset]);

@@ -16,7 +16,7 @@ const preProcess = (menus:D.MenuItem[]) => {
     menu.subMenus.forEach((subMenu:D.SubMenuItem) => {
       Object.keys(subMenu.chart).forEach((k:string) => {
         const chartOption = subMenu.chart[k];
-        if (k === 'btc') {
+        if (k === 'btc' || k === 'eth') {
           return;
         }
         // TODO: check why:不加这一行如果, push后直接return为啥还会重复添加
