@@ -7,6 +7,7 @@ import { alipayOrder, hupiPayOrder } from '@/api/pay';
 import QRCode from 'qrcode';
 import { useLoading, useAppSelector } from '@/hooks';
 import { StorageKey } from '@/def';
+import { Input } from 'antd';
 import { PriceWrapper, PricePageWrapper } from './style';
 import { PayMethod } from './def';
 import CheckPaidTimer from './check_paid_timer';
@@ -38,6 +39,10 @@ export default memo(function PricePage() {
   const [alipayQrcodeBase64, setAlipayQrcodeBase64] = useState('');
   const [wechatPayQrcode, setWechatPayQrcode] = useState('');
   const [payMethd, setPayMethod] = useState(PayMethod.alipay);
+  const [sharerCode, setSharerCode] = useState(localStorage.getItem(StorageKey.sharerCode) || '');
+  const handleInputChange = (e:any) => {
+    setSharerCode(e.target.value);
+  };
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -66,6 +71,7 @@ export default memo(function PricePage() {
       'final_price': `${money}`,
       'user_id': id,
       'intro_user_id': localStorage.getItem(StorageKey.sharerUserId) || '',
+      'intro_user_code': sharerCode,
     };
     startLoading();
     try {
@@ -95,6 +101,7 @@ export default memo(function PricePage() {
       'final_price': `${money}`,
       'user_id': id,
       'intro_user_id': localStorage.getItem(StorageKey.sharerUserId) || '',
+      'intro_user_code': sharerCode,
       'method': method,
     };
     startLoading();
@@ -113,6 +120,7 @@ export default memo(function PricePage() {
     }
   };
   (window as any).payByHupi = payByHupi;
+
   return (
     <PricePageWrapper style={{ height: '100%' }}>
       <PriceWrapper>
@@ -135,6 +143,15 @@ export default memo(function PricePage() {
                     <div className='price-desc'>
                       { item.content }
                     </div>
+                    {
+                      sharerCode &&
+                      <Input
+                        addonBefore='邀请码'
+                        value={sharerCode}
+                        onChange={handleInputChange}
+                        style={{ marginBottom: '20px' }}/>
+                    }
+
                     <div>
                       <Button
                         loading={isLoading}

@@ -7,6 +7,10 @@ export default memo(function Wrapper() {
     const params = getUrlParams();
     if (params.sharerUserId) {
       localStorage.setItem(StorageKey.sharerUserId, params.sharerUserId);
+      localStorage.setItem(StorageKey.sharerCode, params.sharerCode);
+    }
+    if (params.sharerCode) {
+      localStorage.setItem(StorageKey.sharerCode, params.sharerCode);
     }
   }, []);
   return (

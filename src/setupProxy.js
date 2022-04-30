@@ -10,17 +10,17 @@ module.exports = function(app) {
   }));
 
 
-  // 生产服务器的 python backend
-  app.use('/bpi', createProxyMiddleware({
-    target: 'http://paynotify.lianshucha.com',
-    changeOrigin: true,
-    pathRewrite: { '^/bpi/': '/api/' },
-  }));
-
-  // // 本地开发的 python backend
+  // // 生产服务器的 python backend
   // app.use('/bpi', createProxyMiddleware({
-  //   target: 'http://localhost:5000',
+  //   target: 'http://paynotify.lianshucha.com',
   //   changeOrigin: true,
   //   pathRewrite: { '^/bpi/': '/api/' },
   // }));
+
+  // 本地开发的 python backend
+  app.use('/bpi', createProxyMiddleware({
+    target: 'http://localhost:5000',
+    changeOrigin: true,
+    pathRewrite: { '^/bpi/': '/api/' },
+  }));
 };
