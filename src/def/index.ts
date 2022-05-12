@@ -1,6 +1,7 @@
 export enum StorageKey {
   sharerUserId = 'sharerUserId',
-  sharerCode = 'sharerCode'
+  sharerCode = 'sharerCode',
+  sharerCodeInputVisible = 'sharerCodeInputVisible'
 };
 
 export enum orderStatusType {

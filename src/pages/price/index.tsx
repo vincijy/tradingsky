@@ -45,6 +45,7 @@ export default memo(function PricePage() {
   const [sharerCode, setSharerCode] = useState(localStorage.getItem(StorageKey.sharerCode) || '');
   const handleInputChange = (e:any) => {
     setSharerCode(e.target.value);
+    localStorage.setItem(StorageKey.sharerCode, e.target.value);
   };
 
   const showModal = () => {
@@ -150,12 +151,17 @@ export default memo(function PricePage() {
                       { item.content2 }
                     </div>
                     {
-                      sharerCode &&
-                      <Input
-                        addonBefore='邀请码'
-                        value={sharerCode}
-                        onChange={handleInputChange}
-                        style={{ marginBottom: '20px' }}/>
+                      (localStorage.getItem(StorageKey.sharerCodeInputVisible) === '1') && (
+                        <>
+                          <div style={{ textAlign: 'left' }}>输入邀请码可享受折扣</div>
+                          <Input
+                            addonBefore='邀请码'
+                            value={sharerCode}
+                            onChange={handleInputChange}
+                            style={{ marginBottom: '20px' }} />
+                        </>
+                      )
+
                     }
 
                     <div>

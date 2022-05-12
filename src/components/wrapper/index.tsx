@@ -11,6 +11,7 @@ export default memo(function Wrapper() {
     }
     if (params.sharerCode) {
       localStorage.setItem(StorageKey.sharerCode, params.sharerCode);
+      localStorage.setItem(StorageKey.sharerCodeInputVisible, '1');
     }
   }, []);
   return (
