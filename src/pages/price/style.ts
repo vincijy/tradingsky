@@ -49,6 +49,12 @@ export const PriceWrapper = styled.div `
             height: 200px;
             width: 200px;
         }
+        .price-desc2 {
+            color: #000000;
+            text-align: center;
+            height: 50px;
+            width: 200px;
+        }
         button {
             background: #000000;
             margin-bottom: 20px;

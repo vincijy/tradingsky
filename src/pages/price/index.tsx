@@ -23,6 +23,8 @@ const priceList = [
     average: '日均3.3元',
     unit: '季',
     content: '季付款，价格低至日均3.3元。不仅满足您最基本的数据需求，还会为您提供数据市场的最新研报。',
+    content2: '如支付遇到问题或需其他方式支付,请联系客服微信: lianshucha ',
+
   },
   {
     title: '年费',
@@ -30,6 +32,7 @@ const priceList = [
     average: '日均2.7元',
     unit: '年',
     content: '年付款，价格低至日均2.7元。有更专业的科学家团队为您解读数据原理，帮助您与数据更好的结合。',
+    content2: '如支付遇到问题或需其他方式支付,请联系客服微信: lianshucha ',
   },
 ];
 
@@ -143,6 +146,9 @@ export default memo(function PricePage() {
                     <div className='price-desc'>
                       { item.content }
                     </div>
+                    <div className='price-desc2'>
+                      { item.content2 }
+                    </div>
                     {
                       sharerCode &&
                       <Input
@@ -153,13 +159,13 @@ export default memo(function PricePage() {
                     }
 
                     <div>
-                      <Button
+                      {/* <Button
                         loading={isLoading}
                         type='primary'
                         onClick={ () => payByHupi(item.price, PayMethod.alipay)}
                         block>
                     支付宝
-                      </Button>
+                      </Button> */}
                       <Button
                         loading={isLoading}
                         type='primary'
