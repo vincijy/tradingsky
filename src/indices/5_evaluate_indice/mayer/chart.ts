@@ -81,7 +81,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '梅耶倍数',
+      name: '梅耶倍数(Mayer Multiple)',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',

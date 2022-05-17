@@ -73,7 +73,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '距最高点的回撤幅度',
+      name: '距最高点的回撤幅度(Price Drawdown from ATH)',
       data: [],
       // 橙色
       // color: 'rgb(247, 147, 26)',
@@ -95,7 +95,7 @@ export const chart = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '距最高点的回撤幅度',
+      name: '距最高点的回撤幅度(Price Drawdown from ATH)',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {

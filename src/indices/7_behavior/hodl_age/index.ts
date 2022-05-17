@@ -2,7 +2,7 @@ import { introduce } from './introduce';
 import { chartBtc } from './chart';
 
 export const hodlAge = {
-  name: '持有年龄分布',
+  name: '持有年龄分布 (HODL Waves)',
   key: '持有年龄分布',
   loginRequired: true,
   vipRequired: true,

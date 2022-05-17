@@ -4,7 +4,7 @@ import { introduce } from './introduce';
 import { chart } from './chart';
 
 export const marketHealth:D.SubMenuItem = {
-  name: '市场健康程度',
+  name: '市场健康程度 (Bitcoin: Entity-Adjusted Dormancy Flow)',
   key: '市场健康程度',
   loginRequired: true,
   vipRequired: true,

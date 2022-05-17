@@ -32,7 +32,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '盈利供应量',
+      name: '亏损供应量',
       data: [],
       // 橙色
       color: '#0d75f8',
@@ -50,7 +50,7 @@ export const chart = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '盈利供应量',
+      name: '亏损供应量',
       color: '#0d75f8',
       yAxis: 0,
       params: {

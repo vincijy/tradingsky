@@ -25,7 +25,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '已实现价格',
+      name: '已实现价格(Realized Price)',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -43,7 +43,7 @@ export const chart = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '已实现价格',
+      name: '已实现价格(Realized Price)',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {

@@ -2,7 +2,7 @@ import { introduce } from './introduce';
 import { chartBtc } from './chart';
 
 export const realizedAge = {
-  name: '出售时的年龄分布占比',
+  name: '出售时的年龄分布占比 (Spent Output Age Bands)',
   key: '出售时的年龄分布占比',
   loginRequired: true,
   vipRequired: true,

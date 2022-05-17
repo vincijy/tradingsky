@@ -98,7 +98,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '公允价值偏差量',
+      name: '公允价值偏差量(MVRV Z-Score)',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -117,7 +117,7 @@ export const chart = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '公允价值偏差量',
+      name: '公允价值偏差量(MVRV Z-Score)',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {

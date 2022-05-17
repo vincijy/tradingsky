@@ -4,7 +4,7 @@ import { introduce } from './introduce';
 import { chart } from './chart';
 
 export const ssr:D.SubMenuItem = {
-  name: '稳定币供应比率',
+  name: '稳定币供应比率 (SSR Oscillator)',
   key: '稳定币供应比率',
   loginRequired: true, // 付费指标
   vipRequired: true,

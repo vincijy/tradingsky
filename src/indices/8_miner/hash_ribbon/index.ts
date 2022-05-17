@@ -3,7 +3,7 @@ import { annotation } from './annotation';
 import { chart } from './chart';
 
 export const hashRibbon = {
-  name: '哈希带',
+  name: '哈希带 (Hash Ribbon)',
   key: '哈希带',
   loginRequired: true, // 免费指标
   vipRequired: false,

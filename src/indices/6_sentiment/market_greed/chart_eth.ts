@@ -86,7 +86,7 @@ export const chartEth = {
   ],
   series: [
     {
-      name: '市场贪婪度',
+      name: '市场贪婪度(NUPL)',
       data: [],
       // 蓝色
       color: '#0d75f8',
@@ -105,7 +105,7 @@ export const chartEth = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '市场贪婪度',
+      name: '市场贪婪度(NUPL)',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {

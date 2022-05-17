@@ -93,7 +93,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '储备风险',
+      name: '储备风险(Reserve Risk)',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -112,7 +112,7 @@ export const chart = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '储备风险',
+      name: '储备风险(Reserve Risk)',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {

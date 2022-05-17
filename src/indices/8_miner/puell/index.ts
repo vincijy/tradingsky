@@ -3,7 +3,7 @@ import { introduce } from './introduce';
 import { chart } from './chart';
 
 export const puell = {
-  name: '普埃尔倍数',
+  name: '普埃尔倍数 (Puell Multiple)',
   key: '普埃尔倍数',
   loginRequired: true, // 付费指标
   vipRequired: true,

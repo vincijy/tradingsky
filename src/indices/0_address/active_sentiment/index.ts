@@ -4,7 +4,7 @@ import { introduce } from './introduce';
 import { chart } from './chart';
 
 export const activeSentiment:D.SubMenuItem = {
-  name: '活跃地址情绪量',
+  name: '活跃地址情绪量 (Active Address Sentiment Indicator)',
   key: '活跃地址情绪量',
   loginRequired: true,
   vipRequired: true, // free

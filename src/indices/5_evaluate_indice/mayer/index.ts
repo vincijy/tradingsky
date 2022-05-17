@@ -4,7 +4,7 @@ import { introduce } from './introduce';
 import { chart } from './chart';
 
 export const mayer:D.SubMenuItem = {
-  name: '梅耶倍数',
+  name: '梅耶倍数 (Mayer Multiple)',
   key: '梅耶倍数',
   loginRequired: true,
   vipRequired: true,

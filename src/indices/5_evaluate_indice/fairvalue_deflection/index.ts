@@ -4,7 +4,7 @@ import { introduce } from './introduce';
 import { chart } from './chart';
 
 export const fairDeflection:D.SubMenuItem = {
-  name: '公允价值偏差量',
+  name: '公允价值偏差量 (MVRV Z-Score)',
   key: '公允价值偏差量',
   loginRequired: true,
   vipRequired: true,

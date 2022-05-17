@@ -41,7 +41,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '活跃地址情绪量',
+      name: '活跃地址情绪量 (Active Address Sentiment Indicator)',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -81,7 +81,7 @@ export const chart = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '活跃地址情绪量',
+      name: '活跃地址情绪量 (Active Address Sentiment Indicator)',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {

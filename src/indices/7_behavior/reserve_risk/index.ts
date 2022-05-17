@@ -4,7 +4,7 @@ import { introduce } from './introduce';
 import { chart } from './chart';
 
 export const reserveRisk:D.SubMenuItem = {
-  name: '储备风险',
+  name: '储备风险 (Reserve Risk)',
   key: '储备风险',
   loginRequired: true, // 付费指标
   vipRequired: true,

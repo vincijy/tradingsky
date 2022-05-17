@@ -4,7 +4,7 @@ import { chart } from './chart_btc';
 import { annotation } from './annotation';
 
 export const fundingRate:D.SubMenuItem = {
-  name: '期货资金费率',
+  name: '期货资金费率 (Futures Perpetual Funding Rate)',
   key: '期货资金费率',
   loginRequired: true,
   vipRequired: true,

@@ -65,7 +65,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '期货资金费率',
+      name: '期货资金费率(Futures Perpetual Funding Rate)',
       data: [],
       // 橙色
       color: LineColor.darkGreen,
@@ -85,7 +85,7 @@ export const chart = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '期货资金费率',
+      name: '期货资金费率(Futures Perpetual Funding Rate)',
       color: LineColor.darkGreen,
       negativeColor: LineColor.red,
       yAxis: 0,

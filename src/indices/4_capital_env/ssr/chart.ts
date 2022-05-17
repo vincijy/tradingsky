@@ -70,7 +70,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '稳定币供应比率',
+      name: '稳定币供应比率(SSR Oscillator)',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -89,7 +89,7 @@ export const chart = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '稳定币供应比率',
+      name: '稳定币供应比率(SSR Oscillator)',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {

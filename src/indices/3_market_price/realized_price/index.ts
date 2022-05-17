@@ -5,7 +5,7 @@ import { chart as chartEth } from './chart_eth';
 
 
 export const rePrice:D.SubMenuItem = {
-  name: '已实现价格',
+  name: '已实现价格 (Realized Price)',
   key: '已实现价格',
   loginRequired: true, // 付费指标
   vipRequired: true,

@@ -86,7 +86,7 @@ export const chartBtc = {
   ],
   series: [
     {
-      name: '市场贪婪度',
+      name: '市场贪婪度(NUPL)',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -105,7 +105,7 @@ export const chartBtc = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '市场贪婪度',
+      name: '市场贪婪度(NUPL)',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {

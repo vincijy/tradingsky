@@ -38,7 +38,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '交易频率',
+      name: '交易频率(Number of Transactions per Second)',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -56,7 +56,7 @@ export const chart = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '交易频率',
+      name: '交易频率(Number of Transactions per Second)',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {

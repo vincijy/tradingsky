@@ -3,7 +3,7 @@ import { introduce } from './introduce';
 import { chart } from './chart';
 
 export const difficultyRibbon = {
-  name: '难度彩虹带',
+  name: '难度彩虹带 (Difficulty Ribbon)',
   key: '难度彩虹带',
   loginRequired: true,
   vipRequired: false,

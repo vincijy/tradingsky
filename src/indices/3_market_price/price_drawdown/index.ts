@@ -3,7 +3,7 @@ import { introduce } from './introduce';
 import { chart } from './chart';
 
 export const priceDrawdown:D.SubMenuItem = {
-  name: '距最高点的回撤幅度',
+  name: '距最高点的回撤幅度 (Price Drawdown from ATH)',
   key: '距最高点的回撤幅度',
   loginRequired: true, // 免费指标
   vipRequired: false,

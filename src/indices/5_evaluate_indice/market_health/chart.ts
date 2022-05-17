@@ -79,7 +79,7 @@ export const chart = {
   ],
   series: [
     {
-      name: '市场健康程度',
+      name: '市场健康程度(Bitcoin: Entity-Adjusted Dormancy Flow)',
       data: [],
       // 橙色
       color: 'rgb(247, 147, 26)',
@@ -98,7 +98,7 @@ export const chart = {
     {
       id: 'sma',
       linkedTo: 'series0',
-      name: '市场健康程度',
+      name: '市场健康程度(Bitcoin: Entity-Adjusted Dormancy Flow)',
       color: 'rgb(247, 147, 26)',
       yAxis: 0,
       params: {

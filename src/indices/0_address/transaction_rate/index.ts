@@ -4,7 +4,7 @@ import { chart } from './chart_btc';
 import { chartEth } from './chart_eth';
 
 export const transactionRate:D.SubMenuItem = {
-  name: '交易频率',
+  name: '交易频率 (Number of Transactions per Second)',
   key: '交易频率',
   loginRequired: true,
   vipRequired: true,

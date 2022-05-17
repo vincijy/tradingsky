@@ -6,7 +6,7 @@ import { chartBtc } from './chart_btc';
 import { chartEth } from './chart_eth';
 
 export const marketGreed:D.SubMenuItem = {
-  name: '市场贪婪度',
+  name: '市场贪婪度 (NUPL)',
   key: '市场贪婪度',
   loginRequired: true, // 付费指标
   vipRequired: true,
