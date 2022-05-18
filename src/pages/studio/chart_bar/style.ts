@@ -34,7 +34,7 @@ export const BarWrapper = styled.div `
     }
 
     .chart-title {
-        font-size: 20px;
+        font-size: 17px;
         display: inline-block;
         vertical-align: baseline;
         white-space: nowrap;
