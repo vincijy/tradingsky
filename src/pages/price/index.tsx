@@ -165,13 +165,13 @@ export default memo(function PricePage() {
                     }
 
                     <div>
-                      {/* <Button
+                      <Button
                         loading={isLoading}
                         type='primary'
                         onClick={ () => payByHupi(item.price, PayMethod.alipay)}
                         block>
                     支付宝
-                      </Button> */}
+                      </Button>
                       <Button
                         loading={isLoading}
                         type='primary'
