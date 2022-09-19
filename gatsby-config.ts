@@ -17,7 +17,7 @@ const config:GatsbyConfig = {
           '@components': 'src/components',
           '@assets': 'src/assets',
           '@store': 'src/store',
-          '@api': 'src/api',
+          '@service': 'src/service',
           '@jsx': 'src/jsx',
           '@router': 'src/router',
           '@pages': 'src/pages',
@@ -53,6 +53,10 @@ const config:GatsbyConfig = {
         style: true,
       },
     },
+    {
+      resolve: 'babel-preset-gatsby',
+    },
+
     // 'gatsby-plugin-styled-components',
     // {
     //   resolve: 'gatsby-plugin-google-analytics',

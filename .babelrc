@@ -1,0 +1,32 @@
+{
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "test": "./test",
+        "underscore": "lodash",
+        "@components": "./src/components",
+        "@assets": "./src/assets",
+        "@store": "./src/store",
+        "@service": "./src/service",
+        "@jsx": "./src/jsx",
+        "@router": "./src/router",
+        "@pages": "./src/pages",
+        "@indices": "./src/indices",
+        "@config": "./src/config",
+        "@utils": "./src/utils",
+        "@hooks": "./src/hooks",
+      }
+    }]
+  ],
+  "presets": [
+    [
+      "babel-preset-gatsby",
+      {
+        "targets": {
+          "browsers": [">0.25%", "not dead"]
+        }
+      }
+    ]
+  ]
+}

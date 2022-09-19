@@ -47,10 +47,8 @@
   },
   "scripts": {
     "dev": "gatsby develop",
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
     "lint": "eslint",
     "analyze": "cross-env REACT_APP_INTERACTIVE_ANALYZE=1 npm run build",
     "baidu": "curl -H 'Content-Type:text/plain' --data-binary @urls.txt 'http://data.zz.baidu.com/urls?site=https://www.lianshucha.com&token=cq7XdQBTGtXsO1rk'"
@@ -74,6 +72,8 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
     "@types/lodash": "4.14.172",
     "@types/react-copy-to-clipboard": "5.0.2",
     "@types/react-dom": "17.0.9",
@@ -84,6 +84,9 @@
     "@types/redux-immutable": "4.0.1",
     "@types/styled-components": "5.1.12",
     "@typescript-eslint/eslint-plugin": "4.29.1",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-preset-gatsby": "^2.23.0",
     "cross-env": "7.0.3",
     "eslint": "7.16.0",
     "eslint-config-prettier": "7.1.0",

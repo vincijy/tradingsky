@@ -5,7 +5,7 @@
         "@components/*": ["src/components/*"],
         "@assets/*": ["src/assets/*"],
         "@store/*": ["src/store/*"],
-        "@api/*": ["src/api/*"],
+        "@service/*": ["src/service/*"],
         "@jsx/*": ["src/jsx/*"],
         "@router/*": ["src/router/*"],
         "@pages/*": ["src/pages/*"],
