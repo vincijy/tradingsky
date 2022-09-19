@@ -3,7 +3,8 @@ import * as A from './action_type';
 import { IUserInfoState, IAction, TypePaylodKey } from './def';
 
 // 从缓存里面取出用户数据
-const userInfoString = localStorage.getItem('userInfo');
+// const userInfoString = localStorage.getItem('userInfo');
+const userInfoString = undefined;
 
 let userInfo = [];
 if (userInfoString) {

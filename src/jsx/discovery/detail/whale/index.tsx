@@ -1,8 +1,8 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Card, Col, Row, Table, Space } from 'antd';
 import { GoLinkExternal } from 'react-icons/go';
-import { getWhaleAddress, getWhaleTop } from 'src/service/discovery';
-import { ICoin } from 'src/service/def';
+import { getWhaleAddress, getWhaleTop } from '@service/discovery';
+import { ICoin } from '@service/def';
 import { WhaleWrapper } from './style';
 import ChartPie from './chart_pie';
 

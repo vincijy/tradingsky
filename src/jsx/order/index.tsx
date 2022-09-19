@@ -1,4 +1,4 @@
-import { getMyOrders, getProfitOrders } from 'src/service/order';
+import { getMyOrders, getProfitOrders } from '@service/order';
 import LSAppFooter from '@components/footer'; // 尾部
 import ShareLink from '@components/share_link';
 import { orderStatusTypeList } from '@def';

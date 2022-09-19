@@ -1,8 +1,8 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Card, Row, Col, Progress } from 'antd';
-import { getAllPrice, getExtremum } from 'src/service/discovery';
-import { getPost } from 'src/service/post';
-import { ICoin, IExtremum } from 'src/service/def';
+import { getAllPrice, getExtremum } from '@service/discovery';
+import { getPost } from '@service/post';
+import { ICoin, IExtremum } from '@service/def';
 import HighchartsReact from 'highcharts-react-official';
 import { getHighCharts } from '@components/chart';
 import { strToFixNum } from '@utils/cal';

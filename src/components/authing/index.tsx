@@ -10,7 +10,7 @@ import '@authing/react-ui-components/lib/index.min.css';
 
 import { changeAuthingPanel } from '@store/ui/action';
 
-import { getUserRole, makeUserRole, getUserColletion, getUserVipdate } from 'src/service/user';
+import { getUserRole, makeUserRole, getUserColletion, getUserVipdate } from '@service/user';
 import * as UA from '@store/user/action'; // 改变登录状态
 import { IUserInfo } from '@store/user/def';
 import { authingConfig, authingComponentConfig } from '@config';

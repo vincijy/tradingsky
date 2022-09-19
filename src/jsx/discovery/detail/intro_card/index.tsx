@@ -12,7 +12,7 @@ import { GiMirrorMirror } from 'react-icons/gi';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 
 import { BarChartOutlined, LinkOutlined, HeartOutlined, PieChartOutlined, ArrowLeftOutlined } from '@ant-design/icons';
-import { ICoin } from 'src/service/def';
+import { ICoin } from '@service/def';
 import { strToFixNum } from '@utils/cal';
 import { genImgUrl } from '@utils/img';
 import { getOptionValue } from '@utils/select_option';

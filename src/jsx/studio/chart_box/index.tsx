@@ -2,7 +2,7 @@ import React, { memo, useEffect, useState, useLayoutEffect, useCallback, useMemo
 import { useAppSelector, useAppDispatch } from '@hooks';
 import LinesChart from '@components/chart/line';
 import { getHighCharts } from '@components/chart';
-import { getChartData, getAssetPrice } from 'src/service/chart';
+import { getChartData, getAssetPrice } from '@service/chart';
 import { setPriceData } from '@store/chart/action';
 import { TypeDataRow } from '@components/chart/def';
 import axios from 'axios';

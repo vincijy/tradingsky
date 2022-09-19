@@ -5,7 +5,7 @@ import { HeartFilled, HeartOutlined } from '@ant-design/icons';
 import { useAppSelector, useAppDispatch } from '@hooks';
 
 import { updateUserCollection } from '@store/user/action';
-import { setUserCollection } from 'src/service/user';
+import { setUserCollection } from '@service/user';
 import { IUserInfo } from '@store/user/def';
 
 export default memo(function CollectionButton() {

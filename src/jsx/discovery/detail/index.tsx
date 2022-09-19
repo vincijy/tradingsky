@@ -4,9 +4,9 @@ import { Card, Tabs } from 'antd';
 import { isMobile, isPad } from '@utils/is';
 
 import LSAppFooter from '@components/footer'; // footer
-import { getCoin, getDynamicCoin } from 'src/service/discovery';
+import { getCoin, getDynamicCoin } from '@service/discovery';
 import { getUrlParams } from '@utils/url';
-import { ICoin } from 'src/service/def';
+import { ICoin } from '@service/def';
 import DetailIntroCard from './intro_card';
 import Glance from './glance/index';
 const { TabPane } = Tabs;

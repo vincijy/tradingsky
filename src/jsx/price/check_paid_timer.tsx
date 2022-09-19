@@ -1,6 +1,6 @@
 import React, { memo, useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '@hooks';
-import { getOrderByOrderId } from 'src/service/order';
+import { getOrderByOrderId } from '@service/order';
 import { useRef } from 'react';
 import { orderStatusTypeList } from '@def';
 import { message } from 'antd';

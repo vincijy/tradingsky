@@ -28,3 +28,7 @@ conf/www.lianshucha.com.crt
 conf/www.lianshucha.com.key
 fabfile_config.py
 .cache/*
+public/*.js
+public/*.map
+public/*
+public/*.json
