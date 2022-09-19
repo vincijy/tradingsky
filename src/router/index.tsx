@@ -4,62 +4,62 @@ const routes = [
   {
     path: '/',
     exact: true,
-    component: lazy(() => import('@/pages/home')),
+    component: lazy(() => import('@/jsx/home')),
   },
   {
     path: '/chart',
     exact: true,
-    component: lazy(() => import( '@/pages/studio')),
+    component: lazy(() => import( '@/jsx/studio')),
   },
   {
     path: '/catalog',
     exact: true,
-    component: lazy(() => import( '@/pages/catalog')),
+    component: lazy(() => import( '@/jsx/catalog')),
   },
   {
     path: '/setting',
     exact: true,
-    component: lazy(() => import( '@/pages/setting')),
+    component: lazy(() => import( '@/jsx/setting')),
   },
   {
     path: '/pirate',
     exact: true,
-    component: lazy(() => import( '@/pages/pirate')),
+    component: lazy(() => import( '@/jsx/pirate')),
   },
   {
     path: '/price',
     exact: true,
-    component: lazy(() => import( '@/pages/price')),
+    component: lazy(() => import( '@/jsx/price')),
   },
   {
     path: '/contact',
     exact: true,
-    component: lazy(() => import( '@/pages/contact')),
+    component: lazy(() => import( '@/jsx/contact')),
   },
   {
     path: '/term',
     exact: true,
-    component: lazy(() => import( '@/pages/term')),
+    component: lazy(() => import( '@/jsx/term')),
   },
   {
     path: '/privacy',
     exact: true,
-    component: lazy(() => import( '@/pages/privacy')),
+    component: lazy(() => import( '@/jsx/privacy')),
   },
   {
     path: '/discovery',
     exact: true,
-    component: lazy(() => import( '@/pages/discovery')),
+    component: lazy(() => import( '@/jsx/discovery')),
   },
   {
     path: '/discovery/detail',
     exact: true,
-    component: lazy(() => import( '@/pages/discovery/detail/index')),
+    component: lazy(() => import( '@/jsx/discovery/detail/index')),
   },
   {
     path: '/order',
     exact: true,
-    component: lazy(() => import( '@/pages/order/index')),
+    component: lazy(() => import( '@/jsx/order/index')),
   },
 ];
 

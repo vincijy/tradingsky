@@ -3,7 +3,7 @@ import { Input, Select, Spin, Pagination, Row, Col } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import LSAppFooter from '@/components/footer'; // footer
 
-import DiscoveryCard from '@/pages/discovery/card';
+import DiscoveryCard from '@/jsx/discovery/card';
 import { getCoinList } from '@/api/discovery';
 import { ICoin } from '@/api/def';
 import { isProdEnv } from '@/utils/is';
