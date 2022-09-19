@@ -2,8 +2,8 @@ import React, { memo } from 'react';
 
 import { Card } from 'antd';
 import { Button } from 'antd';
-import { ossImgs } from '@/oss';
-import { useDynamicRender } from '@/utils/dynamic';
+import { ossImgs } from '@oss';
+import { useDynamicRender } from '@utils/dynamic';
 import { InsightWrapper, InsightTop, InsightBottom } from './style';
 
 export default memo(function LSHomeInsight() {

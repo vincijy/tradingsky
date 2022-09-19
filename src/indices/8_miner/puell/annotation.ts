@@ -1,4 +1,4 @@
-import { IAnnotation } from '@/indices/def';
+import { IAnnotation } from '@indices/def';
 
 export const annotation:IAnnotation = {
   circle: {

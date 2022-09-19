@@ -1,4 +1,4 @@
-import { isMobile } from '@/utils/is';
+import { isMobile } from '@utils/is';
 
 /**
  * 导航栏高度

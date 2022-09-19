@@ -1,12 +1,11 @@
 // 第三方
 import React, { memo } from 'react';
 import { useHistory } from 'react-router-dom';
-
 // 组件
 import { Button } from 'antd';
 import { WeiboOutlined, WechatOutlined, TwitterOutlined } from '@ant-design/icons';
-import discordLogo from '@/assets/img/discord_logo_white.svg';
-import { useDynamicRender } from '@/utils/dynamic';
+import discordLogo from '@assets/img/discord_logo_white.svg';
+import { useDynamicRender } from '@utils/dynamic';
 import { FooterWrapper, FooterLeft, FooterRight } from './style'; // 样式
 export default memo(function LSAppFooter() {
   const h = useHistory();

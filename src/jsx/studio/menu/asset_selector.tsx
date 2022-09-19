@@ -2,17 +2,17 @@
 import React, { memo } from 'react';
 import { Select } from 'antd';
 
-import { useAppSelector, useAppDispatch } from '@/hooks';
-import { getAnnotationManager } from '@/utils/annotation';
+import { useAppSelector, useAppDispatch } from '@hooks';
+import { getAnnotationManager } from '@utils/annotation';
 // 功能
-import { changeAsset, toggleAnnotation } from '@/store/chart/action';
+import { changeAsset, toggleAnnotation } from '@store/chart/action';
 
-import { updateChartOption } from '@/store/chart/action';
-import { isMobile } from '@/utils/is';
-import { assetList } from '@/config/asset_list';
-import { genImgUrl } from '@/utils/img';
-import { commonOptions } from '@/indices/chart_common';
-import { mergeOption } from '@/utils/merge_option';
+import { updateChartOption } from '@store/chart/action';
+import { isMobile } from '@utils/is';
+import { assetList } from '@config/asset_list';
+import { genImgUrl } from '@utils/img';
+import { commonOptions } from '@indices/chart_common';
+import { mergeOption } from '@utils/merge_option';
 
 
 export default memo(function AssetSelector() {

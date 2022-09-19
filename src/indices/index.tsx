@@ -1,4 +1,5 @@
 import { HeartOutlined } from '@ant-design/icons';
+import * as React from 'react';
 import * as D from './def';
 import { address } from './0_address';
 import { exchange } from './1_exchange';

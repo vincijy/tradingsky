@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ossImgs } from '@/oss';
+import { ossImgs } from '@oss';
 export const BoxWrapper = styled.div `
     border: 1px solid rgba(0, 0, 0, 0.1); // 边框效果
 

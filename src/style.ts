@@ -1,6 +1,6 @@
 
 import { createGlobalStyle } from 'styled-components';
-import rusty from '@/assets/ttf/rusty.jpg';
+import rusty from '@assets/ttf/rusty.jpg';
 
 export const FontStyle = createGlobalStyle `
 @font-face

@@ -1,19 +1,19 @@
 // 第三方
 import ReactDOM from 'react-dom';
 import React, { memo, useLayoutEffect, lazy, Suspense } from 'react';
-import { useAppSelector, useAppDispatch } from '@/hooks';
+import { useAppSelector, useAppDispatch } from '@hooks';
 import { useHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import store from '@/store';
+import store from '@store';
 const AuthingGuard = React.lazy(():any => import('./authing'));
 import '@authing/react-ui-components/lib/index.min.css';
 
-import { changeAuthingPanel } from '@/store/ui/action';
+import { changeAuthingPanel } from '@store/ui/action';
 
-import { getUserRole, makeUserRole, getUserColletion, getUserVipdate } from '@/api/user';
-import * as UA from '@/store/user/action'; // 改变登录状态
-import { IUserInfo } from '@/store/user/def';
-import { authingConfig, authingComponentConfig } from '@/config';
+import { getUserRole, makeUserRole, getUserColletion, getUserVipdate } from '@api/user';
+import * as UA from '@store/user/action'; // 改变登录状态
+import { IUserInfo } from '@store/user/def';
+import { authingConfig, authingComponentConfig } from '@config';
 
 const AuthingPanel = memo(function AuthingPanel() {
   const dispatch = useAppDispatch();

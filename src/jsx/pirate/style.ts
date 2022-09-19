@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import main from '@/assets/img/pirate_main.jpeg';
-import join from '@/assets/img/pirate_in.png';
+import main from '@assets/img/pirate_main.jpeg';
+import join from '@assets/img/pirate_in.png';
 
 export const PirateWrapper = styled.div `
     .title{

@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { BASE_URL, TIMEOUT } from '@/config';
-import store from '@/store';
+import { BASE_URL, TIMEOUT } from '@config';
+import store from '@store';
 import { message } from 'antd';
 
 // 基本配置

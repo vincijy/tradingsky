@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import * as D from './def';
 import { Props } from './def';
-// import { useAppSelector } from '@/hooks';
+// import { useAppSelector } from '@hooks';
 
 // const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
 // const { introduce } = selectedSubMenu;

@@ -2,11 +2,11 @@ import React, { memo, useEffect, useState } from 'react';
 
 import { Button } from 'antd';
 import { HeartFilled, HeartOutlined } from '@ant-design/icons';
-import { useAppSelector, useAppDispatch } from '@/hooks';
+import { useAppSelector, useAppDispatch } from '@hooks';
 
-import { updateUserCollection } from '@/store/user/action';
-import { setUserCollection } from '@/api/user';
-import { IUserInfo } from '@/store/user/def';
+import { updateUserCollection } from '@store/user/action';
+import { setUserCollection } from '@api/user';
+import { IUserInfo } from '@store/user/def';
 
 export default memo(function CollectionButton() {
 // handle function

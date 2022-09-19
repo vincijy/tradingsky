@@ -1,5 +1,5 @@
-import LSAppFooter from '@/components/footer'; // 尾部
-import { useAppSelector } from '@/hooks';
+import LSAppFooter from '@components/footer'; // 尾部
+import { useAppSelector } from '@hooks';
 import { IdcardOutlined, SolutionOutlined } from '@ant-design/icons';
 import { Button, Card, Form, Input, Tabs } from 'antd';
 import React, { memo } from 'react';

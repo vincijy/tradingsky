@@ -1,17 +1,17 @@
 /* eslint-disable prefer-const */
 // 第三方
-import { memo } from 'react';
-import { BandColor } from '@/indices/def';
+import React, { memo } from 'react';
+import { BandColor } from '@indices/def';
 
 // 图标React 封装
 import HighchartsReact from 'highcharts-react-official';
-import { useAppSelector } from '@/hooks';
-import { mergeOption } from '@/utils/merge_option';
-import { commonOptions } from '@/indices/chart_common';
-import { IDate } from '@/indices/def';
+import { useAppSelector } from '@hooks';
+import { mergeOption } from '@utils/merge_option';
+import { commonOptions } from '@indices/chart_common';
+import { IDate } from '@indices/def';
 import { cloneDeep } from 'lodash';
-import { getTimeStamp } from '@/utils/date';
-import { isMobile } from '@/utils/is';
+import { getTimeStamp } from '@utils/date';
+import { isMobile } from '@utils/is';
 import { getHighCharts, setChart } from '../index';
 
 import { constructorType } from '../def';

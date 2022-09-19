@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ossImgs } from '@/oss';
+import { ossImgs } from '@oss';
 import * as Layout from '../../../config/layout';
 
 export const CoverWrapper = styled.div `

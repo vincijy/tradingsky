@@ -1,9 +1,9 @@
-import { memo } from 'react';
-import { useAppSelector } from '@/hooks';
-import { isMobile } from '@/utils/is';
-import { assetList } from '@/config/asset_list';
+import React, { memo } from 'react';
+import { useAppSelector } from '@hooks';
+import { isMobile } from '@utils/is';
+import { assetList } from '@config/asset_list';
 import { flatten } from 'lodash';
-import { genImgUrl } from '@/utils/img';
+import { genImgUrl } from '@utils/img';
 import { ChartTitleArea } from './style';
 
 export default memo(function LSChartHead() {

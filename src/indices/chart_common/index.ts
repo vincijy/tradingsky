@@ -1,6 +1,6 @@
 
-import { getAnnotationManager } from '@/utils/annotation';
-import store from '@/store/index';
+import { getAnnotationManager } from '@utils/annotation';
+import store from '@store/index';
 import * as Layout from '../../config/layout';
 import { rangeSelector } from './range_selector';
 import { tooltip } from './tooltip';

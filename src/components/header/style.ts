@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NAV_BAR_HEIGHT } from '@/config/layout';
+import { NAV_BAR_HEIGHT } from '@config/layout';
 
 export const HeaderWrapper = styled.div `
     margin: 0px 32px;

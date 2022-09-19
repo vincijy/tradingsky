@@ -2,12 +2,12 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Col, Row, Tag, Image, List, Avatar, message } from 'antd';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { isMobile, isPad } from '@/utils/is';
+import { isMobile, isPad } from '@utils/is';
 
-import { ICoin } from '@/api/def';
-import { ossImgs } from '@/oss';
-import { genImgUrl } from '@/utils/img';
-import metamasklogo from '@/assets/img/metamask_logo.svg';
+import { ICoin } from '@api/def';
+import { ossImgs } from '@oss';
+import { genImgUrl } from '@utils/img';
+import metamasklogo from '@assets/img/metamask_logo.svg';
 import { ContractWrapper } from './style';
 interface Iprops {
   coin:ICoin;

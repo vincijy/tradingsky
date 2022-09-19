@@ -1,10 +1,10 @@
 // 第三方
-import { memo } from 'react';
-import { useAppDispatch } from '@/hooks';
-import { changeAuthingPanel } from '@/store/ui/action';
+import React, { memo } from 'react';
+import { useAppDispatch } from '@hooks';
+import { changeAuthingPanel } from '@store/ui/action';
 // 组件
 import { Button } from 'antd';
-import { injectAuthingPanel } from '@/components/authing';
+import { injectAuthingPanel } from '@components/authing';
 
 interface IState {
   text:string;

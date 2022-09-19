@@ -1,9 +1,9 @@
 // 第三方
 import React, { memo } from 'react';
-import { getChart, setChart } from '@/components/chart';
+import { getChart, setChart } from '@components/chart';
 import { ExportingOptions, ExportingMimeTypeValue, ChartEventsOptions } from 'highcharts';
-import { useAppSelector } from '@/hooks';
-import { getAnnotationManager } from '@/utils/annotation';
+import { useAppSelector } from '@hooks';
+import { getAnnotationManager } from '@utils/annotation';
 import { cloneDeep } from 'lodash';
 import ToolBoxCell from './dropdown_cell';
 import { ToolBoxCellName } from './def';

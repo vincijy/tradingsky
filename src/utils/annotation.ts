@@ -1,8 +1,8 @@
-import { getChart } from '@/components/chart';
+import { getChart } from '@components/chart';
 import { Point } from 'highcharts';
-import store from '@/store';
-import { IAnnotation } from '@/indices/def';
-import { colorAttrMap } from '@/config/annotation';
+import store from '@store';
+import { IAnnotation } from '@indices/def';
+import { colorAttrMap } from '@config/annotation';
 import { findFirstGreater, getTimeStamp } from './date';
 
 interface IStoredcircle {

@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
 
-import { menus } from '@/indices';
+import { menus } from '@indices';
 import { Table } from 'antd';
-import { changeMenu } from '@/store/ui/action';
-import { SubMenuItem } from '@/indices/def';
+import { changeMenu } from '@store/ui/action';
+import { SubMenuItem } from '@indices/def';
 import { useHistory } from 'react-router';
-import { useAppDispatch, useAppSelector } from '@/hooks';
+import { useAppDispatch, useAppSelector } from '@hooks';
 import { CatalogWrapper } from './style';
 import { ICatalogItem } from './def';
 

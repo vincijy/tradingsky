@@ -1,6 +1,6 @@
 
-import { isMobile, isPad } from '@/utils/is';
-import { getAppInitState } from '@/config/init_state';
+import { isMobile, isPad } from '@utils/is';
+import { getAppInitState } from '@config/init_state';
 import * as A from './action_type';
 import { IUiState, IAction, TypePaylodMapKey } from './def';
 

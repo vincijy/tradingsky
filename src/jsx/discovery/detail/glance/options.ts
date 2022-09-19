@@ -1,6 +1,6 @@
 
 import { AreaChartOutlined } from '@ant-design/icons';
-import { isMobile, isPad } from '@/utils/is';
+import { isMobile, isPad } from '@utils/is';
 import { tooltip } from './tooltip';
 
 

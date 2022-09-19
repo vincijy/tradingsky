@@ -1,10 +1,10 @@
 
 // 第三方
 import React, { memo, useEffect } from 'react';
-import { getChart } from '@/components/chart';
+import { getChart } from '@components/chart';
 import { ExpandOutlined } from '@ant-design/icons';
-import { getAnnotationManager } from '@/utils/annotation';
-import { useAppSelector } from '@/hooks';
+import { getAnnotationManager } from '@utils/annotation';
+import { useAppSelector } from '@hooks';
 import ToggleBtnCell from './toggle_btn_cell';
 import { ToolBoxCellName } from './def';
 

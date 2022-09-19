@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as Layout from '@/config/layout';
+import * as Layout from '@config/layout';
 export const BarWrapper = styled.div `
     .bar {
         padding: ${Layout.GAP_BAR_PADDING}px 0px;

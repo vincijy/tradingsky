@@ -1,6 +1,6 @@
 // 二次封装的axios
 import { AxiosPromise } from 'axios';
-import { IRole, ICollection, IVipDate } from '@/store/user/def';
+import { IRole, ICollection, IVipDate } from '@store/user/def';
 import request from '../utils/request';
 import { IAuthingWord } from './def';
 

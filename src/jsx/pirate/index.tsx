@@ -1,6 +1,6 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 
-import LSAppFooter from '@/components/footer'; // 尾部
+import LSAppFooter from '@components/footer'; // 尾部
 
 import { PirateWrapper } from './style';
 

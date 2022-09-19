@@ -1,12 +1,12 @@
 
 import React, { memo, useEffect, useState } from 'react';
 import { Card, Tabs } from 'antd';
-import { isMobile, isPad } from '@/utils/is';
+import { isMobile, isPad } from '@utils/is';
 
-import LSAppFooter from '@/components/footer'; // footer
-import { getCoin, getDynamicCoin } from '@/api/discovery';
-import { getUrlParams } from '@/utils/url';
-import { ICoin } from '@/api/def';
+import LSAppFooter from '@components/footer'; // footer
+import { getCoin, getDynamicCoin } from '@api/discovery';
+import { getUrlParams } from '@utils/url';
+import { ICoin } from '@api/def';
 import DetailIntroCard from './intro_card';
 import Glance from './glance/index';
 const { TabPane } = Tabs;

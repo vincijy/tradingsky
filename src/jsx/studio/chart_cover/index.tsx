@@ -1,8 +1,8 @@
 // 第三方
 import React, { memo, useState } from 'react';
-import { useAppSelector } from '@/hooks';
-import { useAppDispatch } from '@/hooks';
-import { updateLayout } from '@/store/ui/action';
+import { useAppSelector } from '@hooks';
+import { useAppDispatch } from '@hooks';
+import { updateLayout } from '@store/ui/action';
 import { CoverWrapper } from './style';
 import Loading from './loading';
 import NoData from './no_data';

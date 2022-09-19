@@ -1,11 +1,11 @@
 import React, { memo, useState } from 'react';
-import LSAppFooter from '@/components/footer'; // 尾部
-import { ossImgs } from '@/oss';
+import LSAppFooter from '@components/footer'; // 尾部
+import { ossImgs } from '@oss';
 import { Card, Avatar, Row } from 'antd';
-import redContact from '@/assets/img/redContact.jpg';
-import blueContact from '@/assets/img/blueContact.jpg';
-import earthAvatar from '@/assets/img/earthAvatar.jpg';
-import spaceAvatar from '@/assets/img/spaceAvatar.jpg';
+import redContact from '@assets/img/redContact.jpg';
+import blueContact from '@assets/img/blueContact.jpg';
+import earthAvatar from '@assets/img/earthAvatar.jpg';
+import spaceAvatar from '@assets/img/spaceAvatar.jpg';
 
 import { ContactWrapper, ContactPageWrapper, ContactPageFooter } from './style';
 

@@ -1,4 +1,4 @@
-import { IAnnotationConfig } from '@/indices/def';
+import { IAnnotationConfig } from '@indices/def';
 import * as D from '../../def';
 export const annotation:D.IAnnotation = {
   circle: {

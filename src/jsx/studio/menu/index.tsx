@@ -1,25 +1,25 @@
 // 第三方
 import React, { memo, useEffect, useState } from 'react';
-import { useAppSelector, useAppDispatch } from '@/hooks';
-import { getAnnotationManager } from '@/utils/annotation';
-import { privateDefaultOptions } from '@/indices/chart_private_default';
+import { useAppSelector, useAppDispatch } from '@hooks';
+import { getAnnotationManager } from '@utils/annotation';
+import { privateDefaultOptions } from '@indices/chart_private_default';
 // 功能
-import { menus as indiceMenus } from '@/indices'; // 分类数据
-import { toggleAnnotation } from '@/store/chart/action';
+import { menus as indiceMenus } from '@indices'; // 分类数据
+import { toggleAnnotation } from '@store/chart/action';
 
 // 组件
 import { Menu } from 'antd';
 
 import { filter, includes, updateWith } from 'lodash';
-import { updateChartOption } from '@/store/chart/action';
-import { commonOptions } from '@/indices/chart_common';
+import { updateChartOption } from '@store/chart/action';
+import { commonOptions } from '@indices/chart_common';
 
-import { mergeOption } from '@/utils/merge_option';
-import { isMobile, isPad } from '@/utils/is';
+import { mergeOption } from '@utils/merge_option';
+import { isMobile, isPad } from '@utils/is';
 import { Tabs } from 'antd';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { getChart } from '@/components/chart';
+import { getChart } from '@components/chart';
 import { changeMenu, toggleChartRecreated, toggleMenuVisible, updateLayout } from '../../../store/ui/action';
 import { MenuWrapper, MenuWrapperPC } from './style';
 import CollectionMenus from './collection_menus';

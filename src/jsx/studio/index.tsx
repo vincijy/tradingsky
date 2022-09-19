@@ -4,13 +4,13 @@ import React, { memo, useState, useCallback, useEffect } from 'react';
 // 功能
 
 // 组件
-import LSAppFooter from '@/components/footer';
+import LSAppFooter from '@components/footer';
 import { Layout } from 'antd';
-import { useAppSelector, useAppDispatch } from '@/hooks';
-import { toggleMenuVisible } from '@/store/ui/action';
-import { isMobile, isPad } from '@/utils/is';
-import { getAuthingClient } from '@/authing';
-import { toggleLogin } from '@/store/user/action';
+import { useAppSelector, useAppDispatch } from '@hooks';
+import { toggleMenuVisible } from '@store/ui/action';
+import { isMobile, isPad } from '@utils/is';
+import { getAuthingClient } from '@utils/authing';
+import { toggleLogin } from '@store/user/action';
 import { ChartWrapper, ChartLeft, AppFooter, SiteModal } from './style';
 import LSChartMenu from './menu'; // 菜单
 import LSChartBar from './chart_bar'; // 功能栏

@@ -1,6 +1,6 @@
 // 第三方
 import React, { memo, useState } from 'react';
-import { useAppSelector } from '@/hooks';
+import { useAppSelector } from '@hooks';
 import { ToolBoxWrapper, BorderLineTop, BorderLineBottom } from './style';
 import ExportCell from './export_cell';
 import SmaCell from './sma_cell';

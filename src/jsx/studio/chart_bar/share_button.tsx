@@ -2,7 +2,7 @@ import React, { memo, useEffect, useState } from 'react';
 
 import { Button, message } from 'antd';
 import { LinkOutlined } from '@ant-design/icons';
-import { useAppSelector, useAppDispatch } from '@/hooks';
+import { useAppSelector, useAppDispatch } from '@hooks';
 
 export default memo(function ShareButton() {
   const subMenu = useAppSelector((state) => state.ui.currentMenu.subMenu);

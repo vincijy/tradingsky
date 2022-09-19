@@ -1,6 +1,6 @@
 import { AuthenticationClient } from 'authing-js-sdk'; // 登录SDK
-import store from '@/store';
-import { authingConfig } from '@/config';
+import store from '@store';
+import { authingConfig } from '@config';
 
 function getAuthConfig() {
   return {

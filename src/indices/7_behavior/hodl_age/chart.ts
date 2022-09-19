@@ -14,7 +14,7 @@
 /**
  * 个性化图表配置, 用于覆盖默认的配置项
  */
-import { positioner } from '@/indices/chart_common/tooltip_positioner';
+import { positioner } from '@indices/chart_common/tooltip_positioner';
 export const chartBtc = {
   tooltip: {
     formatter: function():string {

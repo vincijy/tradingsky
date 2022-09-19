@@ -1,4 +1,4 @@
-import { getTimeStamp } from '@/utils/date';
+import { getTimeStamp } from '@utils/date';
 import { LineColor, BandColor } from '../../def';
 
 const plotBands = [

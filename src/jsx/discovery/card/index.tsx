@@ -4,10 +4,10 @@ import { RightCircleOutlined, BarChartOutlined, TagsOutlined, ShopOutlined, PieC
 import { FiTwitter } from 'react-icons/fi';
 import { MdTravelExplore } from 'react-icons/md';
 import { useHistory } from 'react-router';
-import { ICoin } from '@/api/def';
-import { strToFixNum } from '@/utils/cal';
-import { genImgUrl } from '@/utils/img';
-import { getOptionValue } from '@/utils/select_option';
+import { ICoin } from '@api/def';
+import { strToFixNum } from '@utils/cal';
+import { genImgUrl } from '@utils/img';
+import { getOptionValue } from '@utils/select_option';
 import { tagOptions } from '../def';
 import { DiscoverItem } from './style';
 interface IProps{

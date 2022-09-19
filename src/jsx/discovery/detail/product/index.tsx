@@ -1,10 +1,10 @@
 
 import React, { memo, useEffect, useState } from 'react';
 import { Col, Row, Tag, Image, List, Avatar } from 'antd';
-import { ICoin } from '@/api/def';
-import { ossImgs } from '@/oss';
-import { getPostListByTag, getTagList } from '@/api/post';
-import { genImgUrl } from '@/utils/img';
+import { ICoin } from '@api/def';
+import { ossImgs } from '@oss';
+import { getPostListByTag, getTagList } from '@api/post';
+import { genImgUrl } from '@utils/img';
 import { ProductWrapper } from './style';
 interface Iprops {
   coin:ICoin;

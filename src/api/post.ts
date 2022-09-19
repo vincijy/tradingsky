@@ -1,7 +1,7 @@
 
 // 二次封装的axios
 import { AxiosPromise } from 'axios';
-import { IRole } from '@/store/user/def';
+import { IRole } from '@store/user/def';
 import request from '../utils/request';
 import { ICoin } from './def';
 

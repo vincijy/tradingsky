@@ -2,10 +2,10 @@
 import Highcharts from 'highcharts/highstock'; // HighChart图表
 import initExport from 'highcharts/modules/exporting';
 import HSIndicators from 'highcharts/indicators/indicators';
-import { globalOptions } from '@/indices/chart_common/gloabl';
+import { globalOptions } from '@indices/chart_common/gloabl';
 import offlineExporting from 'highcharts/modules/offline-exporting';
 import colorAxis from 'highcharts/modules/coloraxis';
-import { isProdEnv } from '@/utils/is';
+import { isProdEnv } from '@utils/is';
 
 let isSetOption = false;
 

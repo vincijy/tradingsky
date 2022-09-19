@@ -1,11 +1,11 @@
-import { getMyOrders, getProfitOrders } from '@/api/order';
-import LSAppFooter from '@/components/footer'; // 尾部
-import ShareLink from '@/components/share_link';
-import { orderStatusTypeList } from '@/def';
-import { useAppSelector } from '@/hooks';
+import { getMyOrders, getProfitOrders } from '@api/order';
+import LSAppFooter from '@components/footer'; // 尾部
+import ShareLink from '@components/share_link';
+import { orderStatusTypeList } from '@def';
+import { useAppSelector } from '@hooks';
 import { Table, Tabs, Card } from 'antd';
 import React, { memo, useEffect, useState } from 'react';
-import { orderStatusType } from '@/def';
+import { orderStatusType } from '@def';
 import { OrderWrapper } from './style';
 
 export default memo(function OrderPage() {

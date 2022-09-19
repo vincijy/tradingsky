@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import LSAppFooter from '@/components/footer';
+import LSAppFooter from '@components/footer';
 
 import { TermWrapper } from './style';
 // import ReactMarkdown from 'react-markdown';

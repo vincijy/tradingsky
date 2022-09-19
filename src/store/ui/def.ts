@@ -1,4 +1,4 @@
-import { SubMenuItem, MenuItem } from '@/indices/def';
+import { SubMenuItem, MenuItem } from '@indices/def';
 import { Action } from 'redux-actions';
 import * as A from './action_type';
 

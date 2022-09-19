@@ -1,6 +1,6 @@
 // 第三方
-import { memo } from 'react';
-import { useDynamicRender } from '@/utils/dynamic';
+import React, { memo } from 'react';
+import { useDynamicRender } from '@utils/dynamic';
 // 本地
 import { CatalogWrapper } from './pc_style';
 

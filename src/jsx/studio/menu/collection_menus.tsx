@@ -1,23 +1,23 @@
 // 第三方
 import React, { memo, useEffect, useState } from 'react';
-import { useAppSelector, useAppDispatch } from '@/hooks';
-import { getAnnotationManager } from '@/utils/annotation';
-import { privateDefaultOptions } from '@/indices/chart_private_default';
+import { useAppSelector, useAppDispatch } from '@hooks';
+import { getAnnotationManager } from '@utils/annotation';
+import { privateDefaultOptions } from '@indices/chart_private_default';
 // 功能
-import { menus as indiceMenus } from '@/indices'; // 分类数据
-import { toggleAnnotation } from '@/store/chart/action';
+import { menus as indiceMenus } from '@indices'; // 分类数据
+import { toggleAnnotation } from '@store/chart/action';
 
 // 组件
 import { Menu } from 'antd';
 
 import { HeartOutlined } from '@ant-design/icons';
 import { filter, includes } from 'lodash';
-import { updateChartOption } from '@/store/chart/action';
-import { commonOptions } from '@/indices/chart_common';
+import { updateChartOption } from '@store/chart/action';
+import { commonOptions } from '@indices/chart_common';
 
-import { mergeOption } from '@/utils/merge_option';
-import { isMobile, isPad } from '@/utils/is';
-import { SubMenuItem } from '@/indices/def';
+import { mergeOption } from '@utils/merge_option';
+import { isMobile, isPad } from '@utils/is';
+import { SubMenuItem } from '@indices/def';
 import { changeMenu, toggleChartRecreated, toggleMenuVisible } from '../../../store/ui/action';
 import { MenuWrapper } from './style';
 interface IProps {

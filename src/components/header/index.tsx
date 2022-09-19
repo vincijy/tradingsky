@@ -1,23 +1,23 @@
 // 第三方
 import { memo, useLayoutEffect } from 'react';
-
-import { useAppSelector, useAppDispatch } from '@/hooks';
+import * as React from 'react';
+import { useAppSelector, useAppDispatch } from '@hooks';
 import { useHistory } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
 // 功能
-import { headerLinks } from '@/config/header'; // 映射数据
+import { headerLinks } from '@config/header'; // 映射数据
 
 // 组件
 import { Menu, Dropdown, Avatar } from 'antd'; // 组件库
-import discordLogo from '@/assets/img/discord_logo.svg';
+import discordLogo from '@assets/img/discord_logo.svg';
 import { WeiboOutlined, WechatOutlined, TwitterOutlined, DownOutlined, UserOutlined } from '@ant-design/icons'; // 图标
 
 import '@authing/react-ui-components/lib/index.min.css';
 
-import smallLogo from '@/assets/img/logo.png';
-import * as UA from '@/store/user/action';
-import { getAuthingClient } from '@/authing';
+import smallLogo from '@assets/img/logo.png';
+import * as UA from '@store/user/action';
+import { getAuthingClient } from '@utils/authing';
 import LoginButton from '../login_btn';
 import RegisterButton from '../register_btn';
 import { HeaderWrapper, HeaderLeft, HeaderRight } from './style'; // 样式

@@ -1,4 +1,4 @@
-import { TypeDataRow } from '@/components/chart/def';
+import { TypeDataRow } from '@components/chart/def';
 
 export interface Params {
     /**

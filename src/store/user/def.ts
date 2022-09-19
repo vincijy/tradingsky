@@ -1,6 +1,6 @@
 import { Action } from 'redux-actions';
 import { User } from '@authing/react-ui-components/components/AuthingGuard/types/GuardConfig';
-import { SubMenuItem } from '@/indices/def';
+import { SubMenuItem } from '@indices/def';
 import * as A from './action_type';
 export interface IUserInfoState {
     isLogin:boolean;

@@ -1,5 +1,5 @@
 // 第三方
-import { memo } from 'react';
+import React, { memo } from 'react';
 // 本地
 import { DeclareWrapper } from './pc_style';
 

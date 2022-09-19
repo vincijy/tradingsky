@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { isMobile } from '@/utils/is';
+import { isMobile } from '@utils/is';
 import * as Layout from '../../../config/layout';
 
 export const BorderLineTop = styled.div `

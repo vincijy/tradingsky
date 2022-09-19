@@ -1,7 +1,7 @@
 // 第三方
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { useHistory } from 'react-router-dom';
-import { ossImgs } from '@/oss';
+import { ossImgs } from '@oss';
 
 import { Carousel, Image } from 'antd';
 import { MainWrapper } from './pc_style';

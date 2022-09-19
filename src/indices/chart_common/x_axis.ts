@@ -1,6 +1,6 @@
 
-import { getAnnotationManager } from '@/utils/annotation';
-import store from '@/store/index';
+import { getAnnotationManager } from '@utils/annotation';
+import store from '@store/index';
 export const xAxis = {
   labels: {
     formatter: function():string {

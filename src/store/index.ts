@@ -2,7 +2,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 // 导入所有的reducer模块
-import { isProdEnv } from '@/utils/is';
+import { isProdEnv } from '@utils/is';
 import { rootReducer } from './reducer';
 
 // devtool插件

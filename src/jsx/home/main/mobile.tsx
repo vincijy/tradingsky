@@ -1,5 +1,5 @@
 // 第三方
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { Carousel } from 'antd';

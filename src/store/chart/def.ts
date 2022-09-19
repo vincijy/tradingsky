@@ -1,5 +1,5 @@
 import { Action } from 'redux-actions';
-import { TypeDataRow } from '@/components/chart/def';
+import { TypeDataRow } from '@components/chart/def';
 import * as A from './action_type';
 
 interface IAssetPriceData {

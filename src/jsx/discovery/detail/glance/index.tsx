@@ -1,12 +1,12 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Card, Row, Col, Progress } from 'antd';
-import { getAllPrice, getExtremum } from '@/api/discovery';
-import { getPost } from '@/api/post';
-import { ICoin, IExtremum } from '@/api/def';
+import { getAllPrice, getExtremum } from '@api/discovery';
+import { getPost } from '@api/post';
+import { ICoin, IExtremum } from '@api/def';
 import HighchartsReact from 'highcharts-react-official';
-import { getHighCharts } from '@/components/chart';
-import { strToFixNum } from '@/utils/cal';
-import { unixToHuman } from '@/utils/date';
+import { getHighCharts } from '@components/chart';
+import { strToFixNum } from '@utils/cal';
+import { unixToHuman } from '@utils/date';
 import { GlanceWrapper } from './style';
 import { options } from './options';
 interface Iprops {

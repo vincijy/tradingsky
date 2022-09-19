@@ -1,12 +1,12 @@
 import React, { memo, useState } from 'react';
 import { Card, Button, Modal, message } from 'antd';
 
-import LSAppFooter from '@/components/footer'; // 尾部
-import { ossImgs } from '@/oss';
-import { alipayOrder, hupiPayOrder } from '@/api/pay';
+import LSAppFooter from '@components/footer'; // 尾部
+import { ossImgs } from '@oss';
+import { alipayOrder, hupiPayOrder } from '@api/pay';
 import QRCode from 'qrcode';
-import { useLoading, useAppSelector } from '@/hooks';
-import { StorageKey } from '@/def';
+import { useLoading, useAppSelector } from '@hooks';
+import { StorageKey } from '@def';
 import { Input } from 'antd';
 import { PriceWrapper, PricePageWrapper } from './style';
 import { PayMethod } from './def';

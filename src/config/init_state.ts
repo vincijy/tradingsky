@@ -1,8 +1,8 @@
-import { menus } from '@/indices';
-import { getUrlParams, findMenuByIndex } from '@/utils/url';
-import { mergeOption } from '@/utils/merge_option';
-import { chart as initialPrivateOption } from '@/indices/5_evaluate_indice/ahr999/chart';
-import { commonOptions } from '@/indices/chart_common';
+import { menus } from '@indices';
+import { getUrlParams, findMenuByIndex } from '@utils/url';
+import { mergeOption } from '@utils/merge_option';
+import { chart as initialPrivateOption } from '@indices/5_evaluate_indice/ahr999/chart';
+import { commonOptions } from '@indices/chart_common';
 
 /**
  * 如果能从URL中读取到指标的话初始状态就设置成改指标对应菜单, 否则使用默认的sopf作为菜单

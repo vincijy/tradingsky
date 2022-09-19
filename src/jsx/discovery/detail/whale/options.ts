@@ -1,4 +1,4 @@
-import { isMobile, isPad } from '@/utils/is';
+import { isMobile, isPad } from '@utils/is';
 export const options = {
   chart: {
     plotBackgroundColor: null,

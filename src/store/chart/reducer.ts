@@ -1,5 +1,5 @@
-import { getAppInitState } from '@/config/init_state';
-import { getUrlParams } from '@/utils/url';
+import { getAppInitState } from '@config/init_state';
+import { getUrlParams } from '@utils/url';
 import * as A from './action_type';
 import { IChartState, IAction, TypePaylodMapKey } from './def';
 const initState:IChartState = {

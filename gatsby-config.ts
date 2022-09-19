@@ -14,13 +14,42 @@ const config:GatsbyConfig = {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
-          '@/': 'src/',
+          '@components': 'src/components',
+          '@assets': 'src/assets',
+          '@store': 'src/store',
+          '@api': 'src/api',
+          '@jsx': 'src/jsx',
+          '@router': 'src/router',
+          '@pages': 'src/pages',
+          '@indices': 'src/indices',
+          '@config': 'src/config',
+          '@utils': 'src/utils',
+          '@hooks': 'src/hooks',
+          '@def': 'src/def',
+          '@oss': 'src/oss.ts',
+          '@style': 'src/style.ts',
         },
         extensions: [
           'js',
           'tsx',
           'ts',
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-less',
+      options: {
+        loaderOptions: {
+        },
+        lessOptions: {
+          javascriptEnabled: true,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-antd',
+      options: {
+        style: true,
       },
     },
     // 'gatsby-plugin-styled-components',
@@ -65,6 +94,7 @@ const config:GatsbyConfig = {
     //   __key: 'pages',
     // },
   ],
+
 };
 
 export default config;

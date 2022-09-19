@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { Button } from 'antd';
-import { useDynamicRender } from '@/utils/dynamic';
+import { useDynamicRender } from '@utils/dynamic';
 
 import { PirateWrapper } from './style';
 

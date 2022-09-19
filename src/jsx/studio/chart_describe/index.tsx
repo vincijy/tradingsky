@@ -1,6 +1,6 @@
 // 第三方
-import { memo } from 'react';
-import { useAppSelector } from '@/hooks';
+import React, { memo } from 'react';
+import { useAppSelector } from '@hooks';
 import { Card } from 'antd';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';

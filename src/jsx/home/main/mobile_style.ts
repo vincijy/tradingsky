@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ossImgs } from '@/oss';
+import { ossImgs } from '@oss';
 export const MainWrapper = styled.div `
     height: 722px;
     background: url(${ossImgs.homeMain}) no-repeat center; // 图片填充

@@ -1,6 +1,6 @@
 /* eslint-disable prefer-const */
-import { getTimeStamp, findFirstGreater } from '@/utils/date';
-import { IDate } from '@/indices/def';
+import { getTimeStamp, findFirstGreater } from '@utils/date';
+import { IDate } from '@indices/def';
 import { TypeDataRow } from '../def';
 import * as D from './def';
 

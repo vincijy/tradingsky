@@ -1,6 +1,6 @@
 
 
-import { LineColor, BandColor } from '@/indices/def';
+import { LineColor, BandColor } from '@indices/def';
 
 
 export interface IConvertValues {

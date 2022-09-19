@@ -1,13 +1,13 @@
 import React, { memo, useEffect } from 'react';
-import { useAppSelector, useAppDispatch } from '@/hooks';
-import { getOrderByOrderId } from '@/api/order';
+import { useAppSelector, useAppDispatch } from '@hooks';
+import { getOrderByOrderId } from '@api/order';
 import { useRef } from 'react';
-import { orderStatusTypeList } from '@/def';
+import { orderStatusTypeList } from '@def';
 import { message } from 'antd';
-import { getAuthingClient } from '@/authing';
-import * as UA from '@/store/user/action'; // 改变登录状态
-import * as UIAction from '@/store/ui/action'; // 改变登录状态
-import { injectAuthingPanel } from '@/components/authing';
+import { getAuthingClient } from '@utils/authing';
+import * as UA from '@store/user/action'; // 改变登录状态
+import * as UIAction from '@store/ui/action'; // 改变登录状态
+import { injectAuthingPanel } from '@components/authing';
 
 interface IProps {
   orderId:string;

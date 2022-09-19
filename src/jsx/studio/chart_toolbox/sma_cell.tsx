@@ -1,12 +1,12 @@
 // 第三方
 import React, { memo } from 'react';
-import { useAppDispatch, useAppSelector } from '@/hooks';
-import { updateChartOption } from '@/store/chart/action';
-import { getChart } from '@/components/chart';
-import { mergeOption } from '@/utils/merge_option';
-import { commonOptions } from '@/indices/chart_common';
-import { toggleChartRecreated } from '@/store/ui/action';
-import { getAnnotationManager } from '@/utils/annotation';
+import { useAppDispatch, useAppSelector } from '@hooks';
+import { updateChartOption } from '@store/chart/action';
+import { getChart } from '@components/chart';
+import { mergeOption } from '@utils/merge_option';
+import { commonOptions } from '@indices/chart_common';
+import { toggleChartRecreated } from '@store/ui/action';
+import { getAnnotationManager } from '@utils/annotation';
 import DropDownCell from './dropdown_cell';
 import { ToolBoxCellName } from './def';
 

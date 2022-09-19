@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ossImgs } from '@/oss';
+import { ossImgs } from '@oss';
 
 export const CatalogWrapper = styled.div `
     height: 80hv; // 整体大小

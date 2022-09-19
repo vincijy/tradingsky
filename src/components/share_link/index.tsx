@@ -2,7 +2,7 @@ import React, { memo, useEffect, useState } from 'react';
 
 import { Button, message } from 'antd';
 import { LinkOutlined } from '@ant-design/icons';
-import { useAppSelector } from '@/hooks';
+import { useAppSelector } from '@hooks';
 
 export default memo(function ShareLink() {
   const { id } = useAppSelector((state) => state.user.userInfo);

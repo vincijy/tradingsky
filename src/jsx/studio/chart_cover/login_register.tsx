@@ -1,9 +1,9 @@
 // 第三方
 import React, { memo } from 'react';
 import { Provider } from 'react-redux'; // 集中管理状态
-import store from '@/store';
-import LoginButton from '@/components/login_btn';
-import RegisterButton from '@/components/register_btn';
+import store from '@store';
+import LoginButton from '@components/login_btn';
+import RegisterButton from '@components/register_btn';
 import { ButtonArea } from './style';
 
 export default memo(function LoginRegisterRequired() {

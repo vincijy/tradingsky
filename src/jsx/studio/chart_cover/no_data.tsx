@@ -1,6 +1,6 @@
-import RegisterButton from '@/components/register_btn';
+import RegisterButton from '@components/register_btn';
 import { Provider } from 'react-redux'; // 集中管理状态
-import store from '@/store';
+import store from '@store';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import React, { memo } from 'react';
 import LSChartToolbox from '../chart_toolbox';
