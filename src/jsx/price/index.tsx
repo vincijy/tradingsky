@@ -3,7 +3,7 @@ import { Card, Button, Modal, message } from 'antd';
 
 import LSAppFooter from '@components/footer'; // 尾部
 import { ossImgs } from '@oss';
-import { alipayOrder, hupiPayOrder } from '@api/pay';
+import { alipayOrder, hupiPayOrder } from 'src/service/pay';
 import QRCode from 'qrcode';
 import { useLoading, useAppSelector } from '@hooks';
 import { StorageKey } from '@def';

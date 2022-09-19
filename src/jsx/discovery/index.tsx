@@ -4,8 +4,8 @@ import { SearchOutlined } from '@ant-design/icons';
 import LSAppFooter from '@components/footer'; // footer
 
 import DiscoveryCard from '@jsx/discovery/card';
-import { getCoinList } from '@api/discovery';
-import { ICoin } from '@api/def';
+import { getCoinList } from 'src/service/discovery';
+import { ICoin } from 'src/service/def';
 import { isProdEnv } from '@utils/is';
 import { DiscoverPage } from './style';
 import { tagOptions, chainOptions } from './def';

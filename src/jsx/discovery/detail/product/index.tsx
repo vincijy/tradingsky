@@ -1,9 +1,9 @@
 
 import React, { memo, useEffect, useState } from 'react';
 import { Col, Row, Tag, Image, List, Avatar } from 'antd';
-import { ICoin } from '@api/def';
+import { ICoin } from 'src/service/def';
 import { ossImgs } from '@oss';
-import { getPostListByTag, getTagList } from '@api/post';
+import { getPostListByTag, getTagList } from 'src/service/post';
 import { genImgUrl } from '@utils/img';
 import { ProductWrapper } from './style';
 interface Iprops {
