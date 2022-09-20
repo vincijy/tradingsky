@@ -20,14 +20,7 @@ export default memo(function App() {
       <FontStyle />
       <div id='authing_root' />
       <LSAppHeader/>
-      <Studio></Studio>
-      {/* <BrowserRouter>
-        <LSAppHeader/>
-        <Wrapper/>
-        <Suspense fallback={<RouteLoading/>}>
-          {renderRoutes(routes)}
-        </Suspense>
-      </BrowserRouter> */}
+      <Studio />
     </Provider>
   );
 });
