@@ -10,6 +10,7 @@ import 'antd/dist/antd.less'; // 按需引入、设置主题
 import RouteLoading from '@components/route_loading';
 import Wrapper from '@components/wrapper';
 import LSAppHeader from '@components/header'; // 导航
+import Studio from '@jsx/studio';
 import { FontStyle } from '../style';
 
 // 组件
@@ -18,13 +19,15 @@ export default memo(function App() {
     <Provider store={store}>
       <FontStyle />
       <div id='authing_root' />
-      <BrowserRouter>
+      <LSAppHeader/>
+      <Studio></Studio>
+      {/* <BrowserRouter>
         <LSAppHeader/>
         <Wrapper/>
         <Suspense fallback={<RouteLoading/>}>
           {renderRoutes(routes)}
         </Suspense>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </Provider>
   );
 });

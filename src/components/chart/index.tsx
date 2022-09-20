@@ -15,8 +15,8 @@ let isSetOption = false;
  */
 export const getHighCharts = function():typeof Highcharts {
   // 全局配置
-  if (!isSetOption) {
-    Highcharts.setOptions(globalOptions);
+  if (!isSetOption && typeof Highcharts !== 'undefined' && typeof Highcharts.setOptions === 'function') {
+    typeof Highcharts.setOptions === 'function' && Highcharts.setOptions(globalOptions);
     initExport(Highcharts);
     offlineExporting(Highcharts);
     colorAxis(Highcharts);

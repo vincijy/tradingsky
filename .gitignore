@@ -32,3 +32,4 @@ public/*.js
 public/*.map
 public/*
 public/*.json
+public/chunk-map.json

@@ -3,7 +3,7 @@ import { memo, useLayoutEffect } from 'react';
 import * as React from 'react';
 import { useAppSelector, useAppDispatch } from '@hooks';
 import { useHistory } from 'react-router';
-import { NavLink } from 'react-router-dom';
+import { Link as NavLink } from 'gatsby';
 
 // 功能
 import { headerLinks } from '@config/header'; // 映射数据
@@ -43,7 +43,6 @@ export default memo(function LSAppHeader() {
     }else{
       return (
         <NavLink
-          exact
           to={item.link}
           activeClassName='active'>
           {item.title}

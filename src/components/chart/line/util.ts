@@ -107,7 +107,7 @@ export const getToday = ():IDate => {
   };
 };
 
-(window as any).getOneYearAgo = getOneYearAgo;
+// (window as any).getOneYearAgo = getOneYearAgo;
 
 const getSmaValues = (
   serieData:[number, number][],
