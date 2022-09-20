@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom';
 import { Button } from 'antd';
 import { WeiboOutlined, WechatOutlined, TwitterOutlined } from '@ant-design/icons';
 import discordLogo from '@assets/img/discord_logo_white.svg';
-import { useDynamicRender } from '@utils/dynamic';
 import { FooterWrapper, FooterLeft, FooterRight } from './style'; // 样式
 export default memo(function LSAppFooter() {
   const h = useHistory();

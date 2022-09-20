@@ -12,7 +12,8 @@ import { commonOptions } from '@indices/chart_common';
 export function getAppInitState() {
   const { index, asset } = getUrlParams();
   const { menu, subMenu } = findMenuByIndex(menus, index);
-  const dataAssetStr = asset || localStorage.getItem('dataAsset');
+  // const dataAssetStr = asset || localStorage.getItem('dataAsset');
+  const dataAssetStr = 'btc';
 
   let chartOptions;
   if (subMenu) {

@@ -31,7 +31,7 @@ export function reducer(state:IUiState = initState, action:IAction<TypePaylodMap
       const { args: { index } } = (action as IAction<'CHANGE_MENU'>).payload.currentMenu.subMenu;
       // eslint-disable-next-line no-case-declarations
       const asset = (action as IAction<'CHANGE_MENU'>).payload.asset;
-      window.history.pushState('', '', `/chart?index=${index}&asset=${asset}`);
+      // window.history.pushState('', '', `/chart?index=${index}&asset=${asset}`);
       return {
         ...state,
         currentMenu: (action as IAction<'CHANGE_MENU'>).payload.currentMenu,

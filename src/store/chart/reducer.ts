@@ -34,7 +34,7 @@ export function reducer(state:IChartState = initState, action:IAction<TypePaylod
       const dataAsset = (action as IAction<'CHANGE_ASSET'>).payload.dataAsset;
       // eslint-disable-next-line no-case-declarations
       const { index } = getUrlParams();
-      window.history.pushState('', '', `/chart?index=${index}&asset=${dataAsset}`);
+      // window.history.pushState('', '', `/chart?index=${index}&asset=${dataAsset}`);
       return {
         ...state,
         dataAsset: (action as IAction<'CHANGE_ASSET'>).payload.dataAsset,

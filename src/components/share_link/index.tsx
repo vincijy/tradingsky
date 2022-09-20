@@ -7,7 +7,8 @@ import { useAppSelector } from '@hooks';
 export default memo(function ShareLink() {
   const { id } = useAppSelector((state) => state.user.userInfo);
 
-  const { host } = window.location;
+  // const { host } = window.location;
+  const host = 'tokenaly';
   const url = `https://${host}?sharerUserId=${id}`;
 
   function copyToClipboard(text:string) {

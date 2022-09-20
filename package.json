@@ -49,6 +49,7 @@
     "dev": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "clean": "gatsby clean",
     "lint": "eslint",
     "analyze": "cross-env REACT_APP_INTERACTIVE_ANALYZE=1 npm run build",
     "baidu": "curl -H 'Content-Type:text/plain' --data-binary @urls.txt 'http://data.zz.baidu.com/urls?site=https://www.lianshucha.com&token=cq7XdQBTGtXsO1rk'"

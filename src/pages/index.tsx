@@ -1,10 +1,9 @@
 // 第三方
-import { memo, Suspense } from 'react';
+import React, { memo, Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom'; // 路由相关文件
 import { renderRoutes } from 'react-router-config'; // 路由集中配置
 import { Provider } from 'react-redux'; // 集中管理状态
 // 功能
-import * as React from 'react';
 import routes from '@router'; // 本地路由
 import store from '@store';
 import 'antd/dist/antd.less'; // 按需引入、设置主题

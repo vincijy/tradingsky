@@ -6,7 +6,7 @@ import { globalOptions } from '@indices/chart_common/gloabl';
 import offlineExporting from 'highcharts/modules/offline-exporting';
 import colorAxis from 'highcharts/modules/coloraxis';
 import { isProdEnv } from '@utils/is';
-
+const isBrowser = typeof window !== 'undefined';
 let isSetOption = false;
 
 /**
@@ -38,5 +38,7 @@ export function setChart(c:Highcharts.Chart) {
 }
 
 if (!isProdEnv) {
-  (window as any).getChart = getChart;
+  if (isBrowser) {
+    (window as any).getChart = getChart;
+  }
 }
