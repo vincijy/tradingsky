@@ -22,7 +22,7 @@ const config:GatsbyConfig = {
           '@assets': 'src/assets',
           '@store': 'src/store',
           '@service': 'src/service',
-          '@jsx': 'src/jsx',
+          '@section': 'src/section',
           '@router': 'src/router',
           '@pages': 'src/pages',
           '@indices': 'src/indices',
@@ -59,6 +59,11 @@ const config:GatsbyConfig = {
     },
     {
       resolve: 'babel-preset-gatsby',
+    },
+    {
+      resolve: `@lekoarts/gatsby-theme-cara`,
+      // See the theme's README for all available options
+      options: {},
     },
 
     // 'gatsby-plugin-styled-components',

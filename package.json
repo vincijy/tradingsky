@@ -5,6 +5,7 @@
   "dependencies": {
     "@ant-design/icons": "4.6.2",
     "@authing/react-ui-components": "2.4.50",
+    "@lekoarts/gatsby-theme-cara": "^3.0.11",
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "11.1.0",
     "@testing-library/user-event": "12.1.10",
@@ -17,6 +18,7 @@
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-antd": "^2.2.0",
     "gatsby-plugin-less": "^6.23.0",
+    "gatsby-plugin-page-load-delay": "^0.1.2",
     "highcharts": "9.1.2",
     "highcharts-react-official": "3.0.0",
     "http-proxy-middleware": "2.0.1",

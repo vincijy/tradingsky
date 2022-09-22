@@ -8,7 +8,7 @@ const routes = [
   {
     path: '/',
     exact: true,
-    component: lazy(() => import( '@jsx/studio')),
+    component: lazy(() => import( 'src/section/studio')),
   },
   // {
   //   path: '/catalog',

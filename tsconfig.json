@@ -23,6 +23,6 @@
   },
   "include": [
     "./src/**/*"
-, "gatsby-node.ts"  ],
+, "gatsby-node.ts", "gatsby-browser.js"  ],
   "extends": "./tsconfig.path.json"
 }

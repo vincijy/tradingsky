@@ -6,7 +6,7 @@
         "@assets/*": ["src/assets/*"],
         "@store/*": ["src/store/*"],
         "@service/*": ["src/service/*"],
-        "@jsx/*": ["src/jsx/*"],
+        "@section/*": ["src/section/*"],
         "@router/*": ["src/router/*"],
         "@pages/*": ["src/pages/*"],
         "@indices/*": ["src/indices/*"],
