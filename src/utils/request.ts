@@ -1,11 +1,10 @@
 import axios from 'axios';
-import { BASE_URL, TIMEOUT } from '@config';
+import {TIMEOUT } from '@config';
 import store from '@store';
 import { message } from 'antd';
 
 // 基本配置
 const instance = axios.create({
-  baseURL: BASE_URL,
   timeout: TIMEOUT,
 });
 
