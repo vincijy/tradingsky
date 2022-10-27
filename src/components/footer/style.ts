@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterWrapper = styled.div `
-    background: #30363d;
-
+    background: #252233;
     .content {
         display: flex;    
         justify-content: space-between;

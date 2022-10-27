@@ -1,18 +1,14 @@
 // 第三方
 import React, { memo } from 'react';
 import { useHistory } from 'react-router-dom';
-import { ossImgs } from '@oss';
 
-import { Carousel, Image } from 'antd';
+import { navigate } from 'gatsby';
 import { MainWrapper } from './pc_style';
 
-export default memo(function LSHomeMain() {
-  // other hook
-  const history = useHistory();
 
-  // handle function
+export default memo(function LSHomeMain() {
   const goChart = () => {
-    history && history.push('/chart');
+    navigate('/chart');
   };
 
   return (
@@ -21,21 +17,20 @@ export default memo(function LSHomeMain() {
         <div className='home-container'>
           <div className='home-slogon'>
             <h2>
-            链数查：链上数据使投资变得更透明
+            Tokenaly：Online token analysis platform
             </h2>
             <p>
-                          您的链上数据访问门户，点击查看您的第一张动态数据图表
+            Set up your voyage of block chain data exploring
             </p>
           </div>
           <div className='btn-area'>
-            <a
-              target='_blank'
-              rel='noreferrer'
+            <button
+              style={{ cursor: 'pointer' }}
               onClick={() => goChart()}
-              className='btn'>免费使用
-            </a>
+            >Started
+            </button>
           </div>
-          <div className='pad'>
+          {/* <div className='pad'>
             <div className='pad_inner_box'>
               <Carousel >
                 <div>
@@ -50,7 +45,7 @@ export default memo(function LSHomeMain() {
                 </div>
               </Carousel>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </MainWrapper>

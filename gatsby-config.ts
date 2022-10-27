@@ -1,9 +1,12 @@
 import type { GatsbyConfig } from 'gatsby';
+// verion > 1.0
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const config:GatsbyConfig = {
   siteMetadata: {
     title: 'Tokenaly',
     siteUrl: 'https://www.yourdomain.tld',
+    author: 'JK.Mes',
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -12,6 +15,30 @@ const config:GatsbyConfig = {
   flags: {
     DEV_SSR: true,
   },
+  developMiddleware: function(app) {
+
+    // 含有数据接口的测试服务器
+    app.use('/api', createProxyMiddleware({
+      target: 'http://121.43.176.46:8081',
+      changeOrigin: true,
+    }));
+
+
+    // // 生产服务器的 python backend
+    // app.use('/bpi', createProxyMiddleware({
+    //   target: 'http://paynotify.lianshucha.com',
+    //   changeOrigin: true,
+    //   pathRewrite: { '^/bpi/': '/api/' },
+    // }));
+
+    // 本地开发的 python backend
+    app.use('/bpi', createProxyMiddleware({
+      target: 'http://localhost:5000',
+      changeOrigin: true,
+      pathRewrite: { '^/bpi/': '/api/' },
+    }));
+  },
+
 
   plugins: [
     {
@@ -32,6 +59,7 @@ const config:GatsbyConfig = {
           '@def': 'src/def',
           '@oss': 'src/oss.ts',
           '@style': 'src/style.ts',
+          '@src': 'src',
         },
         extensions: [
           'js',
@@ -59,11 +87,6 @@ const config:GatsbyConfig = {
     },
     {
       resolve: 'babel-preset-gatsby',
-    },
-    {
-      resolve: `@lekoarts/gatsby-theme-cara`,
-      // See the theme's README for all available options
-      options: {},
     },
 
     // 'gatsby-plugin-styled-components',

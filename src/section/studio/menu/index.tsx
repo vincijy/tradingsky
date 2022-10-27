@@ -1,10 +1,10 @@
 // 第三方
 import React, { memo, useEffect, useState } from 'react';
-import { useAppSelector, useAppDispatch } from '@hooks';
+import { useAppSelector, useAppDispatch } from '@hooks/index';
 import { getAnnotationManager } from '@utils/annotation';
 import { privateDefaultOptions } from '@indices/chart_private_default';
 // 功能
-import { menus as indiceMenus } from '@indices'; // 分类数据
+import { menus as indiceMenus } from '@indices/index'; // 分类数据
 import { toggleAnnotation } from '@store/chart/action';
 
 // 组件

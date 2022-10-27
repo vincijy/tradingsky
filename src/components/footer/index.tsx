@@ -20,10 +20,10 @@ export default memo(function LSAppFooter() {
     <div className='content'>
       <FooterLeft>
         <div>
-                    链数查 © 2021 - 版权所有
+                Tokenaly © 2022 - all rights reserved
         </div>
       </FooterLeft>
-      <FooterRight>
+      {/* <FooterRight>
         <ul>
           <li><a href='https://discord.gg/zgkHnJyuJs' target='_blank' rel='noreferrer' style={{ color: 'white' }}>反馈</a></li>
           <li>
@@ -76,7 +76,7 @@ export default memo(function LSAppFooter() {
               target='_blank' />
           </div>
         </ul>
-      </FooterRight>
+      </FooterRight> */}
     </div>
   );
   // useDynamicRender(content, 'footer_root');

@@ -7,8 +7,10 @@ import { FontStyle } from './style';
 const App = ({ element }:{element:React.ReactElement }) => (
   <Provider store={store}>
     <FontStyle />
-    <div id='authing_root' />
-    {element}
+    <div id='webContent'>
+      <div id='authing_root' />
+      {element}
+    </div>
   </Provider>
 );
 

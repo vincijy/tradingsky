@@ -6,7 +6,7 @@ import React, { memo, useState, useCallback, useEffect } from 'react';
 // 组件
 import LSAppFooter from '@components/footer';
 import { Layout } from 'antd';
-import { useAppSelector, useAppDispatch } from '@hooks';
+import { useAppSelector, useAppDispatch } from '@hooks/index';
 import { toggleMenuVisible } from '@store/ui/action';
 import { isMobile, isPad } from '@utils/is';
 import { getAuthingClient } from '@utils/authing';
@@ -106,9 +106,9 @@ export default memo(function LSChartPage() {
                 <LSChartDescribe />
               </div>
             </Content>
-            <AppFooter>
+            {/* <AppFooter>
               <LSAppFooter />
-            </AppFooter>
+            </AppFooter> */}
           </Layout>
         }
 

@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { NAV_BAR_HEIGHT } from '@config/layout';
 
 export const HeaderWrapper = styled.div `
-    margin: 0px 32px;
-
+    padding: 0px 32px;
+    background: #252233;
     .header-content{
         display: flex;
         align-items: center;
@@ -32,6 +32,18 @@ export const HeaderLeft = styled.div `
     .select-list{
         display: flex;
         align-items: center;
+
+        a {
+            color: white;
+        }
+        a:hover {
+            color: white;
+            border-bottom: 2px solid white;
+        }
+        a:active {
+            color: white;
+            border-bottom: 2px solid white;
+        }
 
         .logo{
             width: 150px;
@@ -68,14 +80,6 @@ export const HeaderLeft = styled.div `
             @media screen and (min-width: 320px) and (max-width: 480px) { // 移动端适配 iPhone：隐藏导航栏
                 display: none;
             }
-        }
-
-        a:hover {
-            border-bottom: 2px solid #000;
-        }
-
-        .active{
-            border-bottom: 2px solid #000;
         }
 
         .logo-nav{

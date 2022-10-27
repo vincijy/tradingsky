@@ -1,6 +1,6 @@
 import '@authing/react-ui-components/lib/index.min.css';
 
-import smallLogo from '@assets/img/logo.png';
+import { ossImgs } from '@oss';
 // 开发环境
 const DEV_BASE_URL = 'http://localhost:3000';
 
@@ -16,18 +16,18 @@ export const OSS_HOST = 'https://servlinkcdn.vincijy.com';
 
 
 export const authingConfig = {
-  appId: '61160ec791133eecb2c0978b',
-  appHost: 'https://lianshucha.authing.cn',
+  appId: '62f9228baa8046761d0f9967',
+  appHost: 'https://tokenaly.authing.cn',
 };
 
 export const authingComponentConfig = {
   mode: 'modal',
-  title: '欢迎来到LianShuCha',
+  title: 'Tokenaly',
   defaultScenes: 'login',
   // escCloseable: 'true',
-  logo: `${smallLogo}`,
-  contentCss: 'true',
+  // contentCss: 'authing-guard-header { display: none; }',
+  lang: 'en-US',
 };
 
 // 文件图片图片路径前缀, 和图片文件名拼接使用
-export const IMG_PREFIX = 'http://img.lianshucha.com/static/img_lsc/';
+// export const IMG_PREFIX = 'http://img.lianshucha.com/static/img_lsc/';

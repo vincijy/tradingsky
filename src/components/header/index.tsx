@@ -1,7 +1,7 @@
 // 第三方
-import { memo, useLayoutEffect } from 'react';
+import { memo } from 'react';
 import * as React from 'react';
-import { useAppSelector, useAppDispatch } from '@hooks';
+import { useAppSelector, useAppDispatch } from '@hooks/index';
 import { useHistory } from 'react-router';
 import { Link as NavLink } from 'gatsby';
 
@@ -60,18 +60,18 @@ export default memo(function LSAppHeader() {
     localStorage.removeItem('userInfo');
   };
 
-  useLayoutEffect(() => {
-    // hack, 将logo替换成文本
-    const logo = document.querySelector('.logo');
-    const div = document.createElement('div');
-    div.setAttribute('class', 'logo');
-    div.innerText = 'Lianshucha';
-    logo?.replaceWith(div);
-  });
+  // useLayoutEffect(() => {
+  //   // hack, 将logo替换成文本
+  //   const logo = document.querySelector('.logo');
+  //   const div = document.createElement('div');
+  //   div.setAttribute('class', 'logo');
+  //   div.innerText = 'Lianshucha';
+  //   logo?.replaceWith(div);
+  // });
 
   const menu = (
     <Menu>
-      <Menu.Item key='0'>
+      {/* <Menu.Item key='0'>
         <NavLink to='/chart' >图表数据</NavLink>
       </Menu.Item>
       <Menu.Item key='1'>
@@ -80,7 +80,7 @@ export default memo(function LSAppHeader() {
       <Menu.Item key='2'>
         <NavLink to='/setting' >个人信息</NavLink>
       </Menu.Item>
-      <Menu.Divider />
+      <Menu.Divider /> */}
       <Menu.Item
         onClick={logout}
         key='3'>退出登录
@@ -94,13 +94,13 @@ export default memo(function LSAppHeader() {
       <div className='header-content text-nowrap'>
         <HeaderLeft>
           <ul className='select-list'>
-            <NavLink
+            {/* <NavLink
               className='logo-nav'
               to='/'><img
                 className='logo'
                 src={''} />
-            </NavLink>
-            <div className='separator' />
+            </NavLink> */}
+            {/* <div className='separator' /> */}
             {
               headerLinks.map((item, index) => (
                 <li key={item.title}>
@@ -111,7 +111,7 @@ export default memo(function LSAppHeader() {
           </ul>
         </HeaderLeft>
         <HeaderRight>
-          <div className='side'>
+          {/* <div className='side'>
             <a
               href='https://discord.gg/jmKw6PRQ7W'
               target='_blank'
@@ -136,7 +136,7 @@ export default memo(function LSAppHeader() {
               rel='noreferrer'>
               <WechatOutlined className='most-right' />
             </a>
-          </div>
+          </div> */}
           <div className='personal-bar'>
             {
               isLogin ?

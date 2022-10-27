@@ -6,3 +6,7 @@ console.log(
   'color: blue; font-size: 16px',
   'color: red; font-size: 16px',
 );
+
+if (typeof window !== 'undefined') {
+  console.log('window');
+};

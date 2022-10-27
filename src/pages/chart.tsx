@@ -4,10 +4,9 @@ import React, { memo } from 'react';
 import MainLayout from '@components/layout';
 import Studio from '@section/studio/index';
 import 'antd/dist/antd.less'; // 按需引入、设置主题
-import App from '../App';
 
 // 组件
-export default memo(function Index() {
+export default memo(function Chart() {
   return (
     <MainLayout>
       <Studio />

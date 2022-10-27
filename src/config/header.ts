@@ -1,30 +1,30 @@
 export const headerLinks = [
   {
-    title: '主页',
+    title: 'Home',
     link: '/',
   },
+  // {
+  //   title: '探索',
+  //   link: '/discovery',
+  // },
   {
-    title: '探索',
-    link: '/discovery',
-  },
-  {
-    title: '图表',
+    title: 'Chart',
     link: '/chart',
   },
-  {
-    title: '指标目录',
-    link: '/catalog',
-  },
-  {
-    title: '联系我们',
-    link: '/contact',
-  },
-  {
-    title: '洞见',
-    link: 'https://weibo.com/p/1005057657665166/wenzhang?from=page_100505_profile&wvr=6&mod=wenzhangmore&articlefeed=1&is_article=1',
-  },
-  {
-    title: '价格',
-    link: '/price',
-  },
+  // {
+  //   title: '指标目录',
+  //   link: '/catalog',
+  // },
+  // {
+  //   title: '联系我们',
+  //   link: '/contact',
+  // },
+  // {
+  //   title: '洞见',
+  //   link: 'https://weibo.com/p/1005057657665166/wenzhang?from=page_100505_profile&wvr=6&mod=wenzhangmore&articlefeed=1&is_article=1',
+  // },
+  // {
+  //   title: 'Price',
+  //   link: '/price',
+  // },
 ];

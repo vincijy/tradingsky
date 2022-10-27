@@ -13,6 +13,8 @@
         "@config/*": ["src/config/*"],
         "@utils/*": ["src/utils/*"],
         "@hooks/*": ["src/hooks/*"],
+        "@oss": ["src/oss.ts"],
+        "@src": ["src/*"],
       }
     }
 }
