@@ -17,7 +17,8 @@
         "@utils": "./src/utils",
         "@hooks": "./src/hooks",
       }
-    }]
+    }],
+    ["styled-components", { "ssr": true }]
   ],
   "presets": [
     [
