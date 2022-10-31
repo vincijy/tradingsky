@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {TIMEOUT } from '@config';
+import { TIMEOUT } from '@config';
 import store from '@store';
 import { message } from 'antd';
 

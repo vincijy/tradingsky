@@ -13,8 +13,10 @@ if (userInfoString) {
 
 // 默认状态
 const defaultState:IUserInfoState = {
-  isLogin: userInfo.token !== undefined,
+  // isLogin: userInfo.token !== undefined,
   userInfo: userInfo,
+  isLogin: true,
+
 };
 
 // 根据action更新state

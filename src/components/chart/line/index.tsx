@@ -49,6 +49,7 @@ export default memo(function LinesChart(props:IProps) {
   const { seriesA, seriesB, seriesC } = props;
   const { data: dataA } = seriesA;
   const { data: dataB } = seriesB;
+  console.log(dataA, dataB);
 
   const options = useAppSelector((state) => state.chart.options);
   const xStart = useAppSelector((state) => state.ui.currentMenu.subMenu.xStart);

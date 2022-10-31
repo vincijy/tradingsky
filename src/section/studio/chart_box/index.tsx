@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState, useLayoutEffect, useCallback, useMemo } from 'react';
-import { useAppSelector, useAppDispatch } from '@hooks';
+import { useAppSelector, useAppDispatch } from '@hooks/index';
 import LinesChart from '@components/chart/line';
 import { getHighCharts } from '@components/chart';
 import { getChartData, getAssetPrice } from '@service/chart';
@@ -95,6 +95,7 @@ export default memo(function LSChartBox() {
     const p1 = new Promise<TypeDataRow>((resolve, reject) => {
       getChartData(index, asset, source)
         .then((res) => {
+          console.log(res)
           resolve(res.data.rows || initData);
         })
         .catch((err) => {

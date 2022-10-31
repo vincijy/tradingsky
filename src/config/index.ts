@@ -15,7 +15,7 @@ export const authingConfig = {
 
 export const authingComponentConfig = {
   mode: 'modal',
-  title: 'Tokenaly',
+  title: 'QklData',
   defaultScenes: 'login',
   // escCloseable: 'true',
   // contentCss: 'authing-guard-header { display: none; }',
