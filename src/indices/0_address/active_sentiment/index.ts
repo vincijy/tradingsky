@@ -10,7 +10,7 @@ export const activeSentiment:D.SubMenuItem = {
   vipRequired: true, // free
   isNew: false,
 
-  visible: true,
+  visible: false,
   args: {
     index: 'address/active_sentiment',
   },

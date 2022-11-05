@@ -8,7 +8,7 @@ export const addressLess1:D.SubMenuItem = {
   key: '余额 < 1地址量',
   loginRequired: true,
   vipRequired: true,
-  visible: true,
+  visible: false,
   isNew: true,
   args: {
     index: 'address/less_1',

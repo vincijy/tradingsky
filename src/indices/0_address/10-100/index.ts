@@ -8,7 +8,7 @@ export const addressTentoHundred:D.SubMenuItem = {
   key: '余额 10-100 地址量',
   loginRequired: true,
   vipRequired: true,
-  visible: true,
+  visible: false,
   isNew: true,
   args: {
     index: 'address/10_100',

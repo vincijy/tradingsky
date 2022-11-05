@@ -8,7 +8,7 @@ export const moreOneyear:D.SubMenuItem = {
   key: '一年以上持有量占比',
   loginRequired: true,
   vipRequired: true,
-  visible: true,
+  visible: false,
   args: {
     index: 'address/more_1y',
   },

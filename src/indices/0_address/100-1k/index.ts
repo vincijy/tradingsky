@@ -8,7 +8,7 @@ export const addresshundredtoThousand:D.SubMenuItem = {
   key: '余额 100-1k 地址量',
   loginRequired: true,
   vipRequired: true,
-  visible: true,
+  visible: false,
   isNew: true,
   args: {
     index: 'address/100_1k',

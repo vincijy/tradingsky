@@ -13,6 +13,10 @@ import { miner } from './8_miner';
 
 // 预处理, 添加公共配置等等
 const preProcess = (menus:D.MenuItem[]) => {
+  menus = menus.filter((item) => item.visible).
+    map(
+      (menu) => ({ ...menu, subMenus: menu.subMenus.filter((sub) => sub.visible) }),
+    );
   menus.forEach((menu:D.MenuItem) => {
     menu.subMenus.forEach((subMenu:D.SubMenuItem) => {
       Object.keys(subMenu.chart).forEach((k:string) => {
