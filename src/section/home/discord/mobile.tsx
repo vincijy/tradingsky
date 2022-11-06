@@ -12,7 +12,7 @@ export default memo(function Declare() {
         加入社群参与：每周项目周报、社群活动、链上直播、以及赏金任务
         </p>
         <div className= 'btn-area'>
-          <a href='https://www.lianshucha.com/discovery' className='btn'>进入探索</a>
+          <a href='https://www.qkldata.com/discovery' className='btn'>进入探索</a>
         </div>
       </div>
     </DeclareWrapper>

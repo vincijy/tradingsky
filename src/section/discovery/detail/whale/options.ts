@@ -9,12 +9,12 @@ export const options = {
     // connectorWidth: 0,
   },
   credits: {
-    href: 'https://www.lianshucha.com/chart',
+    href: 'https://www.qkldata.com/chart',
     style: {
       fontSize: '10px',
       color: '#909090',
     },
-    text: 'www.lianshucha.com',
+    text: 'www.qkldata.com',
   },
   title: {
     text: '巨鲸持有占比',

@@ -14,7 +14,7 @@ export default memo(function LSHomeExplore() {
         <p>深入了解区块链产品，发现最新投资机会</p>
         <p>查看主力分布及项目分析，赋能价值投资</p>
         <Button className= 'explore-button' type='ghost'>
-          <a href='https://www.lianshucha.com/discovery'>进入探索</a>
+          <a href='https://www.qkldata.com/discovery'>进入探索</a>
         </Button>
       </div>
       <div className='catalog-img-area' />

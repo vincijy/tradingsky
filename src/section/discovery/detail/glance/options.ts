@@ -16,12 +16,12 @@ export const options = {
     enabled: false,
   },
   credits: {
-    href: 'https://www.lianshucha.com/chart',
+    href: 'https://www.qkldata.com/chart',
     style: {
       fontSize: '10px',
       color: '#909090',
     },
-    text: 'www.lianshucha.com',
+    text: 'www.qkldata.com',
 
   },
   series: [{
