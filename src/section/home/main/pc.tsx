@@ -17,17 +17,17 @@ export default memo(function LSHomeMain() {
         <div className='home-container'>
           <div className='home-slogon'>
             <h2>
-            Tokenaly：Online token analysis platform
+            QKLData：区块链数据, 让投资归于理性
             </h2>
             <p>
-            Set up your voyage of block chain data exploring
+            点击开启你的数据探索之旅
             </p>
           </div>
           <div className='btn-area'>
             <button
               style={{ cursor: 'pointer' }}
               onClick={() => goChart()}
-            >Started
+            >start
             </button>
           </div>
           {/* <div className='pad'>
