@@ -1,9 +1,15 @@
 # doc: https://hub.docker.com/_/nginx
 FROM nginx:1.21.6
 
-# copy built code
+# Copy build code to dir:  /usr/share/nginx/html
 COPY public /usr/share/nginx/html
 
-# copy nginx config
+# Copy nginx entrance config
 COPY docker_build/nginx/nginx.conf /etc/nginx/nginx.conf
+
+# Copy nginx aplication nginx config as rename as default.conf
 COPY docker_build/nginx/app.nginx.conf /etc/nginx/conf.d/default.conf
+
+# COPY ssl key
+COPY docker_build/nginx/qkldata.com.key /etc/nginx/qkldata.com.key
+COPY docker_build/nginx/qkldata.com.pem /etc/nginx/qkldata.com.pem
