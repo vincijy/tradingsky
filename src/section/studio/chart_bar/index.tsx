@@ -2,7 +2,7 @@ import React, { memo, useEffect, useState } from 'react';
 
 import { Button, Modal } from 'antd';
 import { MenuFoldOutlined, UnlockFilled } from '@ant-design/icons';
-import { useAppSelector, useAppDispatch } from '@hooks';
+import { useAppSelector, useAppDispatch } from '@hooks/index';
 import { getHighCharts } from '@components/chart';
 import { ossImgs } from '@oss';
 import { toggleMenuVisible } from '@store/ui/action';
@@ -126,7 +126,7 @@ export default memo(function LSChartBar() {
               className='chart-title'
               style={ { fontWeight: 'bold' }}>
               {assetName}:
-              { name }
+              { name } {selectedSubMenu.args.index}
             </span>
           </div>
         }

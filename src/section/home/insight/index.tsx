@@ -11,7 +11,7 @@ export default memo(function LSHomeInsight() {
     <div>
       <InsightTop>
         <h2>洞见/指标原理</h2>
-        <p>链数查提供专业化的市场分析及指标原理介绍</p>
+        <p>QKLData提供专业化的市场分析及指标原理介绍</p>
         <p>让您获取最前沿的数据解读和最新的市场情报</p>
         <Button type='primary'>
           <a
@@ -27,7 +27,7 @@ export default memo(function LSHomeInsight() {
           hoverable
           style={{ width: '25vw', height: '18.75vw' }}
           cover={<img
-            alt='链数查'
+            alt='QKLData'
             src={ossImgs.chart_0}
             style={{ width: '100%' }} />}
           bordered={false}
@@ -37,7 +37,7 @@ export default memo(function LSHomeInsight() {
           hoverable
           style={{ width: '25vw', height: '18.75vw' }}
           cover={<img
-            alt='链数查'
+            alt='QKLData'
             src={ossImgs.chart_0}
             style={{ width: '100%' }} />}
           bordered={false}
@@ -47,7 +47,7 @@ export default memo(function LSHomeInsight() {
           hoverable
           style={{ width: '25vw', height: '18.75vw' }}
           cover={<img
-            alt='链数查'
+            alt='QKLData'
             src={ossImgs.chart_0}
             style={{ width: '100%' }} />}
           bordered={false}

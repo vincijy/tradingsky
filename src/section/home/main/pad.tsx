@@ -20,7 +20,7 @@ export default memo(function LSHomeMainPad() {
         <div className='home-container'>
           <div className='home-slogon'>
             <h2>
-            链数查：链上数据使投资变得更透明
+            QKLData：链上数据使投资变得更透明
             </h2>
             <p>
                           您的链上数据访问门户，点击查看您的第一张动态数据图表

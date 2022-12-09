@@ -19,7 +19,7 @@ export default memo(function LSCatalogPage() {
             <a
               href='https://weibo.com/u/7657665166?is_all=1'
               rel='noreferrer'
-              target='_blank'>链数查
+              target='_blank'>QKLData
             </a>
                         会日常更新指标数据的用法，也可以通过
             <a

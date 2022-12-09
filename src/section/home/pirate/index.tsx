@@ -21,7 +21,7 @@ export default memo(function LSHomePirate() {
       <div className='content'>
         <div className='container'>
           <h2>Welcome On Board</h2>
-          <p>链数查欢迎您的加入</p>
+          <p>QKLData欢迎您的加入</p>
           <p>欢迎成为海盗</p>
           <Button
             type='primary'

@@ -1,0 +1,9 @@
+# doc: https://hub.docker.com/_/nginx
+FROM nginx:1.21.6
+
+# copy built code
+COPY public /usr/share/nginx/html
+
+# copy nginx config
+COPY docker_build/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY docker_build/nginx/app.nginx.conf /etc/nginx/conf.d/default.conf
