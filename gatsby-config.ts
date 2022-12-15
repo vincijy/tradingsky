@@ -88,7 +88,7 @@ const config:GatsbyConfig = {
       resolve: 'babel-preset-gatsby',
     },
 
-    // 'gatsby-plugin-styled-components',
+    'gatsby-plugin-styled-components',
     // {
     //   resolve: 'gatsby-plugin-google-analytics',
     //   options: {

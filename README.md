@@ -1,27 +1,30 @@
-x
 
 yarn build
 
-docker build -t lsc_fe . -f docker_build/release
+docker build -t qklfe . -f docker_build/release
 
-docker tag lsc_fe lianshucha/lsc_fe
+docker tag qklfe lscnb/qklfe
 
-docker push lianshucha/lsc_fe
+docker push lscnb/qklfe
 
 # 得先登录
-docker pull lianshucha/lsc_fe:latest
+docker pull lscnb/qklfe
 
 # local run
 # 8085 -> 80
-docker run --name lsc_fe -d -p 8085:80 lianshucha/lsc_fe
+docker run  --network qkl --name qklfe -d -p 8085:80 lscnb/qklfe
 
 
 # run remote if first time 443 80都映射一下
-sudo docker run --name pid_lsc_fe -d -p 443:443 -p 80:80 lianshucha/lsc_fe
+sudo docker run  --network qkl --name qklfe -d -p 443:443 -p 80:80 lscnb/qklfe
 
 # run remote if not first time
-sudo docker stop pid_lsc_fe && sudo docker rm pid_lsc_fe &&  sudo docker run --name pid_lsc_fe -d -p 443:443 -p 80:80 lianshucha/lsc_fe
+sudo docker stop qklfe && sudo docker rm qklfe &&  sudo docker run --network qkl --name qklfe -d -p 443:443 -p 80:80 lscnb/qklfe
 
 
 # 总结远程部署
-sudo docker pull lianshucha/lsc_fe:latest && sudo docker stop pid_lsc_fe && sudo docker rm pid_lsc_fe &&  sudo docker run --name pid_lsc_fe -d -p 443:443 -p 80:80 lianshucha/lsc_fe
+sudo docker pull lscnb/qklfe:latest && sudo docker stop qklfe && sudo docker rm qklfe &&  sudo docker run --name qklfe -d -p 443:443 -p 80:80 lscnb/qklfe
+
+
+# log
+sudo docker logs -f --until=2s qklfe

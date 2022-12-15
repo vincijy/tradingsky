@@ -9,11 +9,13 @@
     "authing-js-sdk": "4.22.1",
     "axios": "0.21.1",
     "babel-plugin-import": "1.13.3",
+    "babel-plugin-styled-components": "^2.0.7",
     "compression-webpack-plugin": "5.0.1",
     "gatsby": "4.23.0",
     "gatsby-plugin-alias-imports": "1.0.5",
     "gatsby-plugin-antd": "2.2.0",
     "gatsby-plugin-less": "6.23.0",
+    "gatsby-plugin-styled-components": "5.0.0",
     "highcharts": "9.1.2",
     "highcharts-react-official": "3.0.0",
     "http-proxy-middleware": "2.0.1",
@@ -39,7 +41,7 @@
     "redux-immutable": "4.0.0",
     "redux-thunk": "2.3.0",
     "remark-gfm": "2.0.0",
-    "styled-components": "5.3.0",
+    "styled-components": "^5.3.6",
     "web-vitals": "1.0.1"
   },
   "scripts": {
