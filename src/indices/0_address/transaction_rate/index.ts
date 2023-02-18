@@ -11,7 +11,7 @@ export const transactionRate:D.SubMenuItem = {
   visible: true,
   isNew: true,
   args: {
-    index: 'transaction/rate',
+    index: 'address/transaction_rate',
   },
   introduce: introduce,
   assetList: ['btc', 'eth'],
