@@ -95,7 +95,6 @@ export default memo(function LSChartBox() {
     const p1 = new Promise<TypeDataRow>((resolve, reject) => {
       getChartData(index, asset, source)
         .then((res) => {
-          console.log(res)
           resolve(res.data.rows || initData);
         })
         .catch((err) => {

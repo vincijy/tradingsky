@@ -1,5 +1,5 @@
 
-const prefix = '/bpi/v0/static/img_lsc/';
+const prefix = '/api/v0/static/img_lsc/';
 
 export const genImgUrl = function(imgName:string) {
   if (!imgName) {

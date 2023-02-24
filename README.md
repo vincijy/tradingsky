@@ -8,11 +8,11 @@ docker tag qklfe lscnb/qklfe
 docker push lscnb/qklfe
 
 # 得先登录
-docker pull lscnb/qklfe
+sudo docker pull lscnb/qklfe
 
 # local run
 # 8085 -> 80
-docker run  --network qkl --name qklfe -d -p 8085:80 lscnb/qklfe
+ docker run  --network qkl --name qklfe -d -p 8085:80 lscnb/qklfe
 
 
 # run remote if first time 443 80都映射一下

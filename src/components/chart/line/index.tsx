@@ -1,11 +1,11 @@
 /* eslint-disable prefer-const */
 // 第三方
-import React, { memo } from 'react';
+import React, { memo, useEffect, useMemo, useCallback } from 'react';
 import { BandColor } from '@indices/def';
 
 // 图标React 封装
 import HighchartsReact from 'highcharts-react-official';
-import { useAppSelector } from '@hooks';
+import { useAppSelector } from '@hooks/index';
 import { mergeOption } from '@utils/merge_option';
 import { commonOptions } from '@indices/chart_common';
 import { IDate } from '@indices/def';
@@ -49,7 +49,6 @@ export default memo(function LinesChart(props:IProps) {
   const { seriesA, seriesB, seriesC } = props;
   const { data: dataA } = seriesA;
   const { data: dataB } = seriesB;
-  console.log(dataA, dataB);
 
   const options = useAppSelector((state) => state.chart.options);
   const xStart = useAppSelector((state) => state.ui.currentMenu.subMenu.xStart);
@@ -62,7 +61,7 @@ export default memo(function LinesChart(props:IProps) {
   const shouldCoverIfNotPaid = currentMenu.vipRequired && (!role || role.code !== 'level2');
 
   // 确定对应币种的起始切割时间
-  let startDate = null;
+  let startDate:IDate|null = null;
   if (xStart && xStart[asset] !== undefined) {
     startDate = xStart[asset];
   }
@@ -73,8 +72,11 @@ export default memo(function LinesChart(props:IProps) {
     return res;
   };
 
+  // 价格线处理
+  const price = useMemo(() => options.series.find((s:D.ISerie) => s.name === '价格'), [options]);
+
   // 处理STOF 价格线 彩虹
-  const handlePriceSTOF = (priceV:[number, number][]) => {
+  const handlePriceSTOF = useCallback((priceV:[number, number][]) => {
     const plotLines = options.xAxis.plotLines;
     price.data = priceV.map((item) => ({ x: item[0], y: item[1] }));
     const t0 = plotLines[0].value;
@@ -97,43 +99,46 @@ export default memo(function LinesChart(props:IProps) {
         cell.colorValue = (cell.x - t2) / dt2 * 1400;
       }
     }
-  };
+  }, [options, price]);
 
-  // 价格线处理
-  const price = options.series.find((s:D.ISerie) => s.name === '价格');
-  if (!price) {
-    console.error('Not price line', currentMenu.name);
-  }
 
-  if (price && dataB && dataB.length > 0) {
-    const d = convert(dataB).v;
-    if (!d) {
-      console.error('Cannot convert data');
+  useEffect(() => {
+    if (!price) {
+      console.error('Not price line', currentMenu.name);
     }
-    const priceV = dataMayCut(d, startDate);
-    // 对于Stock-to-Flow 模型模型价格线需要特殊处理
-    if (currentMenu.key === 'Stock-to-Flow 模型') {
-      handlePriceSTOF(priceV);
-    } else {
-      price.data = priceV;
-    }
-  }
-
-  // btc价格线
-  if (seriesC) {
-    const { data: dataC } = seriesC;
-    const btcPrice = options.series.find((s:D.ISerie) => s.name === 'btc价格');
-    if (btcPrice && dataC && dataC.length > 0) {
-      const d = convert(dataC).v;
+    if (price && dataB && dataB.length > 0) {
+      const d = convert(dataB).v;
       if (!d) {
         console.error('Cannot convert data');
       }
       const priceV = dataMayCut(d, startDate);
-      btcPrice.data = priceV;
+      // 对于Stock-to-Flow 模型模型价格线需要特殊处理
+      if (currentMenu.key === 'Stock-to-Flow 模型') {
+        handlePriceSTOF(priceV);
+      } else {
+        price.data = priceV;
+      }
     }
-  }
+  }, [startDate, dataB, price, currentMenu, handlePriceSTOF]);
 
-  const handleData = (startDate:IDate|null) => {
+
+  useEffect(() => {
+  // btc价格线
+    if (seriesC) {
+      const { data: dataC } = seriesC;
+      const btcPrice = options.series.find((s:D.ISerie) => s.name === 'btc价格');
+      if (btcPrice && dataC && dataC.length > 0) {
+        const d = convert(dataC).v;
+        if (!d) {
+          console.error('Cannot convert data');
+        }
+        const priceV = dataMayCut(d, startDate);
+        btcPrice.data = priceV;
+      }
+    }
+  }, [seriesC, options, startDate]);
+
+  const handleData = useCallback((startDate:IDate|null) => {
     // 目的是为了构造出 类似这样的数据 res = { v: [[1, 345], [2, 234]], m: [[1, 456], [2, 555]]}
     const rows = dataA as D.IRow[];
     if (rows.length === 0) {
@@ -189,9 +194,13 @@ export default memo(function LinesChart(props:IProps) {
       }
       sma && assignSmaDataToSerie(serie, sma);
     }
-  };
+  }, [dataA, shouldCoverIfNotPaid, series]);
 
-  handleData(startDate);
+  useEffect(() => {
+    console.log('test');
+    handleData(startDate);
+  }, [startDate, handleData, dataA]);
+
 
   if (shouldCoverIfNotPaid) {
     const band = {
