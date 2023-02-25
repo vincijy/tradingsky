@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { ossImgs } from '@oss';
+import 'animate.css';
 
 export const MainWrapper = styled.div `
     background-color: #252233;
     height: 100vh;
-    background: url(${ossImgs.banner}) no-repeat center; // 图片填充
+    /* background: url(${ossImgs.banner}) no-repeat center; // 图片填充 */
     background-size: 100% 100%;
 
     /* From uiverse.io */
@@ -56,7 +57,17 @@ export const MainWrapper = styled.div `
                 0 0 2.5em 2em var(--glow-spread-color),
                 inset 0 0 .5em .25em var(--glow-color);
     }
-    
+
+    @media (max-width: 600px) {
+        h2 {
+            font-size: 28px !important;
+            font-family: 'Hiragino Kaku Gothic Pro', 'WenQuanYi Zen Hei', '微軟正黑體', '蘋果儷中黑', Helvetica, Arial, sans-serif;
+        }
+        p {
+            font-size: 16px !important;
+        }
+    }
+
     .content{
         display: flex;
         align-items: center;
@@ -69,19 +80,21 @@ export const MainWrapper = styled.div `
                 color: white;
                 margin-top: 25%;
                 h2 {
-                    font-size: 45px;
                     color: white;
-                    line-height: 38px;
+                    font-size: 64px;
+                    line-height: 64px;
                 }
                 p {
                     margin-top: 45px;
                     margin-bottom: 20px;
                     font-size: 22px;
-                    text-align: center; // 文字居中
+                    text-align: center;
                 }
 
             }
+        
             .btn-area {
+                margin-top: 50px;
                 text-align: center;
                 .btn {
                     padding: 0 50px;

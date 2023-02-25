@@ -20,7 +20,7 @@ export default memo(function LSAppFooter() {
     <div className='content'>
       <FooterLeft>
         <div>
-                Tokenaly © 2022 - all rights reserved
+                QKL Data © 2023 - all rights reserved
         </div>
       </FooterLeft>
       {/* <FooterRight>

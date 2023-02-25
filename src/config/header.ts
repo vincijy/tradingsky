@@ -1,6 +1,6 @@
 export const headerLinks = [
   {
-    title: 'Home',
+    title: '首頁',
     link: '/',
   },
   // {
@@ -8,7 +8,7 @@ export const headerLinks = [
   //   link: '/discovery',
   // },
   {
-    title: 'Chart',
+    title: '圖表',
     link: '/chart',
   },
   // {

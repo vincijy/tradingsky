@@ -41,10 +41,6 @@ if (isMobile()) {
   HomeExplore = React.lazy(() => import('./explore/pc'));
   HomeDiscord = React.lazy(() => import('./discord/pc'));
   HomeDeclare = React.lazy(() => import('./declare/pc'));
-
-
-
-
 }
 
 export default memo(function LSHomePage() {
