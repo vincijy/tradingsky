@@ -108,8 +108,8 @@ def docker_run_local():
 
 def docker_run_remote():
     cmds = [
-        f'docker stop pid_{project_tag}',
-        f'docker rm pid_{project_tag}',
+        f'docker stop {project_tag}',
+        f'docker rm {project_tag}',
         f'docker pull {docker_org}/{project_tag}:latest',
         f'sudo docker run --network {network} --name {project_tag} -d -p 443:443 -p 80:80 lscnb/qklfe'
     ]
