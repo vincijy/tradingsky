@@ -22,6 +22,7 @@
     "http-proxy-middleware": "2.0.1",
     "immutable": "4.0.0-rc.14",
     "is_js": "0.9.0",
+    "lightweight-charts": "^4.0.0",
     "loadash": "1.0.0",
     "normalize.css": "8.0.1",
     "qrcode": "1.4.4",

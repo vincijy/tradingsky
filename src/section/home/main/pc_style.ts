@@ -3,146 +3,92 @@ import { ossImgs } from '@oss';
 import 'animate.css';
 
 export const MainWrapper = styled.div `
-    background-color: #252233;
-    height: 100vh;
-    /* background: url(${ossImgs.banner}) no-repeat center; // 图片填充 */
-    background-size: 100% 100%;
-
-    /* From uiverse.io */
-    button {
-        --glow-color: rgb(217, 176, 255);
-        --glow-spread-color: rgba(191, 123, 255, 0.781);
-        --enhanced-glow-color: rgb(231, 206, 255);
-        --btn-color: rgb(100, 61, 136);
-        border: .25em solid var(--glow-color);
-        padding: 1em 3em;
-        color: var(--glow-color);
-        font-size: 15px;
-        font-weight: bold;
-        background-color: var(--btn-color);
-        border-radius: 1em;
-        outline: none;
-        box-shadow: 0 0 1em .25em var(--glow-color),
-                0 0 4em 1em var(--glow-spread-color),
-                inset 0 0 .75em .25em var(--glow-color);
-        text-shadow: 0 0 .5em var(--glow-color);
-        position: relative;
-        transition: all 0.3s;
+    h1 {
+        color: var(--hero-title-color);
+        font-display: swap;
+        font-family: Euclid Circular B,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
+        font-size: 56px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 64px;
+        margin: 0;
+        margin-bottom: 16px;
     }
-
-    button::after {
-        pointer-events: none;
-        content: "";
-        position: absolute;
-        top: 120%;
-        left: 0;
-        height: 100%;
+    p {
+        color: var(--hero-content-color);
+        font-size: var(--hero-content-font-size);
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: .0027em;
+        line-height: var(--hero-content-line-height);
+        margin: 0;
+        margin-bottom: var(--hero-content-gap-bottom);
+    }
+    .banner {
         width: 100%;
-        background-color: var(--glow-spread-color);
-        filter: blur(2em);
-        opacity: .7;
-        transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
-    }
-
-    button:hover {
-        color: var(--btn-color);
-        background-color: var(--glow-color);
-        box-shadow: 0 0 1em .25em var(--glow-color),
-                0 0 4em 2em var(--glow-spread-color),
-                inset 0 0 .75em .25em var(--glow-color);
-    }
-
-    button:active {
-        box-shadow: 0 0 0.6em .25em var(--glow-color),
-                0 0 2.5em 2em var(--glow-spread-color),
-                inset 0 0 .5em .25em var(--glow-color);
-    }
-
-    @media (max-width: 600px) {
-        h2 {
-            font-size: 28px !important;
-            font-family: 'Hiragino Kaku Gothic Pro', 'WenQuanYi Zen Hei', '微軟正黑體', '蘋果儷中黑', Helvetica, Arial, sans-serif;
-        }
-        p {
-            font-size: 16px !important;
-        }
-    }
-
-    .content{
-        display: flex;
         align-items: center;
+        background: linear-gradient(90deg,#34ceff,#7284ff 19.13%,#ae6cff 33.85%,#df60ff 51.04%,#8b7eff 67.71%,#4474ff 83.33%,#1251ff 99.99%,#2962ff);
+        display: flex;
+        flex-direction: row;
+        font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
         justify-content: center;
-        .home-container {
-            .home-slogon {
-                width: 100%;
-                color: white;
-                text-align: center;
-                color: white;
-                margin-top: 25%;
-                h2 {
-                    color: white;
-                    font-size: 64px;
-                    line-height: 64px;
-                }
-                p {
-                    margin-top: 45px;
-                    margin-bottom: 20px;
-                    font-size: 22px;
-                    text-align: center;
-                }
-
-            }
-        
-            .btn-area {
-                margin-top: 50px;
-                text-align: center;
-                .btn {
-                    padding: 0 50px;
-                    height: 50px;
-                    line-height: 48px;
-                    display: inline-block;
-                    background-color: #ffffff;
-                    border-radius: 4px;
-                    font-size: 16px;
-                    margin: 25px auto 0;
-                    text-decoration: none;
-                    font-weight: bold;
-                    box-sizing: border-box;
-                    border: 2px solid #ffffff;
-                    transition: opacity 0.3s;
-                    color: #3f239c;
-                }
-            }
- 
-            .pad {
-                border: 2px solid black;
-                width: 78%;
-                height: 40rem;
-                position: absolute;
-                top: 70%;
-                left: 50%;
-                transform: translate(-50%, 0);
-                border-radius: 30px;
-                background: black;
-                padding: 40px;
-                .pad_inner_box {
-                    background: white;
-                    width: 100%;
-                    height: 100%;
-                    background: url(${ossImgs.chart_0}) no-repeat center; // 图片填充
-                    background-size: 100% 100%;
-                    // .main-img-1{
-                    //     max-width: 100%;
-                    //     height: auto;
-                    //     background-size: 100% 100% ;
-                    //     margin: 0 auto;
-                    //     display: block;
-                    //     font-size: 0;
-                    // }
-                }
-            }
-         }
+        margin: 0;
+        padding: 12px var(--container-padding);
     }
-
+    .BannerContent_bHEU {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    .content {
+        border: 1px solid red;
+        width: 100%;
+    }
+    .HeroContainer {
+        padding: 40px;
+        padding-top: 100px;
+        align-items: center;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        gap: 50px;
+        flex-wrap: wrap;
+    }
+    .HeroMain {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        width: 50%;
+        padding-left: 13.3%;
+    }
+    .HeroChartSection {
+        margin: 0;
+        width: 50%;
+        position: relative;
+        backdrop-filter: blur(10.3785px);
+        background: #ffffff0d;
+        margin-bottom: 30px;
+        display: flex;
+    }   
+    .startBtn {
+        align-items: center;
+        background-color: '#2962ff';
+        border-radius: 12px;
+        box-shadow: inset 0 0 0 1px '#2962ff';
+        display: flex;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 590;
+        letter-spacing: -.025em;
+        line-height: 24px;
+        padding: 16px 32px;
+    }
+    .chartCard {
+        box-shadow: -4px -5px 41px -3px rgba(41,98,255,0.99);
+        -webkit-box-shadow: -4px -5px 41px -3px rgba(41,98,255,0.99);
+        -moz-box-shadow: -4px -5px 41px -3px rgba(41,98,255,0.99);
+    }
+    .intro {
+        height: 200px;
+    }
 `;
 

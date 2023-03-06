@@ -6,7 +6,7 @@ import restriction from '@assets/img/restriction-min.jpg';
 import priceBg from '@assets/img/price_bg.png';
 import main_1 from '@assets/img/main1.png';
 import main_2 from '@assets/img/3.png';
-import banner from '@assets/img/banner.jpg';
+import banner from '@assets/img/banner.png';
 import brand from '@assets/img/tokenaly.png';
 
 export const ossImgs = {

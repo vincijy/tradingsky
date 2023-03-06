@@ -74,7 +74,7 @@ const config:GatsbyConfig = {
         },
         lessOptions: {
           javascriptEnabled: true,
-          modifyVars: { '@primary-color': 'black' }, // 定义主题
+          modifyVars: { '@primary-color': '#2962FF' }, // 定义主题
         },
       },
     },

@@ -15,7 +15,7 @@ import { WeiboOutlined, WechatOutlined, TwitterOutlined, DownOutlined, UserOutli
 
 import '@authing/react-ui-components/lib/index.min.css';
 
-import smallLogo from '@assets/img/logo.png';
+import smallLogo from '@assets/img/eth_logo.svg';
 import * as UA from '@store/user/action';
 import { getAuthingClient } from '@utils/authing';
 import LoginButton from '../login_btn';
@@ -151,7 +151,7 @@ export default memo(function LSAppHeader() {
                       size='large'
                       icon={<UserOutlined />}
                       className='user-logo'
-                      src={smallLogo} />
+                      src={'data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220,0,20,20%22%20width=%2296%22%20height=%2296%22%3E%3Crect%20height=%2220%22%20width=%2220%22%20fill=%22hsl%28204,25%25,50%25%29%22/%3E%3Ctext%20fill=%22white%22%20x=%2210%22%20y=%2214.8%22%20font-size=%2214%22%20font-family=%22-apple-system,BlinkMacSystemFont,Trebuchet%20MS,Roboto,Ubuntu,sans-serif%22%20text-anchor=%22middle%22%3EV%3C/text%3E%3C/svg%3E'} />
                     <DownOutlined />
                   </a>
                 </Dropdown> :

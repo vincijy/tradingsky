@@ -3,7 +3,7 @@ import { NAV_BAR_HEIGHT } from '@config/layout';
 
 export const HeaderWrapper = styled.div `
     padding: 0px 32px;
-    background: #252233;
+    background: white;
     .header-content{
         display: flex;
         align-items: center;
@@ -34,14 +34,14 @@ export const HeaderLeft = styled.div `
         align-items: center;
 
         a {
-            color: white;
+            color: rgb(28, 30, 33);
         }
         a:hover {
-            color: white;
+            color: rgb(28, 30, 33);;
             border-bottom: 2px solid white;
         }
         a:active {
-            color: white;
+            color: rgb(28, 30, 33);;
             border-bottom: 2px solid white;
         }
 
