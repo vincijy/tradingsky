@@ -9,62 +9,18 @@ import { createChart, ColorType } from 'lightweight-charts';
 import { Card, Button } from 'antd';
 import { MainWrapper } from './pc_style';
 
+const speakPrice = (price:any) => {
+  if (!window || !window.speechSynthesis || !price) {
+    return;
+  }
+  const synthesis = window.speechSynthesis;
+  const utterance = new SpeechSynthesisUtterance(`${price}`) as any;
+  const voiceList = synthesis.getVoices();
+  const voice = voiceList.find((voice:any) => voice.lang === 'zh-CN'); // find the Chinese voice
+  utterance.voice = voice;
+  synthesis.speak(utterance);
+};
 
-// // Sample closing prices for 30 periods
-// const closingPrices = [10.5, 10.7, 10.8, 10.6, 10.9, 11.1, 11.0, 11.2, 11.5, 11.3, 11.2, 11.1, 11.0, 11.1, 11.2, 11.4, 11.5, 11.4, 11.6, 11.7, 11.5, 11.3, 11.4, 11.6, 11.8, 11.9, 11.8, 11.7, 11.5, 11.6];
-
-// // Calculate the 26-period EMA
-// function calculateEMA26(data) {
-//   const multiplier = 2 / (26 + 1);
-//   let ema = data[0];
-//   for (let i = 1; i < data.length; i++) {
-//     ema = (data[i] - ema) * multiplier + ema;
-//   }
-//   return ema;
-// }
-
-// // Calculate the 12-period EMA
-// function calculateEMA12(data) {
-//   const multiplier = 2 / (12 + 1);
-//   let ema = data[0];
-//   for (let i = 1; i < data.length; i++) {
-//     ema = (data[i] - ema) * multiplier + ema;
-//   }
-//   return ema;
-// }
-
-// // Calculate the MACD line
-// function calculateMACDLine(data) {
-//   const ema12 = calculateEMA12(data);
-//   const ema26 = calculateEMA26(data);
-//   return ema12 - ema26;
-// }
-
-// // Calculate the signal line
-// function calculateSignalLine(data) {
-//   const multiplier = 2 / (9 + 1);
-//   let signal = calculateMACDLine(data.slice(0, 9));
-//   for (let i = 9; i < data.length; i++) {
-//     signal = (calculateMACDLine(data.slice(i - 8, i + 1)) - signal) * multiplier + signal;
-//   }
-//   return signal;
-// }
-
-// // Calculate the MACD histogram
-// function calculateHistogram(data) {
-//   const macdLine = calculateMACDLine(data);
-//   const signalLine = calculateSignalLine(data);
-//   return macdLine - signalLine;
-// }
-
-// // Test the functions with the sample data
-// const macdLine = calculateMACDLine(closingPrices);
-// const signalLine = calculateSignalLine(closingPrices);
-// const histogram = calculateHistogram(closingPrices);
-
-// console.log(`MACD Line: ${macdLine.toFixed(4)}`);
-// console.log(`Signal Line: ${signalLine.toFixed(4)}`);
-// console.log(`Histogram: ${histogram.toFixed(4)}`);
 
 export default memo(function LSHomeMain(props:any) {
   const initialData:{ time:number, value:number }[] = [];
@@ -103,7 +59,7 @@ export default memo(function LSHomeMain(props:any) {
           textColor,
         },
         width: chartContainerRef.current.clientWidth,
-        height: 500,
+        height: chartContainerRef.current.clientHeight,
         timeScale: {
           timeVisible: true,
         },
@@ -132,7 +88,7 @@ export default memo(function LSHomeMain(props:any) {
       const socket = new WebSocket('wss://wspri.okx.com:8443/ws/v5/ipublic');
       // Connection opened
       socket.addEventListener('open', (event) => {
-        socket.send(JSON.stringify({ 'op': 'subscribe', 'args': [{ 'channel': 'mark-price', 'instId': 'BTC-USDT' }] }));
+        socket.send(JSON.stringify({ 'op': 'subscribe', 'args': [{ 'channel': 'mark-price', 'instId': 'ETH-USDT' }] }));
       });
 
       socket.addEventListener('message', (event:any) => {
@@ -150,15 +106,17 @@ export default memo(function LSHomeMain(props:any) {
           value: newPrice,
         };
         if (lastBar && lastBar.current && lastBar.current?.time < d.time) {
+          const a = newPrice.toFixed(1);
+          const b = lastBar.current.value.toFixed(1);
+          if (b !== a) {
+            speakPrice(a);
+          }
           serieRef.current.update(d);
           lastBar.current = d;
         }
         // setData((preData) => [...preData, { time: newTs, value: newPrice }]);
       });
-    }, 30);
-
-    // Listen for messages
-
+    });
   }, []);
 
   return (
@@ -199,12 +157,10 @@ export default memo(function LSHomeMain(props:any) {
         </main>
         <div
           className='HeroChartSection' >
-          <Card
-            style={{ borderRadius: '50px', height: '530px', width: '100%' }}
-            className='chartCard'>
-            <div ref={chartContainerRef as any}
-            />
-          </Card>
+          <div
+            ref={chartContainerRef as any}
+            className='chartCard'
+          />
         </div>
       </div>
       <div className='intro' />

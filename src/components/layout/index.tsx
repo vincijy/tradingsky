@@ -4,13 +4,14 @@ import React, { memo } from 'react';
 import LSAppHeader from '@components/header'; // 导航
 import 'antd/dist/antd.less'; // 按需引入、设置主题
 import Footer from '@components/footer';
+import { LayoutStyle } from './style';
 // 组件
 export default memo(function MainLayout({ children }:{children:React.ReactElement }) {
   return (
-    <div>
+    <LayoutStyle>
       <LSAppHeader/>
       {children}
       <Footer/>
-    </div>
+    </LayoutStyle>
   );
 });

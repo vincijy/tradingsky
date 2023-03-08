@@ -1,19 +1,39 @@
 import styled from 'styled-components';
 import { ossImgs } from '@oss';
 import 'animate.css';
+import { DeviceWidth } from '@def/index';
 
 export const MainWrapper = styled.div `
+    flex: 1;
+
     h1 {
         color: var(--hero-title-color);
         font-display: swap;
         font-family: Euclid Circular B,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;
-        font-size: 56px;
         font-style: normal;
         font-weight: 600;
         line-height: 64px;
         margin: 0;
         margin-bottom: 16px;
+        white-space: nowrap;
+    
+        @media (min-width: 1300px) {
+            font-size: 50px;
+        }
+
+        @media (min-width: 1024px) and (max-width: 1300px) {
+            font-size: 40px;
+        }
+
+        @media (min-width: 500px) and (max-width: 1023px) {
+            font-size: 35px;
+        }
+
+        @media (max-width: 500px) {
+            font-size: 30px;
+        }
     }
+
     p {
         color: var(--hero-content-color);
         font-size: var(--hero-content-font-size);
@@ -39,35 +59,61 @@ export const MainWrapper = styled.div `
         padding-top: 16px;
         padding-bottom: 16px;
     }
-    .content {
-        border: 1px solid red;
-        width: 100%;
-    }
+
     .HeroContainer {
         padding: 40px;
-        padding-top: 100px;
         align-items: center;
         display: flex;
         justify-content: space-around;
         width: 100%;
-        gap: 50px;
         flex-wrap: wrap;
+        /* Font size for desktop devices */
+        @media (min-width: 1024px) {
+            padding-top: 100px;
+        }
+
+        /* Font size for tablet devices */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            padding-top: 80px;
+        }
+
+        /* Font size for mobile devices */
+        @media (max-width: 767px) {
+            padding-top: 25px;
+        }
     }
     .HeroMain {
         display: flex;
         flex-direction: column;
         flex-shrink: 0;
         width: 50%;
-        padding-left: 13.3%;
+        margin: auto;
+        min-width: 360px;
+        padding-bottom: 30px;
+        align-items: center;
+        /* Font size for desktop devices */
+        @media (min-width: 1024px) {
+            align-items: flex-start;
+            padding-left: 10%;
+        }
+
+        /* Font size for tablet devices */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            align-items: flex-start;
+        }
+
+        /* Font size for mobile devices */
+        @media (max-width: 767px) {
+            align-items: center;
+        }
     }
     .HeroChartSection {
         margin: 0;
         width: 50%;
         position: relative;
-        backdrop-filter: blur(10.3785px);
-        background: #ffffff0d;
         margin-bottom: 30px;
         display: flex;
+        min-width: 360px;
     }   
     .startBtn {
         align-items: center;
@@ -86,9 +132,29 @@ export const MainWrapper = styled.div `
         box-shadow: -4px -5px 41px -3px rgba(41,98,255,0.99);
         -webkit-box-shadow: -4px -5px 41px -3px rgba(41,98,255,0.99);
         -moz-box-shadow: -4px -5px 41px -3px rgba(41,98,255,0.99);
-    }
-    .intro {
-        height: 200px;
+        position: relative;
+        overflow: hidden;
+        margin: auto;
+        /* Font size for desktop devices */
+        @media (min-width: 1024px) {
+            border-radius: 50px;
+            height: 530px;
+            width: 100%; 
+        }
+
+        /* Font size for tablet devices */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            border-radius: 30px;
+            height: 500px;
+            width: 100%; 
+        }
+
+        /* Font size for mobile devices */
+        @media (max-width: 767px) {
+            border-radius: 20px;
+            height: 400px;
+            width: 96%; 
+        }
     }
 `;
 

@@ -28,3 +28,9 @@ export const orderStatusTypeList = [
     'code': orderStatusType.profitReturned,
   },
 ];
+
+
+export enum DeviceWidth {
+  mobile = 360,
+  pad = 760,
+}
