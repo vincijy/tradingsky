@@ -1,22 +1,13 @@
+import { getAppInitState } from '@config/init_state';
 import * as A from './action_type';
 
 import { IUserInfoState, IAction, TypePaylodKey } from './def';
 
-// 从缓存里面取出用户数据
-// const userInfoString = localStorage.getItem('userInfo');
-const userInfoString = undefined;
-
-let userInfo = [];
-if (userInfoString) {
-  userInfo = JSON.parse(userInfoString);
-}
 
 // 默认状态
 const defaultState:IUserInfoState = {
-  // isLogin: userInfo.token !== undefined,
-  userInfo: userInfo,
-  isLogin: true,
-
+  userInfo: getAppInitState().userInfo,
+  isLogin: getAppInitState().isLogin,
 };
 
 // 根据action更新state

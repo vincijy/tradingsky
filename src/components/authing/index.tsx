@@ -48,6 +48,8 @@ const AuthingPanel = memo(function AuthingPanel() {
       userInfo,
     }));
 
+    console.log('userInfo', userInfo);
+
     const { data: role } = await getUserRole();
     userInfo.role = role;
 
@@ -55,8 +57,8 @@ const AuthingPanel = memo(function AuthingPanel() {
     localStorage.setItem('userInfo', v);
 
     // Vip到期时间
-    const { data: vipDate } = await getUserVipdate();
-    userInfo.vipDate = vipDate;
+    const { data: { ts } } = await getUserVipdate();
+    userInfo.vipDate = new Date(ts).toLocaleDateString();
 
     v = JSON.stringify(userInfo);
     localStorage.setItem('userInfo', v);
@@ -64,7 +66,7 @@ const AuthingPanel = memo(function AuthingPanel() {
     // Authing存储的字段
     const { data: words } = await getUserColletion();
     if (words) {
-      const collctionWord = words.find((w) => w.key === 'collection');
+      const collctionWord = words.find((w) => w.key === 'favors');
       // eslint-disable-next-line require-atomic-updates
       if (collctionWord) {
         // eslint-disable-next-line require-atomic-updates
@@ -76,7 +78,7 @@ const AuthingPanel = memo(function AuthingPanel() {
     localStorage.setItem('userInfo', v);
 
     navigateToChartPage();
-    window.location.reload();
+    // window.location.reload();
   };
 
   const navigateToChartPage = () => {

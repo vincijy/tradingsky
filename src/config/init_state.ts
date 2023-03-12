@@ -24,11 +24,26 @@ export function getAppInitState() {
     }
   }
 
+
+  const getUserInfoFromStorage = () => {
+    // 从缓存里面取出用户数据
+    if (typeof window !== 'undefined') {
+      const userInfoString = localStorage.getItem('userInfo');
+      if (userInfoString) {
+        const userInfo = JSON.parse(userInfoString);
+        return userInfo;
+      }
+    }
+    return [];
+  };
+
   const appInitState = {
     chartOptions: mergeOption(commonOptions, chartOptions || initialPrivateOption),
     menu: menu || menus[1],
     subMenu: subMenu || menus[1].subMenus[0],
     dataAsset: dataAssetStr ? dataAssetStr : 'btc',
+    userInfo: getUserInfoFromStorage(),
+    isLogin: getUserInfoFromStorage().token !== undefined,
   };
 
   return appInitState;

@@ -45,12 +45,9 @@ export interface ICollection {
     }[];
 }
 
-export interface IVipDate {
-    vipDate:string;
-}
 
 export interface IUserInfo extends User {
     role?:IRole;
     collection?:ICollection;
-    vipDate?:IVipDate;
+    vipDate?:string;
 }

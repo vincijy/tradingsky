@@ -59,6 +59,7 @@ export default memo(function LinesChart(props:IProps) {
   const role = useAppSelector((state) => state.user.userInfo.role);
   // 没有角色, 或者角色不为l2, 但是指标要求付费
   const shouldCoverIfNotPaid = currentMenu.vipRequired && (!role || role.code !== 'level2');
+  console.log(shouldCoverIfNotPaid, 'shouldCoverIfNotPaid');
 
   // 确定对应币种的起始切割时间
   let startDate:IDate|null = null;

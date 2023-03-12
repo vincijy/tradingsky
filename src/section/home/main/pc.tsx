@@ -23,7 +23,12 @@ const speakPrice = (price:any) => {
 
 
 export default memo(function LSHomeMain(props:any) {
-  const initialData:{ time:number, value:number }[] = [];
+  const initialData:{ time:number, value:number }[] = [
+    // { time: 1678315320.658, value: 1548.496252470809 },
+    // { time: 1678315320.758, value: 1548.774603873821 },
+    // { time: 1678315320.858, value: 1548.874603873821 },
+    // { time: 1678315320.958, value: 1548.774603873821 },
+  ];
 
   const {
     colors: {
@@ -109,7 +114,7 @@ export default memo(function LSHomeMain(props:any) {
           const a = newPrice.toFixed(1);
           const b = lastBar.current.value.toFixed(1);
           if (b !== a) {
-            speakPrice(a);
+            // speakPrice(a);
           }
           serieRef.current.update(d);
           lastBar.current = d;

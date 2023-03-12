@@ -10,7 +10,7 @@ export const OSS_HOST = 'https://servlinkcdn.vincijy.com';
 
 export const authingConfig = {
   appId: '62f9228baa8046761d0f9967',
-  appHost: 'https://tokenaly.authing.cn',
+  appHost: 'https://qkldata.authing.cn',
 };
 
 export const authingComponentConfig = {

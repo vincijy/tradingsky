@@ -10,23 +10,31 @@ import { IAuthingWord } from './def';
  */
 export function getUserRole():AxiosPromise<IRole> {
   return request({
-    url: '/api/v1/auth',
-    params: {},
+    url: '/api/v0/qkl_auth',
+    data: {
+      action: 'GET_ROLE',
+    },
+    method: 'POST',
   });
 };
 
 export function makeUserRole():AxiosPromise<IRole> {
   return request({
-    url: '/api/v1/auth/sign',
-    params: {},
+    url: '/api/v0/qkl_auth',
+    data: {
+      action: 'SET_ROLE',
+    },
+    method: 'POST',
   });
 };
 
 export function getUserColletion():AxiosPromise<IAuthingWord[]> {
   return request({
-    url: '/api/v1/auth/collect',
-    params: {},
-    method: 'GET',
+    url: '/api/v0/qkl_auth',
+    data: {
+      action: 'GET_FAVORS',
+    },
+    method: 'POST',
   });
 };
 
@@ -34,17 +42,23 @@ interface ISetUserCollectParmas {
   collection:string;
 }
 
-export function setUserCollection(params:ISetUserCollectParmas):AxiosPromise<ICollection> {
+export function setUserCollection(collection:ISetUserCollectParmas):AxiosPromise<ICollection> {
   return request({
-    url: '/api/v1/auth/collect',
-    data: params,
+    url: '/api/v0/qkl_auth',
+    data: {
+      action: 'SET_FAVORS',
+      favors: collection.collection,
+    },
     method: 'POST',
   });
 };
 
 export function getUserVipdate():AxiosPromise<IVipDate> {
   return request({
-    url: '/api/v1/auth/vipdate',
-    params: {},
+    url: '/api/v0/qkl_auth',
+    data: {
+      action: 'GET_VIP_DATE',
+    },
+    method: 'POST',
   });
 };
