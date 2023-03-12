@@ -1,12 +1,12 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Card, Button, Modal, message } from 'antd';
 
 import LSAppFooter from '@components/footer'; // 尾部
 import { ossImgs } from '@oss';
 import { alipayOrder, hupiPayOrder } from '@service/pay';
 import QRCode from 'qrcode';
-import { useLoading, useAppSelector } from '@hooks';
-import { StorageKey } from '@def';
+import { useLoading, useAppSelector } from '@hooks/index';
+import { StorageKey } from '@def/index';
 import { Input } from 'antd';
 import { PriceWrapper, PricePageWrapper } from './style';
 import { PayMethod } from './def';
@@ -22,8 +22,8 @@ const priceList = [
     price: 299,
     average: '日均3.3元',
     unit: '季',
-    content: '季付款，价格低至日均3.3元。不仅满足您最基本的数据需求，还会为您提供数据市场的最新研报。',
-    content2: '如支付遇到问题或需其他方式支付,请联系客服微信: lianshucha ',
+    content: '季付款，价格低至日均3.3元.',
+    content2: '如支付遇到问题或需其他方式支付,请联系客服微信:  qkldata',
 
   },
   {
@@ -31,8 +31,8 @@ const priceList = [
     price: 999,
     average: '日均2.7元',
     unit: '年',
-    content: '年付款，价格低至日均2.7元。有更专业的科学家团队为您解读数据原理，帮助您与数据更好的结合。',
-    content2: '如支付遇到问题或需其他方式支付,请联系客服微信: lianshucha ',
+    content: '年付款，价格低至日均2.7元.',
+    content2: '如支付遇到问题或需其他方式支付,请联系客服微信:  qkldata',
   },
 ];
 
@@ -42,9 +42,21 @@ export default memo(function PricePage() {
   const [alipayQrcodeBase64, setAlipayQrcodeBase64] = useState('');
   const [wechatPayQrcode, setWechatPayQrcode] = useState('');
   const [payMethd, setPayMethod] = useState(PayMethod.alipay);
-  const [sharerCode, setSharerCode] = useState(localStorage.getItem(StorageKey.sharerCode) || '');
+  const [sharerCode, setSharerCode] = useState( '');
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    setSharerCode(localStorage.getItem(StorageKey.sharerCode) || '');
+    (window as any).payByHupi = payByHupi;
+  }, []);
+
   const handleInputChange = (e:any) => {
     setSharerCode(e.target.value);
+    if (typeof window === 'undefined') {
+      return;
+    }
     localStorage.setItem(StorageKey.sharerCode, e.target.value);
   };
 
@@ -60,12 +72,15 @@ export default memo(function PricePage() {
     setIsModalVisible(false);
   };
   // TODO: refactor
-  (window as any).handleCancel = handleCancel;
+  // (window as any).handleCancel = handleCancel;
 
   const { isLoading, startLoading, stopLoading } = useLoading(undefined);
   const { id } = useAppSelector((state) => state.user.userInfo);
   const [orderId, setOrderId] = useState('');
   const payByAlipay = async(money:number) => {
+    if (typeof window === 'undefined') {
+      return;
+    }
     setPayMethod(PayMethod.alipay);
     if (!id) {
       message.error('请先登录');
@@ -94,8 +109,11 @@ export default memo(function PricePage() {
       stopLoading();
     }
   };
-  (window as any).payByAlipay = payByAlipay;
+  // (window as any).payByAlipay = payByAlipay;
   const payByHupi = async(money:number, method:PayMethod) => {
+    if (typeof window === 'undefined') {
+      return;
+    }
     setPayMethod(method);
     if (!id) {
       message.error('请先登录');
@@ -123,7 +141,6 @@ export default memo(function PricePage() {
       stopLoading();
     }
   };
-  (window as any).payByHupi = payByHupi;
 
   return (
     <PricePageWrapper style={{ height: '100%' }}>
@@ -151,7 +168,7 @@ export default memo(function PricePage() {
                       { item.content2 }
                     </div>
                     {
-                      (localStorage.getItem(StorageKey.sharerCodeInputVisible) === '1') && (
+                      typeof window !== 'undefined' && (localStorage.getItem(StorageKey.sharerCodeInputVisible) === '1') && (
                         <>
                           <div style={{ textAlign: 'left' }}>输入邀请码可享受折扣</div>
                           <Input
@@ -248,7 +265,6 @@ export default memo(function PricePage() {
           <CheckPaidTimer orderId={orderId}/>
       }
 
-      <LSAppFooter/>
     </PricePageWrapper>
   );
 });

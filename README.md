@@ -14,7 +14,6 @@ sudo docker pull lscnb/qklfe
 # 8085 -> 80
  docker run  --network qkl --name qklfe -d -p 8085:80 lscnb/qklfe
 
-
 # run remote if first time 443 80都映射一下
 sudo docker run  --network qkl --name qklfe -d -p 443:443 -p 80:80 lscnb/qklfe
 
