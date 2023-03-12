@@ -27,6 +27,7 @@ project_tag_with_datetime = project_tag + _now()
 docker_org = 'lscnb'
 dockerfile_path = './docker_build/release'
 network = 'qkl'
+img_tag = _now()
 
 _pjoin = os.path.join
 
@@ -96,8 +97,8 @@ def docker_build():
 
 def docker_push():
     cmds = [
-        f'docker tag {project_tag} {docker_org}/{project_tag}',
-        f'docker push {docker_org}/{project_tag}'
+        f'docker tag {project_tag} {docker_org}/{project_tag}:{img_tag}',
+        f'docker push {docker_org}/{project_tag}:{img_tag}'
     ]
     for cmd in cmds:
         local(cmd)
@@ -110,13 +111,13 @@ def docker_run_remote():
     cmds = [
         f'docker stop {project_tag}',
         f'docker rm {project_tag}',
-        f'docker pull {docker_org}/{project_tag}:latest',
-        f'sudo docker run --network {network} --name {project_tag} -d -p 443:443 -p 80:80 lscnb/qklfe'
+        f'docker pull {docker_org}/{project_tag}:{img_tag}',
+        f'sudo docker run --network {network} --name {project_tag} -d -p 443:443 -p 80:80 lscnb/qklfe:{img_tag}'
     ]
     for cmd in cmds:
         sudo(cmd)
         
 def deploy():
-    docker_build()
+    # docker_build()
     docker_push()
     docker_run_remote()
