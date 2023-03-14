@@ -118,6 +118,6 @@ def docker_run_remote():
         sudo(cmd)
         
 def deploy():
-    # docker_build()
+    docker_build()
     docker_push()
     docker_run_remote()

@@ -63,16 +63,18 @@ const AuthingPanel = memo(function AuthingPanel() {
     v = JSON.stringify(userInfo);
     localStorage.setItem('userInfo', v);
 
-    // Authing存储的字段
-    const { data: words } = await getUserColletion();
-    if (words) {
-      const collctionWord = words.find((w) => w.key === 'favors');
-      // eslint-disable-next-line require-atomic-updates
-      if (collctionWord) {
-        // eslint-disable-next-line require-atomic-updates
-        userInfo.collection = JSON.parse(collctionWord.value) || { keypaths: [] };
+
+    try {
+      // Authing存储的字段
+      const { data: collection } = await getUserColletion();
+      const favors = (collection as any).favors;
+      if (favors) {
+        userInfo.collection = favors || { keypaths: [] };
       }
+    } catch (error) {
+      console.error(error);
     }
+
 
     v = JSON.stringify(userInfo);
     localStorage.setItem('userInfo', v);

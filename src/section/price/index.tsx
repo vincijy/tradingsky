@@ -71,8 +71,6 @@ export default memo(function PricePage() {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-  // TODO: refactor
-  // (window as any).handleCancel = handleCancel;
 
   const { isLoading, startLoading, stopLoading } = useLoading(undefined);
   const { id } = useAppSelector((state) => state.user.userInfo);
@@ -262,7 +260,7 @@ export default memo(function PricePage() {
       } */}
       {
         isModalVisible &&
-          <CheckPaidTimer orderId={orderId}/>
+          <CheckPaidTimer orderId={orderId} handleCancel={handleCancel}/>
       }
 
     </PricePageWrapper>

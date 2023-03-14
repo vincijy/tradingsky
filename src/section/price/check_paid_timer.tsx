@@ -11,12 +11,13 @@ import { injectAuthingPanel } from '@components/authing';
 
 interface IProps {
   orderId:string;
+  handleCancel:() => void;
 }
 export default memo(function CheckPaidTimer(props:IProps) {
   const userId = useAppSelector((state) => state.user.userInfo.id);
   const ref = useRef<any>(null);
   const dispatch = useAppDispatch();
-  const { orderId } = props;
+  const { orderId, handleCancel } = props;
   const showAuthingLoginPanel = () => {
     dispatch(UIAction.changeAuthingPanel({
       authingPanel: {
@@ -43,7 +44,7 @@ export default memo(function CheckPaidTimer(props:IProps) {
     const order = res.data;
     if (order.orderStatusTypeCode !== '0') {
       logout();
-      (window as any).handleCancel();
+      handleCancel();
       message.success('支付成功, 请重新登录');
       stopLoopCheck();
       showAuthingLoginPanel();
