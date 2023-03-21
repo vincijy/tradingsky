@@ -24,10 +24,14 @@ const speakPrice = (price:any) => {
 
 export default memo(function LSHomeMain(props:any) {
   const initialData:{ time:number, value:number }[] = [
-    // { time: 1678315320.658, value: 1548.496252470809 },
-    // { time: 1678315320.758, value: 1548.774603873821 },
-    // { time: 1678315320.858, value: 1548.874603873821 },
-    // { time: 1678315320.958, value: 1548.774603873821 },
+    { time: 1678315313.958, value: 1548 },
+    { time: 1678315314.758, value: 1549.5 },
+    { time: 1678315315.658, value: 1550.13 },
+    { time: 1678315316.958, value: 1549.65 },
+    { time: 1678315317.958, value: 1550.1 },
+    { time: 1678315318.858, value: 1549.2 },
+    { time: 1678315319.758, value: 1548.2 },
+    { time: 1678315320.658, value: 1549.34 },
   ];
 
   const {
@@ -88,39 +92,44 @@ export default memo(function LSHomeMain(props:any) {
     time: 0,
     value: 0,
   });
+
+  const connect = () => {
+    const socket = new WebSocket('wss://wspri.okx.com:8443/ws/v5/ipublic');
+    // Connection opened
+    socket.addEventListener('open', (event:any) => {
+      socket.send(JSON.stringify({ 'op': 'subscribe', 'args': [{ 'channel': 'mark-price', 'instId': 'ETH-USDT' }] }));
+    });
+
+    socket.addEventListener('message', (event:any) => {
+      if (!event.data) {
+        return;
+      }
+      const data = JSON.parse(event.data);
+      if (!data || !data.data || !data.data[0]) {
+        return;
+      }
+      const newPrice = Number(data.data[0].markPx);
+      const newTs = Number(data.data[0].ts);
+      const d = {
+        time: newTs / 1000,
+        value: newPrice,
+      };
+      if (lastBar && lastBar.current && lastBar.current?.time < d.time) {
+        const a = newPrice.toFixed(1);
+        const b = lastBar.current.value.toFixed(1);
+        if (b !== a) {
+          // speakPrice(a);
+        }
+        serieRef.current.update(d);
+        lastBar.current = d;
+      }
+      // setData((preData) => [...preData, { time: newTs, value: newPrice }]);
+    });
+  };
+
   useEffect(() => {
     setTimeout(() => {
-      const socket = new WebSocket('wss://wspri.okx.com:8443/ws/v5/ipublic');
-      // Connection opened
-      socket.addEventListener('open', (event) => {
-        socket.send(JSON.stringify({ 'op': 'subscribe', 'args': [{ 'channel': 'mark-price', 'instId': 'ETH-USDT' }] }));
-      });
-
-      socket.addEventListener('message', (event:any) => {
-        if (!event.data) {
-          return;
-        }
-        const data = JSON.parse(event.data);
-        if (!data || !data.data || !data.data[0]) {
-          return;
-        }
-        const newPrice = Number(data.data[0].markPx);
-        const newTs = Number(data.data[0].ts);
-        const d = {
-          time: newTs / 1000,
-          value: newPrice,
-        };
-        if (lastBar && lastBar.current && lastBar.current?.time < d.time) {
-          const a = newPrice.toFixed(1);
-          const b = lastBar.current.value.toFixed(1);
-          if (b !== a) {
-            // speakPrice(a);
-          }
-          serieRef.current.update(d);
-          lastBar.current = d;
-        }
-        // setData((preData) => [...preData, { time: newTs, value: newPrice }]);
-      });
+      // connect();
     });
   }, []);
 

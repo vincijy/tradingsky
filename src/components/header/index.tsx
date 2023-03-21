@@ -93,7 +93,9 @@ export default memo(function LSAppHeader() {
     <HeaderWrapper>
       <div className='header-content text-nowrap'>
         <HeaderLeft>
-          <ul className='select-list'>
+          <ul
+            className='select-list'
+            style={{ listStyle: 'none' }}>
             {/* <NavLink
               className='logo-nav'
               to='/'><img

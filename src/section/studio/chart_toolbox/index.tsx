@@ -1,5 +1,5 @@
 // 第三方
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import { useAppSelector } from '@hooks';
 import { ToolBoxWrapper, BorderLineTop, BorderLineBottom } from './style';
 import ExportCell from './export_cell';
@@ -13,11 +13,18 @@ export default memo(function LSChartToolbox() {
   const annotation = useAppSelector((state) => state.ui.currentMenu.subMenu.toolbox?.annotation);
   const sma = useAppSelector((state) => state.ui.currentMenu.subMenu.toolbox?.sma);
   // style={{ width: `${width}px` }}
+
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    setVisible(true);
+  }, []);
   return (
     <div>
       <BorderLineTop style={{ width: `${width}px` }} />
       <ToolBoxWrapper>
-        <div className='toolbox-content'>
+        <div
+          className='toolbox-content'
+          style={{ display: visible ? 'inline-block' : 'none' }}>
           <ul>
             <li>
               { annotation && annotation.enabled && <AnnotationCell /> }

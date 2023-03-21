@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { NAV_BAR_HEIGHT } from '@config/layout';
 
 export const HeaderWrapper = styled.div `
-    padding: 0px 32px;
-    background: white;
+    padding: 0px 32px 0px 200px;
     .header-content{
         display: flex;
         align-items: center;
@@ -32,6 +31,7 @@ export const HeaderLeft = styled.div `
     .select-list{
         display: flex;
         align-items: center;
+        justify-content: flex-end;
 
         a {
             color: rgb(28, 30, 33);

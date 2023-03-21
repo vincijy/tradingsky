@@ -3,6 +3,7 @@ import { isMobile } from '@utils/is';
 import * as Layout from '../../../config/layout';
 
 export const BorderLineTop = styled.div `
+    border: '1px solid red';
     // 布局
     position: absolute;
     top: ${Layout.CHART_TOOLBOX_TOP - 1}px;
