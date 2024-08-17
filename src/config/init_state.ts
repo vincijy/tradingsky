@@ -43,7 +43,8 @@ export function getAppInitState() {
     subMenu: subMenu || menus[1].subMenus[0],
     dataAsset: dataAssetStr ? dataAssetStr : 'btc',
     userInfo: getUserInfoFromStorage(),
-    isLogin: getUserInfoFromStorage().token !== undefined,
+    // isLogin: getUserInfoFromStorage().token !== undefined,
+    isLogin: true
   };
 
   return appInitState;

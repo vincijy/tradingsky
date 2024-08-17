@@ -93,45 +93,7 @@ export default memo(function LSHomeMain(props:any) {
     value: 0,
   });
 
-  const connect = () => {
-    const socket = new WebSocket('wss://wspri.okx.com:8443/ws/v5/ipublic');
-    // Connection opened
-    socket.addEventListener('open', (event:any) => {
-      socket.send(JSON.stringify({ 'op': 'subscribe', 'args': [{ 'channel': 'mark-price', 'instId': 'ETH-USDT' }] }));
-    });
 
-    socket.addEventListener('message', (event:any) => {
-      if (!event.data) {
-        return;
-      }
-      const data = JSON.parse(event.data);
-      if (!data || !data.data || !data.data[0]) {
-        return;
-      }
-      const newPrice = Number(data.data[0].markPx);
-      const newTs = Number(data.data[0].ts);
-      const d = {
-        time: newTs / 1000,
-        value: newPrice,
-      };
-      if (lastBar && lastBar.current && lastBar.current?.time < d.time) {
-        const a = newPrice.toFixed(1);
-        const b = lastBar.current.value.toFixed(1);
-        if (b !== a) {
-          // speakPrice(a);
-        }
-        serieRef.current.update(d);
-        lastBar.current = d;
-      }
-      // setData((preData) => [...preData, { time: newTs, value: newPrice }]);
-    });
-  };
-
-  useEffect(() => {
-    setTimeout(() => {
-      // connect();
-    });
-  }, []);
 
   return (
     <MainWrapper>
