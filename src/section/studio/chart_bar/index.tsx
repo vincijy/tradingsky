@@ -116,17 +116,18 @@ export default memo(function LSChartBar() {
           <div
             className='lsc-head-wrapper'
           >
-            <img
+            {/* <img
               src={genImgUrl(logo as any)}
               alt={assetName}
               className='chart-head-img'
               style={{ marginBottom: '3px' }}
-            />
+            /> */}
             <span
               className='chart-title'
               style={ { fontWeight: 'bold' }}>
               {assetName}:
-              { name } {selectedSubMenu.args.index}
+              { name } 
+              {/* {selectedSubMenu.args.index} */}
             </span>
           </div>
         }

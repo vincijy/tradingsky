@@ -74,10 +74,10 @@ export default memo(function AssetSelector() {
                   <Select.Option
                     value={item.key}
                     key={item.key}>
-                    <img
+                    {/* <img
                       src={genImgUrl(item.imgSrc)}
                       height='16px'
-                      style={{ marginRight: '3px' }}/>
+                      style={{ marginRight: '3px' }}/> */}
                     {item.displayValue}
                   </Select.Option>
                 ))
