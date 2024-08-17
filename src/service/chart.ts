@@ -2,13 +2,15 @@
 import { AxiosPromise, CancelTokenSource } from 'axios';
 import request from '../utils/request';
 import { IResponseChartData } from './def';
+
+const host = 'https://api.vincijy.workers.dev'
 /**
  * 获取后端接口数据
  * @returns
  */
 export function getChartData(index:string, asset:string, source?:CancelTokenSource):AxiosPromise<IResponseChartData> {
   const config = {
-    url: `/api/v1/charts/${asset}/${index}`,
+    url: `${host}/api/v1/charts/${asset}/${index}`,
     params: {},
   };
   if (source) {
@@ -25,7 +27,7 @@ export function getAssetPrice(asset:string):AxiosPromise<IResponseChartData> {
   // const asset = 'btc';
   const index = 'market/price_close';
   return request({
-    url: `/api/v1/charts/${asset}/${index}`,
+    url: `${host}/api/v1/charts/${asset}/${index}`,
     params: {},
   });
 };

@@ -44,3 +44,13 @@ export interface IDataUnit {
 
 export type TypeDataRow = IDataUnit[]
 
+export interface Response {
+  rows: [{
+    r:{
+      t:string;
+      o:{
+        v:string;
+      };
+    };
+  }]
+}

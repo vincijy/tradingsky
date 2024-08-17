@@ -18,10 +18,10 @@ const config:GatsbyConfig = {
   developMiddleware: function(app) {
 
     // 含有数据接口的测试服务器
-    app.use('/api', createProxyMiddleware({
-      target: 'http://localhost:5000',
-      changeOrigin: true,
-    }));
+    // app.use('/api', createProxyMiddleware({
+    //   target: 'http://localhost:5000',
+    //   changeOrigin: true,
+    // }));
 
 
     // // 生产服务器的 python backend
@@ -31,11 +31,11 @@ const config:GatsbyConfig = {
     //   pathRewrite: { '^/bpi/': '/api/' },
     // }));
 
-    app.use('/bpi', createProxyMiddleware({
-      target: 'http://localhost:5000',
-      changeOrigin: true,
-      pathRewrite: { '^/bpi/': '/api/' },
-    }));
+    // app.use('/bpi', createProxyMiddleware({
+    //   target: 'http://localhost:5000',
+    //   changeOrigin: true,
+    //   pathRewrite: { '^/bpi/': '/api/' },
+    // }));
   },
 
 
