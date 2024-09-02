@@ -3,7 +3,7 @@ import { AxiosPromise, CancelTokenSource } from 'axios';
 import request from '../utils/request';
 import { IResponseChartData } from './def';
 
-const host = 'https://api.vincijy.workers.dev'
+const host = 'https://qkldata.com'
 /**
  * 获取后端接口数据
  * @returns
