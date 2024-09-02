@@ -1,5 +1,5 @@
 import { LineColor } from '../../def';
-import { plotBackgroundImage } from './bg';
+import { plotBackgroundImage } from '../../chart_common/bg';
 const zones = [
   {
     value: 0,

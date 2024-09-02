@@ -1,5 +1,5 @@
 import { LineColor } from '../../def';
-import { plotBackgroundImage } from './bg';
+import { plotBackgroundImage } from '../../chart_common/bg';
 const plotLines = [{
   value: -.25,
   color: '#5a5a5a',
