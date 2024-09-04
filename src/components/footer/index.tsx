@@ -82,7 +82,8 @@ export default memo(function LSAppFooter() {
   // useDynamicRender(content, 'footer_root');
   return (
     <FooterWrapper id='footer_root'>
-      { content }
+      {/* { content } */}
+      QKL Data © 2024 - all rights reserved
     </FooterWrapper>
   );
 });

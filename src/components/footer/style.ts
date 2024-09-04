@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 export const FooterWrapper = styled.div `
-    background: #252233;
+    border: 1px solid black;
+    background: #f7f4ed;
+    padding: 32px;
+    display: flex;    
+    justify-content: center;
     .content {
         display: flex;    
         justify-content: space-between;
@@ -34,7 +38,6 @@ export const FooterWrapper = styled.div `
 export const FooterLeft = styled.div `
     display: flex;
     align-items: center;
-
     div{
         font-size: 14px;
         font-weight: 10;
