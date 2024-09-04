@@ -10,7 +10,7 @@ const host = 'https://qkldata.com'
  */
 export function getChartData(index:string, asset:string, source?:CancelTokenSource, menu?:string, subMenu?:string):AxiosPromise<IResponseChartData> {
   const config = {
-    url: `${host}/api/v1/charts/${asset}/${index}?name=${name}`,
+    url: `${host}/api/v1/charts/${asset}/${index}`,
     params: {menu, subMenu},
   };
   if (source) {
