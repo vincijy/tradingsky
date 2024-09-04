@@ -17,11 +17,11 @@ export const MainWrapper = styled.div `
         white-space: nowrap;
     
         @media (min-width: 1300px) {
-            font-size: 50px;
+            font-size: 45px;
         }
 
         @media (min-width: 1024px) and (max-width: 1300px) {
-            font-size: 40px;
+            font-size: 35px;
         }
 
         @media (min-width: 500px) and (max-width: 1023px) {
@@ -106,13 +106,18 @@ export const MainWrapper = styled.div `
             align-items: center;
         }
     }
+
     .HeroImg1 {
         position: absolute;
-        left: 0; top: 0;  width: 100%;
+        left: 0; 
+        top: 0;  
+        width: 100%;
     }
     .HeroImg2 {
         position: absolute;
-        left: -50px; top: 150px;  width: 100%;
+        left: -50px; 
+        top: 150px; 
+        width: 100%;
         @media (max-width: 767px) {
             left: 0px;
         }
@@ -139,6 +144,9 @@ export const MainWrapper = styled.div `
         letter-spacing: -.025em;
         line-height: 24px;
         padding: 20px 48px;
+    }
+    .startBtn:hover {
+        background-color: #000000;
     }
     .chartCard {
         box-shadow: -4px -5px 41px -3px rgba(41,98,255,0.99);

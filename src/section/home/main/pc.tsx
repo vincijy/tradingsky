@@ -18,11 +18,16 @@ export default memo(function LSHomeMain(props:any) {
     <MainWrapper>
       <div className='HeroContainer'>
         <main className='HeroMain'>
-          <h1 className='animate__animated animate__fadeInDown'>解锁隐藏信号，洞察市场趋势
+          <h1 className='slogan animate__animated animate__fadeInDown'>
+            解锁隐藏信号, 洞察市场趋势
           </h1>
           <p
             className='animate__animated animate__fadeInDown'
-            style={{ textIndent: '6px' }}> { 'QKLData 专注于研究复杂的链上数据，提供链上资本流动、资产面和市场情绪的独特见解。'}
+            style={{ textIndent: '6px' }}> { 'QKLData 专注于研究复杂的链上数据,'}
+          </p>
+          <p
+            className='animate__animated animate__fadeInDown'
+            style={{ textIndent: '6px' }}> { '提供链上资本流动、资产面和市场情绪的独特见解。'}
           </p>
           <div style={{ display: 'flex', justifyContent: 'flex-start', gap: '30px', marginTop: '30px' }}>
             <Button
@@ -37,10 +42,10 @@ export default memo(function LSHomeMain(props:any) {
         </main>
         <div
           className='HeroChartSection' style={{position: 'relative', height: '500px !important'}}>
-          <div className='HeroImg1'>
+          <div className='HeroImg1 animate__animated animate__fadeInDown'>
             <img src={ossImgs.drowdownChart} width={'100%'}></img>
           </div>
-          <div className='HeroImg2'>
+          <div className='HeroImg2 animate__animated animate__fadeInDown'>
             <img src={ossImgs.greedyChart} width={'100%'}></img>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterWrapper = styled.div `
-    border: 1px solid black;
+    // border-top: 1px solid black;
     background: #f7f4ed;
     padding: 32px;
     display: flex;    

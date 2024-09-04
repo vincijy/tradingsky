@@ -4,7 +4,7 @@ import { NAV_BAR_HEIGHT } from '@config/layout';
 export const HeaderWrapper = styled.div `
     padding: 0px 32px 0px 200px;
     background: #f7f4ed;
-    border-bottom: 1px solid black;
+    // border-bottom: 1px solid black;
     .header-content{
         display: flex;
         align-items: center;
