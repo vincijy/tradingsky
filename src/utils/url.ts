@@ -3,13 +3,13 @@
  * @returns an object containing pairs of key and value
  */
 export function getUrlParams() {
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  const params = {};
-  for (const [key, value] of urlSearchParams.entries() as any) {
-    (params as any)[key] = value;
-  }
-  return params as any;
-  // return {};
+  // const urlSearchParams = new URLSearchParams(window.location.search);
+  // const params = {};
+  // for (const [key, value] of urlSearchParams.entries() as any) {
+  //   (params as any)[key] = value;
+  // }
+  // return params as any;
+  return {};
 }
 
 export const findMenuByIndex = (menus:any, index:string) => {

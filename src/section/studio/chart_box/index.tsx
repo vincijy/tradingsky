@@ -27,7 +27,8 @@ export default memo(function LSChartBox() {
   };
 
   // 读取选中的菜单
-  const { subMenu: selectedSubMenu } = useAppSelector((state) => state.ui.currentMenu);
+  const { subMenu: selectedSubMenu, menu:  selectedMenu} = useAppSelector((state) => state.ui.currentMenu);
+
   const { args: { index },
     loginRequired,
     vipRequired,
@@ -93,7 +94,7 @@ export default memo(function LSChartBox() {
 
     // 请求指标数据的promise
     const p1 = new Promise<TypeDataRow>((resolve, reject) => {
-      getChartData(index, asset, source)
+      getChartData(index, asset, source, `${selectedMenu.name}`, selectedSubMenu.name)
         .then((res) => {
           resolve(res.data.rows || initData);
         })

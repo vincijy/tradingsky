@@ -8,10 +8,10 @@ const host = 'https://qkldata.com'
  * 获取后端接口数据
  * @returns
  */
-export function getChartData(index:string, asset:string, source?:CancelTokenSource):AxiosPromise<IResponseChartData> {
+export function getChartData(index:string, asset:string, source?:CancelTokenSource, menu?:string, subMenu?:string):AxiosPromise<IResponseChartData> {
   const config = {
-    url: `${host}/api/v1/charts/${asset}/${index}`,
-    params: {},
+    url: `${host}/api/v1/charts/${asset}/${index}?name=${name}`,
+    params: {menu, subMenu},
   };
   if (source) {
     (config as any).cancelToken = source.token;
