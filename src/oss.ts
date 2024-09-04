@@ -1,4 +1,6 @@
 import homeMain from '@assets/img/home_main.png';
+import greedyChart from '@assets/img/greedy2.png';
+import drowdownChart from '@assets/img/drowdown.png';
 import chart_0 from '@assets/img/chart_0-min.jpg';
 import chart_1 from '@assets/img/chart_1-min.png';
 import qrcode from '@assets/img/qrcode-min.jpg';
@@ -10,6 +12,8 @@ import banner from '@assets/img/banner.png';
 import brand from '@assets/img/tokenaly.png';
 
 export const ossImgs = {
+  greedyChart,
+  drowdownChart,
   homeMain,
   chart_0,
   chart_1,

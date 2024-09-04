@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 import { ossImgs } from '@oss';
 import 'animate.css';
-import { DeviceWidth } from '@def/index';
 
 export const MainWrapper = styled.div `
     flex: 1;
-
+    background: #f7f4ed;
     h1 {
         color: var(--hero-title-color);
         font-display: swap;
@@ -107,26 +106,39 @@ export const MainWrapper = styled.div `
             align-items: center;
         }
     }
+    .HeroImg1 {
+        position: absolute;
+        left: 0; top: 0;  width: 100%;
+    }
+    .HeroImg2 {
+        position: absolute;
+        left: -50px; top: 150px;  width: 100%;
+        @media (max-width: 767px) {
+            left: 0px;
+        }
+    }
     .HeroChartSection {
         margin: 0;
         width: 50%;
-        position: relative;
-        margin-bottom: 30px;
+        // position: relative;
+        // margin-bottom: 30px;
         display: flex;
         min-width: 360px;
+        height: 400px;
+        // border: 2px solid gray;
     }   
     .startBtn {
         align-items: center;
-        background-color: '#2962ff';
+        background-color: #282120;
         border-radius: 12px;
-        box-shadow: inset 0 0 0 1px '#2962ff';
+        // box-shadow: inset 0 0 0 1px '#2962ff';
         display: flex;
         font-size: 18px;
         font-style: normal;
         font-weight: 590;
         letter-spacing: -.025em;
         line-height: 24px;
-        padding: 16px 32px;
+        padding: 20px 48px;
     }
     .chartCard {
         box-shadow: -4px -5px 41px -3px rgba(41,98,255,0.99);
