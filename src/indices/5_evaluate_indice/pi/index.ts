@@ -29,14 +29,14 @@ export const Pi:D.SubMenuItem = {
   annotation: { btc: annotation, eth: annotation },
   xStart: {
     btc: {
-      year: 2011,
-      month: 7,
+      year: 2024,
+      month: 1,
       day: 18,
     },
     eth: {
-      year: 2011,
-      month: 7,
-      day: 17,
+      year: 2024,
+      month: 1,
+      day: 18,
     },
   },
 };

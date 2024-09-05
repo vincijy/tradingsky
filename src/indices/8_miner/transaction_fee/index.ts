@@ -24,7 +24,7 @@ export const transactionFee = {
   chart: { btc: chart, eth: chart },
   xStart: {
     btc: {
-      year: 2010,
+      year: 2012,
       month: 7,
       day: 25,
     },
