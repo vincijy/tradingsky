@@ -26,12 +26,12 @@ export const fundingRate:D.SubMenuItem = {
   chart: { btc: chart, eth: chart },
   xStart: {
     btc: {
-      year: 2023,
+      year: 2024,
       month: 1,
       day: 20,
     },
     eth: {
-      year: 2023,
+      year: 2024,
       month: 1,
       day: 20,
     },
