@@ -47,23 +47,17 @@ export default memo(function LSHomeMain(props:any) {
               开始使用
             </Button>
             <div id="g_id_onload"
-                data-client_id="660388239328-g0h70bqq00uekqmsfdgsovv3thqq1dm3.apps.googleusercontent.com"
-                data-ux_mode="redirect"
-                data-login_uri="https://qkldata.com">
-            </div>
-            <div class="g_id_signin"
+              data-client_id="660388239328-g0h70bqq00uekqmsfdgsovv3thqq1dm3.apps.googleusercontent.com"
+              data-login_uri="https://qkldata.com"
+              data-auto_prompt="false">
+          </div>
+            <div  class="g_id_signin"
                   data-type="standard"
                   data-size="large"
                   data-theme="outline"
                   data-text="sign_in_with"
                   data-shape="rectangular"
-                  data-logo_alignment="left">
-            </div>
-            <div id="g_id_onload"
-                data-client_id="660388239328-g0h70bqq00uekqmsfdgsovv3thqq1dm3.apps.googleusercontent.com"
-                data-login_uri="https://qkldata.com"
-                data-your_own_param_1_to_login="any_value"
-                data-your_own_param_2_to_login="any_value">
+                  data-logo_alignment="left">Sign in with Google
             </div>
 
           </div>
