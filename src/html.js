@@ -14,8 +14,10 @@ export default function HTML(props) {
           name='viewport'
           content='width=device-width, initial-scale=1, shrink-to-fit=no'
         />
+        <meta name="google-signin-client_id" content="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"></meta>
         {props.headComponents}
         <style>{loaderCss}</style>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
       </head>
       <body {...props.bodyAttributes}>
         {/* <div

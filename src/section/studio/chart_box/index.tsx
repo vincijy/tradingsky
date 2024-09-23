@@ -216,6 +216,9 @@ export default memo(function LSChartBox() {
   };
   const menuVisible = useAppSelector((state) => state.ui.menuVisible);
   const oneVisible = loginRegisterRequiredVisible || loadingVisible || coverImgVisible || noDataVisible;
+  useEffect(() => {
+    console.log('dataA', dataA)
+  }, [dataA])
   return (
     <BoxWrapper>
       <div id='container' >
