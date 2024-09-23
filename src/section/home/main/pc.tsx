@@ -57,7 +57,7 @@ export default memo(function LSHomeMain(props:any) {
                   data-theme="outline"
                   data-text="sign_in_with"
                   data-shape="rectangular"
-                  data-logo_alignment="left">Sign in with Google
+                  data-logo_alignment="left">
             </div>
 
           </div>
